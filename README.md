@@ -1,2 +1,2 @@
 # Project_UPC
-Upload frequently and you will be ascended
+This is Marti, Aitor, Adri and Otto´s repository project of replicating an arcade videogame.
