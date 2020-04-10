@@ -1,2 +1,51 @@
-﻿  Main.cpp
-  SDLclean.vcxproj -> D:\GitHub\Project_UPC\Project version 0.001\Debug\SDLclean.exe
+﻿  Application.cpp
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(10,1): error C2011: 'update_status': nueva definición del tipo 'enum'
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(4,1): error C2011: 'Module': nueva definición del tipo 'class'
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Dummy.h(4,1): error C2504: 'Module': clase base sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Dummy.h(3,19): error C2011: 'ModuleDummy': nueva definición del tipo 'class'
+D:\GitHub\Project_UPC\Project version 0.001\Dummy.h(3): message : vea la declaración de 'ModuleDummy'
+D:\GitHub\Project_UPC\Project version 0.001\DummyEsc.h(3,37): error C2504: 'Module': clase base sin definir
+D:\GitHub\Project_UPC\Project version 0.001\DummyEsc.h(6,16): error C3668: 'ModuleDummyESC::PreUpdate': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(8,32): error C2027: uso del tipo 'ModuleDummy' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Dummy.h(3): message : vea la declaración de 'ModuleDummy'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(12,35): error C2440: '=': no se puede realizar la conversión de 'ModuleDummyESC *' a 'Module *'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(12,33): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(20,13): error C2027: uso del tipo 'Module' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(31,37): error C2027: uso del tipo 'update_status' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(31,52): error C2065: 'UPDATE_CONTINUE': identificador no declarado
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(33,59): error C2027: uso del tipo 'update_status' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(33,74): error C2065: 'UPDATE_CONTINUE': identificador no declarado
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(35,19): error C2027: uso del tipo 'Module' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(39,59): error C2027: uso del tipo 'update_status' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(39,74): error C2065: 'UPDATE_CONTINUE': identificador no declarado
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(41,19): error C2027: uso del tipo 'Module' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(45,59): error C2027: uso del tipo 'update_status' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(45,74): error C2065: 'UPDATE_CONTINUE': identificador no declarado
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(47,19): error C2027: uso del tipo 'Module' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(64,19): error C2027: uso del tipo 'Module' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Application.cpp(66,20): warning C4150: eliminación de puntero a tipo 'Module' incompleto; no se ha llamado a un destructor
+  Main.cpp
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(10,1): error C2011: 'update_status': nueva definición del tipo 'enum'
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(4,1): error C2011: 'Module': nueva definición del tipo 'class'
+D:\GitHub\Project_UPC\Project version 0.001\Module.h(3): message : vea la declaración de 'Module'
+D:\GitHub\Project_UPC\Project version 0.001\Dummy.h(4,1): error C2504: 'Module': clase base sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Main.cpp(49,33): error C2027: uso del tipo 'update_status' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+D:\GitHub\Project_UPC\Project version 0.001\Main.cpp(49,45): error C2065: 'UPDATE_ERROR': identificador no declarado
+D:\GitHub\Project_UPC\Project version 0.001\Main.cpp(54,38): error C2027: uso del tipo 'update_status' sin definir
+D:\GitHub\Project_UPC\Project version 0.001\Globals.h(9): message : vea la declaración de 'update_status'
+  Generando código...
+D:\GitHub\Project_UPC\Project version 0.001\Main.cpp(54,49): error C2065: 'UPDATE_STOP': identificador no declarado
