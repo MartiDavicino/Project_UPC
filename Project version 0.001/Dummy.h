@@ -1,4 +1,7 @@
+#pragma once
 #include "Module.h"
+
+//Crea la clase ModuleDummy
 
 class ModuleDummy : public Module
 {

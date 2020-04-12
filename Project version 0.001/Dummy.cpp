@@ -1,5 +1,9 @@
 #include "Dummy.h"
 
+
+// Define el ModuleDummy 
+
+
 bool ModuleDummy::Init()
 {
 	LOG("Dummy Init!\n");

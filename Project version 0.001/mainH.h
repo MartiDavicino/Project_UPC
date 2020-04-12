@@ -9,5 +9,8 @@
 #include "MemLeaks.h"
 #include "Application.h"
 
+//header de el main, lo he puesto aquí por limpiar un poco el main. se puede volver a poner en el otro loda si quereis.
+
+
 #pragma comment(lib,"SDL/libx86/SDL2.lib")
 #pragma comment(lib,"SDL/libx86/SDL2main.lib")

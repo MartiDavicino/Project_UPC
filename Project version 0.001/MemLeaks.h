@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <crtdbg.h>
 
+//Se encarga de definir y establecer el report memory leaks
+
 #ifdef _DEBUG
 #ifndef DBG_NEW
 #define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )

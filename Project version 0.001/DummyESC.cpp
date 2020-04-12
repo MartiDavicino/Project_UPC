@@ -1,6 +1,8 @@
 #include "DummyEsc.h"
 #include <conio.h>
 
+//Define el override de Preupdate del ModuleDummyESC
+//Ahora al darle al ESC se cierra la consola
 
 update_status ModuleDummyESC::PreUpdate() {
 

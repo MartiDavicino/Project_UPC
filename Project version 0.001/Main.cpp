@@ -10,6 +10,14 @@ enum class main_states
 };
 
 
+// Report memory leaks sirve para ver si se escapa en alguna parte memoria dinámica.
+
+// Los LOGS son para que en la pestaña depurar saldran que es cada cosa y que estan haciendo.
+
+//El sistema de Modulos y Dummies actual es un poco un ejemplo para ver como funcionan y estan tal cual como en los todos.
+//Se pueden cambiar a nuesto antojo.
+
+
 int main(int argc, char* argv[]) {
 	ReportMemoryLeaks();
 
@@ -21,12 +29,17 @@ int main(int argc, char* argv[]) {
 	{
 		switch (state)
 		{
+
+		//Crea la App
+
 		case main_states::MAIN_CREATION:
 		{
 			LOG("Application Creation --------------\n");
 			App = new Application();
 			state = main_states::MAIN_START;
 		}	break;
+
+		//Inicia la App
 
 		case main_states::MAIN_START:
 		{
@@ -41,6 +54,8 @@ int main(int argc, char* argv[]) {
 				state = main_states::MAIN_UPDATE;
 			}
 		}	break;
+
+		//Hace los updates de la App
 
 		case main_states::MAIN_UPDATE:
 		{
@@ -57,8 +72,8 @@ int main(int argc, char* argv[]) {
 			}
 		}	break;
 
-		// TODO 1: Implement case MAIN_FINISH
-		// Remember to quit the game with EXIT_SUCCESS if everything went well :)
+		//Finaliza el App
+
 		case main_states::MAIN_FINISH:
 		{
 			LOG("Application Finish --------------\n");
@@ -69,6 +84,7 @@ int main(int argc, char* argv[]) {
 			}
 			else
 			{
+				LOG("Exit Succes! -----\n");
 				state = main_states::MAIN_EXIT;
 			}
 		}	break;
@@ -77,7 +93,7 @@ int main(int argc, char* argv[]) {
 
 	LOG("\nBye :)\n");
 
-	// TODO 6: Remove ALL memory leaks
+	// Elimina la memoria de App
 	delete App;
 
 	return main_return;

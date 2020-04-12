@@ -1,5 +1,7 @@
 #include "Module.h"
 
+// Definicion de las funciones de Module
+
 bool Module::Init()
 {
 	return true;

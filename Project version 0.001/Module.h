@@ -1,4 +1,7 @@
+#pragma once
 #include "Globals.h"
+
+//Crea la Clase Module
 
 class Module
 {
