@@ -9,6 +9,7 @@ enum class main_states
 	MAIN_EXIT
 };
 
+Application* App = nullptr;
 
 // Report memory leaks sirve para ver si se escapa en alguna parte memoria dinámica.
 
@@ -23,7 +24,6 @@ int main(int argc, char* argv[]) {
 
 	int main_return = EXIT_FAILURE;
 	main_states state = main_states::MAIN_CREATION;
-	Application* App = nullptr;
 
 	while (state != main_states::MAIN_EXIT)
 	{
@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
 			}
 			else
 			{
-				LOG("Exit Succes! -----\n");
+				LOG("Application CleanUp exits with error -----\n");
 				state = main_states::MAIN_EXIT;
 			}
 		}	break;

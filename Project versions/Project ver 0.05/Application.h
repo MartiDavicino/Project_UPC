@@ -1,10 +1,14 @@
 #pragma once
 
 #include "Globals.h"
-#include "Module.h"
-#include "Dummy.h"
+
 
 #define NUM_MODULES 2
+class Module;
+
+class ModuleWindow;
+class ModuleRender;
+
 
 class Application
 {
@@ -13,6 +17,8 @@ public:
 
 	//Constructor. Creates all necessary modules for the application
 	Application();
+	~Application();
+
 
 	//Initializes all modules
 	bool Init();
@@ -27,4 +33,10 @@ public:
 
 	Module* modules[NUM_MODULES];
 
+
+	ModuleWindow* window = nullptr;
+	ModuleRender* render = nullptr;
+
 };
+
+extern Application* App;

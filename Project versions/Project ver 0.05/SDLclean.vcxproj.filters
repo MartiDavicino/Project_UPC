@@ -24,13 +24,13 @@
     <ClCompile Include="Application.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Dummy.cpp">
-      <Filter>Modules/parts</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyESC.cpp">
-      <Filter>Modules/parts</Filter>
-    </ClCompile>
     <ClCompile Include="Module.cpp">
+      <Filter>Modules/parts</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRender.cpp">
+      <Filter>Modules/parts</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
       <Filter>Modules/parts</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +47,13 @@
     <ClInclude Include="Application.h">
       <Filter>Archivos de origen</Filter>
     </ClInclude>
-    <ClInclude Include="Dummy.h">
-      <Filter>Modules/parts</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyESC.h">
-      <Filter>Modules/parts</Filter>
-    </ClInclude>
     <ClInclude Include="Module.h">
+      <Filter>Modules/parts</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRender.h">
+      <Filter>Modules/parts</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
       <Filter>Modules/parts</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,18 +6,18 @@
 class Module
 {
 public:
-	//Called at the beginning of the application execution
+	//se llama al principio de la ejecución de la aplicacion
 	virtual bool Init();
 
-	//Called at the beginning of each application loop
+	//se llama al principio del loop de la aplicacion
 	virtual update_status PreUpdate();
 
-	//Called at the middle of each application loop
+	//se llama en medio del loop de la aplicacion
 	virtual update_status Update();
 
-	//Called at the end of each application loop
+	//se llama al final del loop de la aplicacion
 	virtual update_status PostUpdate();
 
-	//Called at the end of the application
+	//Se llama a esta función al final de la applicacion
 	virtual bool CleanUp();
 };
