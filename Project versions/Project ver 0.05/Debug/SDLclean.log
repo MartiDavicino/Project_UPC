@@ -1,2 +1,8 @@
-﻿  Main.cpp
-  SDLclean.vcxproj -> D:\GitHub\Project_UPC\Project version 0.001\Debug\SDLclean.exe
+﻿  Application.cpp
+  Dummy.cpp
+  DummyESC.cpp
+  Main.cpp
+  Module.cpp
+  Generando código...
+  LINK : no se encontró C:\Users\Fabian Gumersindo\Documents\GitHub\Project_UPC\Project versions\Project ver 0.05\Debug\SDLclean.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  SDLclean.vcxproj -> C:\Users\Fabian Gumersindo\Documents\GitHub\Project_UPC\Project versions\Project ver 0.05\Debug\SDLclean.exe
