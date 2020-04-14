@@ -1,40 +1,40 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Project_7_Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project_7_Handout.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Application.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   Collider.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Collider.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   Enemy.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Collider.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
   Enemy_BrownShip.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   Enemy_RedBird.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   Globals.cpp
   ModuleAudio.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleAudio.cpp(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   ModuleCollisions.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Collider.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleAudio.cpp(5,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
   ModuleEnemies.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleRender.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Collider.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
   ModuleParticles.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleRender.h(5,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
   ModuleScene.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   ModuleInput.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleInput.cpp(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   ModulePlayer.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleInput.cpp(4,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
   ModuleRender.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleRender.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   ModuleTextures.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleRender.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleRender.h(5,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
   ModuleWindow.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleWindow.cpp(6,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleRender.h(5,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
   Main.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Main.cpp(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\ModuleWindow.cpp(6,10): error C1083:  No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
   Module.cpp
   Particle.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Main.cpp(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL.h': No such file or directory
   Path.cpp
-C:\Users\adria\Desktop\Uni\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
   Generando código...
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.07\Project_7_Handout\Source\Animation.h(4,10): error C1083:  No se puede abrir el archivo incluir: 'External_Libraries/SDL/include/SDL_rect.h': No such file or directory
