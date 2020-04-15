@@ -1,0 +1,69 @@
+﻿  Application.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Ball.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  BigBall.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.h(31,17): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.h(33,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(23,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         ]
+  Enemy.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         ]
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Enemy_BrownShip.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Enemy_RedBird.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleBalls.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:         ]
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.h(31,17): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleEnemies.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\BigBall.h(33,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleParticles.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModulePlayer.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleRopes.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleScene.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Particle.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Path.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Particle.cpp(39,19): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Rope.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Project_7_Handout\Source\Rope.cpp(39,19): warning C4018: '>=': no coinciden signed/unsigned
+  Project_7_Handout.vcxproj -> C:\Users\Fabian Gumersindo\Desktop\PANG version 0.09.7\Debug\PANG version 0.07.exe
