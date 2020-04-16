@@ -48,7 +48,3 @@ void BigBall::Update()
 	Ball::Update();
 }
 
-void Ball::OnCollision(Collider* collider) 
-{
-
-}
