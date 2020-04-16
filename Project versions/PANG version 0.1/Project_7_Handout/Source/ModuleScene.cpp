@@ -36,13 +36,16 @@ bool ModuleScene::Start()
 	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 1375, 145, 111, 96 }, Collider::Type::WALL);
 
-	
+	// Enemies ---
+	//App->enemies->AddEnemy(ENEMY_TYPE::REDBIRD, 150, 10);
 	//Balls
 	App->balls->AddBall(BALL_TYPE::BIG, 150, 25);
+	
 	/*App->balls->AddBall(BALL_TYPE::MEDIUM, 100, 25);
-	App->balls->AddBall(BALL_TYPE::SMALL, 50, 25);
-	App->balls->AddBall(BALL_TYPE::TINY, 35, 25);*/
 
+	App->balls->AddBall(BALL_TYPE::SMALL, 50, 25);
+
+	App->balls->AddBall(BALL_TYPE::TINY, 25, 25);*/
 
 
 	return ret;

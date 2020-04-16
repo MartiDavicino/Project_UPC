@@ -204,7 +204,7 @@
     <ClCompile Include="SmallBall.cpp">
       <Filter>Source Files\Entities\Balls</Filter>
     </ClCompile>
-    <ClCompile Include="TinyBalls.cpp">
+    <ClCompile Include="TinyBall.cpp">
       <Filter>Source Files\Entities\Balls</Filter>
     </ClCompile>
   </ItemGroup>

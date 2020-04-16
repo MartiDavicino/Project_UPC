@@ -133,7 +133,7 @@
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Rope.cpp" />
     <ClCompile Include="SmallBall.cpp" />
-    <ClCompile Include="TinyBalls.cpp" />
+    <ClCompile Include="TinyBall.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
