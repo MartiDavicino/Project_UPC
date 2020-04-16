@@ -13,8 +13,9 @@ struct Collider
 		WALL,
 		PLAYER,
 		ENEMY,
-		PLAYER_SHOT,
-		ENEMY_SHOT,
+		ROPE,
+		BALL,
+		
 
 		MAX
 	};
