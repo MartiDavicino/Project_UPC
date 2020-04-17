@@ -134,7 +134,7 @@ bool ModuleRopes::Start()
 	rope.speed.y = 0;
 	rope.lifetime = 1000;
 	rope.isAlive = true;
-	rope.anim.speed = 0.02f;
+	rope.anim.speed = 1.0f;
 
 	//Rope Collider
 
@@ -207,25 +207,26 @@ update_status ModuleRopes::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
-void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type colliderType, uint delay)
+Rope* ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type colliderType, uint delay)
 {
+	Rope* newrope = nullptr;
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
 	{
 		//Finding an empty slot for a new particle
 		if (ropes[i] == nullptr)
 		{
-			Rope* p = new Rope(particle);
-
-			p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
-			p->position.x = x;						// so when frameCount reaches 0 the particle will be activated
-			p->position.y = y;
+			newrope = new Rope(particle);
+			newrope->frameCount = -(int)delay;			// We start the frameCount as the negative delay
+			newrope->position.x = x;						// so when frameCount reaches 0 the particle will be activated
+			newrope->position.y = y;
 
 			//Adding the particle's collider
 			if (colliderType != Collider::Type::NONE)
-				p->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);
+				newrope->collider = App->collisions->AddCollider(newrope->anim.GetCurrentFrame(), Collider::Type::ROPE, this);
 
-			ropes[i] = p;
+			ropes[i] = newrope;
 			break;
 		}
 	}
+	return newrope;
 }

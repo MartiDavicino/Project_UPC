@@ -47,6 +47,13 @@ update_status ModuleBalls::Update()
 	HandleBallsDespawn();
 
 	return update_status::UPDATE_CONTINUE;
+
+	if (destroyed)
+	{
+		destroyedCountdown--;
+		if (destroyedCountdown <= 0)
+			return update_status::UPDATE_STOP;
+	}
 }
 
 update_status ModuleBalls::PostUpdate()

@@ -64,6 +64,9 @@ public:
 	// Destroys any enemies that have moved outside the camera limits
 	void HandleBallsDespawn();
 
+	bool destroyed = false;
+	uint destroyedCountdown = 120;
+
 private:
 	// Spawns a new enemy using the data from the queue
 	void SpawnBall(const BallSpawnpoint& info);

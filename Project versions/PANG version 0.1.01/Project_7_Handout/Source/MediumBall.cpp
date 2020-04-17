@@ -14,7 +14,7 @@ MediumBall::MediumBall(int x, int y) : Ball(x, y)
 	idle.speed = 0.1f;
 	currentAnim = &idle;
 
-	collider = App->collisions->AddCollider({ 0, 0, 24, 24 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 32, 26 }, Collider::Type::BALL, (Module*)App->enemies);
 }
 
 void MediumBall::Update()
@@ -29,12 +29,12 @@ void MediumBall::Update()
 	position.x = position.x + (Ball_vx * deltaTime);
 
 	// aixo es perque xoqui contra les parets, canviarho per coliders
-	if (position.y >= 150)
+	if (position.y >= 155)
 	{
 		Ball_vy = -Ball_vy;
 	}
 
-	if (position.x >= 250)
+	if (position.x >= 330)
 	{
 		Ball_vx = -Ball_vx;
 

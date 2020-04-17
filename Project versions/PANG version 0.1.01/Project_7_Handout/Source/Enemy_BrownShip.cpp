@@ -10,7 +10,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	
 	// TODO 3: Have the Brown Cookies describe a path in the screen
 	
-	collider = App->collisions->AddCollider({0, 0, 24, 24}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({0, 0, 24, 24}, Collider::Type::BALL, (Module*)App->enemies);
 }
 
 void Enemy_BrownShip::Update()

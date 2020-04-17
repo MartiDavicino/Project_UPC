@@ -30,7 +30,7 @@ bool ModuleScene::Start()
 	//App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
 
 	//Bottomside collider
-	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::FLOOR);
 
 	//First two columns colliders
 	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
@@ -38,9 +38,9 @@ bool ModuleScene::Start()
 
 	
 	//Balls
-	App->balls->AddBall(BALL_TYPE::BIG, 150, 25);
-	//App->balls->AddBall(BALL_TYPE::MEDIUM, 100, 25);
-	//App->balls->AddBall(BALL_TYPE::SMALL, 50, 25);
+	//App->balls->AddBall(BALL_TYPE::BIG, 150, 25);
+	/*App->balls->AddBall(BALL_TYPE::MEDIUM, 100, 25);*/
+	App->balls->AddBall(BALL_TYPE::SMALL, 50, 25);
 	//App->balls->AddBall(BALL_TYPE::TINY, 35, 25);
 
 

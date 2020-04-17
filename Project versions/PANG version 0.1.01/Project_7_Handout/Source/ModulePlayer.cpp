@@ -145,8 +145,10 @@ update_status ModulePlayer::Update()
 			currentAnimation = &shootAnim;
 		}
 		//App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::PLAYER_SHOT);
+		Rope* rope = App->ropes->AddRope(App->ropes->rope, position.x, position.y - 370, Collider::Type::ROPE);
+		rope->collider->AddListener(this);
 		App->audio->PlayFx(laserFx);
-		App->ropes->AddRope(App->ropes->rope, position.x, position.y - 370, Collider::Type::NONE);
+		
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
@@ -155,6 +157,12 @@ update_status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
 			currentAnimation = &idleAnim;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_G] != KEY_STATE::KEY_DOWN)
+	{
+		
+		App->collisions->DebugDraw();
 	}
 	
 
