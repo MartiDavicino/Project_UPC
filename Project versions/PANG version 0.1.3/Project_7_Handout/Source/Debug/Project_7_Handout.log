@@ -1,0 +1,18 @@
+﻿  BigBall.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\Ball.h(64,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\Ball.h(68,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\Ball.h(70,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(23,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         ]
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         ]
+  Project_7_Handout.vcxproj -> C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.2\Debug\PANG version 0.07.exe
