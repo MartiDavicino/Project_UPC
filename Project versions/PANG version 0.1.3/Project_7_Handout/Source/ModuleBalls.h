@@ -17,7 +17,6 @@ struct BallSpawnpoint
 	int x, y;
 };
 
-class Enemy;
 class Ball;
 struct SDL_Texture;
 
@@ -62,15 +61,16 @@ public:
 
 	void DivideBalls(Ball ball);
 
-	bool destroyed = false;
-	uint destroyedCountdown = 120;
 
 	int Xoffset = 10;
 	int Yoffset = 0;
 
+
 private:
 	// Spawns a new enemy using the data from the queue
 	void SpawnBall(const BallSpawnpoint& info);
+
+	
 
 private:
 	// A queue with all spawn points information

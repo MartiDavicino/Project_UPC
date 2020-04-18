@@ -186,12 +186,18 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_BALLS; ++i)
 	{
+
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1)
 		{
 			Balls[i]->OnCollision(c2); //Notify the enemy of a collision
+
 			break;
 		}
+
 	}
+
+
+	
 }
 
 void ModuleBalls::DivideBalls(Ball ball)

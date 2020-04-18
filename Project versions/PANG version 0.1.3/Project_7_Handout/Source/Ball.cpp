@@ -44,8 +44,7 @@ void Ball::OnCollision(Collider* collider)
 	App->particles->AddParticle(App->particles->bigExplosion, position.x, position.y);
 	App->audio->PlayFx(destroyedFx);
 
-	Ball_vx = -Ball_vx;
-
+ 
 	SetToDelete();
 }
 

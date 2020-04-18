@@ -40,6 +40,7 @@ public:
 	// Triggers an animation and a sound fx
 	virtual void OnCollision(Collider* collider);
 
+
 	virtual void SetToDelete();
 
 	Animation idle;

@@ -1,0 +1,141 @@
+﻿  Application.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Ball.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  BigBall.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.h(31,17): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.h(33,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(23,20): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(25,50): warning C4244:         ]
+  Collider.cpp
+  Enemy.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.cpp(26,26): warning C4244:         ]
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Enemy_BrownShip.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Enemy_RedBird.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Globals.cpp
+  MediumBall.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Enemy_RedBird.cpp(27,26): warning C4244:         ]
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.h(29,22): warning C4244:  'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.h(33,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.h(37,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(26,20): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(28,50): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(28,50): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(28,50): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(28,50): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(28,50): warning C4244:         ]
+  ModuleAudio.cpp
+  ModuleBalls.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(29,26): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(29,26): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(29,26): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(29,26): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.cpp(29,26): warning C4244:         ]
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.h(31,17): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\BigBall.h(33,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.h(29,22): warning C4244:  'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.h(33,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\MediumBall.h(37,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.h(27,22): warning C4244:  'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.h(31,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.h(35,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBall.h(27,22): warning C4244:  'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBall.h(31,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleCollisions.cpp
+  ModuleEnemies.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBall.h(35,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleParticles.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleRopes.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleScene.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleInput.cpp
+  ModulePlayer.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModuleRender.cpp
+  ModuleTextures.cpp
+  Generando código...
+  Compilando...
+  ModuleWindow.cpp
+  Main.cpp
+  Module.cpp
+  Particle.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Path.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Particle.cpp(39,19): warning C4018:  '>=': no coinciden signed/unsigned
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  Rope.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+  SmallBall.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Rope.cpp(45,19): warning C4018:  '>=': no coinciden signed/unsigned
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.h(27,22): warning C4244:  'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.h(31,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.h(35,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(26,20): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(28,50): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(28,50): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(28,50): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(28,50): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(28,50): warning C4244:         ]
+  TinyBalls.cpp
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(29,26): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(29,26): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(29,26): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(29,26): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\SmallBall.cpp(29,26): warning C4244:         ]
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244:  'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBall.h(27,22): warning C4244:  'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBall.h(31,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBall.h(35,16): warning C4244:  'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(26,20): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(28,50): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(28,50): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(28,50): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(28,50): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(28,50): warning C4244:         ]
+  Generando código...
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(29,26): warning C4244:  '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(29,26): warning C4244:         with
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(29,26): warning C4244:         [
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(29,26): warning C4244:             TYPE=int
+C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Project_7_Handout\Source\TinyBalls.cpp(29,26): warning C4244:         ]
+  Project_7_Handout.vcxproj -> C:\Users\tolo otto\Documents\GitHub\Project_UPC\Project versions\PANG version 0.1.2\Debug\PANG version 0.07.exe

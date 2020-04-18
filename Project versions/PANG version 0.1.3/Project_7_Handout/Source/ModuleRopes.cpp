@@ -181,6 +181,7 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (ropes[i] != nullptr && ropes[i]->collider == c1)
 		{
+
 			ropes[i]->pendingToDelete = true;
 			ropes[i]->collider->pendingToDelete = true;
 			break;

@@ -92,7 +92,7 @@ bool ModulePlayer::Start()
 update_status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-	//wwwwwApp->player->position.x += 1;
+	//App->player->position.x += 1;
 
 	//god mode
 	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
@@ -108,14 +108,15 @@ update_status ModulePlayer::Update()
 
 			App->collisions->matrix[Collider::Type::PLAYER][Collider::Type::FLOOR] = true;
 
+
 			GodMode = false;
 			break;
 		case(false):
-			App->collisions->matrix[Collider::Type::PLAYER][Collider::Type::WALL] = false;
+			App->collisions->matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 
 			App->collisions->matrix[Collider::Type::PLAYER][Collider::Type::BALL] = false;
 
-			App->collisions->matrix[Collider::Type::PLAYER][Collider::Type::FLOOR] = false;
+			App->collisions->matrix[Collider::Type::PLAYER][Collider::Type::FLOOR] = true;
 
 			GodMode = true;
 			break;
@@ -135,6 +136,11 @@ update_status ModulePlayer::Update()
 		}
 		if (goingRight != false)
 			goingRight = false;
+
+		if (Collision == true)
+		{
+			position.x = position.x + (speed * 3);
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
@@ -147,6 +153,11 @@ update_status ModulePlayer::Update()
 		}
 		if (goingRight != true)
 			goingRight = true;
+
+		if (Collision == true)
+		{
+			position.x = position.x - (speed * 3);
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
@@ -207,6 +218,8 @@ update_status ModulePlayer::Update()
 			return update_status::UPDATE_STOP;
 	}
 
+	Collision = false;
+
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -225,29 +238,34 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false)
 	{
-		/*App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
+		Collision = true;
+		
+
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
 		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
 		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
-		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);*/
+		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
 
-		switch (goingRight)
+		if (c1->type == Collider::Type::BALL && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BALL)
 		{
-		case(true):
-			App->particles->AddParticle(App->particles->dieRightAnim, position.x, position.y, Collider::Type::NONE, 0);
-			break;
-		case(false):
-			App->particles->AddParticle(App->particles->dieLeftAnim, position.x, position.y, Collider::Type::NONE, 0);
-			break;
+			switch (goingRight)
+			{
+			case(true):
+				App->particles->AddParticle(App->particles->dieRightAnim, position.x, position.y, Collider::Type::NONE, 0);
+				break;
+			case(false):
+				App->particles->AddParticle(App->particles->dieLeftAnim, position.x, position.y, Collider::Type::NONE, 0);
+				break;
+			}
+
+			App->audio->PlayFx(explosionFx);
+
+			destroyed = true;
 		}
-				
-		
 
-		
-		
-
-		/*App->audio->PlayFx(explosionFx);*/
-
-		destroyed = true;
 	}
+
+
 }
+
