@@ -1,0 +1,28 @@
+﻿  BigBall.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(24,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:         ]
+  ModuleBalls.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:         ]
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\MediumBall.h(33,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\MediumBall.h(37,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Project_7_Handout\Source\MediumBall.h(39,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  Project_7_Handout.vcxproj -> C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5.2\Debug\PANG version 0.07.exe
