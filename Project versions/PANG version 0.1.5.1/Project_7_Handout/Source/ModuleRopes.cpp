@@ -143,6 +143,9 @@ bool ModuleRopes::Start()
 
 update_status ModuleRopes::PreUpdate()
 {
+
+	LOG("Unloading particles");
+
 	// Remove all particles scheduled for deletion
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
 	{
@@ -182,8 +185,11 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 		if (ropes[i] != nullptr && ropes[i]->collider == c1)
 		{
 
-			ropes[i]->pendingToDelete = true;
-			ropes[i]->collider->pendingToDelete = true;
+		
+			delete ropes[i];
+			ropes[i] = nullptr;
+			/*ropes[i]->pendingToDelete = true;
+			ropes[i]->collider->pendingToDelete = true;*/
 			break;
 		}
 	}
@@ -224,7 +230,7 @@ update_status ModuleRopes::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
-Rope* ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type colliderType, uint delay)
+void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type colliderType, uint delay)
 {
 	Rope* newrope = nullptr;
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
@@ -232,7 +238,7 @@ Rope* ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type co
 		//Finding an empty slot for a new particle
 		if (ropes[i] == nullptr)
 		{
-			newrope = new Rope(particle);
+			Rope* newrope = new Rope(particle);
 			newrope->frameCount = -(int)delay;			// We start the frameCount as the negative delay
 			newrope->position.x = x;						// so when frameCount reaches 0 the particle will be activated
 			newrope->position.y = y;
@@ -245,5 +251,5 @@ Rope* ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type co
 			break;
 		}
 	}
-	return newrope;
+	/*return newrope;*/
 }

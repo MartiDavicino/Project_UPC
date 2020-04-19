@@ -27,7 +27,7 @@ bool ModuleScene::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/01.png");
-	//SDL_Rect section = &bgTexture;
+	/*SDL_Rect section = &bgTexture;*/
 	//App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
 
 	//Bottomside collider
@@ -45,9 +45,9 @@ bool ModuleScene::Start()
 	//App->balls->AddBall(BALL_TYPE::SMALL, 50, 25);
 	//App->balls->AddBall(BALL_TYPE::TINY, 35, 25);
 
-
 	App->player->Enable();
 	App->balls->Enable();
+
 
 
 	return ret;
@@ -79,6 +79,7 @@ bool ModuleScene::CleanUp()
 	App->textures->CleanUp();
 	App->balls->CleanUp();
 	App->collisions->CleanUp();
+	App->player->CleanUp();
 
 
 	// TODO 5: Remove All Memory Leaks - no solution here guys ;)

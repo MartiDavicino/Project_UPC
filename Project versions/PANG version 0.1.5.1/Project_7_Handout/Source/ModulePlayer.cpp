@@ -87,6 +87,8 @@ bool ModulePlayer::Start()
 	position.x = 150;
 	position.y = 170;
 
+	destroyed = false;
+
 	collider = App->collisions->AddCollider({ position.x, position.y, 30, 30 }, Collider::Type::PLAYER, this);
 
 	return ret;
@@ -174,25 +176,25 @@ update_status ModulePlayer::Update()
 
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-	{
-		if (Collision_F != true)
-		{
-			position.y += speed;
-		}
-	}
+	//if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+	//{
+	//	if (Collision_F != true)
+	//	{
+	//		position.y += speed;
+	//	}
+	//}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-	{
-		//only if detected stairs
+	//if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+	//{
+	//	//only if detected stairs
 
-		position.y -= speed;
-		if (currentAnimation != &climbAnim)
-		{
-		     climbAnim.Reset();
-			currentAnimation = &climbAnim;
-		}
-	}
+	//	position.y -= speed;
+	//	if (currentAnimation != &climbAnim)
+	//	{
+	//	     climbAnim.Reset();
+	//		currentAnimation = &climbAnim;
+	//	}
+	//}
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
@@ -204,8 +206,7 @@ update_status ModulePlayer::Update()
 	/*	App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::ROPE);*/
 
 		LOG("SHOOTING ROPE!")
-		Rope* rope = App->ropes->AddRope(App->ropes->rope, position.x, position.y - 370, Collider::Type::ROPE);
-		rope->collider->AddListener(this);
+		App->ropes->AddRope(App->ropes->rope, position.x, position.y - 370, Collider::Type::ROPE);
 		App->audio->PlayFx(laserFx);
 		
 	}
