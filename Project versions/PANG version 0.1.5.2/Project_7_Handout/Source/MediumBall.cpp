@@ -14,7 +14,7 @@ MediumBall::MediumBall(int x, int y) : Ball(x, y)
 	idle.speed = 0.1f;
 	currentAnim = &idle;
 
-	collider = App->collisions->AddCollider({ 0, 0, 32, 26 }, Collider::Type::BALL, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 32, 26 }, Collider::Type::BALL, (Module*)App->balls);
 }
 
 void MediumBall::Update()

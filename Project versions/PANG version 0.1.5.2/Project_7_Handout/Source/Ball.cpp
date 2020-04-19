@@ -39,7 +39,7 @@ void Ball::Draw()
 
 void Ball::OnCollision(Collider* collider)
 {
-	LOG("Ball touched wall\n");
+	LOG("Ball Destroyed\n");
 
 	App->particles->AddParticle(App->particles->bigExplosion, position.x, position.y);
 	App->audio->PlayFx(destroyedFx);

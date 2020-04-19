@@ -82,7 +82,7 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/SpriteSheet.png");
 	currentAnimation = &idleAnim;
 
-	laserFx = App->audio->LoadFx("Assets/laser.wav");
+	FiringFx = App->audio->LoadFx("Assets/[FX]- firing sound.wav.wav");
 	explosionFx = App->audio->LoadFx("Assets/explosion.wav");
 
 	position.x = 150;
@@ -217,7 +217,7 @@ update_status ModulePlayer::Update()
 
 		LOG("SHOOTING ROPE!")
 		App->ropes->AddRope(App->ropes->rope, position.x, position.y - 370, Collider::Type::ROPE);
-		App->audio->PlayFx(laserFx);
+		App->audio->PlayFx(FiringFx);
 		
 	}
 

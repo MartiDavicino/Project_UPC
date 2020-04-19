@@ -196,19 +196,27 @@ void ModuleBalls::SpawnBall(const BallSpawnpoint& info)
 
 void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 {
-	//for (uint i = 0; i < MAX_BALLS; ++i)
-	//{
+	for (uint i = 0; i < MAX_BALLS; ++i)
+	{
 
-	//	if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1)
-	//	{
-	//		Balls[i]->OnCollision(c2); //Notify the enemy of a collision
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::ROPE)
+		{
+			Balls[i]->OnCollision(c2); //Notify the ball of a collision
+			delete Balls[i];
+			Balls[i] = nullptr;
 
-	//		break;
-	//	}
+			break;
+		}
 
-	//}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_A) {
 
-	if (c1->type == Collider::Type::WALL_A && c2->type == Collider::Type::BALL || c1->type == Collider::Type::BALL && c2->type == Collider::Type::WALL_A)
+
+
+		}
+
+	}
+
+	/*if (c1->type == Collider::Type::WALL_A && c2->type == Collider::Type::BALL || c1->type == Collider::Type::BALL && c2->type == Collider::Type::WALL_A)
 	{
 		Collision_A = true;
 	}
@@ -219,7 +227,7 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::FLOOR && c2->type == Collider::Type::BALL || c1->type == Collider::Type::BALL && c2->type == Collider::Type::FLOOR)
 	{
 		Collision_F = true;
-	}
+	}*/
 
 	
 }

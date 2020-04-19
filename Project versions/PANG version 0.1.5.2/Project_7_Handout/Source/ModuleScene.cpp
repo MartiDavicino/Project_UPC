@@ -28,7 +28,7 @@ bool ModuleScene::Start()
 
 	bgTexture = App->textures->Load("Assets/01.png");
 	/*SDL_Rect section = &bgTexture;*/
-	//App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Arcade - 01a - Mt. Fuji.ogg", 1.0f);
 
 	//Bottomside collider
 	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::FLOOR);

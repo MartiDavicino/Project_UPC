@@ -75,8 +75,9 @@ public:
 	uint destroyedCountdown = 120;
 
 	// Sound effects indices
-	uint laserFx = 0;
+	uint FiringFx = 0;
 	uint explosionFx = 0;
+	
 
 };
 

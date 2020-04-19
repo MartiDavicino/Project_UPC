@@ -19,20 +19,20 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL_A][Collider::Type::FLOOR] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::WALL_A] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::WALL_D] = false;
+	matrix[Collider::Type::PLAYER][Collider::Type::WALL_D] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::BALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::ROPE] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::FLOOR] = true;
 
 	matrix[Collider::Type::BALL][Collider::Type::WALL_A] = true;
-	matrix[Collider::Type::BALL][Collider::Type::WALL_D] = false;
+	matrix[Collider::Type::BALL][Collider::Type::WALL_D] = true;
 	matrix[Collider::Type::BALL][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::BALL][Collider::Type::BALL] = false;
 	matrix[Collider::Type::BALL][Collider::Type::ROPE] = true;
 	matrix[Collider::Type::BALL][Collider::Type::FLOOR] = true;
 
-	matrix[Collider::Type::ROPE][Collider::Type::WALL_A] = true;
+	matrix[Collider::Type::ROPE][Collider::Type::WALL_A] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::WALL_D] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::BALL] = true;
