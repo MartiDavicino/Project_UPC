@@ -1,0 +1,9 @@
+﻿  Application.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
+C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+  Project_7_Handout.vcxproj -> C:\Users\Fabian Gumersindo\Desktop\PANG version 0.1.5\Debug\PANG version 0.07.exe
