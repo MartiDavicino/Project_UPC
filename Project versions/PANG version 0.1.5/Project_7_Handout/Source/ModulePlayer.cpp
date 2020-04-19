@@ -197,7 +197,7 @@ update_status ModulePlayer::Update()
 			shootAnim.Reset();
 			currentAnimation = &shootAnim;
 		}
-		//App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::PLAYER_SHOT);
+	/*	App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::ROPE);*/
 
 		LOG("SHOOTING ROPE!")
 		Rope* rope = App->ropes->AddRope(App->ropes->rope, position.x, position.y - 370, Collider::Type::ROPE);
