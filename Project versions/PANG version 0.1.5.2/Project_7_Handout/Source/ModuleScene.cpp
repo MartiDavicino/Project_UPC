@@ -41,9 +41,9 @@ bool ModuleScene::Start()
 	
 	//Balls
 	App->balls->AddBall(BALL_TYPE::BIG, 150, 25,true);
-	/*App->balls->AddBall(BALL_TYPE::MEDIUM, 100, 25);*/
-	//App->balls->AddBall(BALL_TYPE::SMALL, 50, 25);
-	//App->balls->AddBall(BALL_TYPE::TINY, 35, 25);
+	//App->balls->AddBall(BALL_TYPE::MEDIUM, 100, 25, true);
+	//App->balls->AddBall(BALL_TYPE::SMALL, 50, 25, true);
+	//App->balls->AddBall(BALL_TYPE::TINY, 35, 25, true);
 
 	App->player->Enable();
 	App->balls->Enable();

@@ -28,22 +28,7 @@ void SmallBall::Update()
 	position.y = position.y + (Ball_vy * deltaTime) + ( gravity * (deltaTime * deltaTime));
 	position.x = position.x + (Ball_vx * deltaTime);
 
-	// aixo es perque xoqui contra les parets, canviarho per coliders
-	if (position.y >= 150)
-	{
-		Ball_vy = -Ball_vy;
-	}
 
-	if (position.x >= 250)
-	{
-		Ball_vx = -Ball_vx;
-
-	}
-	if (position.x <= 0)
-	{
-		Ball_vx = -Ball_vx;
-
-	}
 
 
 	// Call to the base class. It must be called at the end

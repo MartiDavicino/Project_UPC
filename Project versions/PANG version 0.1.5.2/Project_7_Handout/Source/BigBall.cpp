@@ -25,34 +25,10 @@ void BigBall::Update()
 	position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));
 	position.x = position.x + (Ball_vx * deltaTime);
 
-	// aixo es perque xoqui contra les parets, canviarho per coliders
-	if (position.y >= 155)
-	{
-		Ball_vy = -Ball_vy;
-	}
-
-
-	if (position.x >= 330)
-	{
-		Ball_vx = -Ball_vx;
-	}
-	if (position.x <= 0)
-	{
-		Ball_vx = -Ball_vx;
-	}
-
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Ball::Update();
 }
-void BigBall::OnCollision(Collider* c1, Collider* c2) {
 
-	if (c1 == collider == true)
-	{
-		Ball_vx = -Ball_vx;
-
-	}
-
-}
 
