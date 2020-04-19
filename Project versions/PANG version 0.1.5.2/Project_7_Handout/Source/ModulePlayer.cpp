@@ -8,6 +8,7 @@
 #include "ModuleRopes.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
+#include "ModuleBalls.h"
 #include "ModuleFadeToBlack.h"
 
 #include "SDL/include/SDL_scancode.h"
@@ -141,6 +142,15 @@ update_status ModulePlayer::Update()
 
 	}
 
+	//Divide balls manually
+	if (App->input->keys[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN)
+	{
+		LOG("Ball divided manually\n");
+		App->balls->AddBall(BALL_TYPE::SMALL, 120,100, true);
+		App->balls->AddBall(BALL_TYPE::SMALL, 100,100, false);
+
+
+	}
 	
 
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)

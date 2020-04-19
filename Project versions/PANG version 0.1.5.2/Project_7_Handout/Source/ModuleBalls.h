@@ -14,7 +14,8 @@
 struct BallSpawnpoint
 {
 	BALL_TYPE type = BALL_TYPE::NO_TYPE;
-	int x, y;
+	int x, y; 
+	bool right = true;
 };
 
 class Ball;
@@ -51,7 +52,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	// Add an enemy into the queue to be spawned later
-	bool AddBall(BALL_TYPE type, int x, int y);
+	bool AddBall(BALL_TYPE type, int x, int y,bool right);
 
 	// Iterates the queue and checks for camera position
 	void HandleBallsSpawn();

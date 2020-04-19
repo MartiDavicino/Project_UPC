@@ -93,7 +93,7 @@ bool ModuleBalls::CleanUp()
 	return true;
 }
 
-bool ModuleBalls::AddBall(BALL_TYPE type, int x, int y)
+bool ModuleBalls::AddBall(BALL_TYPE type, int x, int y,bool rightDirection)
 {
 	bool ret = false;
 
@@ -104,6 +104,10 @@ bool ModuleBalls::AddBall(BALL_TYPE type, int x, int y)
 			spawnQueue[i].type = type;
 			spawnQueue[i].x = x;
 			spawnQueue[i].y = y;
+
+			if (rightDirection == false)
+				spawnQueue[i].right = false;
+
 			ret = true;
 			break;
 		}
@@ -161,17 +165,25 @@ void ModuleBalls::SpawnBall(const BallSpawnpoint& info)
 			{
 			case BALL_TYPE::BIG:
 				Balls[i] = new BigBall(info.x, info.y);
+				if (info.right == false)
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
 				break;
 			case BALL_TYPE::MEDIUM:
 				Balls[i] = new MediumBall(info.x, info.y);
+				if (info.right == false)
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
 				break;
 
 			case BALL_TYPE::SMALL:
 				Balls[i] = new SmallBall(info.x, info.y);
+				if (info.right == false)
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
 				break;
 
 			case BALL_TYPE::TINY:
 				Balls[i] = new TinyBall(info.x, info.y);
+				if (info.right == false)
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
 				break;
 			}
 
@@ -223,24 +235,24 @@ void ModuleBalls::DivideBalls(Ball ball)
 
 		App->particles->bigExplosion, ball.position.x, ball.position.y, Collider::Type::NONE, 0;
 
-		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x + Xoffset, ball.position.y + Yoffset);
-		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x - Xoffset, ball.position.y + Yoffset);
+		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
+		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
 
 		break;
 	case(BALL_TYPE::MEDIUM):
 
 		App->particles->mediumExplosion, ball.position.x, ball.position.y, Collider::Type::NONE, 0;
 
-		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x + Xoffset, ball.position.y + Yoffset);
-		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x - Xoffset, ball.position.y + Yoffset);
+		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
+		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
 
 		break;
 	case(BALL_TYPE::SMALL):
 
 		App->particles->smallExplosion, ball.position.x, ball.position.y, Collider::Type::NONE, 0;
 
-		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x + Xoffset, ball.position.y + Yoffset);
-		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x - Xoffset, ball.position.y + Yoffset);
+		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
+		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
 
 		break;
 	case(BALL_TYPE::TINY):

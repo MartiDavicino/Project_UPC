@@ -97,16 +97,19 @@ update_status ModuleInterface::Update()
 	switch (App->player->lives)
 	{
 	case(3):
-		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 0, 212);
+		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 0);
 		currentAnim = &thirdLife;
 		break;
 	case(2):
+		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 0);
 		currentAnim = &secondLife;
 		break;
 	case(1):
+		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10, 0);
 		currentAnim = &secondLife;
 		break;
 	case(0):
+		App->interfaceElements->AddElement(App->interfaceElements->zeroLife, 10,0 );
 		currentAnim = &zeroLife;
 		break;
 	}
