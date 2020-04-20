@@ -66,10 +66,6 @@ public:
 	int Xoffset = 10;
 	int Yoffset = 0;
 
-	//collisions
-	bool Collision_A;
-	bool Collision_D;
-	bool Collision_F;
 
 	Ball* Balls[MAX_BALLS] = { nullptr };
 

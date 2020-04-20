@@ -74,11 +74,7 @@ void BigBall::OnCollision(Collider* collider) {
 	//SetToDelete();
 	//App->particles->AddParticle(App->particles->bigExplosion, position.x, position.y);
 
-	//if (c1 == collider == true)
-	//{
-	//	//Ball_vx = -Ball_vx;
-
-	//}
+	
 
 }
 

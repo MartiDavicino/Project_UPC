@@ -49,8 +49,8 @@ void SmallBall::OnCollision(Collider* collider)
 
 
 
-		App->balls->AddBall(BALL_TYPE::MEDIUM, position.x + xOffset, position.y + yOffset, true);
-		App->balls->AddBall(BALL_TYPE::MEDIUM, position.x - xOffset, position.y + yOffset, false);
+		App->balls->AddBall(BALL_TYPE::TINY, position.x + xOffset, position.y + yOffset, true);
+		App->balls->AddBall(BALL_TYPE::TINY, position.x - xOffset, position.y + yOffset, false);
 
 
 		//App->audio->PlayFx(destroyedFx);
