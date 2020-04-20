@@ -1,0 +1,9 @@
+﻿  ModuleBalls.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Project_7_Handout\Source\ModuleBalls.cpp(287): warning C4715: 'ModuleBalls::checkRemainingBalls': no todas las rutas de acceso de control devuelven un valor
+  Project_7_Handout.vcxproj -> C:\Users\aitor\OneDrive\Escritorio\PANG version 0.1.7.2\Debug\PANG version 0.07.exe
