@@ -1,0 +1,42 @@
+﻿  Application.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
+  ModuleFadeToBlack.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleInterface.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleFadeToBlack.cpp(81,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+  ModulePlayer.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleScene.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModulePlayer.cpp(101,25): warning C4129: ']': secuencia de escape de carácter no reconocida
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
+  ModuleSceneIntro.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código
+  7 of 199 functions ( 3.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  Project_7_Handout.vcxproj -> C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Release\PANG version 0.07.exe
