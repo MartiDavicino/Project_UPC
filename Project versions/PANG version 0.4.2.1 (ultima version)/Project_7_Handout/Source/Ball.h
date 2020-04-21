@@ -66,7 +66,7 @@ public:
 
 	const float deltaTime = 1.0f / 60.0f; // More or less 60 frames per second
 
-	int Ball_vy = 150.0f;
+	int Ball_vy = -150.0f;
 
 	int Ball_vx = 150.0f;
 
