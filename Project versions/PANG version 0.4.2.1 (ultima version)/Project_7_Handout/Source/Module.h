@@ -42,6 +42,8 @@ public:
 
 	inline bool IsEnabled() const { return isEnabled; }
 
+	int counter = 0;
+
 private:
 	bool isEnabled = true;
 };

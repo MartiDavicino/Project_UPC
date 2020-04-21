@@ -41,7 +41,7 @@ update_status ModuleWin::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->scene, 90);
+		App->Win();
 	}
 
 	return update_status::UPDATE_CONTINUE;

@@ -94,9 +94,9 @@ update_status Application::Update()
 	return ret;
 }
 
-//bool Application::Win() {
-//	return update_status::UPDATE_STOP;
-//}
+update_status Application::Win() {
+	return update_status::UPDATE_STOP;
+}
 
 bool Application::CleanUp()
 {

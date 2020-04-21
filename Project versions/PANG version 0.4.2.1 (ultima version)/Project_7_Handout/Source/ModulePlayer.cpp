@@ -11,6 +11,7 @@
 #include "ModuleBalls.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include <stdio.h>
 #include "SDL/include/SDL.h"
 
 
@@ -98,8 +99,13 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 30, 30 }, Collider::Type::PLAYER, this);
-	char lookupTable[] = { "?!OPRS+UV0p23456789WXABCDEFGHYZ(klmnoQqrsuvwxyz)abcdefghKLMN&JTtj1Ii_-" };
-	scoreFont = App->fonts->Load("Assets/Font.png", lookupTable, 5);
+	char lookupTable[] = { " !¿#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
+	scoreFont = App->fonts->Load("Assets/Fontb.png", lookupTable, 6);
+
+	if (App->score >= 7500) {
+		App->fade->FadeToBlack((Module*)App->scene, (Module*)App->win, 60);
+
+	}
 
 	return ret;
 }
@@ -311,7 +317,10 @@ update_status ModulePlayer::PostUpdate()
 	
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
-	/*App->fonts->BlitText(50, 190, scoreFont, "this is just a font test");*/
+
+	/*sprintf_s(scoreText, 10, "%7d", App->score);*/
+	/*App->fonts->BlitText(130, 215, scoreFont, scoreText);
+	App->fonts->BlitText(150, 215, scoreFont, scoreText);*/
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -366,6 +375,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			Collision_F = true;
 		}
+	}
+	if (c1->type == Collider::Type::ROPE && c2->type == Collider::Type::BALL)
+	{
+		/*App->score += 500;*/
 	}
 
 

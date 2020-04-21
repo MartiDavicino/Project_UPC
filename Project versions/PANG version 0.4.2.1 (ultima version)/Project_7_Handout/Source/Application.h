@@ -44,7 +44,8 @@ public:
 
 	//Releases all the application data
 	bool CleanUp();
-	bool Win();
+	update_status Win();
+ 	int score = 0;
 
 public:
 	// An array to store all modules

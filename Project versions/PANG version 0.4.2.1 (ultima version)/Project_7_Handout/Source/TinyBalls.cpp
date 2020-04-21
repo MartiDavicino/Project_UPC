@@ -54,6 +54,7 @@ void TinyBall::OnCollision(Collider* collider)
 
 
 		//App->audio->PlayFx(destroyedFx);
+		App->score += 500;
 
 
 		SetToDelete();

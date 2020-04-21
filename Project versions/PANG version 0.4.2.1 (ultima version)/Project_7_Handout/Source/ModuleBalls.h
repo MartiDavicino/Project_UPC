@@ -73,6 +73,7 @@ public:
 
 	Ball* Balls[MAX_BALLS] = { nullptr };
 
+
 private:
 	// Spawns a new enemy using the data from the queue
 	void SpawnBall(const BallSpawnpoint& info);

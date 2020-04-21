@@ -57,6 +57,7 @@ void MediumBall::OnCollision(Collider* collider)
 
 		App->balls->AddBall(BALL_TYPE::SMALL, position.x + xOffset, position.y + yOffset, true);
 		App->balls->AddBall(BALL_TYPE::SMALL, position.x - xOffset, position.y + yOffset, false);
+		App->score += 500;
 
 		SetToDelete();
 	}

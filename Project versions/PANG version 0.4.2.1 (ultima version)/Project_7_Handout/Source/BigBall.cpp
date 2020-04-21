@@ -50,13 +50,12 @@ void BigBall::OnCollision(Collider* collider) {
 		App->particles->AddParticle(App->particles->bigExplosion, position.x, position.y);
 
 
-
 		App->balls->AddBall(BALL_TYPE::MEDIUM, position.x + xOffset, position.y + yOffset, true);
 		App->balls->AddBall(BALL_TYPE::MEDIUM, position.x - xOffset, position.y + yOffset, false);
 
 
 		//App->audio->PlayFx(destroyedFx);
-
+		App->score += 500;
 
 		SetToDelete();
 	}

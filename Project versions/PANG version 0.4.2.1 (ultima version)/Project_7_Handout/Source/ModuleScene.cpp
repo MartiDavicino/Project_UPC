@@ -33,12 +33,12 @@ bool ModuleScene::Start()
 	/*SDL_Rect section = &bgTexture;*/
 	App->audio->PlayMusic("Assets/Arcade - 01a - Mt. Fuji.ogg", 1.0f);
 	//Bottomside collider
-	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::FLOOR);
+	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::FLOOR);*/
 
 	//First two columns colliders
-	App->collisions->AddCollider({ 0, 0,7,300 }, Collider::Type::WALL_A);
-	App->collisions->AddCollider({ 377, 0, 7, 300 }, Collider::Type::WALL_D);
-	App->collisions->AddCollider({ 0,201,384,8 }, Collider::Type::FLOOR);
+	App->collisions->AddCollider({ 0, 0,7,200 }, Collider::Type::WALL_A);
+	App->collisions->AddCollider({ 377, 0, 7, 200 }, Collider::Type::WALL_D);
+	App->collisions->AddCollider({ 0,200,384,8 }, Collider::Type::FLOOR);
 
 	
 	//Balls
@@ -66,7 +66,6 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
-	//App->render->camera.x += 3;
 
 
 	return update_status::UPDATE_CONTINUE;

@@ -51,6 +51,7 @@ void SmallBall::OnCollision(Collider* collider)
 
 		App->balls->AddBall(BALL_TYPE::TINY, position.x + xOffset, position.y + yOffset, true);
 		App->balls->AddBall(BALL_TYPE::TINY, position.x - xOffset, position.y + yOffset, false);
+		App->score += 500;
 
 
 		//App->audio->PlayFx(destroyedFx);

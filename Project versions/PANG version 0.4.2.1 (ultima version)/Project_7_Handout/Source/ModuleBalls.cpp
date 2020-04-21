@@ -245,7 +245,7 @@ void ModuleBalls::DivideBalls(Ball ball)
 
 		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
 		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
-
+		App->score += 500;
 		break;
 	case(BALL_TYPE::MEDIUM):
 
@@ -253,7 +253,7 @@ void ModuleBalls::DivideBalls(Ball ball)
 
 		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
 		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
-
+		App->score += 500;
 		break;
 	case(BALL_TYPE::SMALL):
 
@@ -262,9 +262,11 @@ void ModuleBalls::DivideBalls(Ball ball)
 		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
 		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
 
+		App->score += 500;
+
 		break; 
 	case(BALL_TYPE::TINY):
-
+		App->score += 500;
 		break;
 	}
 }

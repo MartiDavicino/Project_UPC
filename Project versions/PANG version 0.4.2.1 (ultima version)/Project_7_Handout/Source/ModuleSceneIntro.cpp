@@ -31,6 +31,7 @@ bool ModuleSceneIntro::Start()
 	App->audio->Start();
 
 	bgtitle = App->textures->Load("Assets/Title.png");
+	bgimg = App->textures->Load("Assets/cutrisimo.png");
 	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
 	//if (App->player->lives < 3) {
 	//	App->fade->FadeToBlack(this, (Module*)App->scene, 90);
@@ -48,10 +49,11 @@ bool ModuleSceneIntro::Start()
 
 update_status ModuleSceneIntro::Update()
 {
+	
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->scene, 90);
-
+		counter++;
+		
 	}
 
 	return update_status::UPDATE_CONTINUE;
@@ -61,7 +63,16 @@ update_status ModuleSceneIntro::Update()
 update_status ModuleSceneIntro::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgtitle, 0, 0, NULL);
+	if (counter == 0) {
+		App->render->Blit(bgimg, 0, 0, NULL);
+	}
+	if (counter == 1) {
+		App->render->Blit(bgtitle, 0, 0, NULL);
+	}
+	if (counter == 2) {
+		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
+		counter = 0;
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }

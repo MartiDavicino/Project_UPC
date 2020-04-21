@@ -1,198 +1,42 @@
 ﻿  Application.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
-  Ball.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  BigBall.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(24,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(26,50): warning C4244:         ]
-  Collider.cpp
-  Globals.cpp
-  InterfaceElement.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\BigBall.cpp(27,26): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  MediumBall.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\InterfaceElement.cpp(38,19): warning C4018: '>=': no coinciden signed/unsigned
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(32,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(34,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(34,50): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(34,50): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(34,50): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(34,50): warning C4244:         ]
-  ModuleAudio.cpp
-  ModuleBalls.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(35,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(35,26): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(35,26): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(35,26): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\MediumBall.cpp(35,26): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  ModuleCollisions.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
   ModuleFadeToBlack.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  ModuleFonts.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   ModuleInterface.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleFadeToBlack.cpp(81,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-  ModuleLose.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-  ModuleParticles.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(63,19): warning C4244: '=': conversión de 'float' a 'uint'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(124,44): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(124,44): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(124,44): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(124,44): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(124,44): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(126,86): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(126,86): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(126,86): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(126,86): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(126,86): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(127,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(127,50): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(127,50): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(127,50): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(127,50): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(129,46): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(129,46): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(129,46): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(129,46): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(129,46): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(131,89): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(131,89): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(131,89): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(131,89): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(131,89): warning C4244:         ]
-  ModuleRopes.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(132,52): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(132,52): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(132,52): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(132,52): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.cpp(132,52): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-  ModuleScene.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
-  ModuleInput.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleFadeToBlack.cpp(81,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
   ModulePlayer.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  ModuleRender.cpp
-  Compilando...
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleScene.cpp
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModulePlayer.cpp(101,25): warning C4129: ']': secuencia de escape de carácter no reconocida
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleInterface.h(12,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
   ModuleSceneIntro.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-  ModuleTextures.cpp
-  ModuleWin.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-  ModuleWindow.cpp
-  Main.cpp
-  Module.cpp
-  Particle.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Path.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Particle.cpp(39,19): warning C4018: '>=': no coinciden signed/unsigned
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-  Rope.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  SmallBall.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Rope.cpp(45,19): warning C4018: '>=': no coinciden signed/unsigned
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(28,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(30,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(30,50): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(30,50): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(30,50): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(30,50): warning C4244:         ]
-  TinyBalls.cpp
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(31,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(31,26): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(31,26): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(31,26): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\SmallBall.cpp(31,26): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(69,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(28,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(30,50): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(30,50): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(30,50): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(30,50): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(30,50): warning C4244:         ]
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(31,26): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(31,26): warning C4244:         with
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(31,26): warning C4244:         [
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(31,26): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\TinyBalls.cpp(31,26): warning C4244:         ]
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Project_7_Handout\Source\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código
-  197 of 198 functions (99.5%) were compiled, the rest were copied from previous compilation.
+  7 of 199 functions ( 3.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  Project_7_Handout.vcxproj -> D:\GitHub\Project_UPC\Project versions\PANG version 0.4.2.1 (ultima version)\Release\PANG version 0.07.exe
+  Project_7_Handout.vcxproj -> C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4.2.1 (ultima version)\Release\PANG version 0.07.exe
