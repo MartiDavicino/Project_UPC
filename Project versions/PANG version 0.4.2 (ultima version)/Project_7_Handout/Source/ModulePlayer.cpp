@@ -253,8 +253,14 @@ update_status ModulePlayer::Update()
 			/*destroyedCountdown--;
 			if (destroyedCountdown <= 0)
 				return update_status::UPDATE_STOP;*/
+			/*this->lives = this->lives - 1;
+			if (lives < 0) {
+				App->fade->FadeToBlack((Module*)App->scene, (Module*)App->sceneIntro, 60);
+			}
 
+			if (lives = 0) {*/
 			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 60);
+		/*	}*/
 			destroyed = false;
 		}
 
@@ -270,6 +276,7 @@ update_status ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
+	
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
 

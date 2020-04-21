@@ -26,6 +26,17 @@ public:
 		frames[totalFrames++] = rect;
 	}
 
+	//void dinamPushBack(const SDL_Rect& rect) {
+	//	frames[totalFrames++] = rect;
+	//	for (int i = 0; i < MAX_FRAMES; i++)
+	//	{
+	//		int cont = 0;
+	//		rect.y = rect.y + cont;
+	//		cont += 17;
+
+	//	}
+	//}
+
 	void Reset()
 	{
 		currentFrame = 0;

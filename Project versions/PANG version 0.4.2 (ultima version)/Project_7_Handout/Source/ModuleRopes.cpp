@@ -247,6 +247,7 @@ void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type col
 
 			//Adding the particle's collider
 			if (colliderType != Collider::Type::NONE) {
+
 				newrope->collider = App->collisions->AddCollider(newrope->anim.GetCurrentFrame(), Collider::Type::ROPE, this);
 
 

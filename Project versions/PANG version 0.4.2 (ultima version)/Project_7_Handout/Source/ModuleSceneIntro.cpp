@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -31,6 +32,12 @@ bool ModuleSceneIntro::Start()
 
 	bgtitle = App->textures->Load("Assets/Title.png");
 	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
+	//if (App->player->lives < 3) {
+	//	App->fade->FadeToBlack(this, (Module*)App->scene, 90);
+	//}
+	//if (App->player->lives = 0) {
+	//	App->fade->FadeToBlack(this, (Module*)App->lose, 90);
+	//}
 
 	/*App->render->camera.x = 0;
 	App->render->camera.y = 0;*/
@@ -44,6 +51,7 @@ update_status ModuleSceneIntro::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->scene, 90);
+
 	}
 
 	return update_status::UPDATE_CONTINUE;

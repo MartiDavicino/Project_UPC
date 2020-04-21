@@ -49,6 +49,7 @@ public:
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
 	void AddRope(const Rope& rope, int x, int y, Collider::Type colliderType = Collider::Type::NONE, uint delay = 0);
 
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

@@ -187,6 +187,7 @@ Collider* ModuleCollisions::AddCollider(SDL_Rect rect, Collider::Type type, Modu
 	{
 		if(colliders[i] == nullptr)
 		{
+
 			ret = colliders[i] = new Collider(rect, type, listener);
 			break;
 		}
@@ -194,6 +195,28 @@ Collider* ModuleCollisions::AddCollider(SDL_Rect rect, Collider::Type type, Modu
 
 	return ret;
 }
+
+Collider* ModuleCollisions::AddDynamicCollider(SDL_Rect rect, Collider::Type type, Module* listener)
+{
+	Collider* ret = nullptr;
+
+	for (uint i = 0; i < MAX_COLLIDERS; ++i)
+	{
+		if (colliders[i] == nullptr)
+		{
+			for (int total = 0; total < 210; total++) {
+				rect.y = 210 - total;
+				total += 2;
+			}
+
+			ret = colliders[i] = new Collider(rect, type, listener);
+			break;
+		}
+	}
+
+	return ret;
+}
+
 
 void ModuleCollisions::RemoveCollider(Collider* collider)
 {
