@@ -134,7 +134,7 @@ bool ModuleRopes::Start()
 	rope.anim.pingpong = false;
 	rope.anim.loop = false;
 	rope.speed.y = 0;
-	rope.lifetime = 1000;
+	rope.lifetime = 72;
 	rope.isAlive = true;
 	rope.anim.speed = 1.0f;
 
