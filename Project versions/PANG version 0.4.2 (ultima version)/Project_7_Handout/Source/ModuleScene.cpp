@@ -9,6 +9,7 @@
 #include "ModuleBalls.h"
 #include "ModulePlayer.h"
 #include "ModuleInterface.h"
+#include "ModuleFonts.h"
 
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 {
@@ -34,6 +35,7 @@ bool ModuleScene::Start()
 	App->audio->PlayMusic("Assets/Arcade - 01a - Mt. Fuji.ogg", 1.0f);
 	//Bottomside collider
 	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::FLOOR);
+
 
 	//First two columns colliders
 	App->collisions->AddCollider({ 0, 0,7,300 }, Collider::Type::WALL_A);

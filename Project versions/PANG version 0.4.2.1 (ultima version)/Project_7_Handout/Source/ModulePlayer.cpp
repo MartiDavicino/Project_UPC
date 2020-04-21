@@ -10,7 +10,9 @@
 #include "ModuleCollisions.h"
 #include "ModuleBalls.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleFonts.h"
 #include "SDL/include/SDL.h"
+
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -96,6 +98,8 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 30, 30 }, Collider::Type::PLAYER, this);
+	char lookupTable[] = { "?!OPRS+UV0p23456789WXABCDEFGHYZ(klmnoQqrsuvwxyz)abcdefghKLMN&JTtj1Ii_-" };
+	scoreFont = App->fonts->Load("Assets/Font.png", lookupTable, 5);
 
 	return ret;
 }
@@ -307,6 +311,7 @@ update_status ModulePlayer::PostUpdate()
 	
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
+	/*App->fonts->BlitText(50, 190, scoreFont, "this is just a font test");*/
 
 	return update_status::UPDATE_CONTINUE;
 }

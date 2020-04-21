@@ -77,6 +77,9 @@ public:
 	// Sound effects indices
 	uint FiringFx = 0;
 	uint explosionFx = 0;
+	int scoreFont = -1;
+	char scoreText[17] = { "\0" };
+
 	
 
 };
