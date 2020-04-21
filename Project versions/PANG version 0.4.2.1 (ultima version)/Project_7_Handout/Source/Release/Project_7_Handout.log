@@ -1,0 +1,2 @@
+﻿Application.obj : error LNK2001: símbolo externo "public: __thiscall ModuleEnemies::ModuleEnemies(bool)" (??0ModuleEnemies@@QAE@_N@Z) sin resolver
+C:\Users\aitor\OneDrive\Escritorio\PANG version 0.4 (ultima version)\Release\PANG version 0.07.exe : fatal error LNK1120: 1 externos sin resolver
