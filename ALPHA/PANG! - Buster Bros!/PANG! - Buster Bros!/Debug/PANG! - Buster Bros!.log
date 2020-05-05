@@ -1,12 +1,6 @@
-﻿  Application.cpp
-  Globals.cpp
-  main.cpp
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Application.cpp(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Module.h': No such file or directory
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(1,9): error C2143: error de sintaxis: falta ';' delante de 'cadena'
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(1,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\sal.h(2361,12): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\sal.h(2361,12): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(25,12): error C2143: error de sintaxis: falta ';' delante de '*'
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(25,12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(25,20): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(41,25): error C2061: error de sintaxis: identificador 'Application'
+﻿  main.cpp
+  Generando código
+  Previous IPDB not found, fall back to full compilation.
+  All 199 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  PANG! - Buster Bros!.vcxproj -> D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe
