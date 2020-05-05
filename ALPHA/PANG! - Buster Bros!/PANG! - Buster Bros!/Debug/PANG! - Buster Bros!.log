@@ -1,6 +1,9 @@
-﻿  main.cpp
+﻿  ModuleInterface.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código
-  Previous IPDB not found, fall back to full compilation.
-  All 199 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  16 of 201 functions ( 8.0%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    15 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  PANG! - Buster Bros!.vcxproj -> D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe
+  PANG! - Buster Bros!.vcxproj -> C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe

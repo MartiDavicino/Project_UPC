@@ -136,6 +136,7 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="BigBall.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Drop.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="InterfaceElement.cpp" />
     <ClCompile Include="main.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="BigBall.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="Drop.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="InterfaceElement.h" />
     <ClInclude Include="MediumBall.h" />

@@ -8,6 +8,7 @@
 #include "Collider.h"
 #include "InterfaceElement.h"
 #include "Animation.h"
+#include "Drop.h"
 
 #define MAX_ACTIVE_PARTICLES 100
 #define MAX_ACTIVE_INTERFACE_ELEMENTS 30
@@ -52,7 +53,7 @@ public:
 	// Param particle	- A template particle from which the new particle will be created
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
-	void AddElement(const InterfaceElement& particle, int x, int y);
+	void AddElement(const InterfaceElement& element, int x, int y);
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
@@ -73,6 +74,16 @@ public:
 	InterfaceElement oneLife;
 	InterfaceElement secondLife;
 	InterfaceElement thirdLife;
+	InterfaceElement fourthLife;
+
+	InterfaceElement UI;
+
+	//Include in player bool hasItem;
+	InterfaceElement Hook;
+	InterfaceElement Inmune;
+
+	Drop hook;
+	Drop inmune;
 	
 
 };

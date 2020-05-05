@@ -1,0 +1,63 @@
+﻿  Application.cpp
+  Ball.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  BigBall.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  Collider.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  Globals.cpp
+  InterfaceElement.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Collider.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+  main.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  MediumBall.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\main.cpp(6,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+  Module.cpp
+  ModuleAudio.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleBalls.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleAudio.cpp(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+  ModuleCollisions.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleFadeToBlack.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Collider.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+  ModuleFonts.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleFadeToBlack.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL\include\SDL_rect.h': No such file or directory
+  ModuleInput.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleRender.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+  ModuleInterface.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInput.cpp(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+  ModuleLose.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleParticles.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModulePlayer.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleRender.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  Generando código...
+  Compilando...
+  ModuleRopes.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleRender.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+  ModuleScene.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleSceneIntro.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleTextures.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  ModuleWin.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleRender.h(5,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_Rect.h': No such file or directory
+  ModuleWindow.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  Particle.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleWindow.cpp(6,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL.h': No such file or directory
+  Path.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  Rope.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  SmallBall.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  TinyBalls.cpp
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory
+  Generando código...
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'SDL/include/SDL_rect.h': No such file or directory

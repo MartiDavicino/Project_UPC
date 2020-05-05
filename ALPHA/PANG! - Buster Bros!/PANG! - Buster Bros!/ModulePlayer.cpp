@@ -157,15 +157,7 @@ update_status ModulePlayer::Update()
 
 	}
 
-	//Divide balls manually
-	if (App->input->keys[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN)
-	{
-		LOG("Ball divided manually\n");
-		App->balls->AddBall(BALL_TYPE::SMALL, 120,100, true);
-		App->balls->AddBall(BALL_TYPE::SMALL, 100,100, false);
-
-
-	}
+	
 	
 
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
@@ -281,6 +273,7 @@ update_status ModulePlayer::Update()
 		App->collisions->DebugDraw();
 	}
 	
+	
 
 		collider->SetPos(position.x, position.y);
 
@@ -339,7 +332,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c1->type == Collider::Type::BALL && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BALL)
 		{
-			lives -= 1;
+			if (lives == 4) lives--;
 			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0);
 			if (isAlive == true) 
 			{

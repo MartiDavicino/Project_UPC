@@ -1,5 +1,4 @@
 #include "ModuleInterface.h"
-
 #include "Application.h"
 
 #include "ModuleTextures.h"
@@ -7,6 +6,8 @@
 #include "ModuleCollisions.h"
 #include "Moduleplayer.h"
 #include "InterfaceElement.h"
+#include "Drop.h"
+
 
 #include "SDL/include/SDL_timer.h"
 
@@ -15,7 +16,7 @@
 
 ModuleInterface::ModuleInterface(bool startEnabled) : Module(startEnabled)
 {
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 		particles[i] = nullptr;
 
 }
@@ -31,28 +32,30 @@ bool ModuleInterface::Start()
 
 
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Interface.png");
+	texture = App->textures->Load("Assets/newInterface.png");
 
-	//position
+	
+	//Interface Elements
+	zeroLife.anim.PushBack({ 0,0,0,0 });
+	oneLife.anim.PushBack({ 0,258,15,16 });
+	secondLife.anim.PushBack({ 0,258,32,16 });
+	thirdLife.anim.PushBack({ 0,258,48,16 });
+	fourthLife.anim.PushBack({ 0,258,64,16 });
+	UI.anim.PushBack({0,0,380,240});
 
-	zeroLife.position.y = oneLife.position.y = secondLife.position.y = thirdLife.position.y = 200;
-	zeroLife.position.x = oneLife.position.x = secondLife.position.x = thirdLife.position.x = 30;
-
-
-	zeroLife.Display({ 0,0,0,0 });
-	oneLife.Display({ 0,213,16,16 });
-	secondLife.Display({ 0,213,35,16 });
-	thirdLife.Display({ 0,213,70,16 });
-
-	zeroLife.anim.loop = oneLife.anim.loop = secondLife.anim.loop = thirdLife.anim.loop = true;
-	//zeroLife.anim.loop = oneLife.anim.loop = secondLife.anim.loop = thirdLife.anim.loop = true;
+	UI.anim.loop=zeroLife.anim.loop = oneLife.anim.loop = secondLife.anim.loop = thirdLife.anim.loop = true;
+	
 
 
-	Blink.Display({ 0,0,210,300 });
+	
 	Blink.anim.loop = true;
 
 
-
+	//Drops
+	hook.idle.PushBack({0,0,0,0}); 
+	hook.blink.PushBack({ 0,0,0,0 });
+	hook.idle.loop = hook.blink.loop = true;
+	hook.blink.speed = 2;
 
 
 
@@ -64,12 +67,12 @@ bool ModuleInterface::CleanUp()
 	LOG("Unloading particles");
 
 	// Delete all remaining active particles on application exit 
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 	{
-		if (particles[i] != nullptr)
+		if (interfaceElements[i] != nullptr)
 		{
-			delete particles[i];
-			particles[i] = nullptr;
+			delete interfaceElements[i];
+			interfaceElements[i] = nullptr;
 		}
 	}
 
@@ -93,26 +96,40 @@ update_status ModuleInterface::Update()
 	//		particles[i] = nullptr;
 	//	}*/
 	//}
+	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0);
+
+	
 
 	switch (App->player->lives)
 	{
+	case(4):
+		App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220);
+
+		break;
+
 	case(3):
-		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 0);
-		currentAnim = &thirdLife;
+		fourthLife.display = false;
+		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220);
+		
 		break;
 	case(2):
-		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 0);
-		currentAnim = &secondLife;
+		thirdLife.display = false;
+		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 220);
+		
 		break;
 	case(1):
-		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10, 0);
-		currentAnim = &secondLife;
+		secondLife.display = false;
+		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10,220);
+		
 		break;
 	case(0):
 		App->interfaceElements->AddElement(App->interfaceElements->zeroLife, 10,0 );
-		currentAnim = &zeroLife;
+		
 		break;
 	}
+
+
+	
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -126,8 +143,14 @@ update_status ModuleInterface::PostUpdate()
 
 		if (element != nullptr && element->display)
 		{
-			App->render->Blit(texture, element->position.x, element->position.y, 0);
+			//App->render->Blit(texture, element->position.x, element->position.y, 0);
 			//&(element->anim.GetCurrentFrame())
+			App->render->Blit(texture,element->position.x, element->position.y, &(element->anim.GetCurrentFrame()));
+		}
+		else if (element != nullptr && element->display == false)
+		{
+			delete element;
+			interfaceElements[i] = nullptr;
 		}
 	}
 
@@ -136,7 +159,7 @@ update_status ModuleInterface::PostUpdate()
 
 void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y)
 {
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 	{
 		//Finding an empty slot for a new element
 		if (interfaceElements[i] == nullptr)

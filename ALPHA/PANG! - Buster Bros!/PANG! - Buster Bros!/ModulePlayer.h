@@ -43,8 +43,13 @@ public:
 	bool goingRight = true;
 	bool GodMode = false;
 	bool isAlive = true;
+	int isEquipped = false; // 0 equals to any object equipped
+	enum Object
+	{
+		Hook,Inmune,gun
+	};
 
-	unsigned int lives = 3;
+	unsigned int lives = 4;
 
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;

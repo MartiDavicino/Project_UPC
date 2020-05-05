@@ -35,7 +35,7 @@ public:
 	// A set of rectangle sprites
 
 
-	Animation* currentAnim;
+	//Animation* currentAnim;
 
 	// Defines wether the particle is alive or not
 	// Particles will be set to not alive until "spawnTime" is reached
@@ -50,10 +50,10 @@ public:
 
 	Animation anim;
 
-	void Display(const SDL_Rect& rect)
+	/*void Display(const SDL_Rect& rect)
 	{
 		frame = rect;
-	}
+	}*/
 
 
 };

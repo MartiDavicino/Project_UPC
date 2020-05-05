@@ -120,6 +120,9 @@
     <ClCompile Include="Module.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Drop.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -220,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Source Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Drop.h">
+      <Filter>Source Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
