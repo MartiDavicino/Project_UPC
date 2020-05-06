@@ -13,8 +13,6 @@ public:
 	// Fills all collision matrix data
 	ModuleCollisions(bool startEnabled);
 
-	// Destructor
-	~ModuleCollisions();
 
 	// Called at the beginning of the application loop
 	// Removes all colliders pending to delete

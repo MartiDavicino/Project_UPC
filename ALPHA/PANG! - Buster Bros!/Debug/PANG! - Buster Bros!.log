@@ -1,3 +1,0 @@
-﻿  main.cpp
-MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo _main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe : fatal error LNK1120: 1 externos sin resolver

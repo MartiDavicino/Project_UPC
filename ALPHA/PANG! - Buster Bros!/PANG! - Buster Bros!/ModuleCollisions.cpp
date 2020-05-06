@@ -72,11 +72,6 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	
 }
 
-// Destructor
-ModuleCollisions::~ModuleCollisions()
-{
-
-}
 
 update_status ModuleCollisions::PreUpdate()
 {

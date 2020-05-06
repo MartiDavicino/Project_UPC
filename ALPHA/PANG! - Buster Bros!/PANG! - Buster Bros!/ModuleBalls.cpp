@@ -22,11 +22,6 @@ ModuleBalls::ModuleBalls(bool startEnabled) : Module(startEnabled)
 		Balls[i] = nullptr;
 }
 
-ModuleBalls::~ModuleBalls()
-{
-
-}
-
 bool ModuleBalls::Start()
 {
 	texture = App->textures->Load("Assets/balls.png");

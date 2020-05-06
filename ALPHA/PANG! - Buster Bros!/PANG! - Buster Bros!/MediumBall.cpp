@@ -62,16 +62,4 @@ void MediumBall::OnCollision(Collider* collider)
 		SetToDelete();
 	}
 
-	////Must play different animations depending of ball size
-	//App->particles->AddParticle(App->particles->mediumExplosion, position.x, position.y);
-
-
-	//App->balls->AddBall(BALL_TYPE::SMALL, position.x + xOffset, position.y + yOffset, true);
-	//App->balls->AddBall(BALL_TYPE::SMALL, position.x - xOffset,position.y + yOffset, false);
-
-
-	//App->audio->PlayFx(destroyedFx);
-
-
-
 }

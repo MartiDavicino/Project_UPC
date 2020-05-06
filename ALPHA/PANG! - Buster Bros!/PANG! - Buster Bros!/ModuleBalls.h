@@ -27,9 +27,6 @@ public:
 	// Constructor
 	ModuleBalls(bool startEnabled);
 
-	// Destructor
-	~ModuleBalls();
-
 	// Called when the module is activated
 	// Loads the necessary textures for the enemies
 	bool Start() override;

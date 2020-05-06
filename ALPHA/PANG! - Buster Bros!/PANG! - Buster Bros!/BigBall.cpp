@@ -59,21 +59,6 @@ void BigBall::OnCollision(Collider* collider) {
 
 		SetToDelete();
 	}
-	//App->particles->AddParticle(App->particles->mediumExplosion, position.x, position.y);
-
-	//
-
-	//App->balls->AddBall(BALL_TYPE::MEDIUM, position.x + xOffset, position.y + yOffset, true);
-	//App->balls->AddBall(BALL_TYPE::MEDIUM, position.x - xOffset, position.y + yOffset, false);
-
-
-	////App->audio->PlayFx(destroyedFx);
-
-
-	//SetToDelete();
-	//App->particles->AddParticle(App->particles->bigExplosion, position.x, position.y);
-
-	
 
 }
 

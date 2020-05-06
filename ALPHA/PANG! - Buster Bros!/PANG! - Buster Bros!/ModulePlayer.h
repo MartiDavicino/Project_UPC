@@ -14,9 +14,6 @@ public:
 	// Constructor
 	ModulePlayer(bool startEnabled);
 
-	// Destructor
-	~ModulePlayer();
-
 	// Called when the module is activated
 	// Loads the necessary textures for the player
 	bool Start() override;
@@ -43,7 +40,10 @@ public:
 	bool goingRight = true;
 	bool GodMode = false;
 	bool isAlive = true;
-	int isEquipped = false; // 0 equals to any object equipped
+	int isEquipped = false; 
+	
+	// 0 equals to any object equipped
+
 	enum Object
 	{
 		Hook,Inmune,gun

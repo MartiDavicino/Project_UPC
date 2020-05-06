@@ -76,10 +76,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downAnim.speed = 0.1f;*/
 }
 
-ModulePlayer::~ModulePlayer()
-{
-
-}
 
 bool ModulePlayer::Start()
 {
@@ -110,9 +106,7 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
-void setFalse(int* status);
 
-void setFalseAll(int list[], int* collider);
 
 
 update_status ModulePlayer::Update()
@@ -375,18 +369,4 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 
-}
-
-void setFalse(int* status)
-{
-	*status = false;
-}
-
-
-void setFalseAll(int list[], int* collider)
-{
-	for (int i = 0; i < 3; ++i)
-	{
-		setFalse(collider + i);
-	}
 }
