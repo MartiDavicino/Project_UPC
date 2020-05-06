@@ -67,7 +67,7 @@ bool ModuleInterface::Start()
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0);
 	/*App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);*/
-	
+	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 180, 40);
 	
 
 	return true;
@@ -120,7 +120,7 @@ update_status ModuleInterface::Update()
 	//}
 	//App->interfaceElements->AddElement(App->interfaceElements->UI, 0,0);
 
-	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);
+	
 
 	switch (App->player->lives)
 	{
@@ -182,7 +182,7 @@ update_status ModuleInterface::PostUpdate()
 			//&(element->anim.GetCurrentFrame())
 			App->render->Blit(texture,element->position.x, element->position.y, &(element->anim.GetCurrentFrame()));
 
-			element->position.y += element->speed.y;
+			
 		}
 		else if (element != nullptr && element->display == false)
 		{
@@ -196,22 +196,37 @@ update_status ModuleInterface::PostUpdate()
 	{
 		Drop* drop = drops[i];
 
-		if (drop != nullptr && drop->isAlive==true)
+		if (drop != nullptr && drop->isAlive == true)
 		{
 			//App->render->Blit(texture, element->position.x, element->position.y, 0);
 			//&(element->anim.GetCurrentFrame())
 			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->idle.GetCurrentFrame()));
 
-			//drop->position.y += drop->speed.y;
+			//if not detected a collision with either player or floor
+			//if (drop.collider)
+			//{
+			//	drop->position.y++;
+			//	drop->collider->SetPos(drop->position.x, drop->position.y);
+
+			//	//if the collision is with the player make the item dissapear
+			//	if (1)
+			//	{
+			//		//equip the item
+			//	}
+			//}
+			//drop->OnCollision(collider);
+			
+
+			
 		}
 		/*else if (drop != nullptr && drop->isAlive == false)
 		{
 			delete drop;
 			drops[i] = nullptr;
 		}*/
+
+
 	}
-
-
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -230,9 +245,7 @@ void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y)
 
 			e->speed.y = -0.5f;
 
-			//Adding the particle's collider
-			/*if (colliderType != Collider::Type::NONE)
-				e->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);*/
+			
 
 			interfaceElements[i] = e;
 			break;
@@ -260,9 +273,9 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y)
 			/*if (colliderType != Collider::Type::NONE)
 				e->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);*/
 			
-			// this collider is creating away from its origin
+			// this collider is creating away from its or
 			d->collider = App->collisions->AddCollider(d->idle.GetCurrentFrame(), Collider::Type::DROP, this);
-			
+			d->collider->SetPos(x, y);
 
 			drops[i] = d;
 			break;

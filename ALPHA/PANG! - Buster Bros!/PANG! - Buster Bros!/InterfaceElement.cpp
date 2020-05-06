@@ -3,16 +3,13 @@
 
 InterfaceElement::InterfaceElement()
 {
-	//position.SetToZero();
-	/*position.x = 30;
-	position.y = 50;*/
 	
 
 }
 
 InterfaceElement::InterfaceElement(const InterfaceElement& p) : anim(p.anim), position(p.position)
 {
-
+	
 }
 
 InterfaceElement::~InterfaceElement()
@@ -24,6 +21,7 @@ bool InterfaceElement::Update()
 {
 	bool ret = true;
 	frameCount++;
+
 
 	// The particle is set to 'alive' when the delay has been reached
 	if (!display && frameCount >= 0)
@@ -50,7 +48,7 @@ bool InterfaceElement::Update()
 			collider->SetPos(position.x, position.y);*/
 	}
 
-	position.y += speed.y;
+	
 
 	return ret;
 }

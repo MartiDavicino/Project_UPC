@@ -4,9 +4,7 @@
 
 Drop::Drop()
 {
-	position.SetToZero();
-	//speed.SetToZero();
-	//Set an starting vertical speed
+	
 	
 }
 
@@ -64,7 +62,22 @@ bool Drop::Update()
 		if (collider != nullptr)
 			collider->SetPos(position.x, position.y);
 	}
-	position.y += speed.y;
+	
 
 	return ret;
+}
+
+void OnCollision(Collider* collider)
+{
+	if (collider->type == Collider::Type::FLOOR)
+	{
+		//stop speed and start time count
+	}
+	if (collider->type == Collider::Type::PLAYER)
+	{
+		//equip item
+		
+	}
+		
+
 }

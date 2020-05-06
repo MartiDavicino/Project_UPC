@@ -6,7 +6,11 @@
 #include "p2Point.h"
 
 struct Collider;
-
+enum class DROP_TYPE
+{
+	HOOK,
+	INMUNE,
+};
 struct Drop
 {
 public:
@@ -23,6 +27,8 @@ public:
 	// Handles the logic of the particle
 	// Returns false when the particle reaches its lifetime
 	bool Update();
+
+	void OnCollision(Collider* collider);
 
 public:
 	// Defines the position in the screen
