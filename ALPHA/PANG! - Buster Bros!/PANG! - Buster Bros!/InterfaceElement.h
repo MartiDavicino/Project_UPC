@@ -28,6 +28,7 @@ public:
 public:
 	// Defines the position in the screen
 	iPoint position;
+	iPoint speed;
 
 
 	SDL_Rect frame;

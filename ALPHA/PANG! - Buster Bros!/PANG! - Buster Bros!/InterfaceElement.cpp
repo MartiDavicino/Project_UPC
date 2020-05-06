@@ -4,8 +4,9 @@
 InterfaceElement::InterfaceElement()
 {
 	//position.SetToZero();
-	position.x = 30;
-	position.y = 50;
+	/*position.x = 30;
+	position.y = 50;*/
+	
 
 }
 
@@ -48,6 +49,8 @@ bool InterfaceElement::Update()
 		/*if (collider != nullptr)
 			collider->SetPos(position.x, position.y);*/
 	}
+
+	position.y += speed.y;
 
 	return ret;
 }

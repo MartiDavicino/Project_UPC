@@ -169,24 +169,24 @@ void ModuleBalls::SpawnBall(const BallSpawnpoint& info)
 			case BALL_TYPE::BIG:
 				Balls[i] = new BigBall(info.x, info.y);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
 				break;
 			case BALL_TYPE::MEDIUM:
 				Balls[i] = new MediumBall(info.x, info.y);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
 				break;
 
 			case BALL_TYPE::SMALL:
 				Balls[i] = new SmallBall(info.x, info.y);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
 				break;
 
 			case BALL_TYPE::TINY:
 				Balls[i] = new TinyBall(info.x, info.y);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
 				break;
 			}
 

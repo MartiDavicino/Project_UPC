@@ -17,7 +17,11 @@
 ModuleInterface::ModuleInterface(bool startEnabled) : Module(startEnabled)
 {
 	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
-		particles[i] = nullptr;
+		interfaceElements[i] = nullptr;
+
+	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
+		drops[i] = nullptr;
+
 
 }
 
@@ -52,12 +56,19 @@ bool ModuleInterface::Start()
 
 
 	//Drops
-	hook.idle.PushBack({0,0,0,0}); 
-	hook.blink.PushBack({ 0,0,0,0 });
-	hook.idle.loop = hook.blink.loop = true;
-	hook.blink.speed = 2;
+	hookDrop.idle.PushBack({160,258,14,14}); 
+	hookDrop.blink.PushBack({160,258,14,14 });
+	/*hookDrop.idle.PushBack({ 0,0,200,200 });
+	hookDrop.blink.PushBack({ 0,0,200,200});*/
+	hookDrop.idle.loop = hookDrop.blink.loop = true;
+	hookDrop.blink.speed = 2;
 
 
+	
+	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0);
+	/*App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);*/
+	
+	
 
 	return true;
 }
@@ -75,6 +86,17 @@ bool ModuleInterface::CleanUp()
 			interfaceElements[i] = nullptr;
 		}
 	}
+
+	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
+	{
+		if (drops[i] != nullptr)
+		{
+			delete drops[i];
+			drops[i] = nullptr;
+		}
+	}
+
+	
 
 	return true;
 }
@@ -96,9 +118,9 @@ update_status ModuleInterface::Update()
 	//		particles[i] = nullptr;
 	//	}*/
 	//}
-	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0);
+	//App->interfaceElements->AddElement(App->interfaceElements->UI, 0,0);
 
-	
+	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);
 
 	switch (App->player->lives)
 	{
@@ -128,6 +150,19 @@ update_status ModuleInterface::Update()
 		break;
 	}
 
+	switch (App->player->isEquipped)
+	{
+	case(1):
+		break;
+	case(2):
+		break;
+	case(3):
+		break;
+	case(4):
+		break;
+
+	}
+
 
 	
 
@@ -146,6 +181,8 @@ update_status ModuleInterface::PostUpdate()
 			//App->render->Blit(texture, element->position.x, element->position.y, 0);
 			//&(element->anim.GetCurrentFrame())
 			App->render->Blit(texture,element->position.x, element->position.y, &(element->anim.GetCurrentFrame()));
+
+			element->position.y += element->speed.y;
 		}
 		else if (element != nullptr && element->display == false)
 		{
@@ -153,6 +190,27 @@ update_status ModuleInterface::PostUpdate()
 			interfaceElements[i] = nullptr;
 		}
 	}
+
+
+	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
+	{
+		Drop* drop = drops[i];
+
+		if (drop != nullptr && drop->isAlive==true)
+		{
+			//App->render->Blit(texture, element->position.x, element->position.y, 0);
+			//&(element->anim.GetCurrentFrame())
+			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->idle.GetCurrentFrame()));
+
+			//drop->position.y += drop->speed.y;
+		}
+		/*else if (drop != nullptr && drop->isAlive == false)
+		{
+			delete drop;
+			drops[i] = nullptr;
+		}*/
+	}
+
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -170,11 +228,43 @@ void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y)
 			e->position.x = x;						// so when frameCount reaches 0 the particle will be activated
 			e->position.y = y;
 
+			e->speed.y = -0.5f;
+
 			//Adding the particle's collider
 			/*if (colliderType != Collider::Type::NONE)
 				e->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);*/
 
 			interfaceElements[i] = e;
+			break;
+		}
+	}
+}
+
+
+
+void ModuleInterface::AddDrop(const Drop& drop, int x, int y)
+{
+	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
+	{
+		//Finding an empty slot for a new element
+		if (drops[i] == nullptr)
+		{
+			Drop* d = new Drop(drop);
+
+			//p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
+			d->position.x = x;						// so when frameCount reaches 0 the particle will be activated
+			d->position.y = y;
+
+			d->speed.y = 0.5f;
+			//Adding the particle's collider
+			/*if (colliderType != Collider::Type::NONE)
+				e->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);*/
+			
+			// this collider is creating away from its origin
+			d->collider = App->collisions->AddCollider(d->idle.GetCurrentFrame(), Collider::Type::DROP, this);
+			
+
+			drops[i] = d;
 			break;
 		}
 	}

@@ -12,6 +12,7 @@
 
 #define MAX_ACTIVE_PARTICLES 100
 #define MAX_ACTIVE_INTERFACE_ELEMENTS 30
+#define MAX_ACTIVE_DROPS 30
 
 struct SDL_Texture;
 //struct Collider;
@@ -54,6 +55,7 @@ public:
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
 	void AddElement(const InterfaceElement& element, int x, int y);
+	void AddDrop(const Drop& drop, int x ,int y);
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
@@ -63,6 +65,8 @@ private:
 	Particle* particles[MAX_ACTIVE_PARTICLES] = { nullptr };
 
 	InterfaceElement* interfaceElements[MAX_ACTIVE_INTERFACE_ELEMENTS] = { nullptr };
+
+	Drop* drops[MAX_ACTIVE_INTERFACE_ELEMENTS] = { nullptr };
 
 public:
 	//Template particle for an explosion
@@ -79,11 +83,11 @@ public:
 	InterfaceElement UI;
 
 	//Include in player bool hasItem;
-	InterfaceElement Hook;
-	InterfaceElement Inmune;
+	InterfaceElement hook;
+	InterfaceElement inmune;
 
-	Drop hook;
-	Drop inmune;
+	Drop hookDrop;
+	Drop inmuneDrop;
 	
 
 };

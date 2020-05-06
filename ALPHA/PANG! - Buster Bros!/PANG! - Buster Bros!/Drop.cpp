@@ -5,8 +5,9 @@
 Drop::Drop()
 {
 	position.SetToZero();
-	speed.SetToZero();
+	//speed.SetToZero();
 	//Set an starting vertical speed
+	
 }
 
 Drop::Drop(const Drop& d) : idle(d.idle), position(d.position), speed(d.speed),
@@ -58,11 +59,12 @@ bool Drop::Update()
 
 		// Update the position in the screen
 		
-		position.y += speed.y;
+		
 
 		if (collider != nullptr)
 			collider->SetPos(position.x, position.y);
 	}
+	position.y += speed.y;
 
 	return ret;
 }

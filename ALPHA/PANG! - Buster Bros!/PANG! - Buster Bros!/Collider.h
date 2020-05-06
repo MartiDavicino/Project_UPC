@@ -18,6 +18,7 @@ struct Collider
 		PLAYER,
 		BALL,
 		ROPE,
+		DROP,
 
 		MAX
 	};
