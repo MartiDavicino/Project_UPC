@@ -227,9 +227,18 @@ update_status ModulePlayer::Update()
 			break;
 		}
 
-		LOG("SHOOTING ROPE!")
-		App->ropes->AddRope(App->ropes->rope, position.x +9, position.y - 370, Collider::Type::ROPE);
-		App->audio->PlayFx(FiringFx);
+		LOG("SHOOTING ROPE!");
+		switch (isEquipped)
+		{
+		case(0):
+			App->ropes->AddRope(App->ropes->rope, position.x + 9, position.y, Collider::Type::ROPE);
+			App->audio->PlayFx(FiringFx);
+
+			break;
+		case(1):
+
+			break;
+		}
 		
 
 		
@@ -326,7 +335,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c1->type == Collider::Type::BALL && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BALL)
 		{
-			if (lives == 4) lives--;
+			//The problem is the collision is tetected more than once, so number of lives decreases drastically
+			if (isInmune == false)
+			{
+				if (lives == 4) lives--;
+			}
+			if (isInmune == true) isInmune = false;
 			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0);
 			if (isAlive == true) 
 			{

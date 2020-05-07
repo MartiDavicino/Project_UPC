@@ -39,8 +39,10 @@ public:
 	iPoint position;
 	bool goingRight = true;
 	bool GodMode = false;
+	bool isInmune = false;
 	bool isAlive = true;
-	int isEquipped = false; 
+	int isEquipped = 0; //0= any item equipped, 1=hook, 2 = gun
+
 	
 	// 0 equals to any object equipped
 

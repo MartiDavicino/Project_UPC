@@ -19,6 +19,7 @@ struct Collider
 		BALL,
 		ROPE,
 		DROP,
+		TOP,
 
 		MAX
 	};
