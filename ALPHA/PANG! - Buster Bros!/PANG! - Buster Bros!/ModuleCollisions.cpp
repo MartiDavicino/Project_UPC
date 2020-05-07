@@ -18,6 +18,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL_A][Collider::Type::ROPE] = true;
 	matrix[Collider::Type::WALL_A][Collider::Type::FLOOR] = false;
 	matrix[Collider::Type::WALL_A][Collider::Type::DROP] = false;
+	matrix[Collider::Type::WALL_D][Collider::Type::TOP] = false;
 
 
 	matrix[Collider::Type::PLAYER][Collider::Type::WALL_A] = true;
@@ -27,6 +28,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::ROPE] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::FLOOR] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::DROP] = false;
+	matrix[Collider::Type::PLAYER][Collider::Type::TOP] = false;
 
 	matrix[Collider::Type::BALL][Collider::Type::WALL_A] = true;
 	matrix[Collider::Type::BALL][Collider::Type::WALL_D] = true;
@@ -35,6 +37,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BALL][Collider::Type::ROPE] = true;
 	matrix[Collider::Type::BALL][Collider::Type::FLOOR] = true;
 	matrix[Collider::Type::BALL][Collider::Type::DROP] = false;
+	matrix[Collider::Type::BALL][Collider::Type::TOP] = false;
 
 	matrix[Collider::Type::ROPE][Collider::Type::WALL_A] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::WALL_D] = false;
@@ -43,6 +46,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ROPE][Collider::Type::ROPE] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::FLOOR] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::DROP] = false;
+	matrix[Collider::Type::ROPE][Collider::Type::TOP] = false;
 
 
 	matrix[Collider::Type::FLOOR][Collider::Type::WALL_A] = false;
@@ -52,6 +56,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::FLOOR][Collider::Type::ROPE] = false;
 	matrix[Collider::Type::FLOOR][Collider::Type::FLOOR] = false;
 	matrix[Collider::Type::FLOOR][Collider::Type::DROP] = false;
+	matrix[Collider::Type::FLOOR][Collider::Type::TOP] = false;
 
 	matrix[Collider::Type::WALL_D][Collider::Type::WALL_A] = false;
 	matrix[Collider::Type::WALL_D][Collider::Type::WALL_D] = false;
@@ -60,6 +65,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL_D][Collider::Type::ROPE] = false;
 	matrix[Collider::Type::WALL_D][Collider::Type::FLOOR] = false;
 	matrix[Collider::Type::WALL_D][Collider::Type::DROP] = false;
+	matrix[Collider::Type::WALL_D][Collider::Type::TOP] = false;
 
 	matrix[Collider::Type::DROP][Collider::Type::WALL_A] = false;
 	matrix[Collider::Type::DROP][Collider::Type::WALL_D] = false;
@@ -68,6 +74,16 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::DROP][Collider::Type::ROPE] = false;
 	matrix[Collider::Type::DROP][Collider::Type::FLOOR] = true;
 	matrix[Collider::Type::DROP][Collider::Type::DROP] = false;
+	matrix[Collider::Type::DROP][Collider::Type::TOP] = false;
+
+	matrix[Collider::Type::TOP][Collider::Type::WALL_A] = false;
+	matrix[Collider::Type::TOP][Collider::Type::WALL_D] = false;
+	matrix[Collider::Type::TOP][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::TOP][Collider::Type::BALL] = false;
+	matrix[Collider::Type::TOP][Collider::Type::ROPE] = true;
+	matrix[Collider::Type::TOP][Collider::Type::FLOOR] = false;
+	matrix[Collider::Type::TOP][Collider::Type::DROP] = false;
+	matrix[Collider::Type::TOP][Collider::Type::TOP] = false;
 
 	
 }

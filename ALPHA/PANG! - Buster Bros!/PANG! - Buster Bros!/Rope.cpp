@@ -10,7 +10,6 @@ Rope::Rope()
 	speed.SetToZero();
 	
 
-	//collider = App->collisions->AddCollider({ 0, 0, 24, 100 }, Collider::Type::ROPE, (Module*)App->enemies);
 	
 }
 
