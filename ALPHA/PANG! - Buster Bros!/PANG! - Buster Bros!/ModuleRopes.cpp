@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleCollisions.h"
+#include "ModuleAudio.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -23,6 +24,7 @@ bool ModuleRopes::Start()
 {
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/newRope.png");
+	FiringFx = App->audio->LoadFx("Assets/[FX]- firing sound.wav");
 
 	// Explosion particle
 	//old rope
@@ -372,6 +374,9 @@ void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type col
 		//Finding an empty slot for a new particle
 		if (ropes[i] == nullptr)
 		{
+			App->audio->PlayFx(FiringFx);             // Sound
+
+
 			Rope* newrope = new Rope(particle);
 			newrope->frameCount = -(int)delay;			// We start the frameCount as the negative delay
 			newrope->position.x = x;						// so when frameCount reaches 0 the particle will be activated

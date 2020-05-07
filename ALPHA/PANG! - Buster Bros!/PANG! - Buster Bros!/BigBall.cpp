@@ -21,10 +21,10 @@ BigBall::BigBall(int x, int y) : Ball(x, y)
 void BigBall::Update()
 {
 	//moviment de la pilota per que reboti
-	Ball_vy = Ball_vy + (gravity * deltaTime);
+	//Ball_vy = Ball_vy + (gravity * deltaTime);
 
-	position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));
-	position.x = position.x + (Ball_vx * deltaTime);
+	//position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));
+	//position.x = position.x + (Ball_vx * deltaTime);
 
 	// aixo es perque xoqui contra les parets, canviarho per coliders
 	

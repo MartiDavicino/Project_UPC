@@ -7,7 +7,7 @@
 #include "Rope.h"
 #include "Collider.h"
 
-#define MAX_ACTIVE_ROPES 100
+#define MAX_ACTIVE_ROPES 1
 
 struct SDL_Texture;
 struct Collider;
@@ -60,6 +60,7 @@ private:
 public:
 	//Template particle for an explosion
 	Rope shooting;
+	uint FiringFx = 0;
 
 	//Template particle for a laser
 	Rope rope;

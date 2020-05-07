@@ -24,6 +24,12 @@ const Collider* Ball::GetCollider() const
 
 void Ball::Update()
 {
+
+	Ball_vy = Ball_vy + (gravity * deltaTime);
+
+	position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));
+	position.x = position.x + (Ball_vx * deltaTime);
+
 	if (currentAnim != nullptr)
 		currentAnim->Update();
 
