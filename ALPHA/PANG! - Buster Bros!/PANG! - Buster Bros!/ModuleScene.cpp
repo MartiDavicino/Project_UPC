@@ -39,7 +39,7 @@ bool ModuleScene::Start()
 	App->collisions->AddCollider({ 0, 0,7,200 }, Collider::Type::WALL_A);
 	App->collisions->AddCollider({ 377, 0, 7, 200 }, Collider::Type::WALL_D);
 	App->collisions->AddCollider({ 0,200,384,8 }, Collider::Type::FLOOR);
-
+	App->collisions->AddCollider({ 0,0,384,8 }, Collider::Type::TOP);
 	
 	//Balls
 	App->balls->AddBall(BALL_TYPE::BIG, 150, 25,true);

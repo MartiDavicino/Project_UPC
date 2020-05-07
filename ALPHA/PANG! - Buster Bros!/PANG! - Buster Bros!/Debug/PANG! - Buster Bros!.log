@@ -1,10 +1,1 @@
-﻿  ModulePlayer.cpp
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.h(58,31): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(65,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(69,17): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(71,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(98,25): warning C4129: ']': secuencia de escape de carácter no reconocida
-  LINK : se especificó /LTCG pero no se requiere generación de código; quite /LTCG de la línea de comandos de vínculo para mejorar el rendimiento del vinculador
-  PANG! - Buster Bros!.vcxproj -> D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe
+﻿  PANG! - Buster Bros!.vcxproj -> C:\Users\tolo otto\Documents\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe

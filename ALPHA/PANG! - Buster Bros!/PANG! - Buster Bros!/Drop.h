@@ -28,7 +28,8 @@ public:
 	// Returns false when the particle reaches its lifetime
 	bool Update();
 
-	void OnCollision(Collider* collider);
+	/*void OnCollision(Collider* collider);*/
+	void OnCollision(Collider* c1, Collider* c2);
 
 public:
 	// Defines the position in the screen

@@ -67,17 +67,35 @@ bool Drop::Update()
 	return ret;
 }
 
-void OnCollision(Collider* collider)
-{
-	if (collider->type == Collider::Type::FLOOR)
-	{
-		//stop speed and start time count
-	}
-	if (collider->type == Collider::Type::PLAYER)
-	{
-		//equip item
-		
-	}
-		
+//void OnCollision(Collider* collider)
+//{
+//	if (collider->type == Collider::Type::FLOOR)
+//	{
+//		//stop speed and start time count
+//	}
+//	if (collider->type == Collider::Type::PLAYER)
+//	{
+//		//equip item
+//		
+//	}
+//		
+//
+//}
 
+void Drop::OnCollision(Collider* c1, Collider* c2)
+{
+	
+	if (c1 == collider)
+	{
+		if (c2->type == Collider::Type::FLOOR)
+		{
+			//stop speed and start time count
+		}
+		if (c2->type == Collider::Type::PLAYER)
+		{
+			//equip item
+		}
+	}
+
+	
 }

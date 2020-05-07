@@ -185,7 +185,10 @@ void ModuleCollisions::DebugDraw()
 			break;
 			case Collider::Type::DROP: //purple
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 230, alpha);
-		
+			case Collider::Type::TOP:
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 230, alpha);
+			break;
+
 		}
 	}
 }
