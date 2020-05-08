@@ -8,10 +8,7 @@
 #include "ModuleFadeToBlack.h"
 
 #include "Ball.h"
-#include "BigBall.h"
-#include "MediumBall.h"
-#include "SmallBall.h"
-#include "TinyBall.h"
+
 
 #define SPAWN_MARGIN 50
 
@@ -53,7 +50,7 @@ update_status ModuleBalls::Update()
 	{
 		if (Balls[i] != nullptr)
 			Balls[i]->Update();
-		
+
 	}
 
 	HandleBallsDespawn();
@@ -85,13 +82,13 @@ bool ModuleBalls::CleanUp()
 			delete Balls[i];
 			Balls[i] = nullptr;
 		}
-		
+
 	}
 
 	return true;
 }
 
-bool ModuleBalls::AddBall(BALL_TYPE type, int x, int y,bool rightDirection)
+bool ModuleBalls::AddBall(BALL_TYPE type, int x, int y, bool rightDirection)
 {
 	bool ret = false;
 
@@ -162,26 +159,26 @@ void ModuleBalls::SpawnBall(const BallSpawnpoint& info)
 			switch (info.type)
 			{
 			case BALL_TYPE::BIG:
-				Balls[i] = new BigBall(info.x, info.y);
+				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::BIG);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
 				break;
 			case BALL_TYPE::MEDIUM:
-				Balls[i] = new MediumBall(info.x, info.y);
+				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::MEDIUM);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
 				break;
 
 			case BALL_TYPE::SMALL:
-				Balls[i] = new SmallBall(info.x, info.y);
+				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::SMALL);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
 				break;
 
 			case BALL_TYPE::TINY:
-				Balls[i] = new TinyBall(info.x, info.y);
+				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::TINY);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx/2;
+					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
 				break;
 			}
 
@@ -209,12 +206,12 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_A) {
 
-			App->balls->Balls[i]->Ball_vx = -(App->balls->Balls[i]->Ball_vx)*2;
+			App->balls->Balls[i]->Ball_vx = -(App->balls->Balls[i]->Ball_vx) * 2;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_D) {
 
-			App->balls->Balls[i]->Ball_vx = -(App->balls->Balls[i]->Ball_vx)/2;
+			App->balls->Balls[i]->Ball_vx = -(App->balls->Balls[i]->Ball_vx) / 2;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::FLOOR) {
@@ -227,42 +224,61 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 
 }
 
-void ModuleBalls::DivideBalls(Ball ball)
+void ModuleBalls::DivideBalls()
 {
 	//This function divide and plays the explosion animation
+	for (uint i = 0; i < MAX_BALLS; ++i) {
+		//Big=1, Medium=2,Small=3,Tiny=4
 
-	//Big=1, Medium=2,Small=3,Tiny=4
-	switch (ball.type)
-	{
-	case(BALL_TYPE::BIG):
+		if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::BIG) {
 
-		App->particles->bigExplosion, ball.position.x, ball.position.y, Collider::Type::NONE, 0;
+			App->particles->bigExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0;
 
-		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
-		App->balls->AddBall(BALL_TYPE::MEDIUM, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
-		App->score += 500;
-		break;
-	case(BALL_TYPE::MEDIUM):
+			App->balls->AddBall(BALL_TYPE::MEDIUM, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
+			App->balls->AddBall(BALL_TYPE::MEDIUM, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+			App->score += 500;
+			Balls[i]->div = false;
+			Balls[i]->SetToDelete();
+			break;
+		}
 
-		App->particles->mediumExplosion, ball.position.x, ball.position.y, Collider::Type::NONE, 0;
+		else if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::MEDIUM) {
 
-		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
-		App->balls->AddBall(BALL_TYPE::SMALL, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
-		App->score += 500;
-		break;
-	case(BALL_TYPE::SMALL):
+			App->particles->mediumExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0;
 
-		App->particles->smallExplosion, ball.position.x, ball.position.y, Collider::Type::NONE, 0;
+			App->balls->AddBall(BALL_TYPE::SMALL, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
+			App->balls->AddBall(BALL_TYPE::SMALL, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+			App->score += 500;
+			Balls[i]->div = false;
+			Balls[i]->SetToDelete();
+			break;
+		}
 
-		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x + Xoffset, ball.position.y + Yoffset,true);
-		App->balls->AddBall(BALL_TYPE::TINY, ball.position.x - Xoffset, ball.position.y + Yoffset,false);
+		else if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::SMALL) {
 
-		App->score += 500;
+			App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0;
 
-		break; 
-	case(BALL_TYPE::TINY):
-		App->score += 500;
-		break;
+			App->balls->AddBall(BALL_TYPE::TINY, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
+			App->balls->AddBall(BALL_TYPE::TINY, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+			Balls[i]->div = false;
+			App->score += 500;
+			Balls[i]->SetToDelete();
+
+			break;
+		}
+
+		else if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::TINY) {
+			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y);
+			App->score += 500;
+			Balls[i]->div = false;
+			Balls[i]->SetToDelete();
+			break;
+		}
+
+		else if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::NO_TYPE) {
+			LOG("No type ball");
+		}
+
 	}
 }
 
@@ -278,7 +294,7 @@ update_status ModuleBalls::checkRemainingBalls()
 			break;
 			counter = 0;
 		}
-		else if(Balls[i] == nullptr)
+		else if (Balls[i] == nullptr)
 		{
 			counter++;
 			if (counter == MAX_BALLS) {

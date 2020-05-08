@@ -45,18 +45,6 @@
     <ClCompile Include="Ball.cpp">
       <Filter>Source Files\Entities\Balls</Filter>
     </ClCompile>
-    <ClCompile Include="BigBall.cpp">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClCompile>
-    <ClCompile Include="MediumBall.cpp">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClCompile>
-    <ClCompile Include="SmallBall.cpp">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClCompile>
-    <ClCompile Include="TinyBalls.cpp">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClCompile>
     <ClCompile Include="Particle.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
@@ -147,18 +135,6 @@
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Ball.h">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClInclude>
-    <ClInclude Include="BigBall.h">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClInclude>
-    <ClInclude Include="MediumBall.h">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClInclude>
-    <ClInclude Include="SmallBall.h">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClInclude>
-    <ClInclude Include="TinyBall.h">
       <Filter>Source Files\Entities\Balls</Filter>
     </ClInclude>
     <ClInclude Include="InterfaceElement.h">

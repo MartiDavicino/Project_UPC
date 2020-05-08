@@ -29,6 +29,7 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	App->audio->Enable();
 	App->audio->Start();
+	counter = 0;
 
 	bgtitle = App->textures->Load("Assets/Title.png");
 	bgimg = App->textures->Load("Assets/cutrisimo.png");
@@ -71,7 +72,7 @@ update_status ModuleSceneIntro::PostUpdate()
 	}
 	if (counter == 2) {
 		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
-		counter = 0;
+
 	}
 
 	return update_status::UPDATE_CONTINUE;

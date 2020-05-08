@@ -14,7 +14,7 @@
 struct BallSpawnpoint
 {
 	BALL_TYPE type = BALL_TYPE::NO_TYPE;
-	int x, y; 
+	int x, y;
 	bool right = true;
 };
 
@@ -49,7 +49,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	// Add an enemy into the queue to be spawned later
-	bool AddBall(BALL_TYPE type, int x, int y,bool right);
+	bool AddBall(BALL_TYPE type, int x, int y, bool right);
 
 	// Iterates the queue and checks for camera position
 	void HandleBallsSpawn();
@@ -58,7 +58,7 @@ public:
 	void HandleBallsDespawn();
 
 	//spawns new balls after destroyed ones
-	void DivideBalls(Ball ball);
+	void DivideBalls();
 
 	//checks if all balls have been destroyed
 	update_status checkRemainingBalls();
@@ -75,14 +75,14 @@ private:
 	// Spawns a new enemy using the data from the queue
 	void SpawnBall(const BallSpawnpoint& info);
 
-	
+
 
 private:
 	// A queue with all spawn points information
 	BallSpawnpoint spawnQueue[MAX_BALLS];
 
 	// All spawned enemies in the scene
-	
+
 
 	// The enemies sprite sheet
 	SDL_Texture* texture = nullptr;
@@ -92,3 +92,4 @@ private:
 };
 
 #endif // __MODULE_ENEMIES_H__
+

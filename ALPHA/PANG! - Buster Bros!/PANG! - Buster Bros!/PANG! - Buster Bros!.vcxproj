@@ -135,13 +135,11 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="BigBall.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Drop.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="InterfaceElement.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MediumBall.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleBalls.cpp" />
@@ -163,19 +161,15 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Rope.cpp" />
-    <ClCompile Include="SmallBall.cpp" />
-    <ClCompile Include="TinyBalls.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="BigBall.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Drop.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="InterfaceElement.h" />
-    <ClInclude Include="MediumBall.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleAudio.h" />
@@ -199,8 +193,6 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Rope.h" />
-    <ClInclude Include="SmallBall.h" />
-    <ClInclude Include="TinyBall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

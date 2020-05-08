@@ -21,7 +21,7 @@ class Ball
 public:
 	// Constructor
 	// Saves the spawn position for later movement calculations
-	Ball(int x, int y);
+	Ball(int x, int y, BALL_TYPE type);
 
 	// Destructor
 	virtual ~Ball();
@@ -45,12 +45,14 @@ public:
 
 	Animation idle;
 
-	BALL_TYPE type = BALL_TYPE::NO_TYPE;
+
 
 	virtual BALL_TYPE GetType();
 
 
 public:
+
+	BALL_TYPE type = BALL_TYPE::NO_TYPE;
 	// The current position in the world
 	iPoint position;
 
@@ -72,6 +74,8 @@ public:
 
 	int xOffset = 10;
 	int yOffset = 10;
+
+	bool div = false;
 
 protected:
 	// A ptr to the current animation
