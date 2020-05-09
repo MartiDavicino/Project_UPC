@@ -5,7 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleCollisions.h"
-
+#include "ModulePlayer.h"
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles(bool startEnabled) : Module(startEnabled)
@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/balls.png");
+	texture = App->textures->Load("Assets/particles.png");
 
 	// Explosion particle
 	/*explosion.anim.PushBack({274, 296, 33, 30});
@@ -34,36 +34,41 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;*/
 
-	dieRightAnim.anim.PushBack({ 6,150,34,24 });
-	dieLeftAnim.anim.PushBack({ 40,150,34,24 });
+	dieRightAnim.anim.PushBack({ 6,375 ,34,24 });
+	dieLeftAnim.anim.PushBack({ 40,375,34,24 });
 	dieRightAnim.speed.y = dieLeftAnim.speed.y = 2;
 	dieRightAnim.speed.x = 2;
 	dieLeftAnim.speed.x = -dieRightAnim.speed.x;
 
 
-	bigExplosion.anim.PushBack({ 120,5,51,42 });
-	bigExplosion.anim.PushBack({ 175,6,46,42 });
-	bigExplosion.anim.PushBack({ 223,5 , 44,40 });
-	bigExplosion.anim.PushBack({ 268,0,52,48});
+	bigExplosion.anim.PushBack({ 120,231,51,42 });
+	bigExplosion.anim.PushBack({ 175,232,46,42 });
+	bigExplosion.anim.PushBack({ 223,231, 44,40 });
+	bigExplosion.anim.PushBack({ 268,225,52,48});
 	bigExplosion.anim.loop = false;
 
-	mediumExplosion.anim.PushBack({ 325,12,33,27 });
-	mediumExplosion.anim.PushBack({ 359,9,38,27 });
-	mediumExplosion.anim.PushBack({ 402,7,36,36 });
-	mediumExplosion.anim.PushBack({ 442,10,36,34 });
+	mediumExplosion.anim.PushBack({ 325,238,33,27 });
+	mediumExplosion.anim.PushBack({ 359,236,38,27 });
+	mediumExplosion.anim.PushBack({ 402,233,36,36 });
+	mediumExplosion.anim.PushBack({ 442,236,36,34 });
 	mediumExplosion.anim.loop = false;
 
-	smallExplosion.anim.PushBack({ 495,19,23,18 });
-	smallExplosion.anim.PushBack({ 516,18,18,21 });
-	smallExplosion.anim.PushBack({ 540,20,22,20 });
+	smallExplosion.anim.PushBack({ 495,245,23,18 });
+	smallExplosion.anim.PushBack({ 516,246,18,21 });
+	smallExplosion.anim.PushBack({ 540,246,22,20 });
 	smallExplosion.anim.loop = false;
 
-	blink.anim.PushBack({ 0,180,400,208 });
+	blink.anim.PushBack({ 0,405,400,208 });
 	blink.anim.loop = false;
 	blink.lifetime = 30.0f;
 	blink.frameCount = 1;
 
-	//bigExplosion,mediumExplosion, etc . . .
+	inmune.anim.PushBack({ 125,366,34,39 });
+	inmune.anim.PushBack({ 165,365,34,40 });
+	inmune.anim.loop = true;
+	inmune.anim.speed = 5;
+	inmune.speed.x = 2;
+
 
 
 
@@ -145,6 +150,11 @@ update_status ModuleParticles::PostUpdate()
 		if (particle != nullptr && particle->isAlive)
 		{
 			App->render->Blit(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+		}
+		if (particle == &App->particles->inmune)
+		{
+			particle->position.x = App->player->position.x;
+			particle->position.y = App->player->position.y;
 		}
 	}
 

@@ -57,6 +57,8 @@ public:
 	void AddElement(const InterfaceElement& element, int x, int y);
 	void AddDrop(const Drop& drop, int x ,int y);
 
+	void Random();
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

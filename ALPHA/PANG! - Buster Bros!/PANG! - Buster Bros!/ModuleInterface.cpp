@@ -10,6 +10,8 @@
 
 
 #include "SDL/include/SDL_timer.h"
+#include<stdio.h>
+#include<stdlib.h>
 
 
 
@@ -281,4 +283,15 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y)
 			break;
 		}
 	}
+}
+
+void ModuleInterface::Random()
+{
+	//random choose between powerups or food
+	
+
+	/*switch (DROP_TYPE)
+	{
+
+	}*/
 }

@@ -74,6 +74,8 @@ public:
 	Particle smallExplosion;
 	Particle tinyExplosion;
 
+	Particle inmune;
+
 };
 
 #endif // !__MODULEPARTICLES_H__

@@ -110,8 +110,14 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	// Moving the player with the camera scroll
-	//App->player->position.x += 1;
+	
+	if (isInmune == true) {
+		
+		//it creates a lot of particles
+		//App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE);
+
+
+	}
 
 	//god mode
 	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
@@ -319,6 +325,8 @@ update_status ModulePlayer::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
+
+
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false)
@@ -379,6 +387,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		/*App->score += 500;*/
 	}
-
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DROP || c1->type == Collider::Type::DROP && c2->type == Collider::Type::PLAYER)
+	{
+		//equip item
+	}
 
 }
