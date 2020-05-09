@@ -55,9 +55,9 @@ public:
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
 	void AddElement(const InterfaceElement& element, int x, int y);
-	void AddDrop(const Drop& drop, int x ,int y);
+	void AddDrop(const Drop& drop, int x ,int y,DROP_TYPE type);
 
-	void Random();
+	void RandomDrop(int x,int y);
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
@@ -71,7 +71,8 @@ private:
 	Drop* drops[MAX_ACTIVE_INTERFACE_ELEMENTS] = { nullptr };
 
 public:
-	//Template particle for an explosion
+	int itemsCount = 0;
+	iPoint equippedPosition; 
 
 	InterfaceElement* currentAnim = nullptr;
 
@@ -88,8 +89,18 @@ public:
 	InterfaceElement hook;
 	InterfaceElement inmune;
 
+	//scores
+	InterfaceElement score400;
+	InterfaceElement score800;
+	InterfaceElement score1600;
+	
+
 	Drop hookDrop;
 	Drop inmuneDrop;
+	Drop gunDrop;
+
+	Drop cherry;
+	Drop banana;
 	
 
 };

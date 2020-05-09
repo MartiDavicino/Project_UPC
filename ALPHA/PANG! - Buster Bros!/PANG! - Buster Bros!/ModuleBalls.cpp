@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleInterface.h"
 
 #include "Ball.h"
 
@@ -227,6 +228,7 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 void ModuleBalls::DivideBalls()
 {
 	//This function divide and plays the explosion animation
+	//And also, the function Random, ads a drop when the ball explodes
 	for (uint i = 0; i < MAX_BALLS; ++i) {
 		//Big=1, Medium=2,Small=3,Tiny=4
 
@@ -236,6 +238,11 @@ void ModuleBalls::DivideBalls()
 
 			App->balls->AddBall(BALL_TYPE::MEDIUM, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
 			App->balls->AddBall(BALL_TYPE::MEDIUM, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+
+			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
+
+			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y);
+
 			App->score += 500;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
@@ -248,6 +255,9 @@ void ModuleBalls::DivideBalls()
 
 			App->balls->AddBall(BALL_TYPE::SMALL, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
 			App->balls->AddBall(BALL_TYPE::SMALL, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+
+			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
+
 			App->score += 500;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
@@ -260,6 +270,12 @@ void ModuleBalls::DivideBalls()
 
 			App->balls->AddBall(BALL_TYPE::TINY, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
 			App->balls->AddBall(BALL_TYPE::TINY, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+
+			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
+
+			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y);
+
+
 			Balls[i]->div = false;
 			App->score += 500;
 			Balls[i]->SetToDelete();
@@ -269,6 +285,9 @@ void ModuleBalls::DivideBalls()
 
 		else if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::TINY) {
 			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y);
+
+			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
+
 			App->score += 500;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();

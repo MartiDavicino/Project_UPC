@@ -42,8 +42,10 @@ public:
 	// A set of rectangle sprites
 
 	Animation *currentAnim;
-	Animation idle;
+	Animation anim;
 	Animation blink;
+
+	DROP_TYPE name;
 
 	bool isBlinking = false;
 

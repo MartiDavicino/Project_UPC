@@ -8,7 +8,7 @@ Drop::Drop()
 	
 }
 
-Drop::Drop(const Drop& d) : idle(d.idle), position(d.position), speed(d.speed),
+Drop::Drop(const Drop& d) : anim(d.anim), position(d.position), speed(d.speed),
 frameCount(d.frameCount), lifetime(d.lifetime)
 {
 
@@ -31,7 +31,7 @@ bool Drop::Update()
 
 	if (isAlive)
 	{
-		idle.Update();
+		anim.Update();
 
 		// If the particle has a specific lifetime, check when it has to be destroyed
 		if (lifetime > 0)
@@ -41,6 +41,7 @@ bool Drop::Update()
 				//ret = false;
 				isBlinking = true;
 				frameCount = 0;
+				return false;
 			}
 			else if (frameCount >= lifetime)
 			{
@@ -56,7 +57,8 @@ bool Drop::Update()
 		
 
 		// Update the position in the screen
-		
+		position.x += speed.x;
+		position.y += speed.y;
 		
 
 		if (collider != nullptr)

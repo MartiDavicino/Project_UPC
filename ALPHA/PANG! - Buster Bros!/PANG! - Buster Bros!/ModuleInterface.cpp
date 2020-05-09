@@ -35,10 +35,11 @@ ModuleInterface::~ModuleInterface()
 bool ModuleInterface::Start()
 {
 
-
+	equippedPosition.x = 90;
+	equippedPosition.y = 220;
 
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/newInterface.png");
+	texture = App->textures->Load("Assets/Interface.png");
 
 	
 	//Interface Elements
@@ -58,19 +59,44 @@ bool ModuleInterface::Start()
 
 
 	//Drops
-	hookDrop.idle.PushBack({160,258,14,14}); 
+	hookDrop.anim.PushBack({71,255,17,17}); 
 	hookDrop.blink.PushBack({160,258,14,14 });
 	/*hookDrop.idle.PushBack({ 0,0,200,200 });
 	hookDrop.blink.PushBack({ 0,0,200,200});*/
-	hookDrop.idle.loop = hookDrop.blink.loop = true;
+	hookDrop.anim.loop = hookDrop.blink.loop = true;
 	hookDrop.blink.speed = 2;
 
+	inmuneDrop.anim.PushBack({ 9,283,22,22 });
+	inmuneDrop.anim.PushBack({ 43,280,25,25 });
+	inmuneDrop.anim.PushBack({ 81,280,25,25 });
+	inmuneDrop.anim.PushBack({ 117,280,27,27 });
+	inmuneDrop.anim.PushBack({ 155,280,27,27 });
+	inmuneDrop.anim.PushBack({ 192,280,27,27 });
+	inmuneDrop.anim.PushBack({ 229,280,27,27 });
+	inmuneDrop.anim.PushBack({ 117,280,27,27 });
+	inmuneDrop.anim.PushBack({ 229,283,27,27 });
+	inmuneDrop.anim.loop = true;
 
+	//food
+	banana.anim.PushBack({ 70,324,16,16 });
+	banana.anim.PushBack({ 70,417,16,16 });
+
+	cherry.anim.PushBack({ 8,324,16,16 });
+	cherry.anim.PushBack({ 8,417,16,16 });
+	
+	//scores
+	score400.anim.PushBack({180,545,24,15});  
+
+	score800.anim.PushBack({ 220,545,24,15 });
+
+	score1600.anim.PushBack({ 251,545,40,15 });
+
+	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0);
 	/*App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);*/
-	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 180, 40);
-	
+	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, equippedPosition.x, equippedPosition.y,DROP_TYPE::HOOK);
+	App->interfaceElements->AddElement(App->interfaceElements->score400, 220,40);
 
 	return true;
 }
@@ -202,7 +228,7 @@ update_status ModuleInterface::PostUpdate()
 		{
 			//App->render->Blit(texture, element->position.x, element->position.y, 0);
 			//&(element->anim.GetCurrentFrame())
-			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->idle.GetCurrentFrame()));
+			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->anim.GetCurrentFrame()));
 
 			//if not detected a collision with either player or floor
 			//if (drop.collider)
@@ -257,7 +283,7 @@ void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y)
 
 
 
-void ModuleInterface::AddDrop(const Drop& drop, int x, int y)
+void ModuleInterface::AddDrop(const Drop& drop, int x, int y,DROP_TYPE name)
 {
 	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
 	{
@@ -276,8 +302,10 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y)
 				e->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);*/
 			
 			// this collider is creating away from its or
-			d->collider = App->collisions->AddCollider(d->idle.GetCurrentFrame(), Collider::Type::DROP, this);
+			d->collider = App->collisions->AddCollider(d->anim.GetCurrentFrame(), Collider::Type::DROP, this);
 			d->collider->SetPos(x, y);
+
+			d->name = name;
 
 			drops[i] = d;
 			break;
@@ -285,13 +313,23 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y)
 	}
 }
 
-void ModuleInterface::Random()
+void ModuleInterface::RandomDrop(int x,int y)
 {
-	//random choose between powerups or food
-	
-
-	/*switch (DROP_TYPE)
+	//function to put where a ball explodes
+	if (itemsCount == 5)itemsCount = 0;
+	//random parameter to determine which is the drop
+	switch (itemsCount)
 	{
-
-	}*/
+	case(3): //power up
+		App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::FOOD);
+		App->interfaceElements->AddDrop(inmuneDrop, x, y, DROP_TYPE::FOOD);
+		App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::FOOD);
+	    break;
+	case(4): //food
+		App->interfaceElements->AddDrop(banana, x, y, DROP_TYPE::FOOD);
+		App->interfaceElements->AddDrop(banana, x, y, DROP_TYPE::FOOD);
+		break;
+	
+	}
+	itemsCount++;
 }
