@@ -5,7 +5,10 @@
 #include "p2Point.h"
 
 struct Collider;
+enum class PARTICLE_TYPE {
+	ROPE, HOOK, SHOT, EXPLOSION, NONE
 
+};
 struct Particle
 {
 public:
@@ -36,6 +39,8 @@ public:
 	// Defines wether the particle is alive or not
 	// Particles will be set to not alive until "spawnTime" is reached
 	bool isAlive = false;
+
+	PARTICLE_TYPE type;
 
 	// Defines the amout of frames this particle has been active
 	// Negative values mean the particle is waiting to be activated

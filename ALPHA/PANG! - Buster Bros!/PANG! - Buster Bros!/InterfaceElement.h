@@ -5,6 +5,10 @@
 #include "p2Point.h"
 
 
+enum class INTERFACE_ELEMENT_TYPE {
+	UI,
+	EQUIPPED
+};
 
 struct InterfaceElement
 {
@@ -27,9 +31,11 @@ public:
 
 public:
 	// Defines the position in the screen
+	INTERFACE_ELEMENT_TYPE type;
+
 	iPoint position;
 	iPoint speed;
-
+	
 
 	SDL_Rect frame;
 
@@ -42,6 +48,7 @@ public:
 	// Particles will be set to not alive until "spawnTime" is reached
 	bool display = true;
 
+	int equipped;
 	// Defines the amout of frames this particle has been active
 	// Negative values mean the particle is waiting to be activated
 	int frameCount = 0;

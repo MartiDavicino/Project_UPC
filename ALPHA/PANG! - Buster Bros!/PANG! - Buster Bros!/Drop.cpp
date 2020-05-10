@@ -1,5 +1,8 @@
 #include "Drop.h"
+#include "Application.h"
 
+
+#include "Moduleplayer.h"
 #include "Collider.h"
 
 Drop::Drop()
@@ -96,6 +99,27 @@ void Drop::OnCollision(Collider* c1, Collider* c2)
 		if (c2->type == Collider::Type::PLAYER)
 		{
 			//equip item
+
+			switch (name)
+			{
+			case(DROP_TYPE::FOOD):
+				isAlive = false;
+				//Score++
+				break;
+			case(DROP_TYPE::HOOK):
+				isAlive = false;
+				App->player->isEquipped = 1;
+				break;
+			case(DROP_TYPE::INMUNE):
+				App->player->isInmune;
+				isAlive = false;
+				break;
+			case(DROP_TYPE::GUN):
+				isAlive = false;
+				App->player->isEquipped = 2;
+				break;
+
+			}
 		}
 	}
 

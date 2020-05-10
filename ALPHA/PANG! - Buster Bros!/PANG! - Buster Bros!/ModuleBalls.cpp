@@ -241,7 +241,7 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
-			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y);
+			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI);
 
 			App->score += 500;
 			Balls[i]->div = false;
@@ -258,6 +258,8 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
+			App->interfaceElements->AddElement(App->interfaceElements->score400, 22, 40, INTERFACE_ELEMENT_TYPE::UI);
+
 			App->score += 500;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
@@ -273,7 +275,7 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
-			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y);
+			App->interfaceElements->AddElement(App->interfaceElements->score400, 30, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI);
 
 
 			Balls[i]->div = false;
@@ -284,7 +286,7 @@ void ModuleBalls::DivideBalls()
 		}
 
 		else if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type == BALL_TYPE::TINY) {
-			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y);
+			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y,Collider::Type::NONE,0,PARTICLE_TYPE::EXPLOSION);
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 

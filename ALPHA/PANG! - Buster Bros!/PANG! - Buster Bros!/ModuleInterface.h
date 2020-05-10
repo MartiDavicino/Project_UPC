@@ -46,6 +46,8 @@ public:
 	// Destroys all active particles left in the array
 	bool CleanUp() override;
 
+	void CleanEquipped(InterfaceElement elemnent);
+
 	// Called when a particle collider hits another collider
 
 	//void OnCollision(Collider* c1, Collider* c2) override;
@@ -54,7 +56,7 @@ public:
 	// Param particle	- A template particle from which the new particle will be created
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
-	void AddElement(const InterfaceElement& element, int x, int y);
+	void AddElement(const InterfaceElement& element, int x, int y,INTERFACE_ELEMENT_TYPE type);
 	void AddDrop(const Drop& drop, int x ,int y,DROP_TYPE type);
 
 	void RandomDrop(int x,int y);
@@ -88,6 +90,7 @@ public:
 	//Include in player bool hasItem;
 	InterfaceElement hook;
 	InterfaceElement inmune;
+	InterfaceElement gun;
 
 	//scores
 	InterfaceElement score400;

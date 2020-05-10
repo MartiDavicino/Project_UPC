@@ -161,6 +161,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
+		isEquipped = 2;
 		if (Collision_A != true)
 		{
 			position.x -= speed;
@@ -178,6 +179,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
+		isEquipped = 1;
 		if (Collision_D != true)
 		{
 			position.x += speed;
@@ -236,11 +238,15 @@ update_status ModulePlayer::Update()
 		switch (isEquipped)
 		{
 		case(0):
-			App->ropes->AddRope(App->ropes->rope, position.x + 9, position.y, Collider::Type::ROPE);
-
+			App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE);
+				
 			break;
 		case(1):
-
+			App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE);
+			break;
+		case(2):
+			App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE);
+			App->particles->AddRope(App->particles->shotParticle, position.x + 9, position.y, Collider::Type::ROPE);
 			break;
 		}
 		
@@ -347,7 +353,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				if (lives == 4) lives--;
 			}
 			if (isInmune == true) isInmune = false;
-			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0);
+			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
 			if (isAlive == true) 
 			{
 				SDL_Delay(200);
@@ -355,11 +361,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				{
 				case(false):
 					LOG("Die Right\n")
-						App->particles->AddParticle(App->particles->dieRightAnim, position.x, position.y, Collider::Type::NONE, 0);
+						App->particles->AddParticle(App->particles->dieRightAnim, position.x, position.y, Collider::Type::NONE, 0,PARTICLE_TYPE::NONE);
 					break;
 				case(true):
 					LOG("Die Left\n")
-						App->particles->AddParticle(App->particles->dieLeftAnim, position.x, position.y, Collider::Type::NONE, 0);
+						App->particles->AddParticle(App->particles->dieLeftAnim, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
 					break;
 				}
 				isAlive = false;
@@ -390,6 +396,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DROP || c1->type == Collider::Type::DROP && c2->type == Collider::Type::PLAYER)
 	{
 		//equip item
+	
 	}
 
 }

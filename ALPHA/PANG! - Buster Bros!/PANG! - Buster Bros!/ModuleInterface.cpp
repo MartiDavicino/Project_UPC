@@ -57,12 +57,16 @@ bool ModuleInterface::Start()
 	
 	Blink.anim.loop = true;
 
+	//equipped
+	hook.anim.PushBack({ 71,255,17,17 });
+	
+	gun.anim.PushBack({ 92,255,17,17 });
+
 
 	//Drops
 	hookDrop.anim.PushBack({71,255,17,17}); 
 	hookDrop.blink.PushBack({160,258,14,14 });
-	/*hookDrop.idle.PushBack({ 0,0,200,200 });
-	hookDrop.blink.PushBack({ 0,0,200,200});*/
+	
 	hookDrop.anim.loop = hookDrop.blink.loop = true;
 	hookDrop.blink.speed = 2;
 
@@ -93,10 +97,10 @@ bool ModuleInterface::Start()
 
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	
-	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0);
+	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI);
 	/*App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);*/
-	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, equippedPosition.x, equippedPosition.y,DROP_TYPE::HOOK);
-	App->interfaceElements->AddElement(App->interfaceElements->score400, 220,40);
+	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
+	App->interfaceElements->AddElement(App->interfaceElements->score400, 220,40, INTERFACE_ELEMENT_TYPE::UI);
 
 	return true;
 }
@@ -129,6 +133,19 @@ bool ModuleInterface::CleanUp()
 	return true;
 }
 
+void ModuleInterface::CleanEquipped(InterfaceElement element)
+{
+	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
+	{
+		if (interfaceElements[i]!=nullptr && interfaceElements[i]==&element)
+		{
+			interfaceElements[i]->display = false;
+
+			delete interfaceElements[i];
+			interfaceElements[i] = nullptr;
+		}
+	}
+}
 
 
 update_status ModuleInterface::Update()
@@ -153,40 +170,45 @@ update_status ModuleInterface::Update()
 	switch (App->player->lives)
 	{
 	case(4):
-		App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220);
+		App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220,INTERFACE_ELEMENT_TYPE::UI);
 
 		break;
 
 	case(3):
 		fourthLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220);
+		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI);
 		
 		break;
 	case(2):
 		thirdLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 220);
+		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 220, INTERFACE_ELEMENT_TYPE::UI);
 		
 		break;
 	case(1):
 		secondLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10,220);
+		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10,220, INTERFACE_ELEMENT_TYPE::UI);
 		
 		break;
 	case(0):
-		App->interfaceElements->AddElement(App->interfaceElements->zeroLife, 10,0 );
+		
 		
 		break;
 	}
 
 	switch (App->player->isEquipped)
 	{
+	case(0):
+		App->interfaceElements->CleanEquipped(hook); App->interfaceElements->CleanEquipped(gun);
+		//App->interfaceElements->AddElement(App->interfaceElements->hook, 10, 220, INTERFACE_ELEMENT_TYPE::EQUIPPED);
+		break;
+
 	case(1):
+		App->interfaceElements->CleanEquipped(gun);
+		App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x+20, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 	case(2):
-		break;
-	case(3):
-		break;
-	case(4):
+		App->interfaceElements->CleanEquipped(hook);
+		App->interfaceElements->AddElement(App->interfaceElements->gun, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 
 	}
@@ -230,6 +252,8 @@ update_status ModuleInterface::PostUpdate()
 			//&(element->anim.GetCurrentFrame())
 			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->anim.GetCurrentFrame()));
 
+			//drop->OnCollision(drop->collider);
+
 			//if not detected a collision with either player or floor
 			//if (drop.collider)
 			//{
@@ -258,7 +282,7 @@ update_status ModuleInterface::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
-void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y)
+void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y,INTERFACE_ELEMENT_TYPE type)
 {
 	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 	{
@@ -273,7 +297,8 @@ void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y)
 
 			e->speed.y = -0.5f;
 
-			
+			if (type == INTERFACE_ELEMENT_TYPE::EQUIPPED)
+				e->equipped = true;
 
 			interfaceElements[i] = e;
 			break;
@@ -321,9 +346,9 @@ void ModuleInterface::RandomDrop(int x,int y)
 	switch (itemsCount)
 	{
 	case(3): //power up
-		App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::FOOD);
-		App->interfaceElements->AddDrop(inmuneDrop, x, y, DROP_TYPE::FOOD);
-		App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::FOOD);
+		App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::HOOK);
+		App->interfaceElements->AddDrop(inmuneDrop, x, y, DROP_TYPE::INMUNE);
+		App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::GUN);
 	    break;
 	case(4): //food
 		App->interfaceElements->AddDrop(banana, x, y, DROP_TYPE::FOOD);
