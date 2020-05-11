@@ -1,9 +1,16 @@
 #include "Drop.h"
 #include "Application.h"
 
+//test
+#include "ModuleAudio.h"
+#include "ModuleParticles.h"
 
+#include "ModuleInterface.h"
 #include "Moduleplayer.h"
 #include "Collider.h"
+
+#include "SDL/include/SDL.h"
+#include "SDL/include/SDL_scancode.h"
 
 Drop::Drop()
 {
@@ -73,17 +80,22 @@ bool Drop::Update()
 }
 
 
+const Collider* Drop::GetCollider() const
+{
+	return collider;
+}
 
-void Drop::OnCollision(Collider* c1, Collider* c2)
+
+void Drop::OnCollision(Collider* d1, Collider* d2)
 {
 	
-	if (c1 == collider)
+	if (d1 == collider)
 	{
-		if (c2->type == Collider::Type::FLOOR)
+		if (d2->type == Collider::Type::FLOOR)
 		{
 			//stop speed and start time count
 		}
-		if (c2->type == Collider::Type::PLAYER)
+		if (d2->type == Collider::Type::PLAYER)
 		{
 			//equip item
 
@@ -108,7 +120,13 @@ void Drop::OnCollision(Collider* c1, Collider* c2)
 
 			}
 		}
-	}
 
+		//test collision
+		if (d2->type == Collider::Type::ROPE)
+		{
+		
+		}
+	}
 	
+
 }

@@ -61,6 +61,11 @@ public:
 
 	void RandomDrop(int x,int y);
 
+
+	//collisions
+	void OnCollision(Collider* c1, Collider* c2);
+
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

@@ -31,7 +31,12 @@ public:
 	bool Update();
 
 	//collisions
-	void OnCollision(Collider* c1, Collider* c2);
+	void OnCollision(Collider* d1, Collider* d2);
+
+	//get collider
+	const Collider* GetCollider() const;
+
+
 
 public:
 	// Defines the position in the screen
