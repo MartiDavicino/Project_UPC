@@ -405,9 +405,18 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (particles[i] != nullptr && particles[i]->collider == c1)
 		{
-			delete particles[i];
-			particles[i] = nullptr;
-			break;
+			if (c2->type == Collider::Type::TOP)
+			{
+				delete particles[i];
+				particles[i] = nullptr;
+				break;
+			}
+			if (c2->type == Collider::Type::BALL)
+			{
+				delete particles[i];
+				particles[i] = nullptr;
+				break;
+			}
 		}
 	}
 }

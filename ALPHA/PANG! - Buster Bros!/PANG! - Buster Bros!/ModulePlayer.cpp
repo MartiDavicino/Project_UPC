@@ -337,15 +337,13 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false)
 	{
-		
-
 		/*App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
 		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
 		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
 		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);*/
 
-		if (c1->type == Collider::Type::BALL && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BALL)
+		if (c2->type == Collider::Type::BALL)
 		{
 			//The problem is the collision is tetected more than once, so number of lives decreases drastically
 			if (isInmune == false)
@@ -376,27 +374,27 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			destroyed = true;
 		}
 
-		if (c1->type == Collider::Type::WALL_A && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL_A)
+		if (c2->type == Collider::Type::WALL_A)
 		{
 			Collision_A = true;
 		}
-		if (c1->type == Collider::Type::WALL_D && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL_D)
+		if (c2->type == Collider::Type::WALL_D)
 		{
 			Collision_D = true;
 		}
-		if (c1->type == Collider::Type::FLOOR && c2->type == Collider::Type::PLAYER || c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::FLOOR)
+		if (c2->type == Collider::Type::FLOOR)
 		{
 			Collision_F = true;
 		}
+		if (c2->type == Collider::Type::DROP)
+		{
+			//equip item
+		}
 	}
+
 	if (c1->type == Collider::Type::ROPE && c2->type == Collider::Type::BALL)
 	{
 		/*App->score += 500;*/
-	}
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DROP || c1->type == Collider::Type::DROP && c2->type == Collider::Type::PLAYER)
-	{
-		//equip item
-	
 	}
 
 }
