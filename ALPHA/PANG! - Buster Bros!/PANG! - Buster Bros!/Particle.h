@@ -6,7 +6,7 @@
 
 struct Collider;
 enum class PARTICLE_TYPE {
-	ROPE, HOOK, SHOT, EXPLOSION, NONE
+	ROPE, HOOK, SHOT, EXPLOSION, NONE,INMUNE
 
 };
 struct Particle
@@ -25,6 +25,8 @@ public:
 	// Handles the logic of the particle
 	// Returns false when the particle reaches its lifetime
 	bool Update();
+
+	void SetPos(int x, int y);
 
 public:
 	// Defines the position in the screen

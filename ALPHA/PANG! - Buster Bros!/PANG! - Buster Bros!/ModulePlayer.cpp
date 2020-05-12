@@ -111,11 +111,11 @@ bool ModulePlayer::Start()
 update_status ModulePlayer::Update()
 {
 	
-	if (isInmune == true) {
+	if (isInmune == true&&inmuneActivated==false) {
 		
 		//it creates a lot of particles
-		//App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE);
-
+		App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE,0,PARTICLE_TYPE::INMUNE);
+		inmuneActivated = true;
 
 	}
 
@@ -180,6 +180,7 @@ update_status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
 		isEquipped = 1;
+		isMovingAt.x = 3;
 		if (Collision_D != true)
 		{
 			position.x += speed;

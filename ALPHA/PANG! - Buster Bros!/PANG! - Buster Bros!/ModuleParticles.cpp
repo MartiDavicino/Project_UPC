@@ -69,7 +69,7 @@ bool ModuleParticles::Start()
 	inmune.anim.PushBack({ 165,365,34,40 });
 	inmune.anim.loop = true;
 	inmune.anim.speed = 5;
-	inmune.speed.x = 2;
+	inmune.speed.x = -2;
 
 	rope.anim.PushBack({ 0, 175, 9, 34 });
 	rope.anim.PushBack({ 9, 173, 9, 36 });
@@ -461,12 +461,19 @@ update_status ModuleParticles::PostUpdate()
 		if (particle != nullptr && particle->isAlive)
 		{
 			App->render->Blit(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+
+
+			if (particle->type == PARTICLE_TYPE::INMUNE)
+			{
+				particle->speed.x = App->player->isMovingAt.x;
+				//particle->position.x += particle->speed.x;
+				//particle->position.x++;
+				////particle->position.SetTo(App->player->position.x, App->player->position.y);
+				//particle->SetPos(App->player->position.x, App->player->position.y);
+				//
+			}
 		}
-		if (particle == &App->particles->inmune)
-		{
-			particle->position.x = App->player->position.x;
-			particle->position.y = App->player->position.y;
-		}
+		
 	}
 
 	return update_status::UPDATE_CONTINUE;
@@ -489,6 +496,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collid
 			//Adding the particle's collider
 			if (colliderType != Collider::Type::NONE)
 				p->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);
+			if (type != PARTICLE_TYPE::NONE)
+				p->type = type;
 
 			particles[i] = p;
 			break;

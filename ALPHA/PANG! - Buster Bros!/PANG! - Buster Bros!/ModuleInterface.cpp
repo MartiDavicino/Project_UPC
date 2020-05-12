@@ -98,7 +98,7 @@ bool ModuleInterface::Start()
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI);
-	/*App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 40, 40);*/
+	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 120, 40,DROP_TYPE::HOOK);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 	App->interfaceElements->AddElement(App->interfaceElements->score400, 220,40, INTERFACE_ELEMENT_TYPE::UI);
 
@@ -252,21 +252,12 @@ update_status ModuleInterface::PostUpdate()
 			//&(element->anim.GetCurrentFrame())
 			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->anim.GetCurrentFrame()));
 
-			//drop->OnCollision(drop->collider);
+			if (drop->isPlaced == false)
+			{
+				drop->position.y++;
+				drop->collider->SetPos(drop->position.x, drop->position.y);
+			}
 
-			//if not detected a collision with either player or floor
-			//if (drop.collider)
-			//{
-			//	drop->position.y++;
-			//	drop->collider->SetPos(drop->position.x, drop->position.y);
-
-			//	//if the collision is with the player make the item dissapear
-			//	if (1)
-			//	{
-			//		//equip the item
-			//	}
-			//}
-			//drop->OnCollision(collider);
 			
 
 			
@@ -364,7 +355,7 @@ void ModuleInterface::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
 	{
-
+		drops[i]->isPlaced;
 		if (drops[i] != nullptr && drops[i]->GetCollider() == c1 && c2->type == Collider::Type::PLAYER)
 		{
 			drops[i]->OnCollision(c1, c2);

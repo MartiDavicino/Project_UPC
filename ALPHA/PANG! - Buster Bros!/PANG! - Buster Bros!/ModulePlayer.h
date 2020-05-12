@@ -40,9 +40,10 @@ public:
 	bool goingRight = true;
 	bool GodMode = false;
 	bool isInmune = true;
+	bool inmuneActivated = false;
 	bool isAlive = true;
 	int isEquipped = 0; //0= any item equipped, 1=hook, 2 = gun
-
+	iPoint isMovingAt;
 	
 	// 0 equals to any object equipped
 

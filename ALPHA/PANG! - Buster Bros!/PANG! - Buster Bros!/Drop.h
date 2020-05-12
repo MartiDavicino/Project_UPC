@@ -55,6 +55,8 @@ public:
 
 	bool isBlinking = false;
 
+	bool isPlaced = false;
+
 	// Defines wether the particle is alive or not
 	// Particles will be set to not alive until "spawnTime" is reached
 	bool isAlive = true;

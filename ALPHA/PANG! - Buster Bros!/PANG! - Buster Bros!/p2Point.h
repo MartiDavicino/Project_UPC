@@ -97,6 +97,12 @@ public:
 		return(*this);
 	}
 
+	p2Point& SetTo(int newX,int newY)
+	{
+		x = newX; y = newY;
+		return(*this);
+	}
+
 	p2Point& Negate()
 	{
 		x = -x;

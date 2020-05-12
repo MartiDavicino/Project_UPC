@@ -91,9 +91,12 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 	
 	if (d1 == collider)
 	{
+		isPlaced = true;
 		if (d2->type == Collider::Type::FLOOR)
 		{
 			//stop speed and start time count
+			this->isPlaced = true;
+			isPlaced = true;
 		}
 		if (d2->type == Collider::Type::PLAYER)
 		{
