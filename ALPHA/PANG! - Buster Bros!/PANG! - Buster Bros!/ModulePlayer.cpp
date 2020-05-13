@@ -13,6 +13,7 @@
 #include "ModuleFonts.h"
 #include <stdio.h>
 #include "SDL/include/SDL.h"
+#include "ModuleScene.h"
 
 
 #include "SDL/include/SDL_scancode.h"
@@ -344,12 +345,18 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
 		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);*/
 
+		
+
 		if (c2->type == Collider::Type::BALL)
 		{
 			//The problem is the collision is tetected more than once, so number of lives decreases drastically
 			if (isInmune == false)
 			{
-				if (lives == 4) lives--;
+				if (lives == 4)
+				{
+					App->scene->levelSelection++;
+					lives--;
+				}
 			}
 			if (isInmune == true) isInmune = false;
 			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
