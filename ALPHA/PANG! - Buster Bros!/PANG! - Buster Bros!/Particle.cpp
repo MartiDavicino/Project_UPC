@@ -48,7 +48,7 @@ bool Particle::Update()
 		// Update the position in the screen
 
 		if (type == PARTICLE_TYPE::INMUNE) {
-			position.x = App->player->position.x;
+			position.x = App->player->position.x-2;
 			position.y = App->player->position.y;
 		}
 		else{

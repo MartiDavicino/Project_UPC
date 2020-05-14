@@ -58,11 +58,55 @@ bool ModuleScene::Start()
 	switch (levelSelection)
 	{
 	case(2):
-		App->collisions->AddCollider({ 70,30,200,80 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 72,80,31,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::TOP);
+
+		App->collisions->AddCollider({ 177,80,31,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 177,84,31,3 }, Collider::Type::TOP);
+
+		App->collisions->AddCollider({ 281,80,31,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 281,84,31,3 }, Collider::Type::TOP);
+
+		App->collisions->AddCollider({ 177,129,31,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::TOP);
+
 		break;
 	case(3):
-		App->collisions->AddCollider({ 130,70,3,200 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 96,56,3,47 }, Collider::Type::WALL_A); //left
+		App->collisions->AddCollider({ 100,56,3,47 }, Collider::Type::WALL_D); //right
+
+		App->collisions->AddCollider({ 192,56,3,23 }, Collider::Type::WALL_A); //left
+		App->collisions->AddCollider({ 196,56,3,23 }, Collider::Type::WALL_D);
+
+		App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::WALL_A); //left
+		App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::WALL_D);
 		break;
+
+	case(4):
+		App->collisions->AddCollider({ 160,80,64,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 160,84,64,3 }, Collider::Type::TOP);
+
+		break;
+	case(5): //161 153
+		App->collisions->AddCollider({ 161,153,22,48 }, Collider::Type::STAIRS);
+		App->collisions->AddCollider({ 201,153,22,48 }, Collider::Type::STAIRS);
+
+		App->collisions->AddCollider({ 184,153,16,3 }, Collider::Type::FLOOR);
+
+		App->collisions->AddCollider({ 161,153,5,43 }, Collider::Type::WALL_A);
+		App->collisions->AddCollider({ 173,153,5,43 }, Collider::Type::WALL_D);
+
+		break;
+	case(6):
+		App->collisions->AddCollider({ 80,64,15,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 80,68,15,3 }, Collider::Type::TOP);
+
+		App->collisions->AddCollider({ 184,64,15,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 184,68,15,3 }, Collider::Type::TOP);
+
+		App->collisions->AddCollider({ 296,64,15,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 296,68,15,3 }, Collider::Type::TOP);
+
 	}
 	//Balls
 	App->balls->AddBall(BALL_TYPE::BIG, 150, 25,true);

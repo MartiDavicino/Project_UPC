@@ -168,11 +168,11 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::WALL_A: // blue
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
-			case Collider::Type::WALL_D: // blue
-			App->render->DrawQuad(colliders[i]->rect, 0, 230, 255, alpha);
+			case Collider::Type::WALL_D: // green
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
 			break;
-			case Collider::Type::FLOOR: // purple
-			App->render->DrawQuad(colliders[i]->rect, 255, 0, 230, alpha);
+			case Collider::Type::FLOOR: // yellow
+			App->render->DrawQuad(colliders[i]->rect, 255,255,0, alpha);
 			break;
 			case Collider::Type::PLAYER: // green
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
@@ -186,6 +186,9 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::DROP: //purple
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 230, alpha);
 			case Collider::Type::TOP:
+			App->render->DrawQuad(colliders[i]->rect, 255,0,0, alpha);
+			break;
+			case Collider::Type::STAIRS: //purple
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 230, alpha);
 			break;
 

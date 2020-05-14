@@ -20,8 +20,14 @@ struct Collider
 		ROPE,
 		DROP,
 		TOP,
+		STAIRS,	
 
 		MAX
+	};
+
+	enum Height
+	{
+		UNDEFINED
 	};
 
 	//Methods
@@ -37,6 +43,7 @@ struct Collider
 	SDL_Rect rect;
 	bool pendingToDelete = false;
 	Type type;
+	Height height;
 	Module* listeners[MAX_LISTENERS] = { nullptr };
 };
 

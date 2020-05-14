@@ -7,7 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleInterface.h"
-
+#include "ModuleParticles.h"
 #include "Ball.h"
 
 
@@ -239,9 +239,12 @@ void ModuleBalls::DivideBalls()
 			App->balls->AddBall(BALL_TYPE::MEDIUM, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
 			App->balls->AddBall(BALL_TYPE::MEDIUM, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
 
+			App->particles->AddParticle(App->particles->bigExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
+
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
 			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI);
+
 
 			App->score += 500;
 			Balls[i]->div = false;
@@ -255,6 +258,8 @@ void ModuleBalls::DivideBalls()
 
 			App->balls->AddBall(BALL_TYPE::SMALL, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
 			App->balls->AddBall(BALL_TYPE::SMALL, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
+
+			App->particles->AddParticle(App->particles->mediumExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
@@ -273,6 +278,8 @@ void ModuleBalls::DivideBalls()
 			App->balls->AddBall(BALL_TYPE::TINY, Balls[i]->position.x + Xoffset, Balls[i]->position.y + Yoffset, true);
 			App->balls->AddBall(BALL_TYPE::TINY, Balls[i]->position.x - Xoffset, Balls[i]->position.y + Yoffset, false);
 
+			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
+
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
 			App->interfaceElements->AddElement(App->interfaceElements->score400, 30, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI);
@@ -289,6 +296,8 @@ void ModuleBalls::DivideBalls()
 			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y,Collider::Type::NONE,0,PARTICLE_TYPE::EXPLOSION);
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
+
+			App->particles->AddParticle(App->particles->tinyExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 
 			App->score += 500;
 			Balls[i]->div = false;

@@ -65,10 +65,12 @@ bool ModuleParticles::Start()
 	blink.lifetime = 30.0f;
 	blink.frameCount = 1;
 
-	inmune.anim.PushBack({ 125,366,34,39 });
+
+	// w: 34 h: 40
+	inmune.anim.PushBack({ 165,362,34,40 });
 	inmune.anim.PushBack({ 165,365,34,40 });
 	inmune.anim.loop = true;
-	inmune.anim.speed = 5;
+	inmune.anim.speed = 0.4f;
 	inmune.speed.x = -2;
 
 	rope.anim.PushBack({ 0, 175, 9, 34 });
