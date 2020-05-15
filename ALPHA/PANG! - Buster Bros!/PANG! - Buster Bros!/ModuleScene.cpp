@@ -52,9 +52,9 @@ bool ModuleScene::Start()
 	//First two columns colliders
 	App->collisions->AddCollider({ 0, 0,7,200 }, Collider::Type::WALL_A);
 	App->collisions->AddCollider({ 377, 0, 7, 200 }, Collider::Type::WALL_D);
-	App->collisions->AddCollider({ 0,200,384,8 }, Collider::Type::FLOOR);
-	App->collisions->AddCollider({ 0,0,384,8 }, Collider::Type::TOP);
-	// each ñevel specific colliders
+	App->collisions->AddCollider({ 0,201,384,7 }, Collider::Type::FLOOR);
+	App->collisions->AddCollider({ 0,0,384,7 }, Collider::Type::TOP);
+	// each level specific colliders
 	switch (levelSelection)
 	{
 	case(2):

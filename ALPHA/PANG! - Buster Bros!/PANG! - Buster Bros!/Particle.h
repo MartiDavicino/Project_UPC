@@ -6,7 +6,7 @@
 
 struct Collider;
 enum class PARTICLE_TYPE {
-	ROPE, HOOK, SHOT, EXPLOSION, NONE,INMUNE
+	ROPE, HOOK,STATIC_HOOK, SHOT, EXPLOSION, NONE,INMUNE
 
 };
 struct Particle

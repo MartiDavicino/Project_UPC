@@ -71,7 +71,7 @@ bool ModuleParticles::Start()
 	inmune.anim.PushBack({ 165,365,34,40 });
 	inmune.anim.loop = true;
 	inmune.anim.speed = 0.4f;
-	inmune.speed.x = -2;
+	inmune.lifetime = 400;
 
 	rope.anim.PushBack({ 0, 175, 9, 34 });
 	rope.anim.PushBack({ 9, 173, 9, 36 });
@@ -335,9 +335,13 @@ bool ModuleParticles::Start()
 	hook.anim.pingpong = false;
 	hook.anim.loop = false;
 	hook.speed.y = -2.85f;
-	hook.lifetime = 100;
+	//hook.lifetime = 100;
 	hook.isAlive = true;
 	hook.anim.speed = 1.0f;
+
+	staticHook.anim.PushBack({ 1591,0, 11, 210 });
+	staticHook.anim.loop = true;
+
 
 	//shot
 
@@ -379,6 +383,7 @@ bool ModuleParticles::Start()
 	shot.type = PARTICLE_TYPE::SHOT;
 	rope.type = PARTICLE_TYPE::ROPE;
 	hook.type = PARTICLE_TYPE::HOOK;
+	staticHook.type = PARTICLE_TYPE::STATIC_HOOK;
 
 	return true;
 }
@@ -409,6 +414,11 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		{
 			if (c2->type == Collider::Type::TOP)
 			{
+				if (particles[i]->type == PARTICLE_TYPE::HOOK)
+				{
+					App->particles->AddRope(staticHook, particles[i]->position.x, particles[i]->position.y+1, Collider::Type::ROPE,0,PARTICLE_TYPE::STATIC_HOOK);
+				}
+
 				delete particles[i];
 				particles[i] = nullptr;
 				break;
@@ -507,7 +517,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collid
 	}
 }
 
-void ModuleParticles::AddRope(const Particle& particle, int x, int y, Collider::Type colliderType, uint delay)
+void ModuleParticles::AddRope(const Particle& particle, int x, int y, Collider::Type colliderType, uint delay,PARTICLE_TYPE ropeType)
 {
 	Particle* newrope = nullptr;
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
@@ -523,15 +533,25 @@ void ModuleParticles::AddRope(const Particle& particle, int x, int y, Collider::
 			newrope->position.x = x;						// so when frameCount reaches 0 the particle will be activated
 			newrope->position.y = y;
 
-			//Adding the particle's collider
+		if(ropeType != PARTICLE_TYPE::NONE)
+		{
+			newrope->type = ropeType;
+		}
+
+
+
 	     if(particle.type==PARTICLE_TYPE::SHOT)
 		 { 
-			 newrope->collider = App->collisions->AddCollider(newrope->anim.GetCurrentFrame(), Collider::Type::ROPE, this);
+			 SDL_Rect shotCollider = { 0,0,19,7 };
+
+			 newrope->collider = App->collisions->AddCollider(shotCollider, Collider::Type::ROPE, this);
+
+			 App->particles->AddParticle(App->particles->shotParticle, App->player->position.x + 9, App->player->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 		 }
 			
-		 else if(particle.type==PARTICLE_TYPE::HOOK || particle.type==PARTICLE_TYPE::ROPE)
+		 else if(particle.type==PARTICLE_TYPE::HOOK || particle.type==PARTICLE_TYPE::ROPE || particle.type==PARTICLE_TYPE::STATIC_HOOK)
 		 {
-				SDL_Rect ropeCollider = { 0,0,9,300 };
+				SDL_Rect ropeCollider = { 0,0,11,300 };
 
 				//newrope->collider = App->collisions->AddCollider(newrope->anim.GetCurrentFrame(), Collider::Type::ROPE, this);
 				newrope->collider = App->collisions->AddCollider(ropeCollider, Collider::Type::ROPE, this);

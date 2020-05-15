@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "SDL/include/SDL.h"
 #include "ModuleScene.h"
+#include "ModuleInterface.h"
 
 
 #include "SDL/include/SDL_scancode.h"
@@ -240,15 +241,15 @@ update_status ModulePlayer::Update()
 		switch (isEquipped)
 		{
 		case(0):
-			App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE);
+			App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE,0,PARTICLE_TYPE::ROPE);
 				
 			break;
 		case(1):
-			App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE);
+			App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);
 			break;
 		case(2):
-			App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE);
-			App->particles->AddRope(App->particles->shotParticle, position.x + 9, position.y, Collider::Type::ROPE);
+			App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);
+			
 			break;
 		}
 		
@@ -259,6 +260,8 @@ update_status ModulePlayer::Update()
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_W] != KEY_STATE::KEY_DOWN)
 	{
+		App->interfaceElements->AddElement(App->interfaceElements->score400, 220, 40, INTERFACE_ELEMENT_TYPE::UI);
+
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
 			if (isAlive == true)

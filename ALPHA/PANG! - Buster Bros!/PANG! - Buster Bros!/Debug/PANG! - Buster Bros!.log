@@ -1,6 +1,15 @@
-﻿  Particle.cpp
+﻿  ModuleInterface.cpp
 C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\Particle.cpp(41,19): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(345,18): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(345,18): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(345,18): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(345,18): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(345,18): warning C4244:         ]
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(371,17): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(371,17): warning C4244:         with
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(371,17): warning C4244:         [
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(371,17): warning C4244:             TYPE=int
+C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(371,17): warning C4244:         ]
   LINK : se especificó /LTCG pero no se requiere generación de código; quite /LTCG de la línea de comandos de vínculo para mejorar el rendimiento del vinculador
   PANG! - Buster Bros!.vcxproj -> C:\Users\Fabian Gumersindo\Desktop\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe

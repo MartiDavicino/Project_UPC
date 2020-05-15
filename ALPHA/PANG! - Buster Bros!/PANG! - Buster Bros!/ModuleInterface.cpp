@@ -49,12 +49,21 @@ bool ModuleInterface::Start()
 	thirdLife.anim.PushBack({ 0,258,48,16 });
 	fourthLife.anim.PushBack({ 0,258,64,16 });
 	UI.anim.PushBack({0,0,380,240});
+	blackSection.anim.PushBack({ 0,600,400,400 });
 
 	UI.anim.loop=zeroLife.anim.loop = oneLife.anim.loop = secondLife.anim.loop = thirdLife.anim.loop = true;
 	
+	ready.anim.PushBack({ 0,700,71, 30 });
+	ready.anim.PushBack({ 0,700,71, 30 });
+	ready.anim.PushBack({ 0,0,0,0 });
+	ready.anim.loop = true;
+	ready.anim.speed = 40;
+
+	gameOver.anim.PushBack({ 99,700,153,30 });
+	gameOver.anim.loop = true;
+	ready.anim.speed = 40;
 
 
-	
 	Blink.anim.loop = true;
 
 	//equipped
@@ -80,6 +89,7 @@ bool ModuleInterface::Start()
 	inmuneDrop.anim.PushBack({ 117,280,27,27 });
 	inmuneDrop.anim.PushBack({ 229,283,27,27 });
 	inmuneDrop.anim.loop = true;
+	inmuneDrop.anim.speed = 0.3f;
 
 	//food
 	banana.anim.PushBack({ 70,324,16,16 });
@@ -88,6 +98,7 @@ bool ModuleInterface::Start()
 	cherry.anim.PushBack({ 8,324,16,16 });
 	cherry.anim.PushBack({ 8,417,16,16 });
 	
+	banana.anim.speed = cherry.anim.speed = 0.3f;
 	//scores
 	score400.anim.PushBack({180,545,24,15});  
 
@@ -95,12 +106,19 @@ bool ModuleInterface::Start()
 
 	score1600.anim.PushBack({ 251,545,40,15 });
 
+	score400.lifetime = score800.lifetime = score1600.lifetime = 300;
+
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI);
+	//App->interfaceElements->AddElement(App->interfaceElements->blackSection, 0, 240, INTERFACE_ELEMENT_TYPE::UI);
+
 	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 120, 40,DROP_TYPE::HOOK);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 	App->interfaceElements->AddElement(App->interfaceElements->score400, 220,40, INTERFACE_ELEMENT_TYPE::UI);
+	App->interfaceElements->AddElement(App->interfaceElements->score400, 200, 50, INTERFACE_ELEMENT_TYPE::UI);
+	App->interfaceElements->AddElement(App->interfaceElements->score400, 240, 60, INTERFACE_ELEMENT_TYPE::UI);
+	App->interfaceElements->AddElement(App->interfaceElements->score400, 250, 30, INTERFACE_ELEMENT_TYPE::UI);
 
 	return true;
 }
@@ -133,37 +151,75 @@ bool ModuleInterface::CleanUp()
 	return true;
 }
 
-void ModuleInterface::CleanEquipped(InterfaceElement element)
+void ModuleInterface::CleanEquipped()
 {
-	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
-	{
-		if (interfaceElements[i]!=nullptr && interfaceElements[i]==&element)
-		{
-			interfaceElements[i]->display = false;
+	
+}
 
-			delete interfaceElements[i];
-			interfaceElements[i] = nullptr;
+void ModuleInterface::Equip(InterfaceElement element)
+{
+	//clean
+	for (int i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; i++)
+	{
+		InterfaceElement* item = itemEquipped[i];
+
+		if (item != nullptr && item != &element)
+		{
+			delete itemEquipped[i];
+			itemEquipped[i] = nullptr;
 		}
 	}
+	//addd new item
+	for (int i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; i++)
+	{
+		InterfaceElement* item = itemEquipped[i];
+
+		if (item ==nullptr)
+		{
+			item = new InterfaceElement(element);
+			
+			item->position.x = 60;
+			item->position.y = 220;
+
+			itemEquipped[i] = item;
+		}
+	}
+	
+
 }
 
 
 update_status ModuleInterface::Update()
 {
-	//for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
-	//{
-	//	Particle* particle = particles[i];
+	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
+	{
+		InterfaceElement* element = interfaceElements[i];
 
-	//	if (particle == nullptr)	continue;
+		if (element== nullptr)	continue;
 
-	//	// Call particle Update. If it has reached its lifetime, destroy it
-	//	/*if (particle->Update() == false)
-	//	{
-	//		delete particle;
-	//		particles[i] = nullptr;
-	//	}*/
-	//}
-	//App->interfaceElements->AddElement(App->interfaceElements->UI, 0,0);
+		
+			// Call particle Update. If it has reached its lifetime, destroy it
+			if (element->Update() == false)
+			{
+				delete element;
+				interfaceElements[i] = nullptr;
+			}
+		
+	}
+	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
+	{
+		Drop*drop= drops[i];
+
+		if (drop == nullptr)	continue;
+
+		// Call particle Update. If it has reached its lifetime, destroy it
+		if (drop->Update() == false)
+		{
+			delete drop;
+			drops[i] = nullptr;
+		}
+	}
+	
 
 	
 
@@ -198,17 +254,17 @@ update_status ModuleInterface::Update()
 	switch (App->player->isEquipped)
 	{
 	case(0):
-		App->interfaceElements->CleanEquipped(hook); App->interfaceElements->CleanEquipped(gun);
+		Equip(hook);
 		//App->interfaceElements->AddElement(App->interfaceElements->hook, 10, 220, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 
 	case(1):
-		App->interfaceElements->CleanEquipped(gun);
-		App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x+20, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
+		Equip(score400);
+		//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x+20, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 	case(2):
-		App->interfaceElements->CleanEquipped(hook);
-		App->interfaceElements->AddElement(App->interfaceElements->gun, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
+		Equip(score800);
+		//App->interfaceElements->AddElement(App->interfaceElements->gun, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 
 	}

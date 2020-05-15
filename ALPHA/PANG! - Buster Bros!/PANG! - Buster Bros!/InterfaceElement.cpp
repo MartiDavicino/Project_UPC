@@ -19,6 +19,7 @@ InterfaceElement::~InterfaceElement()
 
 bool InterfaceElement::Update()
 {
+	
 	bool ret = true;
 	frameCount++;
 

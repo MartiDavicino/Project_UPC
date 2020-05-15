@@ -13,6 +13,7 @@
 #define MAX_ACTIVE_PARTICLES 100
 #define MAX_ACTIVE_INTERFACE_ELEMENTS 30
 #define MAX_ACTIVE_DROPS 30
+#define MAX_ACTIVE_ITEMS_EQUIPPED 1
 
 struct SDL_Texture;
 //struct Collider;
@@ -46,8 +47,8 @@ public:
 	// Destroys all active particles left in the array
 	bool CleanUp() override;
 
-	void CleanEquipped(InterfaceElement elemnent);
-
+	void CleanEquipped();
+	void Equip(InterfaceElement element);
 	// Called when a particle collider hits another collider
 
 	//void OnCollision(Collider* c1, Collider* c2) override;
@@ -77,6 +78,8 @@ private:
 
 	Drop* drops[MAX_ACTIVE_INTERFACE_ELEMENTS] = { nullptr };
 
+	InterfaceElement* itemEquipped[MAX_ACTIVE_ITEMS_EQUIPPED] = { nullptr };
+
 public:
 	int itemsCount = 0;
 	iPoint equippedPosition; 
@@ -91,6 +94,9 @@ public:
 	InterfaceElement fourthLife;
 
 	InterfaceElement UI;
+	InterfaceElement blackSection;
+	InterfaceElement ready;
+	InterfaceElement gameOver;
 
 	//Include in player bool hasItem;
 	InterfaceElement hook;
