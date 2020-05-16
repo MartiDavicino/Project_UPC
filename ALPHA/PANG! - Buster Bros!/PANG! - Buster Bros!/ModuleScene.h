@@ -41,7 +41,7 @@ public:
 
 public:
 	
-	int levelSelection = 6;
+	int levelSelection = 1;
 
 private:
 
@@ -62,6 +62,7 @@ private:
 	SDL_Texture* blockTexture_05 = nullptr;
 	SDL_Texture* blockTexture_06 = nullptr;
 
+	//maybe we should use level one tiles set as template and only modificate the changing tiles
 	// h: 30 tiles w: 56
 	// 0= none , 1=wall, 2=floor, 3=top
 	int tiles_01[30][56] = {

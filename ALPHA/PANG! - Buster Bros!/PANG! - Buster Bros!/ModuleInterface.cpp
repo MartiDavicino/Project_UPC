@@ -57,11 +57,14 @@ bool ModuleInterface::Start()
 	ready.anim.PushBack({ 0,700,71, 30 });
 	ready.anim.PushBack({ 0,0,0,0 });
 	ready.anim.loop = true;
-	ready.anim.speed = 40;
+	ready.anim.speed = 0.1f;
+	ready.lifetime = 200;
 
-	gameOver.anim.PushBack({ 99,700,153,30 });
+	gameOver.anim.PushBack({ 137,700,153,30 });
+	gameOver.anim.PushBack({ 137,700,153,30 });
+	gameOver.anim.PushBack({ 0,0,0,0});
 	gameOver.anim.loop = true;
-	ready.anim.speed = 40;
+	gameOver.anim.speed = 0.1f;
 
 
 	Blink.anim.loop = true;
@@ -112,6 +115,10 @@ bool ModuleInterface::Start()
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI);
 	//App->interfaceElements->AddElement(App->interfaceElements->blackSection, 0, 240, INTERFACE_ELEMENT_TYPE::UI);
+
+	App->interfaceElements->AddElement(App->interfaceElements->ready,150, 100, INTERFACE_ELEMENT_TYPE::UI);
+	//App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI);
+
 
 	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 120, 40,DROP_TYPE::HOOK);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);

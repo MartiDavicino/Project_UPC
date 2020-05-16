@@ -111,6 +111,9 @@
     <ClCompile Include="Drop.cpp">
       <Filter>Source Files\Entities\Balls</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleMenu.cpp">
+      <Filter>Source Files\Entities\Modules\Gameplay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="Drop.h">
       <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleMenu.h">
+      <Filter>Source Files\Entities\Modules\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
