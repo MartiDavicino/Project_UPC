@@ -26,14 +26,18 @@ frameCount(d.frameCount), lifetime(d.lifetime)
 
 Drop::~Drop()
 {
-	if (collider != nullptr)
-		collider->pendingToDelete = true;
+	/*if (collider != nullptr)
+		collider->pendingToDelete = true;*/
 }
 
 bool Drop::Update()
 {
 	bool ret = true;
-	frameCount++;
+	if (isPlaced == true)
+	{
+		frameCount++;
+	}
+	
 
 	// The particle is set to 'alive' when the delay has been reached
 	if (!isAlive && frameCount >= 0)
@@ -41,28 +45,27 @@ bool Drop::Update()
 
 	if (isAlive)
 	{
-		anim.Update();
+		if (isPlaced == true)
+		{
+			anim.Update();
+		}
+		
 
 		// If the particle has a specific lifetime, check when it has to be destroyed
 		if (lifetime > 0)
 		{
-			if (frameCount >= lifetime && isBlinking==false)
+			if (frameCount >= lifetime )
 			{
-				//ret = false;
-				isBlinking = true;
-				frameCount = 0;
-				return false;
+				ret = false;
+				//isBlinking = true;
+				//frameCount = 0;
+			
 			}
-			else if (frameCount >= lifetime)
-			{
-				//delete drop
-			}
-			else if (collider)
-			{
-				//if collision with the player is detected pick the object
-			}
+			
+			
 				
 		}
+		
 		// Otherwise the particle is destroyed when the animation is finished
 		
 

@@ -68,7 +68,7 @@ public:
 	// Defines the total amount of frames during which the particle will be active
 	//When a time is reached, the drop will start to blink and then dissapear...
 	//Maybe
-	uint lifetime = 0;
+	uint lifetime = 200;
 
 	// The particle's collider
 	Collider* collider = nullptr;

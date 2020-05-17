@@ -30,18 +30,28 @@ bool InterfaceElement::Update()
 
 	if (display)
 	{
+		if(this->type != INTERFACE_ELEMENT_TYPE::EQUIPPED)
 		anim.Update();
 
 		// If the particle has a specific lifetime, check when it has to be destroyed
 		if (lifetime > 0)
 		{
 			if (frameCount >= lifetime)
+			{
+				if (this->type == INTERFACE_ELEMENT_TYPE::EQUIPPED)
+				{
+					lifetime = 200;
+					this->type = INTERFACE_ELEMENT_TYPE::UNEQUIPPED;
+				}
+				else
 				ret = false;
+			}
+				
 		}
 		// Otherwise the particle is destroyed when the animation is finished
 		else if (anim.HasFinished())
-			ret = false;
-
+		{//ret = false;
+		}
 		// Update the position in the screen
 
 

@@ -243,7 +243,7 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
-			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI);
+			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI,30);
 
 
 			App->score += 500;
@@ -263,7 +263,7 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
-			App->interfaceElements->AddElement(App->interfaceElements->score400, 22, 40, INTERFACE_ELEMENT_TYPE::UI);
+			App->interfaceElements->AddElement(App->interfaceElements->score400, 22, 40, INTERFACE_ELEMENT_TYPE::UI,30);
 
 			App->score += 500;
 			Balls[i]->div = false;
@@ -282,7 +282,7 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
-			App->interfaceElements->AddElement(App->interfaceElements->score400, 30, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI);
+			App->interfaceElements->AddElement(App->interfaceElements->score400, 30, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI,30);
 
 
 			Balls[i]->div = false;

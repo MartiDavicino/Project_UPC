@@ -42,6 +42,7 @@ bool ModuleInterface::Start()
 	texture = App->textures->Load("Assets/Interface.png");
 
 	
+
 	//Interface Elements
 	zeroLife.anim.PushBack({ 0,0,0,0 });
 	oneLife.anim.PushBack({ 0,258,15,16 });
@@ -70,10 +71,17 @@ bool ModuleInterface::Start()
 	Blink.anim.loop = true;
 
 	//equipped
-	hook.anim.PushBack({ 71,255,17,17 });
+	hook.anim.PushBack({ 72,257,15,16 });
+	hook.anim.PushBack({ 87,257,15,16 });
 	
-	gun.anim.PushBack({ 92,255,17,17 });
+	doubbleShot.anim.PushBack({ 111,257,13,16 });
+	doubbleShot.anim.PushBack({ 124,257,13,16 });
 
+	gun.anim.PushBack({ 150,257,17,16 });
+	gun.anim.PushBack({ 167,257,17,16 });
+
+	hook.anim.loop = doubbleShot.anim.loop = gun.anim.loop = true;
+	hook.anim.speed= doubbleShot.anim.speed = gun.anim.speed = 0.1f;
 
 	//Drops
 	hookDrop.anim.PushBack({71,255,17,17}); 
@@ -101,7 +109,7 @@ bool ModuleInterface::Start()
 	cherry.anim.PushBack({ 8,324,16,16 });
 	cherry.anim.PushBack({ 8,417,16,16 });
 	
-	banana.anim.speed = cherry.anim.speed = 0.3f;
+	banana.anim.speed = cherry.anim.speed = 0.1f;
 	//scores
 	score400.anim.PushBack({180,545,24,15});  
 
@@ -113,19 +121,18 @@ bool ModuleInterface::Start()
 
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	
-	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI);
+	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI,0);
 	//App->interfaceElements->AddElement(App->interfaceElements->blackSection, 0, 240, INTERFACE_ELEMENT_TYPE::UI);
 
-	App->interfaceElements->AddElement(App->interfaceElements->ready,150, 100, INTERFACE_ELEMENT_TYPE::UI);
+	App->interfaceElements->AddElement(App->interfaceElements->ready,150, 100, INTERFACE_ELEMENT_TYPE::UI,70);
 	//App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI);
 
 
-	App->interfaceElements->AddDrop(App->interfaceElements->hookDrop, 120, 40,DROP_TYPE::HOOK);
+	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x,equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED, 70);
+	App->interfaceElements->AddDrop(App->interfaceElements->banana, 120, 40,DROP_TYPE::FOOD);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
-	App->interfaceElements->AddElement(App->interfaceElements->score400, 220,40, INTERFACE_ELEMENT_TYPE::UI);
-	App->interfaceElements->AddElement(App->interfaceElements->score400, 200, 50, INTERFACE_ELEMENT_TYPE::UI);
-	App->interfaceElements->AddElement(App->interfaceElements->score400, 240, 60, INTERFACE_ELEMENT_TYPE::UI);
-	App->interfaceElements->AddElement(App->interfaceElements->score400, 250, 30, INTERFACE_ELEMENT_TYPE::UI);
+
+	App->interfaceElements->Equip(App->interfaceElements->hook);
 
 	return true;
 }
@@ -158,42 +165,9 @@ bool ModuleInterface::CleanUp()
 	return true;
 }
 
-void ModuleInterface::CleanEquipped()
-{
-	
-}
 
-void ModuleInterface::Equip(InterfaceElement element)
-{
-	//clean
-	for (int i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; i++)
-	{
-		InterfaceElement* item = itemEquipped[i];
 
-		if (item != nullptr && item != &element)
-		{
-			delete itemEquipped[i];
-			itemEquipped[i] = nullptr;
-		}
-	}
-	//addd new item
-	for (int i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; i++)
-	{
-		InterfaceElement* item = itemEquipped[i];
 
-		if (item ==nullptr)
-		{
-			item = new InterfaceElement(element);
-			
-			item->position.x = 60;
-			item->position.y = 220;
-
-			itemEquipped[i] = item;
-		}
-	}
-	
-
-}
 
 
 update_status ModuleInterface::Update()
@@ -233,23 +207,23 @@ update_status ModuleInterface::Update()
 	switch (App->player->lives)
 	{
 	case(4):
-		App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220,INTERFACE_ELEMENT_TYPE::UI);
+		App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220,INTERFACE_ELEMENT_TYPE::UI,0);
 
 		break;
 
 	case(3):
 		fourthLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI);
+		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI,0);
 		
 		break;
 	case(2):
 		thirdLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 220, INTERFACE_ELEMENT_TYPE::UI);
+		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 220, INTERFACE_ELEMENT_TYPE::UI,0);
 		
 		break;
 	case(1):
 		secondLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10,220, INTERFACE_ELEMENT_TYPE::UI);
+		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10,220, INTERFACE_ELEMENT_TYPE::UI,0);
 		
 		break;
 	case(0):
@@ -260,17 +234,18 @@ update_status ModuleInterface::Update()
 
 	switch (App->player->isEquipped)
 	{
+		//the problem i¡is that is rendenring on update so the animation never finishes
 	case(0):
 		Equip(hook);
 		//App->interfaceElements->AddElement(App->interfaceElements->hook, 10, 220, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 
 	case(1):
-		Equip(score400);
+		Equip(hook);
 		//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x+20, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 	case(2):
-		Equip(score800);
+		Equip(gun);
 		//App->interfaceElements->AddElement(App->interfaceElements->gun, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 
@@ -317,7 +292,7 @@ update_status ModuleInterface::PostUpdate()
 
 			if (drop->isPlaced == false)
 			{
-				drop->position.y++;
+				//drop->position.y++;
 				drop->collider->SetPos(drop->position.x, drop->position.y);
 			}
 
@@ -333,10 +308,29 @@ update_status ModuleInterface::PostUpdate()
 
 
 	}
+
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		InterfaceElement* item = itemEquipped[i];
+
+		if (item != nullptr) // && item->display
+		{
+			//App->render->Blit(texture, element->position.x, element->position.y, 0);
+			//&(element->anim.GetCurrentFrame())
+			App->render->Blit(texture, item->position.x, item->position.y, &(item->anim.GetCurrentFrame()));
+
+
+		}
+		else if (item != nullptr && item->display == false)
+		{
+			delete item;
+			itemEquipped[i] = nullptr;
+		}
+	}
 	return update_status::UPDATE_CONTINUE;
 }
 
-void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y,INTERFACE_ELEMENT_TYPE type)
+void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y,INTERFACE_ELEMENT_TYPE newType,uint newLifetime)
 {
 	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 	{
@@ -351,13 +345,53 @@ void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y,I
 
 			e->speed.y = -0.5f;
 
-			if (type == INTERFACE_ELEMENT_TYPE::EQUIPPED)
-				e->equipped = true;
+			e->lifetime = newLifetime;
+			if (newType == INTERFACE_ELEMENT_TYPE::EQUIPPED)
+			{
+				e->lifetime = 130;
+				//e->equipped = true;
+			}
+			e->type = newType;
 
 			interfaceElements[i] = e;
 			break;
 		}
 	}
+}
+
+void ModuleInterface::Equip(InterfaceElement& element)
+{
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		InterfaceElement* equipped = itemEquipped[i];
+		if (equipped != nullptr)
+		{
+			delete equipped;
+			itemEquipped[i] = nullptr;
+		}
+	}
+
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		//Finding an empty slot for a new element
+		if (itemEquipped[i] == nullptr)
+		{
+			InterfaceElement* equipped = new InterfaceElement(element);
+
+			//p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
+			equipped->position.x = equippedPosition.x;				// so when frameCount reaches 0 the particle will be activated
+			equipped->position.y = equippedPosition.y;
+
+			equipped->lifetime = 150;
+
+			equipped->type = INTERFACE_ELEMENT_TYPE::EQUIPPED;
+
+			itemEquipped[i] = equipped;
+			break;
+		}
+	}
+
+
 }
 
 
@@ -385,6 +419,7 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y,DROP_TYPE name)
 			d->collider->SetPos(x, y);
 
 			d->name = name;
+			d->isPlaced = true;
 
 			drops[i] = d;
 			break;

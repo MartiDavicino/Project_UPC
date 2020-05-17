@@ -108,11 +108,11 @@
     <ClCompile Include="Module.cpp">
       <Filter>Source Files\Entities\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Drop.cpp">
-      <Filter>Source Files\Entities\Balls</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleMenu.cpp">
       <Filter>Source Files\Entities\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Drop.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

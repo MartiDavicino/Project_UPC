@@ -7,7 +7,8 @@
 
 enum class INTERFACE_ELEMENT_TYPE {
 	UI,
-	EQUIPPED
+	EQUIPPED,
+	UNEQUIPPED
 };
 
 struct InterfaceElement
@@ -54,7 +55,7 @@ public:
 	int frameCount = 0;
 
 	// Defines the total amount of frames during which the particle will be active
-	uint lifetime = 0;
+	uint lifetime =0;
 
 	Animation anim;
 

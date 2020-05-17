@@ -197,25 +197,28 @@ update_status ModulePlayer::Update()
 
 	}
 
-	//if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-	//{
-	//	if (Collision_F != true)
-	//	{
-	//		position.y += speed;
-	//	}
-	//}
+	//climb stairs
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT )
+	{
+		if (currentAnimation != &climbAnim)
+		{
+			climbAnim.Reset();
+			currentAnimation = &climbAnim;
+		}
+		App->audio->PlayFx(explosionFx);
+	}
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+	{
+		if (currentAnimation != &climbAnim)
+		{
+			climbAnim.Reset();
+			currentAnimation = &climbAnim;
+		}
+		App->audio->PlayFx(explosionFx);
+	}
 
-	//if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-	//{
-	//	//only if detected stairs
 
-	//	position.y -= speed;
-	//	if (currentAnimation != &climbAnim)
-	//	{
-	//	     climbAnim.Reset();
-	//		currentAnimation = &climbAnim;
-	//	}
-	//}
+	
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
@@ -258,9 +261,9 @@ update_status ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_W] != KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_W] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_S] != KEY_STATE::KEY_DOWN)
 	{
-		App->interfaceElements->AddElement(App->interfaceElements->score400, 220, 40, INTERFACE_ELEMENT_TYPE::UI);
+		App->interfaceElements->AddElement(App->interfaceElements->score400, 220, 40, INTERFACE_ELEMENT_TYPE::UI,30);
 
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
