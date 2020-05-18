@@ -11,7 +11,8 @@ enum class DROP_TYPE
 	HOOK,
 	INMUNE,
 	GUN,
-	FOOD
+	FOOD,
+	SCORE	
 };
 struct Drop
 {

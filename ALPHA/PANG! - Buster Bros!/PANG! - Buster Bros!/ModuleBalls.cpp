@@ -242,10 +242,8 @@ void ModuleBalls::DivideBalls()
 			App->particles->AddParticle(App->particles->bigExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
-
-			App->interfaceElements->AddElement(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI,30);
-
-
+			App->interfaceElements->AddDrop(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
+		
 			App->score += 500;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
@@ -262,8 +260,8 @@ void ModuleBalls::DivideBalls()
 			App->particles->AddParticle(App->particles->mediumExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
-
-			App->interfaceElements->AddElement(App->interfaceElements->score400, 22, 40, INTERFACE_ELEMENT_TYPE::UI,30);
+			App->interfaceElements->AddDrop(App->interfaceElements->score800, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
+			
 
 			App->score += 500;
 			Balls[i]->div = false;
@@ -281,9 +279,7 @@ void ModuleBalls::DivideBalls()
 			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
-
-			App->interfaceElements->AddElement(App->interfaceElements->score400, 30, Balls[i]->position.y, INTERFACE_ELEMENT_TYPE::UI,30);
-
+			App->interfaceElements->AddDrop(App->interfaceElements->score1600, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
 
 			Balls[i]->div = false;
 			App->score += 500;

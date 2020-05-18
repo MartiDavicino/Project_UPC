@@ -157,13 +157,26 @@ update_status ModulePlayer::Update()
 		}
 
 	}
+	//EQUIP MANUALLY
+	if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
+	{
+		itemEquipped = ITEM_EQUIPPED::NONE;
+	}
+	if (App->input->keys[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
+	{
+		itemEquipped = ITEM_EQUIPPED::HOOK;
+	}
+	if (App->input->keys[SDL_SCANCODE_3] == KEY_STATE::KEY_DOWN)
+	{
+		itemEquipped = ITEM_EQUIPPED::GUN;
+	}
 
 	
 	
 
 	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
-		isEquipped = 2;
+		
 		if (Collision_A != true)
 		{
 			position.x -= speed;
@@ -181,7 +194,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
-		isEquipped = 1;
+		
 		isMovingAt.x = 3;
 		if (Collision_D != true)
 		{
@@ -241,16 +254,16 @@ update_status ModulePlayer::Update()
 		}
 
 		LOG("SHOOTING ROPE!");
-		switch (isEquipped)
+		switch (itemEquipped)
 		{
-		case(0):
+		case(ITEM_EQUIPPED::NONE):
 			App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE,0,PARTICLE_TYPE::ROPE);
 				
 			break;
-		case(1):
+		case(ITEM_EQUIPPED::HOOK):
 			App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);
 			break;
-		case(2):
+		case(ITEM_EQUIPPED::GUN):
 			App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);
 			
 			break;
@@ -263,7 +276,7 @@ update_status ModulePlayer::Update()
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_W] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_S] != KEY_STATE::KEY_DOWN)
 	{
-		App->interfaceElements->AddElement(App->interfaceElements->score400, 220, 40, INTERFACE_ELEMENT_TYPE::UI,30);
+		
 
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)

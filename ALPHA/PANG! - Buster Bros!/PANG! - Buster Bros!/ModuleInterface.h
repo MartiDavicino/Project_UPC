@@ -105,9 +105,9 @@ public:
 	InterfaceElement doubbleShot;
 
 	//scores
-	InterfaceElement score400;
-	InterfaceElement score800;
-	InterfaceElement score1600;
+	Drop score400;
+	Drop score800;
+	Drop score1600;
 	
 
 	Drop hookDrop;

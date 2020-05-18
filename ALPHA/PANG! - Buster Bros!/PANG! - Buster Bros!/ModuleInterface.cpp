@@ -117,7 +117,7 @@ bool ModuleInterface::Start()
 
 	score1600.anim.PushBack({ 251,545,40,15 });
 
-	score400.lifetime = score800.lifetime = score1600.lifetime = 300;
+	score400.lifetime = score800.lifetime = score1600.lifetime = scoreTime;
 
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	
@@ -126,7 +126,7 @@ bool ModuleInterface::Start()
 
 	App->interfaceElements->AddElement(App->interfaceElements->ready,150, 100, INTERFACE_ELEMENT_TYPE::UI,70);
 	//App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI);
-
+	
 
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x,equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED, 70);
 	App->interfaceElements->AddDrop(App->interfaceElements->banana, 120, 40,DROP_TYPE::FOOD);
@@ -232,21 +232,18 @@ update_status ModuleInterface::Update()
 		break;
 	}
 
-	switch (App->player->isEquipped)
+	switch (App->player->itemEquipped)
 	{
 		//the problem i¡is that is rendenring on update so the animation never finishes
-	case(0):
-		Equip(hook);
-		//App->interfaceElements->AddElement(App->interfaceElements->hook, 10, 220, INTERFACE_ELEMENT_TYPE::EQUIPPED);
+	case(ITEM_EQUIPPED::NONE):
+		
 		break;
 
-	case(1):
+	case(ITEM_EQUIPPED::HOOK):
 		Equip(hook);
-		//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x+20, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
-	case(2):
+	case(ITEM_EQUIPPED::GUN):
 		Equip(gun);
-		//App->interfaceElements->AddElement(App->interfaceElements->gun, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 		break;
 
 	}

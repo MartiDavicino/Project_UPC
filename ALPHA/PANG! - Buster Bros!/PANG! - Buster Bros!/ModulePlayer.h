@@ -8,6 +8,11 @@
 struct SDL_Texture;
 struct Collider;
 
+enum class ITEM_EQUIPPED {
+
+	NONE, HOOK, GUN
+};
+
 class ModulePlayer : public Module
 {
 public:
@@ -42,7 +47,7 @@ public:
 	bool isInmune = false;
 	bool inmuneActivated = false;
 	bool isAlive = true;
-	int isEquipped = 0; //0= any item equipped, 1=hook, 2 = gun
+	ITEM_EQUIPPED itemEquipped;
 	iPoint isMovingAt;
 	
 	// 0 equals to any object equipped

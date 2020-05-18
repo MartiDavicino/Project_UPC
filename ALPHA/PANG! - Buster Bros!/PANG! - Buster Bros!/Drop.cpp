@@ -113,15 +113,15 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 				break;
 			case(DROP_TYPE::HOOK):
 				isAlive = false;
-				App->player->isEquipped = 1;
+				App->player->itemEquipped =ITEM_EQUIPPED::HOOK;
 				break;
 			case(DROP_TYPE::INMUNE):
-				App->player->isInmune;
+				//App->player->itemEquipped = ITEM_EQUIPPED::H;
 				isAlive = false;
 				break;
 			case(DROP_TYPE::GUN):
 				isAlive = false;
-				App->player->isEquipped = 2;
+				App->player->itemEquipped = ITEM_EQUIPPED::GUN;
 				break;
 
 			}
