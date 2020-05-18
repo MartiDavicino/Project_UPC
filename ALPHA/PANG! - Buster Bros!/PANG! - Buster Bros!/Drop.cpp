@@ -26,8 +26,8 @@ frameCount(d.frameCount), lifetime(d.lifetime)
 
 Drop::~Drop()
 {
-	/*if (collider != nullptr)
-		collider->pendingToDelete = true;*/
+	if (collider != nullptr)
+		collider->pendingToDelete = true;
 }
 
 bool Drop::Update()

@@ -49,9 +49,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftAnim.speed = 0.1f;
 	//CLimb 
 	climbAnim.PushBack({ 0,32,23,30 });
-	climbAnim.PushBack({ 23,32,23,30 });
-	climbAnim.PushBack({ 47,32,23,30 });
-	climbAnim.PushBack({ 60,32,23,30 });
+	climbAnim.PushBack({ 25,32,23,30 });
+	climbAnim.PushBack({ 51,32,23,30 });
+	climbAnim.PushBack({ 78,32,23,30 });
 	climbAnim.loop = true;
 	climbAnim.speed = 0.1f;
 	//Shoot
@@ -90,12 +90,12 @@ bool ModulePlayer::Start()
 
 	explosionFx = App->audio->LoadFx("Assets/explosion.wav");
 
-	position.x = 150;
-	position.y = 170;
+	position.x = 250;
+	position.y = 130;
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 30, 30 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 22, 30 }, Collider::Type::PLAYER, this);
 	char lookupTable[] = { " !¿#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
 	scoreFont = App->fonts->Load("Assets/Fontb.png", lookupTable, 6);
 
@@ -112,6 +112,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
+	position.y += gravity;
 	
 	if (isInmune == true&&inmuneActivated==false) {
 		
@@ -210,25 +211,7 @@ update_status ModulePlayer::Update()
 
 	}
 
-	//climb stairs
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT )
-	{
-		if (currentAnimation != &climbAnim)
-		{
-			climbAnim.Reset();
-			currentAnimation = &climbAnim;
-		}
-		App->audio->PlayFx(explosionFx);
-	}
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-	{
-		if (currentAnimation != &climbAnim)
-		{
-			climbAnim.Reset();
-			currentAnimation = &climbAnim;
-		}
-		App->audio->PlayFx(explosionFx);
-	}
+	
 
 
 	
@@ -274,7 +257,7 @@ update_status ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_W] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_S] != KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 	{
 		
 
@@ -401,6 +384,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			destroyed = true;
 		}
 
+
 		if (c2->type == Collider::Type::WALL_A)
 		{
 			Collision_A = true;
@@ -412,11 +396,43 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c2->type == Collider::Type::FLOOR)
 		{
 			Collision_F = true;
+			gravity = 0; 
+			position.y--;
 		}
+		if (c2->type == Collider::Type::STAIRS)
+		{
+			//climb stairs
+			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+			{
+				position.y -= speed;
+				if (currentAnimation != &climbAnim)
+				{
+					climbAnim.Reset();
+					currentAnimation = &climbAnim;
+				}
+				//position.y++;
+			}
+			if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+			{
+				position.y += speed;
+				if (currentAnimation != &climbAnim)
+				{
+					climbAnim.Reset();
+					currentAnimation = &climbAnim;
+				}
+				position.y--;
+			}
+		}
+		if (c2->type == Collider::Type::CORNICE)
+		{
+			gravity = newGravity;
+		}
+	
 		if (c2->type == Collider::Type::DROP)
 		{
 			//equip item
 		}
+		
 	}
 
 	if (c1->type == Collider::Type::ROPE && c2->type == Collider::Type::BALL)

@@ -132,7 +132,7 @@ bool ModuleInterface::Start()
 	App->interfaceElements->AddDrop(App->interfaceElements->banana, 120, 40,DROP_TYPE::FOOD);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 
-	App->interfaceElements->Equip(App->interfaceElements->hook);
+	
 
 	return true;
 }

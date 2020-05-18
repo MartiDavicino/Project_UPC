@@ -23,7 +23,7 @@ ModuleBalls::ModuleBalls(bool startEnabled) : Module(startEnabled)
 bool ModuleBalls::Start()
 {
 	texture = App->textures->Load("Assets/balls.png");
-	enemyDestroyedFx = App->audio->LoadFx("Assets/explosion.wav");
+	ballDestroyedFx = App->audio->LoadFx("Assets/explosion.wav");
 
 	return true;
 }
@@ -184,7 +184,7 @@ void ModuleBalls::SpawnBall(const BallSpawnpoint& info)
 			}
 
 			Balls[i]->texture = texture;
-			Balls[i]->destroyedFx = enemyDestroyedFx;
+			Balls[i]->destroyedFx = ballDestroyedFx;
 			break;
 		}
 	}
@@ -244,6 +244,8 @@ void ModuleBalls::DivideBalls()
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 			App->interfaceElements->AddDrop(App->interfaceElements->score400, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
 		
+			App->audio->PlayFx(ballDestroyedFx);
+
 			App->score += 500;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
@@ -262,6 +264,7 @@ void ModuleBalls::DivideBalls()
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 			App->interfaceElements->AddDrop(App->interfaceElements->score800, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
 			
+			App->audio->PlayFx(ballDestroyedFx);
 
 			App->score += 500;
 			Balls[i]->div = false;
@@ -281,6 +284,8 @@ void ModuleBalls::DivideBalls()
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 			App->interfaceElements->AddDrop(App->interfaceElements->score1600, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
 
+			App->audio->PlayFx(ballDestroyedFx);
+
 			Balls[i]->div = false;
 			App->score += 500;
 			Balls[i]->SetToDelete();
@@ -294,6 +299,8 @@ void ModuleBalls::DivideBalls()
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
 			App->particles->AddParticle(App->particles->tinyExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
+
+			App->audio->PlayFx(ballDestroyedFx);
 
 			App->score += 500;
 			Balls[i]->div = false;

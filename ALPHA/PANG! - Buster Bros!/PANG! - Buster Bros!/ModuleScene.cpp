@@ -88,13 +88,16 @@ bool ModuleScene::Start()
 
 		break;
 	case(5): //161 153
-		App->collisions->AddCollider({ 161,153,22,48 }, Collider::Type::STAIRS);
-		App->collisions->AddCollider({ 201,153,22,48 }, Collider::Type::STAIRS);
+		App->collisions->AddCollider({ 161,153,22,20 }, Collider::Type::STAIRS);
+		App->collisions->AddCollider({ 201,153,22,20 }, Collider::Type::STAIRS);
 
 		App->collisions->AddCollider({ 184,153,16,3 }, Collider::Type::FLOOR);
 
-		App->collisions->AddCollider({ 161,153,5,43 }, Collider::Type::WALL_A);
-		App->collisions->AddCollider({ 173,153,5,43 }, Collider::Type::WALL_D);
+		/*App->collisions->AddCollider({ 161,153,5,43 }, Collider::Type::WALL_A);
+		App->collisions->AddCollider({ 173,153,5,43 }, Collider::Type::WALL_D);*/
+
+		App->collisions->AddCollider({ 128,140,10,10 }, Collider::Type::CORNICE);
+		App->collisions->AddCollider({ 246,140,10,10 }, Collider::Type::CORNICE);
 
 		break;
 	case(6):
@@ -106,6 +109,8 @@ bool ModuleScene::Start()
 
 		App->collisions->AddCollider({ 296,64,15,3 }, Collider::Type::FLOOR);
 		App->collisions->AddCollider({ 296,68,15,3 }, Collider::Type::TOP);
+
+		  
 
 	}
 	//Balls

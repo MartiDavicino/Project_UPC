@@ -21,6 +21,7 @@ struct Collider
 		DROP,
 		TOP,
 		STAIRS,	
+		CORNICE,
 
 		MAX
 	};
