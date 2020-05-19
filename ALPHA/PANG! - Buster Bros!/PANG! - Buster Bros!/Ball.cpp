@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
 #include "ModuleBalls.h"
+#include "ModulePlayer.h"
 
 Ball::Ball(int x, int y, BALL_TYPE  Type) : position(x, y)
 {
@@ -67,10 +68,16 @@ const Collider* Ball::GetCollider() const
 void Ball::Update()
 {
 
-	Ball_vy = Ball_vy + (gravity * deltaTime);
+	if (App->player->destroyed == false) {
+		Ball_vy = Ball_vy + (gravity * deltaTime);
 
-	position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));
-	position.x = position.x + (Ball_vx * deltaTime);
+		position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));
+		position.x = position.x + (Ball_vx * deltaTime);
+	}
+	else {
+		position.y = position.y;
+		position.x = position.x;
+	}
 
 	if (currentAnim != nullptr)
 		currentAnim->Update();

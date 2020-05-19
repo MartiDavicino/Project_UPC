@@ -41,7 +41,7 @@ public:
 
 public:
 	
-	int levelSelection = 5;
+	int levelSelection = 1;
 
 private:
 

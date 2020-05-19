@@ -56,8 +56,7 @@ private:
 
 	// An array to store and handle all the particles
 	Particle* particles[MAX_ACTIVE_PARTICLES] = { nullptr };
-	float gravity =7.0f;
-	float deltaTime = 1.0 / 60.0f;
+	
 	uint FiringFx = 0;
 public:
 	//Template particle for an explosion

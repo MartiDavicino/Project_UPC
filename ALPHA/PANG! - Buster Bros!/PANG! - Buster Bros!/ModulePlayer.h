@@ -46,7 +46,7 @@ public:
 	bool GodMode = false;
 	bool isInmune = false;
 	bool inmuneActivated = false;
-	bool isAlive = true;
+	bool destroyed = true;
 	ITEM_EQUIPPED itemEquipped;
 	iPoint isMovingAt;
 	
@@ -58,11 +58,17 @@ public:
 	};
 
 	unsigned int lives = 4;
+	bool bounce = false;
 
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
 	float gravity = 2.0f;
 	float newGravity = gravity;
+	float gravityDead = 600.0f;
+	float deltaTime = 1.0f / 60.0f;
+
+	float dead_vy = -200.0f;
+	float dead_vx = 170.0f;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
@@ -81,12 +87,14 @@ public:
 	Animation shootRightAnim;
 	Animation shootLeftAnim;
 	Animation dead;
+	Animation dieRightAnim;
+	Animation dieLeftAnim;
 
 	// The player's collider
 	Collider* collider = nullptr;
 
 	// A flag to detect when the player has been destroyed
-	bool destroyed = false;
+	
 
 	// A countdown to when the player gets destroyed. After a while, the game exits
 	uint destroyedCountdown = 120;

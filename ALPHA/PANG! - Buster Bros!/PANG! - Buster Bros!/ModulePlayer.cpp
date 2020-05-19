@@ -64,6 +64,13 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootLeftAnim.PushBack({ 56,67,27,34 });
 	shootLeftAnim.loop = shootRightAnim.loop;
 	shootLeftAnim.speed = shootRightAnim.speed;
+	
+	dieRightAnim.PushBack({ 5,104,39,27 });
+	dieLeftAnim.PushBack({ 44,104,39,27 });
+	dieRightAnim.loop = true;
+	dieLeftAnim.loop = true;
+	dieRightAnim.speed = 0.1f;
+	dieLeftAnim.speed = 0.1f;
 
 	// move upwards
 	/*upAnim.PushBack({ 100, 1, 32, 14 });
@@ -112,15 +119,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	position.y += gravity;
 	
-	if (isInmune == true&&inmuneActivated==false) {
-		
-		//it creates a lot of particles
-		App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE,0,PARTICLE_TYPE::INMUNE);
-		inmuneActivated = true;
-
-	}
 
 	//god mode
 	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
@@ -158,113 +157,124 @@ update_status ModulePlayer::Update()
 		}
 
 	}
-	//EQUIP MANUALLY
-	if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
-	{
-		itemEquipped = ITEM_EQUIPPED::NONE;
-	}
-	if (App->input->keys[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
-	{
-		itemEquipped = ITEM_EQUIPPED::HOOK;
-	}
-	if (App->input->keys[SDL_SCANCODE_3] == KEY_STATE::KEY_DOWN)
-	{
-		itemEquipped = ITEM_EQUIPPED::GUN;
-	}
 
-	
-	
+	if (destroyed == false) {
 
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-	{
-		
-		if (Collision_A != true)
-		{
-			position.x -= speed;
+		position.y += gravity;
+
+		if (isInmune == true && inmuneActivated == false) {
+
+			//it creates a lot of particles
+			App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::INMUNE);
+			inmuneActivated = true;
+
 		}
-		
-		if (currentAnimation != &leftAnim)
+		//EQUIP MANUALLY
+		if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
 		{
-			leftAnim.Reset();
-			currentAnimation = &leftAnim;
+			itemEquipped = ITEM_EQUIPPED::NONE;
 		}
-		if (goingRight != false)
-			goingRight = false;
-
-	}
-
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-	{
-		
-		isMovingAt.x = 3;
-		if (Collision_D != true)
+		if (App->input->keys[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN)
 		{
-			position.x += speed;
+			itemEquipped = ITEM_EQUIPPED::HOOK;
 		}
-		if (currentAnimation != &rightAnim)
+		if (App->input->keys[SDL_SCANCODE_3] == KEY_STATE::KEY_DOWN)
 		{
-			rightAnim.Reset();
-			currentAnimation = &rightAnim;
-		}
-		if (goingRight != true)
-			goingRight = true;
-
-	}
-
-	
-
-
-	
-
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
-	{
-		/*if (currentAnimation != &shootRightAnim)
-		{
-			shootRightAnim.Reset();
-			currentAnimation = &shootRightAnim;
-		}*/
-	/*	App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::ROPE);*/
-
-
-		switch (goingRight)
-		{
-		case(false):
-			currentAnimation = &idleLeftAnim;
-			break;
-		case(true):
-			currentAnimation = &idleRightAnim;
-			break;
+			itemEquipped = ITEM_EQUIPPED::GUN;
 		}
 
-		LOG("SHOOTING ROPE!");
-		switch (itemEquipped)
+
+
+
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 		{
-		case(ITEM_EQUIPPED::NONE):
-			App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE,0,PARTICLE_TYPE::ROPE);
-				
-			break;
-		case(ITEM_EQUIPPED::HOOK):
-			App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);
-			break;
-		case(ITEM_EQUIPPED::GUN):
-			App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);
-			
-			break;
-		}
-		
 
-		
-	}
-
-	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
-	{
-		
-
-		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
-			if (isAlive == true)
+			if (Collision_A != true)
 			{
+				position.x -= speed;
+			}
+
+			if (currentAnimation != &leftAnim)
+			{
+				leftAnim.Reset();
+				currentAnimation = &leftAnim;
+			}
+			if (goingRight != false)
+				goingRight = false;
+
+		}
+
+		if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		{
+
+			isMovingAt.x = 3;
+			if (Collision_D != true)
+			{
+				position.x += speed;
+			}
+			if (currentAnimation != &rightAnim)
+			{
+				rightAnim.Reset();
+				currentAnimation = &rightAnim;
+			}
+			if (goingRight != true)
+				goingRight = true;
+
+		}
+
+
+
+
+
+
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		{
+			/*if (currentAnimation != &shootRightAnim)
+			{
+				shootRightAnim.Reset();
+				currentAnimation = &shootRightAnim;
+			}*/
+			/*	App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::ROPE);*/
+
+
+			switch (goingRight)
+			{
+			case(false):
+				currentAnimation = &idleLeftAnim;
+				break;
+			case(true):
+				currentAnimation = &idleRightAnim;
+				break;
+			}
+
+			LOG("SHOOTING ROPE!");
+			switch (itemEquipped)
+			{
+			case(ITEM_EQUIPPED::NONE):
+				App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::ROPE);
+
+				break;
+			case(ITEM_EQUIPPED::HOOK):
+				App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);
+				break;
+			case(ITEM_EQUIPPED::GUN):
+				App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);
+
+				break;
+			}
+
+
+
+		}
+
+		// If no up/down movement detected, set the current animation back to idle
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
+		{
+
+
+			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
+
 				if (currentAnimation != &shootLeftAnim || currentAnimation != &shootRightAnim)
 				{
 					switch (goingRight)
@@ -277,40 +287,52 @@ update_status ModulePlayer::Update()
 						break;
 					}
 				}
-				
-			}
-			else
-			{
-				currentAnimation = &dead;
-			}
-	}
 
-	if (App->input->keys[SDL_SCANCODE_G] != KEY_STATE::KEY_DOWN)
-	{
-		App->collisions->DebugDraw();
+
+		}
+
+		if (App->input->keys[SDL_SCANCODE_G] != KEY_STATE::KEY_DOWN)
+		{
+			App->collisions->DebugDraw();
+		}
 	}
 	
-	
+	if (destroyed == true) {
+		if (bounce == false) {
+			//SDL_Delay(200);
+			switch (goingRight) {
+			case(false):
+				currentAnimation = &dieRightAnim;
+				dead_vy = dead_vy + (gravityDead * deltaTime);
+				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+				position.x = position.x + (dead_vx * deltaTime);
 
+				break;
+			case(true):
+				currentAnimation = &dieLeftAnim;
+				dead_vx = -170;
+				dead_vy = dead_vy + (gravityDead * deltaTime);
+				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+				position.x = position.x + (dead_vx * deltaTime);
+
+				break;
+			}
+
+
+		}
+		if (bounce == true) {
+			dead_vy = dead_vy + (gravityDead * deltaTime);
+			position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+			position.x = position.x + (dead_vx * deltaTime);
+
+		}
+
+		App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 300);
+		
+	}
 		collider->SetPos(position.x, position.y);
 
 		currentAnimation->Update();
-
-		if (destroyed)
-		{
-			/*destroyedCountdown--;
-			if (destroyedCountdown <= 0)
-				return update_status::UPDATE_STOP;*/
-			/*this->lives = this->lives - 1;
-			if (lives < 0) {
-				App->fade->FadeToBlack((Module*)App->scene, (Module*)App->sceneIntro, 60);
-			}
-
-			if (lives = 0) {*/
-			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 60);
-		/*	}*/
-			destroyed = false;
-		}
 
 		Collision_A = false;
 		Collision_D = false;
@@ -321,12 +343,12 @@ update_status ModulePlayer::Update()
 
 update_status ModulePlayer::PostUpdate()
 {
-	if (!destroyed)
-	{
+	
+	
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	
 		App->render->Blit(texture, position.x, position.y, &rect);
-	}
+	
 
 	/*sprintf_s(scoreText, 10, "%7d", App->score);*/
 	/*App->fonts->BlitText(130, 215, scoreFont, scoreText);
@@ -339,6 +361,21 @@ update_status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
+	if (c1 == collider && destroyed == true) {
+
+		if (c2->type == Collider::Type::WALL_D) {
+			dead_vx = -(dead_vx);
+		}
+		if (c2->type == Collider::Type::WALL_A) {
+			dead_vx = -(dead_vx);
+		}
+		if (bounce == false) {
+			if (c2->type == Collider::Type::FLOOR) {
+				dead_vy = -150;
+				bounce = true;
+			}
+		}
+	}
 	if (c1 == collider && destroyed == false)
 	{
 		/*App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
@@ -351,6 +388,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c2->type == Collider::Type::BALL)
 		{
+			destroyed = true;
 			//The problem is the collision is tetected more than once, so number of lives decreases drastically
 			if (isInmune == false)
 			{
@@ -362,26 +400,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (isInmune == true) isInmune = false;
 			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
-			if (isAlive == true) 
-			{
-				SDL_Delay(200);
-				switch (goingRight)
-				{
-				case(false):
-					LOG("Die Right\n")
-						App->particles->AddParticle(App->particles->dieRightAnim, position.x, position.y, Collider::Type::NONE, 0,PARTICLE_TYPE::NONE);
-					break;
-				case(true):
-					LOG("Die Left\n")
-						App->particles->AddParticle(App->particles->dieLeftAnim, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
-					break;
-				}
-				isAlive = false;
-			}
 
 			App->audio->PlayFx(explosionFx);
 
-			destroyed = true;
+			
 		}
 
 

@@ -36,11 +36,7 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;*/
 
-	dieRightAnim.anim.PushBack({ 6,375 ,34,24 });
-	dieLeftAnim.anim.PushBack({ 40,375,34,24 });
-	dieRightAnim.speed.y = dieLeftAnim.speed.y = 2;
-	dieRightAnim.speed.x = 2;
-	dieLeftAnim.speed.x = -dieRightAnim.speed.x;
+
 
 
 	bigExplosion.anim.PushBack({ 120,231,51,42 });
@@ -448,17 +444,6 @@ update_status ModuleParticles::Update()
 			particles[i] = nullptr;
 		}
 	}
-
-	dieLeftAnim.speed.y = dieLeftAnim.speed.y + (gravity * deltaTime);
-
-	dieLeftAnim.position.y = dieLeftAnim.position.y + (dieLeftAnim.speed.y * deltaTime) + (gravity * (deltaTime * deltaTime));
-	dieLeftAnim.position.x = dieLeftAnim.position.x + (dieLeftAnim.speed.x * deltaTime);
-
-	dieRightAnim.speed.y = dieRightAnim.speed.y + (gravity * deltaTime);
-
-	dieRightAnim.position.y = dieRightAnim.position.y + (dieRightAnim.speed.y * deltaTime) + (gravity * (deltaTime * deltaTime));
-	dieRightAnim.position.x = dieRightAnim.position.x + (dieRightAnim.speed.x * deltaTime);
-
 
 	return update_status::UPDATE_CONTINUE;
 }
