@@ -8,9 +8,68 @@ C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.h(11): message : vea la definición anterior de 'MAX_ACTIVE_ROPES'
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.h(13,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+  Ball.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(67,22): warning C4244: 'inicializando': conversión de 'float' a 'const int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(71,17): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(73,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.cpp(72,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.cpp(74,51): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.cpp(75,27): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Drop.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.h(13,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Drop.cpp(57,19): warning C4018: '>=': no coinciden signed/unsigned
+  ModuleFadeToBlack.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleFadeToBlack.cpp(81,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
+  ModuleInterface.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(343,18): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.cpp(409,17): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
   ModuleMenu.cpp
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleParticles.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.cpp(61,19): warning C4244: '=': conversión de 'float' a 'uint'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.cpp(199,18): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.cpp(333,18): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.cpp(375,18): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
   ModulePlayer.cpp
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -27,32 +86,52 @@ C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster
           [
               TYPE=int
           ]
-C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(307,53): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(194,24): warning C4244: '-=': conversión de 'float' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
           ]
-C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(308,29): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(213,24): warning C4244: '+=': conversión de 'float' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
           ]
-C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(315,53): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(308,53): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
           ]
-C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(316,29): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(309,29): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
           ]
-C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(325,52): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(316,53): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
           ]
-C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(326,28): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(317,29): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(326,52): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(327,28): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(431,24): warning C4244: '-=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(441,24): warning C4244: '+=': conversión de 'float' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
@@ -65,6 +144,13 @@ C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Ball.h(73,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.h(13,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
 C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
+  ModuleSceneIntro.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Particle.cpp
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(65,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Particle.cpp(41,19): warning C4018: '>=': no coinciden signed/unsigned
   Generando código...
   LINK : se especificó /LTCG pero no se requiere generación de código; quite /LTCG de la línea de comandos de vínculo para mejorar el rendimiento del vinculador
   PANG! - Buster Bros!.vcxproj -> C:\Users\adria\Desktop\Uni\Project_UPC\ALPHA\PANG! - Buster Bros!\Debug\PANG! - Buster Bros!.exe

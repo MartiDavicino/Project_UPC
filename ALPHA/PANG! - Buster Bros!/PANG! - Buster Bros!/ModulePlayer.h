@@ -61,14 +61,14 @@ public:
 	bool bounce = false;
 
 	// The speed in which we move the player (pixels per frame)
-	int speed = 1;
+	int speed = 2;
 	float gravity = 2.0f;
 	float newGravity = gravity;
 	float gravityDead = 600.0f;
 	float deltaTime = 1.0f / 60.0f;
 
-	float dead_vy = -200.0f;
-	float dead_vx = 170.0f;
+	float dead_vy = -300.0f;
+	float dead_vx = 0.0f;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;

@@ -99,7 +99,7 @@ void Ball::OnCollision(Collider* collider)
 
 	if (type == BALL_TYPE::BIG) {
 		if (collider->type == Collider::Type::FLOOR) {
-			Ball_vy = -400;
+			Ball_vy = -280;
 		}
 		if (collider->type == Collider::Type::ROPE) {
 			div = true;
@@ -110,7 +110,7 @@ void Ball::OnCollision(Collider* collider)
 	}
 	if (type == BALL_TYPE::MEDIUM) {
 		if (collider->type == Collider::Type::FLOOR) {
-			Ball_vy = -340;
+			Ball_vy = -240;
 		}
 		if (collider->type == Collider::Type::ROPE) {
 			div = true;
@@ -121,7 +121,7 @@ void Ball::OnCollision(Collider* collider)
 	}
 	if (type == BALL_TYPE::SMALL) {
 		if (collider->type == Collider::Type::FLOOR) {
-			Ball_vy = -320;
+			Ball_vy = -210;
 		}
 		if (collider->type == Collider::Type::ROPE) {
 			div = true;
@@ -132,7 +132,7 @@ void Ball::OnCollision(Collider* collider)
 	}
 	if (type == BALL_TYPE::TINY) {
 		if (collider->type == Collider::Type::FLOOR) {
-			Ball_vy = -205;
+			Ball_vy = -155;
 		}
 		if (collider->type == Collider::Type::ROPE) {
 			div = true;

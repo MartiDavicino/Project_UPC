@@ -303,6 +303,7 @@ update_status ModulePlayer::Update()
 			switch (goingRight) {
 			case(false):
 				currentAnimation = &dieRightAnim;
+				dead_vx = 125;
 				dead_vy = dead_vy + (gravityDead * deltaTime);
 				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
 				position.x = position.x + (dead_vx * deltaTime);
@@ -310,7 +311,7 @@ update_status ModulePlayer::Update()
 				break;
 			case(true):
 				currentAnimation = &dieLeftAnim;
-				dead_vx = -170;
+				dead_vx = -125;
 				dead_vy = dead_vy + (gravityDead * deltaTime);
 				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
 				position.x = position.x + (dead_vx * deltaTime);
@@ -362,16 +363,17 @@ update_status ModulePlayer::PostUpdate()
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == true) {
-
-		if (c2->type == Collider::Type::WALL_D) {
-			dead_vx = -(dead_vx);
-		}
-		if (c2->type == Collider::Type::WALL_A) {
-			dead_vx = -(dead_vx);
-		}
 		if (bounce == false) {
+			if (c2->type == Collider::Type::WALL_D) {
+				dead_vx = -(dead_vx);
+				bounce = true;
+			}
+			if (c2->type == Collider::Type::WALL_A) {
+				dead_vx = -(dead_vx);
+				bounce = true;
+			}
 			if (c2->type == Collider::Type::FLOOR) {
-				dead_vy = -150;
+				dead_vy = -200;
 				bounce = true;
 			}
 		}
