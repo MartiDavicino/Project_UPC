@@ -22,7 +22,7 @@ We are a students' group from the Polytechnic University of Catalonia (UPC)
 
 And we are currently majoring design and development of videogames in the university's Tech Talent Center situated in Barcelona city. 
 
-Our main goal in this project was to replicate the arcade videogame Pang BusterBros from scratch using visual studio compiler and the github infrastructure.
+Our main goal in this project was to replicate the arcade videogame Pang Buster Bros from scratch, using visual studio compiler and the github infrastructure.
 
 ## 
 
