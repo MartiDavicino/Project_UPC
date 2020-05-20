@@ -14,4 +14,8 @@ Our main goal in this project was to replicate the arcade videogame Pang BusterB
 
 ## The team
 
-The group that will be developing the pang prototype for this 2020 semester known as "Los Merlaos" consists of 4 members: Starting on the left we have Aitor Álvarez, followed by Adrià Castelló, Martí Davicino, and last but not least Otto Tolo.
+The group that will be developing the pang prototype for this 2020 semester known as "Los Merlaos" consists of 4 members:  
+Aitor Álvarez
+Adrià Castelló
+Martí Davicino
+Otto Tolo
