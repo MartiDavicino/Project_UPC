@@ -10,7 +10,9 @@
 #include "ModulePlayer.h"
 #include "InterfaceElement.h"
 #include "SDL/include/SDL_scancode.h"
-
+#include "ModuleInterface.h"
+#include <stdio.h>
+#include "SDL/include/SDL.h"
 
 ModuleMenu::ModuleMenu(bool startEnabled) : Module(startEnabled)
 {
@@ -36,9 +38,13 @@ bool ModuleMenu::Start()
 	bgimg = App->textures->Load("Assets/menu.png");
 	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
 
-	texture = App->textures->Load("Assets,menuSelection");
 
-	selection.anim.PushBack({ 0,0,21,21 });
+	cursor = App->textures->Load("Assets/selectionCursor.png");
+	blinkCursor = App->textures->Load("Assets/blinkCursor.png");
+
+	selection.anim.PushBack({ 0,243,21,21 });
+	selection.anim.PushBack({ 21,243,21,21 });
+
 	//if (App->player->lives < 3) {
 	//	App->fade->FadeToBlack(this, (Module*)App->scene, 90);
 	//}
@@ -49,27 +55,29 @@ bool ModuleMenu::Start()
 	/*App->render->camera.x = 0;
 	App->render->camera.y = 0;*/
 
+
 	return ret;
 
 }
 
 update_status ModuleMenu::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
+	if (App->scene->levelSelection < 6)
 	{
-		App->scene->levelSelection++;
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
+		{
+			App->scene->levelSelection++;
+		}
 	}
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
+	if (App->scene->levelSelection > 1)
 	{
-		App->scene->levelSelection--;
-
+		if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
+		{
+			App->scene->levelSelection--;
+		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
-	{
-		counter++;
 
-	}
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -84,26 +92,79 @@ update_status ModuleMenu::PostUpdate()
 		switch (App->scene->levelSelection) //depending on the level set cursos to its pertinent position
 		{
 		case(1):
+			App->render->Blit(blinkCursor, 337, 78, NULL);
+			App->render->Blit(cursor, 337, 78, NULL);
+
 			break;
 		case(2):
+			App->render->Blit(cursor, 297, 78, NULL);
 			break;
 		case(3):
+			App->render->Blit(cursor, 281, 115, NULL);
 			break;
 		case(4):
+			App->render->Blit(cursor, 297, 115, NULL);
 			break;
 		case(5):
+			App->render->Blit(cursor, 326, 185, NULL);
 			break;
 		case(6):
+			App->render->Blit(cursor, 261, 110, NULL);
 			break;
 		}
 	}
-	if (counter == 1) {
-		//App->render->Blit(selection, 0, 0, NULL);
-	}
-	if (counter == 2) {
-		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
 
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	{
+		//counter++;
+		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
+		App->menu->Disable();
 	}
+
+	//draw all elements
+	for (uint i = 0; i < MAX_ACTIVE_SELECTIONS; ++i)
+	{
+		InterfaceElement* selection = selectionCursor[i];
+
+		if (selection != nullptr && selection->display == true)
+		{
+			//App->render->Blit(texture, element->position.x, element->position.y, 0);
+			//&(element->anim.GetCurrentFrame())
+			App->render->Blit(texture, selection->position.x, selection->position.y, &(selection->anim.GetCurrentFrame()));
+
+
+		}
+		else if (selection != nullptr && selection->display == false)
+		{
+			delete selection;
+			selectionCursor[i] = nullptr;
+		}
+	}
+
 
 	return update_status::UPDATE_CONTINUE;
+}
+
+void ModuleMenu::Selection(const InterfaceElement& element, int x, int y)
+{
+	for (uint i = 0; i < MAX_ACTIVE_SELECTIONS; ++i)
+	{
+		//Finding an empty slot for a new element
+		if (selectionCursor[i] == nullptr)
+		{
+			InterfaceElement* e = new InterfaceElement(element);
+
+			//p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
+			e->position.x = x;						// so when frameCount reaches 0 the particle will be activated
+			e->position.y = y;
+
+			e->speed.y = -0.5f;
+
+
+			e->display = true;
+
+			selectionCursor[i] = e;
+			break;
+		}
+	}
 }

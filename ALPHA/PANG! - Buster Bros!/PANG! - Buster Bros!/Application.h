@@ -13,6 +13,7 @@ class ModuleAudio;
 class ModulePlayer;
 class ModuleSceneIntro;
 class ModuleScene;
+class ModuleMenu;
 class ModuleParticles;
 class ModuleCollisions;
 class ModuleEnemies;
@@ -60,6 +61,7 @@ public:
 	ModulePlayer* player = nullptr;
 	ModuleScene* scene = nullptr;
 	ModuleSceneIntro* sceneIntro = nullptr;
+	ModuleMenu* menu = nullptr;
 	ModuleWin* win = nullptr;
 	ModuleLose* lose = nullptr;
 

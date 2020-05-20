@@ -71,7 +71,7 @@ update_status ModuleSceneIntro::PostUpdate()
 		App->render->Blit(bgtitle, 0, 0, NULL);
 	}
 	if (counter == 2) {
-		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
+		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->menu, 60);
 
 	}
 

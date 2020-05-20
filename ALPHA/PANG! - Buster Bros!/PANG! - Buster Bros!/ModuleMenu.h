@@ -5,6 +5,8 @@
 #include "Animation.h"
 #include "InterfaceElement.h"
 
+#define MAX_ACTIVE_SELECTIONS 2
+
 struct SDL_Texture;
 
 class ModuleMenu : public Module
@@ -28,10 +30,17 @@ public:
 	// Performs the render call of all the parts of the scene's background
 	update_status PostUpdate() override;
 
+	void Selection(const InterfaceElement& selection, int x, int y);
+
+	InterfaceElement* selectionCursor[MAX_ACTIVE_SELECTIONS] = { nullptr };
 
 public:
+
+
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
+	SDL_Texture* cursor = nullptr;
+	SDL_Texture* blinkCursor = nullptr;
 
 	InterfaceElement selection;
 
