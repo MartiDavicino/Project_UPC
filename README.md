@@ -4,7 +4,7 @@
 
 ### Welcome to our project's website
 
-<img>(https://github.com/MartiDavicino/Project_UPC/blob/master/Wiki/Welcome%20page/1181242065174.png)
+<img src="https://github.com/MartiDavicino/Project_UPC/blob/master/Wiki/Welcome%20page/1181242065174.png" width=400>
 
 ## About us
 
