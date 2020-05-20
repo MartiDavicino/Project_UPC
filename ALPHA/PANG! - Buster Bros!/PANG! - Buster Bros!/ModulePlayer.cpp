@@ -452,10 +452,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			gravity = newGravity;
 		}
 	
-		if (c2->type == Collider::Type::DROP)
-		{
-			//equip item
-		}
 		
 	}
 

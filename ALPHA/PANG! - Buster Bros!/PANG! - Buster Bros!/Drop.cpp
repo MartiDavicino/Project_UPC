@@ -92,18 +92,17 @@ const Collider* Drop::GetCollider() const
 void Drop::OnCollision(Collider* d1, Collider* d2)
 {
 	
-	if (d1 == collider)
+	if (d1 == collider || d2 == collider)
 	{
-		isPlaced = true;
-		if (d2->type == Collider::Type::FLOOR)
+		
+		if (d1->type == Collider::Type::FLOOR || d2->type == Collider::Type::FLOOR)
 		{
 			//stop speed and start time count
-			this->isPlaced = true;
 			isPlaced = true;
 		}
-		if (d2->type == Collider::Type::PLAYER)
+		if (d1->type == Collider::Type::PLAYER || d2->type == Collider::Type::PLAYER)
 		{
-			//equip item
+			
 
 			switch (name)
 			{
@@ -127,11 +126,7 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 			}
 		}
 
-		//test collision
-		if (d2->type == Collider::Type::ROPE)
-		{
 		
-		}
 	}
 	
 

@@ -14,6 +14,7 @@ enum class DROP_TYPE
 	FOOD,
 	SCORE	
 };
+
 struct Drop
 {
 public:

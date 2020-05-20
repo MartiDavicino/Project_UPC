@@ -47,6 +47,8 @@ public:
 	// Destroys all active particles left in the array
 	bool CleanUp() override;
 
+
+	DROP_TYPE dropType;
 	
 	void Equip(InterfaceElement& element);
 	// Called when a particle collider hits another collider

@@ -289,7 +289,7 @@ update_status ModuleInterface::PostUpdate()
 
 			if (drop->isPlaced == false)
 			{
-				//drop->position.y++;
+				drop->position.y++;
 				drop->collider->SetPos(drop->position.x, drop->position.y);
 			}
 
@@ -416,7 +416,7 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y,DROP_TYPE name)
 			d->collider->SetPos(x, y);
 
 			d->name = name;
-			d->isPlaced = true;
+			
 
 			drops[i] = d;
 			break;
@@ -450,22 +450,13 @@ void ModuleInterface::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_DROPS; ++i)
 	{
-		drops[i]->isPlaced;
-		if (drops[i] != nullptr && drops[i]->GetCollider() == c1 && c2->type == Collider::Type::PLAYER)
+
+		if (drops[i] != nullptr && (drops[i]->GetCollider() == c1 || drops[i]->collider == c2))
 		{
+			drops[i]->isPlaced;
 			drops[i]->OnCollision(c1, c2);
 		}
 
-		if (drops[i] != nullptr && drops[i]->GetCollider() == c1 && c2->type == Collider::Type::FLOOR)
-		{
-			drops[i]->OnCollision(c1, c2);
-		}
-
-		//test collision
-		if (drops[i] != nullptr && drops[i]->GetCollider() == c1 && c2->type == Collider::Type::ROPE)
-		{
-			drops[i]->OnCollision(c1, c2);
-		}
 	}
 
 }
