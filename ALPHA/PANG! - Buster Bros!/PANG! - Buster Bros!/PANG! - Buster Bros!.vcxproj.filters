@@ -114,6 +114,9 @@
     <ClCompile Include="Drop.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleTransition.cpp">
+      <Filter>Source Files\Entities\Modules\Gameplay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -207,6 +210,9 @@
       <Filter>Source Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="ModuleMenu.h">
+      <Filter>Source Files\Entities\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTransition.h">
       <Filter>Source Files\Entities\Modules\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>

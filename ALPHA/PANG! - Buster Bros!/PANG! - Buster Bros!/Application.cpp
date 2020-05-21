@@ -20,6 +20,7 @@
 #include "ModuleInterface.h"
 #include "ModuleFonts.h"
 #include "ModuleMenu.h"
+#include "ModuleTransition.h"
 
 
 Application::Application()
@@ -35,23 +36,24 @@ Application::Application()
 	modules[4] = sceneIntro = new ModuleSceneIntro(true);
 	modules[5] = scene = new ModuleScene(false);
 	modules[6] = menu = new ModuleMenu(false);
-	modules[7] = win = new ModuleWin(false);
-	modules[8] = lose = new ModuleLose(false);
+	modules[7] = transition = new ModuleTransition(false);
+	modules[8] = win = new ModuleWin(false);
+	modules[9] = lose = new ModuleLose(false);
 
-	modules[9] = player = new ModulePlayer(false);
-	modules[10] = interfaceElements = new ModuleInterface(false);
-	modules[11] = balls = new ModuleBalls(false);
+	modules[10] = player = new ModulePlayer(false);
+	modules[11] = interfaceElements = new ModuleInterface(false);
+	modules[12] = balls = new ModuleBalls(false);
 
-	modules[12] = fade = new ModuleFadeToBlack(true);
-	modules[13] = fonts = new ModuleFonts(true);
+	modules[13] = fade = new ModuleFadeToBlack(true);
+	modules[14] = fonts = new ModuleFonts(true);
 
-	modules[14] = collisions = new ModuleCollisions(true);
+	modules[15] = collisions = new ModuleCollisions(true);
 
 
 	//modules[14] = ropes = new ModuleRopes(true);
 
-	modules[15] = particles = new ModuleParticles(true);
-	modules[16] = render = new ModuleRender(true);
+	modules[16] = particles = new ModuleParticles(true);
+	modules[17] = render = new ModuleRender(true);
 }
 
 Application::~Application()

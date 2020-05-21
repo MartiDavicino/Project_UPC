@@ -98,7 +98,7 @@ bool ModulePlayer::Start()
 	explosionFx = App->audio->LoadFx("Assets/explosion.wav");
 
 	position.x = 250;
-	position.y = 130;
+	position.y = 170;
 
 	destroyed = false;
 
@@ -390,18 +390,24 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c2->type == Collider::Type::BALL)
 		{
-			destroyed = true;
+			destroyed = false;
 			//The problem is the collision is tetected more than once, so number of lives decreases drastically
 			if (isInmune == false)
 			{
 				if (lives == 4)
 				{
-					App->scene->levelSelection++;
+					
 					lives--;
 				}
 			}
 			if (isInmune == true) isInmune = false;
-			App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
+			if (lives == 1)
+			{
+				destroyed = true;
+				App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
+				App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI, 70);
+			}
+			
 
 			App->audio->PlayFx(explosionFx);
 

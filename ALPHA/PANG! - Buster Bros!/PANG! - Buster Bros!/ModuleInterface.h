@@ -125,6 +125,14 @@ public:
 	uint equippedTime;
 	uint dropTime;
 
+	// 1 econd equals 60 frames
+	uint countDown = 2;
+	uint frameCount = 0;
+
+	bool countDownReached = false;
+
+	//
+	
 
 };
 

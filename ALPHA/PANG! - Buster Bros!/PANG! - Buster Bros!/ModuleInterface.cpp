@@ -7,7 +7,10 @@
 #include "Moduleplayer.h"
 #include "InterfaceElement.h"
 #include "Drop.h"
-
+#include "ModuleScene.h"
+#include "ModuleWin.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleBalls.h"
 
 #include "SDL/include/SDL_timer.h"
 #include<stdio.h>
@@ -125,7 +128,7 @@ bool ModuleInterface::Start()
 	//App->interfaceElements->AddElement(App->interfaceElements->blackSection, 0, 240, INTERFACE_ELEMENT_TYPE::UI);
 
 	App->interfaceElements->AddElement(App->interfaceElements->ready,150, 100, INTERFACE_ELEMENT_TYPE::UI,70);
-	//App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI);
+	//App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI,120);
 	
 
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x,equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED, 70);
@@ -172,6 +175,43 @@ bool ModuleInterface::CleanUp()
 
 update_status ModuleInterface::Update()
 {
+	if (countDownReached == false)
+	{
+
+		frameCount++;
+		if (frameCount % 60 == 0)
+		{
+			countDown--;
+			LOG("%d  seconds left  ", countDown);
+			LOG("score : %d", App->score);
+			
+		}
+		if (countDown == 0) countDownReached = true;
+		if (countDownReached == true)
+		{
+			//game over
+			LOG(" G A M E  O V E R");
+			App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI,70);
+			App->interfaceElements->AddElement(App->interfaceElements->ready, 130, 100, INTERFACE_ELEMENT_TYPE::UI, 70);
+			//countDownReached = false;
+		}
+		if (App->balls->ballsLeft <= 0)
+		{
+			//reset values
+			App->score = 0;
+			App->balls->ballsLeft = 16;
+			//transition to level
+			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->transition, 60);
+
+			if (App->scene->levelSelection == 6)
+			{
+				App->fade->FadeToBlack((Module*)App->scene, (Module*)App->win, 60);
+				App->scene->Disable();
+			}
+		}
+	}
+
+
 	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 	{
 		InterfaceElement* element = interfaceElements[i];

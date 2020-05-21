@@ -246,7 +246,7 @@ void ModuleBalls::DivideBalls()
 		
 			App->audio->PlayFx(ballDestroyedFx);
 
-			App->score += 500;
+			ballsLeft--;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
@@ -266,7 +266,7 @@ void ModuleBalls::DivideBalls()
 			
 			App->audio->PlayFx(ballDestroyedFx);
 
-			App->score += 500;
+			ballsLeft--;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
@@ -287,7 +287,7 @@ void ModuleBalls::DivideBalls()
 			App->audio->PlayFx(ballDestroyedFx);
 
 			Balls[i]->div = false;
-			App->score += 500;
+			ballsLeft--;
 			Balls[i]->SetToDelete();
 
 			break;
@@ -302,7 +302,7 @@ void ModuleBalls::DivideBalls()
 
 			App->audio->PlayFx(ballDestroyedFx);
 
-			App->score += 500;
+			ballsLeft--;
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
