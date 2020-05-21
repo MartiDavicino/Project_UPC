@@ -16,6 +16,8 @@
 
 - Otto Tolo - Colliders coder
 
+![Image2](https://github.com/MartiDavicino/Project_UPC/blob/master/Wiki/LOS%20MERLAOS.PNG)
+
 ## About us
 
 We are a students' group from the Polytechnic University of Catalonia (UPC) 
@@ -24,7 +26,11 @@ And we are currently majoring design and development of videogames in the univer
 
 Our main goal in this project was to replicate the arcade videogame Pang Buster Bros from scratch, using visual studio compiler and the github infrastructure.
 
-## 
+## Links of interest
+
+Click [here](https://github.com/MartiDavicino/Project_UPC/wiki) to visit our wiki's project.
+
+Click [here](https://github.com/MartiDavicino/Project_UPC) to acces our repository.
 
 
 
