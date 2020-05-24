@@ -13,6 +13,14 @@ enum class ITEM_EQUIPPED {
 	NONE, HOOK, GUN
 };
 
+enum PLAYER_STATE {
+	IDLE,
+	RUNNING,
+	CLIMBING,
+	SHOOTING,
+	DYING
+};
+
 class ModulePlayer : public Module
 {
 public:
@@ -27,6 +35,11 @@ public:
 	// Processes new input and handles player movement
 	update_status Update() override;
 
+	void UpdateState();
+	void UpdateLogic();
+	void ChangeState(PLAYER_STATE previous,PLAYER_STATE next);
+
+
 	// Called at the end of the application loop
 	// Performs the render call of the player sprite
 	update_status PostUpdate() override;
@@ -40,6 +53,8 @@ public:
 	bool Collision_F = false;
 
 public:
+
+	PLAYER_STATE state = IDLE;
 	// Position of the player in the map
 	iPoint position;
 	bool goingRight = true;
@@ -47,6 +62,7 @@ public:
 	bool isInmune = false;
 	bool inmuneActivated = false;
 	bool destroyed = true;
+	bool canClimb = false;
 	ITEM_EQUIPPED itemEquipped;
 	iPoint isMovingAt;
 	
@@ -57,7 +73,7 @@ public:
 		Hook,Inmune,gun
 	};
 
-	unsigned int lives = 4;
+	unsigned int lives = 1;
 	bool bounce = false;
 
 	// The speed in which we move the player (pixels per frame)
@@ -90,6 +106,8 @@ public:
 	Animation dieRightAnim;
 	Animation dieLeftAnim;
 
+	int shootCountDown = 8;
+	int resetCountDown = shootCountDown;
 	// The player's collider
 	Collider* collider = nullptr;
 

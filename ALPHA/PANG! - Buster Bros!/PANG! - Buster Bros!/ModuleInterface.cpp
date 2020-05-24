@@ -123,6 +123,7 @@ bool ModuleInterface::Start()
 	score400.lifetime = score800.lifetime = score1600.lifetime = scoreTime;
 
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
+	score400.name = score800.name = score1600.name = DROP_TYPE::SCORE;
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI,0);
 	//App->interfaceElements->AddElement(App->interfaceElements->blackSection, 0, 240, INTERFACE_ELEMENT_TYPE::UI);
@@ -329,6 +330,7 @@ update_status ModuleInterface::PostUpdate()
 
 			if (drop->isPlaced == false)
 			{
+				if (drop->name != DROP_TYPE::SCORE);
 				drop->position.y++;
 				drop->collider->SetPos(drop->position.x, drop->position.y);
 			}

@@ -55,15 +55,17 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	climbAnim.loop = true;
 	climbAnim.speed = 0.1f;
 	//Shoot
-	shootRightAnim.PushBack({ 0,67,15,31 });
-	shootRightAnim.PushBack({ 26,67,35,35 });
-	shootRightAnim.loop = true;
+	//shootRightAnim.PushBack({ 0,67,25,31 });
+	shootRightAnim.PushBack({ 26,67,30,35 });
+	shootRightAnim.PushBack({ 0,67,25,31 });
+	shootRightAnim.loop = false;
 	shootRightAnim.speed = 0.00001f;
 
-	shootLeftAnim.PushBack({ 84,67,27,34 });
+	//shootLeftAnim.PushBack({ 84,67,27,34 });
 	shootLeftAnim.PushBack({ 56,67,27,34 });
+	shootLeftAnim.PushBack({ 84,67,27,34 });
 	shootLeftAnim.loop = shootRightAnim.loop;
-	shootLeftAnim.speed = shootRightAnim.speed;
+	shootLeftAnim.speed = shootRightAnim.speed = 0.05f;
 	
 	dieRightAnim.PushBack({ 5,104,39,27 });
 	dieLeftAnim.PushBack({ 44,104,39,27 });
@@ -119,8 +121,13 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	
+	UpdateState();
+	UpdateLogic();
 
+	Collision_A = false;
+	Collision_D = false;
+	Collision_F = false;
+	canClimb=false;
 	//god mode
 	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
 	{
@@ -186,41 +193,41 @@ update_status ModulePlayer::Update()
 
 
 
-		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		{
+		//if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+		//{
 
-			if (Collision_A != true)
-			{
-				position.x -= speed;
-			}
+		//	/*if (Collision_A != true)
+		//	{
+		//		position.x -= speed;
+		//	}
 
-			if (currentAnimation != &leftAnim)
-			{
-				leftAnim.Reset();
-				currentAnimation = &leftAnim;
-			}
-			if (goingRight != false)
-				goingRight = false;
+		//	if (currentAnimation != &leftAnim)
+		//	{
+		//		leftAnim.Reset();
+		//		currentAnimation = &leftAnim;
+		//	}*/
+		//	if (goingRight != false)
+		//		goingRight = false;
 
-		}
+		//}
 
-		if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		{
+		//if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		//{
 
-			isMovingAt.x = 3;
-			if (Collision_D != true)
-			{
-				position.x += speed;
-			}
-			if (currentAnimation != &rightAnim)
-			{
-				rightAnim.Reset();
-				currentAnimation = &rightAnim;
-			}
-			if (goingRight != true)
-				goingRight = true;
+		//	isMovingAt.x = 3;
+		//	if (Collision_D != true)
+		//	{
+		//		position.x += speed;
+		//	}
+		//	if (currentAnimation != &rightAnim)
+		//	{
+		//		rightAnim.Reset();
+		//		currentAnimation = &rightAnim;
+		//	}
+		//	if (goingRight != true)
+		//		goingRight = true;
 
-		}
+		//}
 
 
 
@@ -237,7 +244,7 @@ update_status ModulePlayer::Update()
 			/*	App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::ROPE);*/
 
 
-			switch (goingRight)
+			/*switch (goingRight)
 			{
 			case(false):
 				currentAnimation = &idleLeftAnim;
@@ -245,7 +252,7 @@ update_status ModulePlayer::Update()
 			case(true):
 				currentAnimation = &idleRightAnim;
 				break;
-			}
+			}*/
 
 			LOG("SHOOTING ROPE!");
 			switch (itemEquipped)
@@ -268,7 +275,7 @@ update_status ModulePlayer::Update()
 		}
 
 		// If no up/down movement detected, set the current animation back to idle
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
+		/*if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
 		{
 
 
@@ -294,7 +301,7 @@ update_status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_G] != KEY_STATE::KEY_DOWN)
 		{
 			App->collisions->DebugDraw();
-		}
+		}*/
 	}
 	
 	if (destroyed == true) {
@@ -335,12 +342,255 @@ update_status ModulePlayer::Update()
 
 		currentAnimation->Update();
 
-		Collision_A = false;
+		/*Collision_A = false;
 		Collision_D = false;
-		Collision_F = false;
+		Collision_F = false;*/
 
 		return update_status::UPDATE_CONTINUE;
 }
+
+void ModulePlayer::UpdateState()
+{
+	switch (state)
+	{
+	case IDLE:
+	{
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN ||
+			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
+			ChangeState(state, RUNNING);
+
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		{ 
+			ChangeState(state, SHOOTING);
+			shootCountDown = resetCountDown;
+		}
+			
+
+		// TODO 5: Fill in the transition condition to start climbing
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+			ChangeState(state, CLIMBING);
+
+		// TODO 0: Notice how we are changing into HAMMER_IDLE state when pressing H
+		/*if (App->input->keys[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
+			ChangeState(state, HAMMER_IDLE);*/
+		if (destroyed == true) ChangeState(state, DYING);
+
+		break;
+	}
+
+	case RUNNING:
+	{
+		if (App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_REPEAT &&
+			App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_REPEAT)
+		{
+			ChangeState(state, IDLE);
+			shootCountDown = resetCountDown;	
+		}
+
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		{
+			ChangeState(state, SHOOTING);
+		}
+		//if (App->input->keys[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
+		//	ChangeState(state, HAMMER_RUNNING);
+
+		// TODO 5: Fill in the transition condition to start climbing
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && canClimb)
+			ChangeState(state, CLIMBING);
+
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+			ChangeState(state, CLIMBING);
+
+		break;
+	}
+
+	case CLIMBING:
+	{
+		/*if (jumpCountdown <= 0)
+		{
+			jumpCountdown = 30;*/
+		/*if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT ||
+			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+			ChangeState(state, CLIMBING);*/
+		//else
+		if(canClimb==false)
+			ChangeState(state, IDLE);
+
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+			ChangeState(state, CLIMBING);
+
+		break;
+	}
+
+	case SHOOTING:
+	{
+
+		// TODO 2: Check the condition to go back to IDLE state. If fulfilled, change the state.
+		
+		/*--shootCountDown;*/
+		// TODO 3: Add all the logic behind HAMMER_RUN state
+		// TODO 3.1: Check the condition. If fulfilled, change the state to HAMMER_RUN
+		
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN ||
+			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		{
+			
+			if (shootCountDown <= 0)
+			{
+				ChangeState(state, RUNNING);
+			}
+			
+		}
+		if (shootCountDown <= 0)
+		{
+			ChangeState(state, IDLE);
+		}
+			
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+			ChangeState(state, CLIMBING);
+
+		break;
+	case DYING:
+	{
+		
+
+		break;
+	}
+	}
+	}
+}
+
+void ModulePlayer::UpdateLogic()
+{
+	switch (state)
+	{
+	case(IDLE):
+	{
+		// Nothing to do here :)
+		break;
+	}
+	case(RUNNING):
+	{
+		if (Collision_D == false && goingRight) 
+			 position.x += speed;
+
+	 else if(Collision_A==false && !goingRight)
+			position.x += (speed * (-1));
+
+	currentAnimation->Update();
+		
+		break;
+	}
+	case(CLIMBING):
+	{
+		// TODO 5: Update climbing logic - Only move when the player is pressing "W"
+
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_REPEAT)
+		{
+			--position.y;
+			currentAnimation->Update();
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == KEY_REPEAT)
+		{
+			++position.y;
+			currentAnimation->Update();
+		}
+
+		break;
+	}
+
+	case(SHOOTING):
+	{
+		--shootCountDown;
+		currentAnimation->Update();
+		break;
+	}
+	case(DYING):
+	{
+		if (bounce == false) {
+			//SDL_Delay(200);
+			switch (goingRight) {
+			case(false):
+				currentAnimation = &dieRightAnim;
+				dead_vx = 125;
+				dead_vy = dead_vy + (gravityDead * deltaTime);
+				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+				position.x = position.x + (dead_vx * deltaTime);
+
+				break;
+			case(true):
+				currentAnimation = &dieLeftAnim;
+				dead_vx = -125;
+				dead_vy = dead_vy + (gravityDead * deltaTime);
+				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+				position.x = position.x + (dead_vx * deltaTime);
+
+				break;
+			}
+
+
+		}
+		if (bounce == true) {
+			dead_vy = dead_vy + (gravityDead * deltaTime);
+			position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+			position.x = position.x + (dead_vx * deltaTime);
+
+		}
+		break;
+	}
+	}
+
+	// Warning: dirty workaround for this class for fast checking
+	// This should be avoided!!
+	//canClimb = App->sceneLevel_1->CanPlayerClimb();
+
+	// Simply updating the collider position to match our current position
+	collider->SetPos(position.x + 2, position.y + 14);
+}
+
+void ModulePlayer::ChangeState(PLAYER_STATE previousState, PLAYER_STATE newState)
+{
+	switch (newState)
+	{
+	case(IDLE):
+	{
+		currentAnimation = &(goingRight== false ? idleLeftAnim : idleRightAnim);
+		break;
+	}
+	case(RUNNING):
+	{
+		
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN ||
+			App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+			goingRight=false;
+		else
+			goingRight=true;
+		currentAnimation = &(goingRight == false ? leftAnim : rightAnim);
+		break;
+	}
+	case(CLIMBING):
+	{
+		currentAnimation = &climbAnim;
+		break;
+	}
+	case(SHOOTING):
+	{
+		// TODO 1: Change the current animation to match the new state (very similar to IDLE case)
+		currentAnimation = &(goingRight == false ? shootLeftAnim : shootRightAnim);
+		break;
+	}
+	case(DYING):
+	{
+		currentAnimation = &(goingRight == false ? dieLeftAnim : dieRightAnim);
+		break;
+	}
+
+	}
+
+	state = newState;
+}
+
+
 
 update_status ModulePlayer::PostUpdate()
 {
@@ -362,6 +612,10 @@ update_status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
+	Collision_A = false;
+	Collision_D = false;
+	Collision_F = false;
+
 	if (c1 == collider && destroyed == true) {
 		if (bounce == false) {
 			if (c2->type == Collider::Type::WALL_D) {
@@ -431,27 +685,28 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (c2->type == Collider::Type::STAIRS)
 		{
+			canClimb = true;
 			//climb stairs
-			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-			{
-				position.y -= speed;
-				if (currentAnimation != &climbAnim)
-				{
-					climbAnim.Reset();
-					currentAnimation = &climbAnim;
-				}
-				//position.y++;
-			}
-			if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-			{
-				position.y += speed;
-				if (currentAnimation != &climbAnim)
-				{
-					climbAnim.Reset();
-					currentAnimation = &climbAnim;
-				}
-				position.y--;
-			}
+			//if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+			//{
+			//	position.y -= speed;
+			//	if (currentAnimation != &climbAnim)
+			//	{
+			//		climbAnim.Reset();
+			//		currentAnimation = &climbAnim;
+			//	}
+			//	//position.y++;
+			//}
+			//if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+			//{
+			//	position.y += speed;
+			//	if (currentAnimation != &climbAnim)
+			//	{
+			//		climbAnim.Reset();
+			//		currentAnimation = &climbAnim;
+			//	}
+			//	position.y--;
+			//}
 		}
 		if (c2->type == Collider::Type::CORNICE)
 		{

@@ -70,9 +70,10 @@ bool Drop::Update()
 		
 
 		// Update the position in the screen
-		position.x += speed.x;
+	
+		/*position.x += speed.x;
 		position.y += speed.y;
-		
+		*/
 
 		if (collider != nullptr)
 			collider->SetPos(position.x, position.y);
@@ -115,7 +116,7 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 				App->player->itemEquipped =ITEM_EQUIPPED::HOOK;
 				break;
 			case(DROP_TYPE::INMUNE):
-				//App->player->itemEquipped = ITEM_EQUIPPED::H;
+				App->player->isInmune = true;
 				isAlive = false;
 				break;
 			case(DROP_TYPE::GUN):
