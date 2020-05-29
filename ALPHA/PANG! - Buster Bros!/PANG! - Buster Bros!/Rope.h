@@ -5,6 +5,10 @@
 #include "p2Point.h"
 
 struct Collider;
+enum class ROPE_TYPE {
+	ROPE, HOOK, STATIC_HOOK, SHOT, EXPLOSION, NONE, INMUNE
+
+};
 
 struct Rope
 {
@@ -44,6 +48,7 @@ public:
 	// Defines the total amount of frames during which the particle will be active
 	uint lifetime = 0;
 
+	ROPE_TYPE type;
 	// The particle's collider
 	Collider* collider = nullptr;
 

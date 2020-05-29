@@ -12,7 +12,8 @@ enum class DROP_TYPE
 	INMUNE,
 	GUN,
 	FOOD,
-	SCORE	
+	SCORE,
+	NONE
 };
 
 struct Drop

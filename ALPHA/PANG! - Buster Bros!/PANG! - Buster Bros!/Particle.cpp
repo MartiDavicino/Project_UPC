@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModulePlayer.h"
 #include "Collider.h"
+#include "ModulePlayer.h"
 
 Particle::Particle()
 {
@@ -44,6 +45,10 @@ bool Particle::Update()
 		// Otherwise the particle is destroyed when the animation is finished
 		else if (anim.HasFinished())
 			ret = false;
+		else if (type==PARTICLE_TYPE::INMUNE && App->player->isInmune==false)
+		{
+			ret = false;
+		}
 
 		// Update the position in the screen
 

@@ -51,6 +51,7 @@ public:
 	DROP_TYPE dropType;
 	
 	void Equip(InterfaceElement& element);
+	void ChangeLife(InterfaceElement& element);
 	// Called when a particle collider hits another collider
 
 	//void OnCollision(Collider* c1, Collider* c2) override;
@@ -82,9 +83,13 @@ private:
 
 	InterfaceElement* itemEquipped[MAX_ACTIVE_ITEMS_EQUIPPED] = { nullptr };
 
+	InterfaceElement* lives[MAX_ACTIVE_ITEMS_EQUIPPED] = { nullptr };
+
 public:
 	int itemsCount = 0;
 	iPoint equippedPosition; 
+
+	DROP_TYPE equippedItem;
 
 	InterfaceElement* currentAnim = nullptr;
 
@@ -105,6 +110,7 @@ public:
 	//InterfaceElement inmune;
 	InterfaceElement gun;
 	InterfaceElement doubbleShot;
+	InterfaceElement none;
 
 	//scores
 	Drop score400;
@@ -122,8 +128,8 @@ public:
 
 	//dissapear times
 	uint scoreTime = 45;
-	uint equippedTime;
-	uint dropTime;
+	uint equippedTime = 0; 
+	uint dropTime = 100;
 
 	// 1 econd equals 60 frames
 	uint countDown = 2;

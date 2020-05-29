@@ -380,6 +380,7 @@ bool ModuleParticles::Start()
 	rope.type = PARTICLE_TYPE::ROPE;
 	hook.type = PARTICLE_TYPE::HOOK;
 	staticHook.type = PARTICLE_TYPE::STATIC_HOOK;
+	inmune.type == PARTICLE_TYPE::INMUNE;
 
 	return true;
 }
@@ -472,6 +473,12 @@ update_status ModuleParticles::PostUpdate()
 		}
 		
 	}
+
+	//App->player->UpdateState();
+	//App->player->UpdateLogic();
+	///*UpdateState();
+	//UpdateLogic();*/
+	//App->player->Update();
 
 	return update_status::UPDATE_CONTINUE;
 }

@@ -86,6 +86,8 @@ bool ModuleInterface::Start()
 	hook.anim.loop = doubbleShot.anim.loop = gun.anim.loop = true;
 	hook.anim.speed= doubbleShot.anim.speed = gun.anim.speed = 0.1f;
 
+	hook.lifetime = gun.lifetime = doubbleShot.lifetime = dropTime;
+
 	//Drops
 	hookDrop.anim.PushBack({71,255,17,17}); 
 	hookDrop.blink.PushBack({160,258,14,14 });
@@ -164,6 +166,22 @@ bool ModuleInterface::CleanUp()
 		}
 	}
 
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		if (itemEquipped[i] != nullptr)
+		{
+			delete itemEquipped[i];
+			itemEquipped[i] = nullptr;
+		}
+	}
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		if (lives[i] != nullptr)
+		{
+			delete lives[i];
+			lives[i] = nullptr;
+		}
+	}
 	
 
 	return true;
@@ -176,6 +194,15 @@ bool ModuleInterface::CleanUp()
 
 update_status ModuleInterface::Update()
 {
+	//doesnt work
+	equippedTime++; LOG("equippedTime : %d", equippedTime);
+	if (equippedTime >= 120) //when the counntdown has reached it lifetime unequip item
+	{
+		//Equip(none); 
+		equippedItem = DROP_TYPE::NONE;
+		equippedTime = 0;
+	}
+
 	if (countDownReached == false)
 	{
 
@@ -245,46 +272,35 @@ update_status ModuleInterface::Update()
 
 	
 
-	switch (App->player->lives)
-	{
-	case(4):
-		App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220,INTERFACE_ELEMENT_TYPE::UI,0);
-
-		break;
-
-	case(3):
-		fourthLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI,0);
-		
-		break;
-	case(2):
-		thirdLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->secondLife,10, 220, INTERFACE_ELEMENT_TYPE::UI,0);
-		
-		break;
-	case(1):
-		secondLife.display = false;
-		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10,220, INTERFACE_ELEMENT_TYPE::UI,0);
-		
-		break;
-	case(0):
-		
-		
-		break;
-	}
+	
 
 	switch (App->player->itemEquipped)
 	{
 		//the problem i¡is that is rendenring on update so the animation never finishes
 	case(ITEM_EQUIPPED::NONE):
-		
+		if (equippedItem != DROP_TYPE::NONE)
+		{
+			LOG("Unequipped");
+			Equip(none);
+			equippedItem = DROP_TYPE::NONE;
+		}
 		break;
 
 	case(ITEM_EQUIPPED::HOOK):
-		Equip(hook);
+		if (equippedItem != DROP_TYPE::HOOK)
+		{
+			LOG("Hook equipped"); //equippedTime = 0;
+			Equip(hook);
+			equippedItem = DROP_TYPE::HOOK;
+		}
 		break;
 	case(ITEM_EQUIPPED::GUN):
-		Equip(gun);
+		if (equippedItem != DROP_TYPE::GUN)
+		{
+			LOG("Gun equipped"); //equippedTime = 0;
+			Equip(gun);
+			equippedItem = DROP_TYPE::GUN;
+		}
 		break;
 
 	}
@@ -297,6 +313,34 @@ update_status ModuleInterface::Update()
 
 update_status ModuleInterface::PostUpdate()
 {
+	switch (App->player->lives)
+	{
+	case(4):
+		//App->interfaceElements->AddElement(App->interfaceElements->fourthLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI, 0);
+		ChangeLife(App->interfaceElements->fourthLife);
+		break;
+
+	case(3):
+		/*fourthLife.display = false;
+		App->interfaceElements->AddElement(App->interfaceElements->thirdLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI, 0);*/
+		ChangeLife(App->interfaceElements->thirdLife);
+		break;
+	case(2):
+	/*	thirdLife.display = false;
+		App->interfaceElements->AddElement(App->interfaceElements->secondLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI, 0);*/
+		ChangeLife(App->interfaceElements->secondLife);
+		break;
+	case(1):
+		/*secondLife.display = false;
+		App->interfaceElements->AddElement(App->interfaceElements->oneLife, 10, 220, INTERFACE_ELEMENT_TYPE::UI, 0);*/
+		ChangeLife(App->interfaceElements->oneLife);
+		break;
+	case(0):
+
+		ChangeLife(App->interfaceElements->none);
+		break;
+	}
+
 	//Iterating all particle array and drawing any active particles
 	for (uint i = 0; i < MAX_ACTIVE_INTERFACE_ELEMENTS; ++i)
 	{
@@ -366,6 +410,26 @@ update_status ModuleInterface::PostUpdate()
 			itemEquipped[i] = nullptr;
 		}
 	}
+
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		InterfaceElement* life = lives[i];
+
+		if (life != nullptr) // && item->display
+		{
+			//App->render->Blit(texture, element->position.x, element->position.y, 0);
+			//&(element->anim.GetCurrentFrame())
+			App->render->Blit(texture, life->position.x, life->position.y, &(life->anim.GetCurrentFrame()));
+
+
+		}
+		else if (life != nullptr && life->display == false)
+		{
+			delete life;
+			lives[i] = nullptr;
+		}
+	}
+
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -385,17 +449,48 @@ void ModuleInterface::AddElement(const InterfaceElement& element, int x, int y,I
 			e->speed.y = -0.5f;
 
 			e->lifetime = newLifetime;
-			if (newType == INTERFACE_ELEMENT_TYPE::EQUIPPED)
-			{
-				e->lifetime = 130;
-				//e->equipped = true;
-			}
+			
 			e->type = newType;
 
 			interfaceElements[i] = e;
 			break;
 		}
 	}
+}
+
+void ModuleInterface::ChangeLife(InterfaceElement& element)
+{
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		InterfaceElement* life = lives[i];
+		if (life != nullptr)
+		{
+			delete life;
+			lives[i] = nullptr;
+		}
+	}
+
+	for (uint i = 0; i < MAX_ACTIVE_ITEMS_EQUIPPED; ++i)
+	{
+		//Finding an empty slot for a new element
+		if (lives[i] == nullptr)
+		{
+			InterfaceElement* life = new InterfaceElement(element);
+
+			//p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
+			life->position.x = 10;				// so when frameCount reaches 0 the particle will be activated
+			life->position.y = 220;
+
+			life->lifetime = equippedTime;
+
+			life->type = INTERFACE_ELEMENT_TYPE::EQUIPPED;
+
+			lives[i] = life;
+			break;
+		}
+	}
+
+
 }
 
 void ModuleInterface::Equip(InterfaceElement& element)
@@ -421,7 +516,7 @@ void ModuleInterface::Equip(InterfaceElement& element)
 			equipped->position.x = equippedPosition.x;				// so when frameCount reaches 0 the particle will be activated
 			equipped->position.y = equippedPosition.y;
 
-			equipped->lifetime = 150;
+			equipped->lifetime = equippedTime;
 
 			equipped->type = INTERFACE_ELEMENT_TYPE::EQUIPPED;
 

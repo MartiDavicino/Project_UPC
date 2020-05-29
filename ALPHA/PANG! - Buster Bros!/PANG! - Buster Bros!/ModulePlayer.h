@@ -40,6 +40,7 @@ public:
 	void ChangeState(PLAYER_STATE previous,PLAYER_STATE next);
 
 
+
 	// Called at the end of the application loop
 	// Performs the render call of the player sprite
 	update_status PostUpdate() override;
@@ -66,6 +67,8 @@ public:
 	ITEM_EQUIPPED itemEquipped;
 	iPoint isMovingAt;
 	
+	int inmuneCountDown = 120;
+	int resetInmuneCountDown = inmuneCountDown;
 	// 0 equals to any object equipped
 
 	enum Object
@@ -73,7 +76,7 @@ public:
 		Hook,Inmune,gun
 	};
 
-	unsigned int lives = 1;
+	unsigned int lives = 4;
 	bool bounce = false;
 
 	// The speed in which we move the player (pixels per frame)
@@ -123,6 +126,10 @@ public:
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 	
+private:
+	//countdowns to avoid multiple deaths when collision
+	int deadCountDown = 0;
+
 
 };
 

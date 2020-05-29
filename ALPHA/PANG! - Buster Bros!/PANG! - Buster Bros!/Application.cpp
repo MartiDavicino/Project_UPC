@@ -40,20 +40,24 @@ Application::Application()
 	modules[8] = win = new ModuleWin(false);
 	modules[9] = lose = new ModuleLose(false);
 
-	modules[10] = player = new ModulePlayer(false);
-	modules[11] = interfaceElements = new ModuleInterface(false);
-	modules[12] = balls = new ModuleBalls(false);
+	modules[17] = ropes = new ModuleRopes(true);
+	modules[11] = player = new ModulePlayer(false);
 
-	modules[13] = fade = new ModuleFadeToBlack(true);
-	modules[14] = fonts = new ModuleFonts(true);
+	modules[12] = interfaceElements = new ModuleInterface(false);
+	modules[13] = balls = new ModuleBalls(false);
 
-	modules[15] = collisions = new ModuleCollisions(true);
+	modules[14] = fade = new ModuleFadeToBlack(true);
+	modules[15] = fonts = new ModuleFonts(true);
+
+	modules[16] = collisions = new ModuleCollisions(true);
 
 
-	//modules[14] = ropes = new ModuleRopes(true);
+	
 
-	modules[16] = particles = new ModuleParticles(true);
-	modules[17] = render = new ModuleRender(true);
+	modules[10] = particles = new ModuleParticles(true);
+	modules[18] = render = new ModuleRender(true);
+
+	
 }
 
 Application::~Application()
@@ -93,6 +97,8 @@ update_status Application::Update()
 
 	for (int i = 0; i < NUM_MODULES && ret == update_status::UPDATE_CONTINUE; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->PostUpdate() : update_status::UPDATE_CONTINUE;
+
+
 
 	return ret;
 }

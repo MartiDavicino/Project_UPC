@@ -7,7 +7,7 @@
 #include "Rope.h"
 #include "Collider.h"
 
-#define MAX_ACTIVE_ROPES 1
+#define MAX_ACTIVE_ROPES 3
 
 struct SDL_Texture;
 struct Collider;
@@ -47,7 +47,7 @@ public:
 	// Param particle	- A template particle from which the new particle will be created
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
-	void AddRope(const Rope& rope, int x, int y, Collider::Type colliderType = Collider::Type::NONE, uint delay = 0);
+	void AddRope(const Rope& rope, int x, int y, Collider::Type colliderType , ROPE_TYPE type);
 
 
 private:
@@ -59,11 +59,14 @@ private:
 
 public:
 	//Template particle for an explosion
-	Rope shooting;
+
 	uint FiringFx = 0;
 
 	//Template particle for a laser
 	Rope rope;
+	Rope shot;
+	Rope hook;
+	Rope staticHook;
 
 	
 };

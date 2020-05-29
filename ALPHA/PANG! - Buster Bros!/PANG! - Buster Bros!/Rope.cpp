@@ -52,7 +52,7 @@ bool Rope::Update()
 		position.x += speed.x;
 		position.y += speed.y;
 
-		if (collider != nullptr)
+		if (collider != nullptr && type!=ROPE_TYPE::SHOT)
 			collider->SetPos(position.x, position.y);
 	}
 

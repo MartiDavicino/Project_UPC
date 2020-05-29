@@ -118,7 +118,6 @@ bool ModulePlayer::Start()
 
 
 
-
 update_status ModulePlayer::Update()
 {
 	UpdateState();
@@ -128,6 +127,9 @@ update_status ModulePlayer::Update()
 	Collision_D = false;
 	Collision_F = false;
 	canClimb=false;
+
+	if (isInmune == true) inmuneCountDown--;
+
 	//god mode
 	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
 	{
@@ -168,13 +170,18 @@ update_status ModulePlayer::Update()
 	if (destroyed == false) {
 
 		position.y += gravity;
-
+		
 		if (isInmune == true && inmuneActivated == false) {
 
 			//it creates a lot of particles
 			App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::INMUNE);
 			inmuneActivated = true;
+			inmuneCountDown = resetInmuneCountDown;
 
+		}
+		if (inmuneCountDown <= 0)
+		{
+			isInmune = false; inmuneActivated = false;
 		}
 		//EQUIP MANUALLY
 		if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
@@ -258,15 +265,17 @@ update_status ModulePlayer::Update()
 			switch (itemEquipped)
 			{
 			case(ITEM_EQUIPPED::NONE):
-				App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::ROPE);
+				//App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::ROPE);
 
+				App->ropes->AddRope(App->ropes->rope, position.x+9, position.y, Collider::Type::ROPE, ROPE_TYPE::ROPE);
 				break;
 			case(ITEM_EQUIPPED::HOOK):
-				App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);
+				/*App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);*/
+				App->ropes->AddRope(App->ropes->hook, position.x + 9, position.y, Collider::Type::ROPE, ROPE_TYPE::HOOK);
 				break;
 			case(ITEM_EQUIPPED::GUN):
-				App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);
-
+				/*App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);*/
+				App->ropes->AddRope(App->ropes->shot, position.x + 9, position.y, Collider::Type::ROPE, ROPE_TYPE::SHOT);
 				break;
 			}
 
@@ -594,7 +603,7 @@ void ModulePlayer::ChangeState(PLAYER_STATE previousState, PLAYER_STATE newState
 
 update_status ModulePlayer::PostUpdate()
 {
-	
+	deadCountDown++;
 	
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	
@@ -641,31 +650,36 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);*/
 
 		
-
-		if (c2->type == Collider::Type::BALL)
+		if (deadCountDown >= 60)
 		{
-			destroyed = false;
-			//The problem is the collision is tetected more than once, so number of lives decreases drastically
-			if (isInmune == false)
+			deadCountDown = 0;
+			if (c2->type == Collider::Type::BALL)
 			{
-				if (lives == 4)
+				destroyed = false;
+				//The problem is the collision is tetected more than once, so number of lives decreases drastically
+				if (isInmune == false)
 				{
+					/*if (lives == 4)
+					{*/
+
+						lives--;
 					
-					lives--;
 				}
-			}
-			if (isInmune == true) isInmune = false;
-			if (lives == 1)
-			{
-				destroyed = true;
-				App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
-				App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI, 70);
-			}
-			
+				if (isInmune == true) {
+					isInmune = false; 
+				}
+				if (lives == 0)
+				{
+					destroyed = true;
+					App->particles->AddParticle(App->particles->blink, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
+					App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI, 70);
+				}
 
-			App->audio->PlayFx(explosionFx);
 
-			
+				App->audio->PlayFx(explosionFx);
+
+
+			}
 		}
 
 
@@ -722,3 +736,5 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 }
+
+
