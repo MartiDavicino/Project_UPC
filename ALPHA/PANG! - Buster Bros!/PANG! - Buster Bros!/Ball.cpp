@@ -7,6 +7,7 @@
 #include "ModuleRender.h"
 #include "ModuleBalls.h"
 #include "ModulePlayer.h"
+#include "ModuleScene.h"
 
 Ball::Ball(int x, int y, BALL_TYPE  Type) : position(x, y)
 {
@@ -67,6 +68,23 @@ const Collider* Ball::GetCollider() const
 
 void Ball::Update()
 {
+	//translate ball position into tiles coordinates
+
+
+	/*tilePosition.x = position.x / 8; tilePosition.y = position.y / 8;*/
+
+
+	//check if adjacent tiles are floor or wall then changee x/y speed
+
+
+
+	//for (int i = tilePosition.x-1; i <= tilePosition.x+1; i++)
+	//{
+	//	for (int j = tilePosition.y - 1; i <= tilePosition.y + 1; j++)
+	//	{
+	//		if(App->scene->tiles_01[i][j])
+	//	}
+	//}
 
 	if (App->player->destroyed == false) {
 		Ball_vy = Ball_vy + (gravity * deltaTime);

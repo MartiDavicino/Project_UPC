@@ -55,6 +55,7 @@ public:
 	BALL_TYPE type = BALL_TYPE::NO_TYPE;
 	// The current position in the world
 	iPoint position;
+	iPoint tilePosition;
 
 	// The enemy's texture
 	SDL_Texture* texture = nullptr;
