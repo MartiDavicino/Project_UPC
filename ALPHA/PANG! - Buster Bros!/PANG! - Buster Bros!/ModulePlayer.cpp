@@ -105,8 +105,8 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 22, 30 }, Collider::Type::PLAYER, this);
-	char lookupTable[] = { " !¿#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
-	scoreFont = App->fonts->Load("Assets/Fontb.png", lookupTable, 6);
+	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+	scoreFont = App->fonts->Load("Assets/Font.png", lookupTable, 1);
 
 	if (App->score >= 7500) {
 		App->fade->FadeToBlack((Module*)App->scene, (Module*)App->win, 60);
@@ -133,6 +133,8 @@ update_status ModulePlayer::Update()
 	//god mode
 	if (App->input->keys[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
 	{
+		//isInmune = true;
+
 		LOG("God mode activated\n");
 		switch (GodMode)
 		{
@@ -195,6 +197,10 @@ update_status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_3] == KEY_STATE::KEY_DOWN)
 		{
 			itemEquipped = ITEM_EQUIPPED::GUN;
+		}
+		if (App->input->keys[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN)
+		{
+			isInmune = true; inmuneActivated = true;
 		}
 
 
@@ -609,10 +615,10 @@ update_status ModulePlayer::PostUpdate()
 	
 		App->render->Blit(texture, position.x, position.y, &rect);
 	
-
+	const char* txt = { "HELLO" };
 	/*sprintf_s(scoreText, 10, "%7d", App->score);*/
-	/*App->fonts->BlitText(130, 215, scoreFont, scoreText);
-	App->fonts->BlitText(150, 215, scoreFont, scoreText);*/
+	App->fonts->BlitText(130, 30, scoreFont, txt);
+	/*App->fonts->BlitText(150, 215, scoreFont, scoreText);*/
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -652,21 +658,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		
 		if (deadCountDown >= 60)
 		{
-			deadCountDown = 0;
+			
 			if (c2->type == Collider::Type::BALL)
 			{
 				destroyed = false;
 				//The problem is the collision is tetected more than once, so number of lives decreases drastically
 				if (isInmune == false)
 				{
-					/*if (lives == 4)
-					{*/
-
-						lives--;
-					
+					lives--;
+					deadCountDown = 0;
 				}
 				if (isInmune == true) {
-					isInmune = false; 
+					isInmune = false; inmuneActivated = false;
+					deadCountDown = 0;
 				}
 				if (lives == 0)
 				{

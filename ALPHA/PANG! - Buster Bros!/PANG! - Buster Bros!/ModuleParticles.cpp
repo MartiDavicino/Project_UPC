@@ -411,10 +411,10 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		{
 			if (c2->type == Collider::Type::TOP)
 			{
-				if (particles[i]->type == PARTICLE_TYPE::HOOK)
+			/*	if (particles[i]->type == PARTICLE_TYPE::HOOK)
 				{
 					App->particles->AddRope(staticHook, particles[i]->position.x, particles[i]->position.y+1, Collider::Type::ROPE,0,PARTICLE_TYPE::STATIC_HOOK);
-				}
+				}*/
 
 				delete particles[i];
 				particles[i] = nullptr;

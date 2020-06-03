@@ -195,7 +195,7 @@ bool ModuleInterface::CleanUp()
 update_status ModuleInterface::Update()
 {
 	//doesnt work
-	equippedTime++; LOG("equippedTime : %d", equippedTime);
+	equippedTime++; /*LOG("equippedTime : %d", equippedTime);*/
 	if (equippedTime >= 120) //when the counntdown has reached it lifetime unequip item
 	{
 		//Equip(none); 
@@ -372,12 +372,13 @@ update_status ModuleInterface::PostUpdate()
 			//&(element->anim.GetCurrentFrame())
 			App->render->Blit(texture, drop->position.x, drop->position.y, &(drop->anim.GetCurrentFrame()));
 
-			if (drop->isPlaced == false)
+			if (drop->isPlaced == false && drop->name != DROP_TYPE::SCORE)
 			{
-				if (drop->name != DROP_TYPE::SCORE);
+				
 				drop->position.y++;
 				drop->collider->SetPos(drop->position.x, drop->position.y);
 			}
+			if (drop->name == DROP_TYPE::SCORE)drop->isPlaced = true;
 
 			
 
@@ -569,13 +570,13 @@ void ModuleInterface::RandomDrop(int x,int y)
 	switch (itemsCount)
 	{
 	case(3): //power up
-		App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::HOOK);
+		//App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::HOOK);
 		App->interfaceElements->AddDrop(inmuneDrop, x, y, DROP_TYPE::INMUNE);
-		App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::GUN);
+		//App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::GUN);
 	    break;
 	case(4): //food
 		App->interfaceElements->AddDrop(banana, x, y, DROP_TYPE::FOOD);
-		App->interfaceElements->AddDrop(banana, x, y, DROP_TYPE::FOOD);
+		
 		break;
 	
 	}

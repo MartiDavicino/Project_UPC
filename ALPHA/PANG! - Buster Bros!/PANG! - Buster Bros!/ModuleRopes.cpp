@@ -335,6 +335,7 @@ rope.anim.PushBack({ 801, 350, 9, 212 });
 	rope.type = ROPE_TYPE::ROPE;
 	hook.type = ROPE_TYPE::HOOK;
 	shot.type = ROPE_TYPE::SHOT;
+	staticHook.type = ROPE_TYPE::STATIC_HOOK;
 
 	return true;
 }
@@ -342,7 +343,7 @@ rope.anim.PushBack({ 801, 350, 9, 212 });
 update_status ModuleRopes::PreUpdate()
 {
 
-	LOG("Unloading particles");
+	//LOG("Unloading particles");
 
 	 //Remove all particles scheduled for deletion
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
@@ -360,7 +361,7 @@ update_status ModuleRopes::PreUpdate()
 
 bool ModuleRopes::CleanUp()
 {
-	LOG("Unloading particles");
+//	LOG("Unloading particles");
 
 	// Delete all remaining active particles on application exit 
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
@@ -384,6 +385,12 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 		{
 			if (c2->type == Collider::Type::TOP)
 			{
+				if (ropes[i]->type == ROPE_TYPE::HOOK)
+				{
+					LOG("Rope hooked");
+					App->ropes->AddRope(App->ropes->staticHook, ropes[i]->position.x, ropes[i]->position.y + 1, Collider::Type::NONE, ROPE_TYPE::STATIC_HOOK);
+				}
+
 				delete ropes[i];
 				ropes[i] = nullptr;
 				break;
@@ -438,7 +445,7 @@ update_status ModuleRopes::PostUpdate()
 	return update_status::UPDATE_CONTINUE;
 }
 
-void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type colliderType,ROPE_TYPE type)
+void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type colliderType,ROPE_TYPE newType)
 {
 	Rope* newrope = nullptr;
 	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
@@ -451,6 +458,7 @@ void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type col
 
 			Rope* newrope = new Rope(particle);
 			
+			newrope->type = newType;
 			newrope->position.x = x;						// so when frameCount reaches 0 the particle will be activated
 			newrope->position.y = y;
 

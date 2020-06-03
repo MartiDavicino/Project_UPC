@@ -94,7 +94,7 @@ void Ball::Draw()
 
 void Ball::OnCollision(Collider* collider)
 {
-	LOG("Ball Destroyed\n");
+	//LOG("Ball Destroyed\n");
 
 
 	if (type == BALL_TYPE::BIG) {

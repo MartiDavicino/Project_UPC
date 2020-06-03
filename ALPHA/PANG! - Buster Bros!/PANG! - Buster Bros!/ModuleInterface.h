@@ -132,7 +132,7 @@ public:
 	uint dropTime = 100;
 
 	// 1 econd equals 60 frames
-	uint countDown = 2;
+	uint countDown = 80;
 	uint frameCount = 0;
 
 	bool countDownReached = false;

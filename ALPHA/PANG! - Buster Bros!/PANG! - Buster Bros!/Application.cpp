@@ -40,14 +40,14 @@ Application::Application()
 	modules[8] = win = new ModuleWin(false);
 	modules[9] = lose = new ModuleLose(false);
 
-	modules[17] = ropes = new ModuleRopes(true);
+	modules[15] = ropes = new ModuleRopes(true);
 	modules[11] = player = new ModulePlayer(false);
 
 	modules[12] = interfaceElements = new ModuleInterface(false);
 	modules[13] = balls = new ModuleBalls(false);
 
 	modules[14] = fade = new ModuleFadeToBlack(true);
-	modules[15] = fonts = new ModuleFonts(true);
+	modules[17] = fonts = new ModuleFonts(true);
 
 	modules[16] = collisions = new ModuleCollisions(true);
 
