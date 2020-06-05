@@ -615,10 +615,48 @@ update_status ModulePlayer::PostUpdate()
 	
 		App->render->Blit(texture, position.x, position.y, &rect);
 	
-	const char* txt = { "HELLO" };
+	
 	/*sprintf_s(scoreText, 10, "%7d", App->score);*/
-	App->fonts->BlitText(130, 30, scoreFont, txt);
+	
 	/*App->fonts->BlitText(150, 215, scoreFont, scoreText);*/
+	const char* insert = { "INSERT" };
+	const char* coin = { "COIN" };
+
+	App->fonts->BlitText(260, 225, scoreFont, insert); App->fonts->BlitText(325, 225, scoreFont, coin);
+
+	const char* t01= { "FUJI" };
+	const char* t02 = { "KEIRIN" };
+	const char* t03 = { "KEIRIN" };
+	const char* t04 = { "KEIRIN" };
+	const char* t05 = { "KEIRIN" };
+	const char* t06 = { "KEIRIN" };
+	switch (App->scene->levelSelection)
+	{
+
+	case(1):
+		App->fonts->BlitText(130, 30, scoreFont, t01);
+		break;
+
+	case(2):
+		App->fonts->BlitText(130, 130, scoreFont, t02);
+		break;
+
+	case(3):
+		App->fonts->BlitText(130, 30, scoreFont, t03);
+		break;
+
+	case(4):
+		App->fonts->BlitText(130, 30, scoreFont, t04);
+		break;
+
+	case(5):
+		App->fonts->BlitText(130, 30, scoreFont, t05);
+		break;
+
+	case(6):
+		App->fonts->BlitText(170, 210, scoreFont, t05);
+		break;
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }

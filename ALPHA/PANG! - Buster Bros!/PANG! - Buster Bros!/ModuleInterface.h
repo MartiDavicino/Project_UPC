@@ -111,6 +111,7 @@ public:
 	InterfaceElement gun;
 	InterfaceElement doubbleShot;
 	InterfaceElement none;
+	InterfaceElement blackSquare;
 
 	//scores
 	Drop score400;
@@ -138,6 +139,7 @@ public:
 	bool countDownReached = false;
 
 	//
+	int  coinDown = 0;
 	
 
 };

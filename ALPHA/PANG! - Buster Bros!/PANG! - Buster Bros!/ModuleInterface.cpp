@@ -11,6 +11,7 @@
 #include "ModuleWin.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleBalls.h"
+#include "ModuleFonts.h"
 
 #include "SDL/include/SDL_timer.h"
 #include<stdio.h>
@@ -126,6 +127,8 @@ bool ModuleInterface::Start()
 
 	score400.anim.loop = score800.anim.loop = score1600.anim.loop = true;
 	score400.name = score800.name = score1600.name = DROP_TYPE::SCORE;
+
+	blackSquare.anim.PushBack({ 0,620,160,30 });
 	
 	App->interfaceElements->AddElement(App->interfaceElements->UI, 0, 0, INTERFACE_ELEMENT_TYPE::UI,0);
 	//App->interfaceElements->AddElement(App->interfaceElements->blackSection, 0, 240, INTERFACE_ELEMENT_TYPE::UI);
@@ -194,6 +197,12 @@ bool ModuleInterface::CleanUp()
 
 update_status ModuleInterface::Update()
 {
+	coinDown++;
+	if (coinDown % 60 == 0)
+	{
+		App->interfaceElements->AddElement(App->interfaceElements->blackSquare, 260, 225, INTERFACE_ELEMENT_TYPE::UI, 30);
+	}
+
 	//doesnt work
 	equippedTime++; /*LOG("equippedTime : %d", equippedTime);*/
 	if (equippedTime >= 120) //when the counntdown has reached it lifetime unequip item
@@ -305,6 +314,40 @@ update_status ModuleInterface::Update()
 
 	}
 
+	const char* txt = { "HELLO" };
+	///*sprintf_s(scoreText, 10, "%7d", App->score);*/
+	App->fonts->BlitText(130, 30, -1, txt);
+	///*App->fonts->BlitText(150, 215, scoreFont, scoreText);*/
+	switch (App->scene->levelSelection)
+	{
+
+	case(1):
+		
+
+
+
+		break;
+
+	case(2):
+		
+		break;
+
+	case(3):
+		
+		break;
+
+	case(4):
+		
+		break;
+
+	case(5):
+		
+		break;
+
+	case(6):
+		
+		break;
+	}
 
 	
 

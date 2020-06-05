@@ -388,7 +388,8 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 				if (ropes[i]->type == ROPE_TYPE::HOOK)
 				{
 					LOG("Rope hooked");
-					App->ropes->AddRope(App->ropes->staticHook, ropes[i]->position.x, ropes[i]->position.y + 1, Collider::Type::NONE, ROPE_TYPE::STATIC_HOOK);
+					App->ropes->AddRope(App->ropes->staticHook, 30,30, Collider::Type::ROPE, ROPE_TYPE::STATIC_HOOK);
+					//App->ropes->AddRope(App->ropes->staticHook, ropes[i]->position.x, ropes[i]->position.y + 1, Collider::Type::NONE, ROPE_TYPE::STATIC_HOOK);
 				}
 
 				delete ropes[i];
@@ -468,18 +469,18 @@ void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type col
 				SDL_Rect shotCollider = { 0,0,19,7 };
 
 				newrope->collider = App->collisions->AddCollider(shotCollider, Collider::Type::ROPE, this);
+				newrope->collider->SetPos(App->player->position.x, App->player->position.y);
+				
 
-				App->particles->AddParticle(App->particles->shotParticle, App->player->position.x + 9, App->player->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
+				App->particles->AddParticle(App->particles->shotParticle, App->player->position.x + 9, App->player->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
 			}
 			else  {
-				SDL_Rect ropeCollider = {0,0,9,300};
-				
+				SDL_Rect ropeCollider = { 0,0,9,300 };
+			
 				//newrope->collider = App->collisions->AddCollider(newrope->anim.GetCurrentFrame(), Collider::Type::ROPE, this);
 				newrope->collider = App->collisions->AddCollider(ropeCollider, Collider::Type::ROPE, this);
-
-
-			
 			}
+			
 			
 				
 

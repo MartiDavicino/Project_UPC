@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
+#include "ModuleFonts.h"
 
 #include "ModuleBalls.h"
 #include "ModulePlayer.h"
@@ -59,6 +60,7 @@ bool ModuleScene::Start()
 
 	// each level specific colliders
 	
+	
 		switch (levelSelection)
 		{
 		case(2):
@@ -74,7 +76,8 @@ bool ModuleScene::Start()
 			App->collisions->AddCollider({ 177,129,31,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::TOP);
 	
-
+			
+			 
 			break;
 		case(3):
 			App->collisions->AddCollider({ 96,56,3,47 }, Collider::Type::WALL_A); //left
@@ -200,6 +203,7 @@ update_status ModuleScene::PostUpdate()
 		App->render->Blit(bgTexture_01, 0, 0, NULL);
 
 		
+
 		break;
 
 	case(2):

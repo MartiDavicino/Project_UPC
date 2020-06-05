@@ -49,6 +49,7 @@ public:
 private:
 	uint countDown = 2;
 	uint frameCount = 0;
+	int scoreFont = -1;
 };
 
 #endif

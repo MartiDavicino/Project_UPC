@@ -11,6 +11,7 @@
 #include "InterfaceElement.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModuleInterface.h"
+#include"ModuleFonts.h"
 #include <stdio.h>
 #include "SDL/include/SDL.h"
 
@@ -86,12 +87,15 @@ update_status ModuleTransition::PostUpdate()
 	// Draw everything --------------------------------------
 	
 		App->render->Blit(bgimg, 0, 0, NULL);
+		
 
 		switch (App->scene->levelSelection) //depending on the level set cursos to its pertinent position
 		{
 		case(1):
 			App->render->Blit(blinkCursor, 337, 78, NULL);
 			App->render->Blit(cursor, 337, 78, NULL);
+
+			
 
 			break;
 		case(2):
@@ -108,6 +112,8 @@ update_status ModuleTransition::PostUpdate()
 			break;
 		case(6):
 			App->render->Blit(cursor, 261, 110, NULL);
+
+			
 			break;
 		}
 	

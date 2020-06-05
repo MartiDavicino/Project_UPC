@@ -29,32 +29,36 @@ bool Rope::Update()
 {
 	bool ret = true;
 	frameCount++;
-
-	// The particle is set to 'alive' when the delay has been reached
-	if (!isAlive && frameCount >= 0)
-		isAlive = true;
-
-	if (isAlive)
+	
+	if (type != ROPE_TYPE::STATIC_HOOK)
 	{
-		anim.Update();
+		// The particle is set to 'alive' when the delay has been reached
+		if (!isAlive && frameCount >= 0)
+			isAlive = true;
 
-		// If the particle has a specific lifetime, check when it has to be destroyed
-		if (lifetime > 0)
+		if (isAlive)
 		{
-			if (frameCount >= lifetime)
+			anim.Update();
+
+			// If the particle has a specific lifetime, check when it has to be destroyed
+			if (lifetime > 0)
+			{
+				if (frameCount >= lifetime)
+					ret = false;
+			}
+			// Otherwise the particle is destroyed when the animation is finished
+			else if (anim.HasFinished())
 				ret = false;
-		}
-		// Otherwise the particle is destroyed when the animation is finished
-		else if (anim.HasFinished())
-			ret = false;
 
-		// Update the position in the screen
-		position.x += speed.x;
-		position.y += speed.y;
+			// Update the position in the screen
+			position.x += speed.x;
+			position.y += speed.y;
 
-		if (collider != nullptr && type!=ROPE_TYPE::SHOT)
+			if (collider != nullptr && type != ROPE_TYPE::SHOT)
+			{
+			}
 			collider->SetPos(position.x, position.y);
+		}
 	}
-
 	return ret;
 }
