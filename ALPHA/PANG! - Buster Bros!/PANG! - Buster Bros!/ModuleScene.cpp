@@ -26,6 +26,8 @@ bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
 
+	
+
 	bool ret = true;
 	App->audio->Enable();
 	App->audio->Start();
@@ -46,7 +48,7 @@ bool ModuleScene::Start()
 
 
 	/*SDL_Rect section = &bgTexture;*/
-	//App->audio->PlayMusic("Assets/Arcade - 01a - Mt. Fuji.ogg", 1.0f);
+	
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::FLOOR);*/
 
@@ -63,7 +65,11 @@ bool ModuleScene::Start()
 	
 		switch (levelSelection)
 		{
-		case(2):
+		case(1):
+			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+			App->audio->PlayMusic("Assets/music01.ogg", 1.0f);
+			break;
+		case(3):
 			App->collisions->AddCollider({ 72,80,31,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::TOP);
 
@@ -75,11 +81,14 @@ bool ModuleScene::Start()
 
 			App->collisions->AddCollider({ 177,129,31,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::TOP);
+
+			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+			App->balls->AddBall(BALL_TYPE::SMALL , 70, 25, true);
 	
-			
+			App->audio->PlayMusic("Assets/music03.ogg", 1.0f);
 			 
 			break;
-		case(3):
+		case(5):
 			App->collisions->AddCollider({ 96,56,3,47 }, Collider::Type::WALL_A); //left
 			App->collisions->AddCollider({ 100,56,3,47 }, Collider::Type::WALL_D); //right
 
@@ -88,16 +97,23 @@ bool ModuleScene::Start()
 
 			App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::WALL_A); //left
 			App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::WALL_D);
-	
+
+			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+			App->balls->AddBall(BALL_TYPE::MEDIUM, 70, 25, true);
+
+			App->audio->PlayMusic("Assets/music05.ogg", 1.0f);
 			break;
 
-		case(4):
+		case(2):
 			App->collisions->AddCollider({ 160,80,64,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 160,84,64,3 }, Collider::Type::TOP);
 
+			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+
+			App->audio->PlayMusic("Assets/music02.ogg", 1.0f);
 
 			break;
-		case(5): //161 153
+		case(4): //161 153
 			App->collisions->AddCollider({ 180,153,3,20 }, Collider::Type::STAIRS);
 			App->collisions->AddCollider({ 201,153,3,20 }, Collider::Type::STAIRS);
 
@@ -109,7 +125,9 @@ bool ModuleScene::Start()
 			App->collisions->AddCollider({ 128,140,10,10 }, Collider::Type::CORNICE);
 			App->collisions->AddCollider({ 246,140,10,10 }, Collider::Type::CORNICE);
 
+			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 
+			App->audio->PlayMusic("Assets/music04.ogg", 1.0f);
 			break;
 		case(6):
 			App->collisions->AddCollider({ 80,64,15,3 }, Collider::Type::FLOOR);
@@ -121,12 +139,15 @@ bool ModuleScene::Start()
 			App->collisions->AddCollider({ 296,64,15,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 296,68,15,3 }, Collider::Type::TOP);
 	
+			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+			App->balls->AddBall(BALL_TYPE::BIG, 70, 25, true);
 
+			App->audio->PlayMusic("Assets/music06.ogg", 1.0f);
 
 		}
 
 	//Balls
-	App->balls->AddBall(BALL_TYPE::BIG, 25, 25,true);
+	
 	
 
 	App->player->Enable();

@@ -75,6 +75,8 @@ public:
 
 	// The particle's collider
 	Collider* collider = nullptr;
+private:
+	
 };
 
 #endif //__PARTICLE_H__

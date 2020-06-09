@@ -12,6 +12,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleBalls.h"
 #include "ModuleFonts.h"
+#include "ModuleAudio.h"
 
 #include "SDL/include/SDL_timer.h"
 #include<stdio.h>
@@ -45,7 +46,9 @@ bool ModuleInterface::Start()
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/Interface.png");
 
-	
+	//objectPickedFx = App->audio->LoadFx("Assets/[FX]-Ballon pop.wav");
+
+	objectPickedFX = App->audio->LoadFx("Assets/object picked.wav");
 
 	//Interface Elements
 	zeroLife.anim.PushBack({ 0,0,0,0 });
@@ -593,9 +596,15 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y,DROP_TYPE name)
 				e->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);*/
 			
 			// this collider is creating away from its or
-			d->collider = App->collisions->AddCollider(d->anim.GetCurrentFrame(), Collider::Type::DROP, this);
-			d->collider->SetPos(x, y);
-
+			if (d->name != DROP_TYPE::SCORE)
+			{
+				SDL_Rect nullC = { (0, 0, 0, 0) };
+				d->collider = App->collisions->AddCollider(nullC, Collider::Type::DROP, this);
+			}
+				
+				d->collider = App->collisions->AddCollider(d->anim.GetCurrentFrame(), Collider::Type::DROP, this);
+				d->collider->SetPos(x, y);
+			
 			d->name = name;
 			
 

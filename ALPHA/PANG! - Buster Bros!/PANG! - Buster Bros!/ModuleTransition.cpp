@@ -9,6 +9,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "InterfaceElement.h"
+#include "ModuleBalls.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModuleInterface.h"
 #include"ModuleFonts.h"
@@ -37,8 +38,10 @@ bool ModuleTransition::Start()
 
 	//selection = App->textures->Load("Assets/menuSelection.png");
 	bgimg = App->textures->Load("Assets/menu.png");
-	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
+	//App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
 
+	levelCompletedFx = App->audio->LoadFx("Assets/level completed.wav");
+	App->audio->PlayFx(levelCompletedFx);
 
 	cursor = App->textures->Load("Assets/selectionCursor.png");
 	blinkCursor = App->textures->Load("Assets/blinkCursor.png");
@@ -87,14 +90,16 @@ update_status ModuleTransition::PostUpdate()
 	// Draw everything --------------------------------------
 	
 		App->render->Blit(bgimg, 0, 0, NULL);
+
+		App->audio->PlayFx(planeFX);
+
 		
 
 		switch (App->scene->levelSelection) //depending on the level set cursos to its pertinent position
 		{
 		case(1):
-			App->render->Blit(blinkCursor, 337, 78, NULL);
+			
 			App->render->Blit(cursor, 337, 78, NULL);
-
 			
 
 			break;

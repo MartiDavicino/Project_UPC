@@ -70,7 +70,7 @@ public:
 
 	Ball* Balls[MAX_BALLS] = { nullptr };
 
-	uint ballsLeft = 8;
+	uint ballsLeft = 15;
 
 
 private:

@@ -38,6 +38,10 @@ bool ModuleMenu::Start()
 	bgimg = App->textures->Load("Assets/menu.png");
 	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
 
+	App->audio->PlayMusic("Assets/Music/intro.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/intro.wav", 1.0f);
+
+	App->audio->PlayMusic("Assets/music01.ogg", 1.0f);
 
 	cursor = App->textures->Load("Assets/selectionCursor.png");
 	blinkCursor = App->textures->Load("Assets/blinkCursor.png");
@@ -77,6 +81,8 @@ update_status ModuleMenu::Update()
 		}
 	}
 
+	App->audio->PlayMusic("Assets/Music/intro.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/intro.wav", 1.0f);
 
 
 	return update_status::UPDATE_CONTINUE;

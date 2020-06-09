@@ -133,10 +133,28 @@ bool ModulePlayer::Start()
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 	scoreFont = App->fonts->Load("Assets/Font.png", lookupTable, 1);
 
-	if (App->score >= 7500) {
-		App->fade->FadeToBlack((Module*)App->scene, (Module*)App->win, 60);
-
+	switch (App->scene->levelSelection) //depending on the level set cursos to its pertinent position
+	{
+	case(1):
+		App->balls->ballsLeft = 15;
+		break;
+	case(2):
+		App->balls->ballsLeft = 15;
+		break;
+	case(3):
+		App->balls->ballsLeft = 18;
+		break;
+	case(4):
+		App->balls->ballsLeft = 15;
+		break;
+	case(5):
+		App->balls->ballsLeft = 22;
+		break;
+	case(6):
+		App->balls->ballsLeft = 30;
+		break;
 	}
+
 
 	return ret;
 }
@@ -198,23 +216,12 @@ update_status ModulePlayer::Update()
 
 		position.y += gravity;
 		
-		//if (isInmune == true && inmuneActivated == false) {
-
-		//	//it creates a lot of particles
-		//	App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::INMUNE);
-		//	inmuneActivated = true;
-		//	inmuneCountDown = resetInmuneCountDown;
-
-		//}
+		
 		if (inmuneActivated == true)
 		{
 			App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::INMUNE);
 		}
-		/*if (inmuneCountDown <= 0)
-		{
-			isInmune = false; inmuneActivated = false;
-		}*/
-		//EQUIP MANUALLY
+		
 		if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
 		{
 			itemEquipped = ITEM_EQUIPPED::NONE;
@@ -231,70 +238,19 @@ update_status ModulePlayer::Update()
 		{
 			isInmune = true; inmuneActivated = true;
 		}
+		if (App->input->keys[SDL_SCANCODE_4] == KEY_STATE::KEY_DOWN)
+		{
+		   itemEquipped = ITEM_EQUIPPED::STATIC;
+		}
 
 
 
 
-		//if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		//{
-
-		//	/*if (Collision_A != true)
-		//	{
-		//		position.x -= speed;
-		//	}
-
-		//	if (currentAnimation != &leftAnim)
-		//	{
-		//		leftAnim.Reset();
-		//		currentAnimation = &leftAnim;
-		//	}*/
-		//	if (goingRight != false)
-		//		goingRight = false;
-
-		//}
-
-		//if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		//{
-
-		//	isMovingAt.x = 3;
-		//	if (Collision_D != true)
-		//	{
-		//		position.x += speed;
-		//	}
-		//	if (currentAnimation != &rightAnim)
-		//	{
-		//		rightAnim.Reset();
-		//		currentAnimation = &rightAnim;
-		//	}
-		//	if (goingRight != true)
-		//		goingRight = true;
-
-		//}
-
-
-
-
-
+		
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 		{
-			/*if (currentAnimation != &shootRightAnim)
-			{
-				shootRightAnim.Reset();
-				currentAnimation = &shootRightAnim;
-			}*/
-			/*	App->particles->AddParticle(App->particles->rope, position.x, position.y-0, Collider::Type::ROPE);*/
-
-
-			/*switch (goingRight)
-			{
-			case(false):
-				currentAnimation = &idleLeftAnim;
-				break;
-			case(true):
-				currentAnimation = &idleRightAnim;
-				break;
-			}*/
+			
 
 			LOG("SHOOTING ROPE!");
 			switch (itemEquipped)
@@ -302,7 +258,7 @@ update_status ModulePlayer::Update()
 			case(ITEM_EQUIPPED::NONE):
 				//App->particles->AddRope(App->particles->rope, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::ROPE);
 
-				App->ropes->AddRope(App->ropes->rope, position.x+9, position.y, Collider::Type::ROPE, ROPE_TYPE::ROPE);
+				App->ropes->AddRope(App->ropes->rope, position.x + 9, position.y, Collider::Type::ROPE, ROPE_TYPE::ROPE);
 				break;
 			case(ITEM_EQUIPPED::HOOK):
 				/*App->particles->AddRope(App->particles->hook, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::HOOK);*/
@@ -312,40 +268,18 @@ update_status ModulePlayer::Update()
 				/*App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);*/
 				App->ropes->AddRope(App->ropes->shot, position.x + 9, position.y, Collider::Type::ROPE, ROPE_TYPE::SHOT);
 				break;
+
+			case(ITEM_EQUIPPED::STATIC):
+				/*App->particles->AddRope(App->particles->shot, position.x + 9, position.y, Collider::Type::ROPE, 0, PARTICLE_TYPE::SHOT);*/
+				App->ropes->AddRope(App->ropes->staticHook, position.x + 9, position.y, Collider::Type::ROPE, ROPE_TYPE::SHOT);
+				break;
 			}
-
-
-
 		}
 
-		// If no up/down movement detected, set the current animation back to idle
-		/*if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE)
-		{
 
+		
 
-			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
-
-				if (currentAnimation != &shootLeftAnim || currentAnimation != &shootRightAnim)
-				{
-					switch (goingRight)
-					{
-					case(false):
-						currentAnimation = &idleLeftAnim;
-						break;
-					case(true):
-						currentAnimation = &idleRightAnim;
-						break;
-					}
-				}
-
-
-		}
-
-		if (App->input->keys[SDL_SCANCODE_G] != KEY_STATE::KEY_DOWN)
-		{
-			App->collisions->DebugDraw();
-		}*/
+		
 	}
 	
 	if (destroyed == true) {
@@ -386,9 +320,7 @@ update_status ModulePlayer::Update()
 
 		currentAnimation->Update();
 
-		/*Collision_A = false;
-		Collision_D = false;
-		Collision_F = false;*/
+		
 
 		return update_status::UPDATE_CONTINUE;
 }
@@ -423,9 +355,7 @@ void ModulePlayer::UpdateState()
 		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
 			ChangeState(state, CLIMBING);
 
-		// TODO 0: Notice how we are changing into HAMMER_IDLE state when pressing H
-		/*if (App->input->keys[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
-			ChangeState(state, HAMMER_IDLE);*/
+		
 		if (destroyed == true) ChangeState(state, DYING);
 
 		

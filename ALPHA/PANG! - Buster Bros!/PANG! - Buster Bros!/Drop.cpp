@@ -33,6 +33,8 @@ Drop::~Drop()
 
 bool Drop::Update()
 {
+	
+
 	bool ret = true;
 	if (isPlaced == true)
 	{
@@ -105,6 +107,8 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 		if (d1->type == Collider::Type::PLAYER || d2->type == Collider::Type::PLAYER)
 		{
 			
+			App->audio->PlayFx(App->interfaceElements->objectPickedFX);
+
 			LOG("Item picked");
 			lifetime = 1;
 			switch (name)

@@ -23,7 +23,7 @@ ModuleBalls::ModuleBalls(bool startEnabled) : Module(startEnabled)
 bool ModuleBalls::Start()
 {
 	texture = App->textures->Load("Assets/balls.png");
-	ballDestroyedFx = App->audio->LoadFx("Assets/explosion.wav");
+	ballDestroyedFx = App->audio->LoadFx("Assets/[FX]-Ballon pop.wav");
 
 	return true;
 }

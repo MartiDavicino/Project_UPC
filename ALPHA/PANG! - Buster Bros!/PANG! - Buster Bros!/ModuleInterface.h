@@ -141,7 +141,7 @@ public:
 	//
 	int  coinDown = 0;
 	
-
+	int objectPickedFX = 0;
 };
 
 #endif // !__MODULEPARTICLES_H__

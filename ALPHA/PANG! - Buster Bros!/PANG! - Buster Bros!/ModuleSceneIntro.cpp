@@ -33,7 +33,9 @@ bool ModuleSceneIntro::Start()
 
 	bgtitle = App->textures->Load("Assets/Title.png");
 	bgimg = App->textures->Load("Assets/cutrisimo.png");
-	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/intro.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/intro.wav", 1.0f);
+
 	//if (App->player->lives < 3) {
 	//	App->fade->FadeToBlack(this, (Module*)App->scene, 90);
 	//}

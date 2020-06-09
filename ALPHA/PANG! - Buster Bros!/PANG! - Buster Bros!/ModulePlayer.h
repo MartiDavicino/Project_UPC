@@ -10,7 +10,7 @@ struct Collider;
 
 enum class ITEM_EQUIPPED {
 
-	NONE, HOOK, GUN
+	NONE, HOOK, GUN, STATIC
 };
 
 enum PLAYER_STATE {
