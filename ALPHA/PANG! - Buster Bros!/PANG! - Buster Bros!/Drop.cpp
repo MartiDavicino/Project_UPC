@@ -8,6 +8,7 @@
 #include "ModuleInterface.h"
 #include "Moduleplayer.h"
 #include "Collider.h"
+#include "ModuleInterface.h"
 
 #include "SDL/include/SDL.h"
 #include "SDL/include/SDL_scancode.h"
@@ -104,11 +105,15 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 		if (d1->type == Collider::Type::PLAYER || d2->type == Collider::Type::PLAYER)
 		{
 			
-
+			LOG("Item picked");
+			lifetime = 1;
 			switch (name)
 			{
+				
 			case(DROP_TYPE::FOOD):
 				isAlive = false;
+				
+				App->interfaceElements->AddDrop(App->interfaceElements->score400, position.x, position.y, DROP_TYPE::SCORE);
 				//Score++
 				break;
 			case(DROP_TYPE::HOOK):
@@ -117,6 +122,7 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 				break;
 			case(DROP_TYPE::INMUNE):
 				App->player->isInmune = true;
+				App->player->inmuneActivated = true;
 				isAlive = false;
 				break;
 			case(DROP_TYPE::GUN):

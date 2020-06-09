@@ -30,6 +30,31 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleLeftAnim.PushBack({ 84,66,35,35 });
 	idleLeftAnim.loop = true;
 	idleLeftAnim.speed = 0.1f;
+	
+	//blinks
+	blinkRight.PushBack({ 0,66,25,35 });
+	blinkRight.PushBack({ 0,0,0,0 });
+
+	blinkLeft.PushBack({ 84,66,35,35 });
+	blinkLeft.PushBack({ 84,66,35,35 });
+
+	blinkRight.PushBack({ 0,0,30,29 });
+	blinkRight.PushBack({ 31,0,30,30 });
+	blinkRight.PushBack({ 0,0,0,0 });
+	blinkRight.PushBack({ 64,0,29,30 });
+	blinkRight.PushBack({ 96,0,27,30 });
+	blinkRight.PushBack({ 0,0,0,0 });
+
+	blinkLeft.PushBack({ 0,133,30,29 });
+	blinkLeft.PushBack({ 31,133,30,30 });
+	blinkLeft.PushBack({ 0,0,0,0 });
+	blinkLeft.PushBack({ 64,133,29,30 });
+	blinkLeft.PushBack({ 96,133,27,30 });
+	blinkLeft.PushBack({ 129,133,28,30 });
+	blinkLeft.PushBack({ 0,0,0,0 });
+
+	blinkRight.loop = true;
+	blinkIdleRight.speed=blinkIdleLeft.speed=blinkLeft.speed=blinkRight.speed = 0.06f;
 
 	dead.PushBack({ 0,0,0,0 });
 	// Walk Right
@@ -173,18 +198,22 @@ update_status ModulePlayer::Update()
 
 		position.y += gravity;
 		
-		if (isInmune == true && inmuneActivated == false) {
+		//if (isInmune == true && inmuneActivated == false) {
 
-			//it creates a lot of particles
+		//	//it creates a lot of particles
+		//	App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::INMUNE);
+		//	inmuneActivated = true;
+		//	inmuneCountDown = resetInmuneCountDown;
+
+		//}
+		if (inmuneActivated == true)
+		{
 			App->particles->AddParticle(App->particles->inmune, position.x, position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::INMUNE);
-			inmuneActivated = true;
-			inmuneCountDown = resetInmuneCountDown;
-
 		}
-		if (inmuneCountDown <= 0)
+		/*if (inmuneCountDown <= 0)
 		{
 			isInmune = false; inmuneActivated = false;
-		}
+		}*/
 		//EQUIP MANUALLY
 		if (App->input->keys[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN)
 		{
@@ -366,6 +395,15 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::UpdateState()
 {
+	if (playerHitted == true)
+	{
+		hittedCountDown++;
+		if (hittedCountDown > 90)
+		{
+			playerHitted = false;
+				hittedCountDown = 0;
+		}
+	}
 	switch (state)
 	{
 	case IDLE:
@@ -389,6 +427,8 @@ void ModulePlayer::UpdateState()
 		/*if (App->input->keys[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
 			ChangeState(state, HAMMER_IDLE);*/
 		if (destroyed == true) ChangeState(state, DYING);
+
+		
 
 		break;
 	}
@@ -415,6 +455,7 @@ void ModulePlayer::UpdateState()
 
 		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
 			ChangeState(state, CLIMBING);
+		
 
 		break;
 	}
@@ -433,6 +474,7 @@ void ModulePlayer::UpdateState()
 
 		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
 			ChangeState(state, CLIMBING);
+		
 
 		break;
 	}
@@ -464,6 +506,8 @@ void ModulePlayer::UpdateState()
 		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
 			ChangeState(state, CLIMBING);
 
+		
+
 		break;
 	case DYING:
 	{
@@ -471,6 +515,7 @@ void ModulePlayer::UpdateState()
 
 		break;
 	}
+	
 	}
 	}
 }
@@ -481,11 +526,36 @@ void ModulePlayer::UpdateLogic()
 	{
 	case(IDLE):
 	{
+		/*if (playerHitted == true) {
+			switch (goingRight)
+			{
+			case(true):
+				currentAnimation = &blinkIdleRight;
+				break;
+			case(false):
+				currentAnimation = &blinkIdleLeft;
+				break;
+			}
+			
+		}*/
 		// Nothing to do here :)
 		break;
 	}
 	case(RUNNING):
 	{
+		/*if (playerHitted == true) {
+			switch (goingRight)
+			{
+			case(true):
+				currentAnimation = &blinkRight;
+				break;
+			case(false):
+				currentAnimation = &blinkLeft;
+				break;
+			}
+			
+		}*/
+
 		if (Collision_D == false && goingRight) 
 			 position.x += speed;
 
@@ -552,7 +622,9 @@ void ModulePlayer::UpdateLogic()
 
 		}
 		break;
+		
 	}
+	
 	}
 
 	// Warning: dirty workaround for this class for fast checking
@@ -634,23 +706,23 @@ update_status ModulePlayer::PostUpdate()
 	{
 
 	case(1):
-		App->fonts->BlitText(130, 30, scoreFont, t01);
+		App->fonts->BlitText(170, 210, scoreFont, t01);
 		break;
 
 	case(2):
-		App->fonts->BlitText(130, 130, scoreFont, t02);
+		App->fonts->BlitText(170, 210, scoreFont, t02);
 		break;
 
 	case(3):
-		App->fonts->BlitText(130, 30, scoreFont, t03);
+		App->fonts->BlitText(170, 210, scoreFont, t03);
 		break;
 
 	case(4):
-		App->fonts->BlitText(130, 30, scoreFont, t04);
+		App->fonts->BlitText(170, 210, scoreFont, t04);
 		break;
 
 	case(5):
-		App->fonts->BlitText(130, 30, scoreFont, t05);
+		App->fonts->BlitText(170, 210, scoreFont, t05);
 		break;
 
 	case(6):
@@ -708,6 +780,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				}
 				if (isInmune == true) {
 					isInmune = false; inmuneActivated = false;
+					App->particles->DeleteInmune();
+
+					App->particles->AddParticle(App->particles->blinkInmune, 0, 0, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
+					
 					deadCountDown = 0;
 				}
 				if (lives == 0)
@@ -717,7 +793,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 					App->interfaceElements->AddElement(App->interfaceElements->gameOver, 130, 100, INTERFACE_ELEMENT_TYPE::UI, 70);
 				}
 
-
+				playerHitted = true;
 				App->audio->PlayFx(explosionFx);
 
 

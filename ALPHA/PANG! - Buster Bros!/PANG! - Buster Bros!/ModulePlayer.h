@@ -18,7 +18,8 @@ enum PLAYER_STATE {
 	RUNNING,
 	CLIMBING,
 	SHOOTING,
-	DYING
+	DYING,
+	HITTED
 };
 
 class ModulePlayer : public Module
@@ -109,6 +110,11 @@ public:
 	Animation dieRightAnim;
 	Animation dieLeftAnim;
 
+	Animation blinkRight;
+	Animation blinkLeft;
+	Animation blinkIdleRight;
+	Animation blinkIdleLeft;
+
 	int shootCountDown = 8;
 	int resetCountDown = shootCountDown;
 	// The player's collider
@@ -129,6 +135,8 @@ public:
 private:
 	//countdowns to avoid multiple deaths when collision
 	int deadCountDown = 0;
+	int hittedCountDown = 0;
+	bool playerHitted = false;
 
 
 };

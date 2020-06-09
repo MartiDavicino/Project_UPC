@@ -50,6 +50,8 @@ public:
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
 	void AddParticle(const Particle& particle, int x, int y, Collider::Type colliderType , uint delay ,PARTICLE_TYPE type);
 	void AddRope(const Particle& rope, int x, int y, Collider::Type colliderType, uint delay,PARTICLE_TYPE ropeType=PARTICLE_TYPE::ROPE);
+	void DeleteInmune();
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;
@@ -78,6 +80,8 @@ public:
 	Particle mediumExplosion;
 	Particle smallExplosion;
 	Particle tinyExplosion;
+
+	Particle blinkInmune;
 
 	Particle inmune;
 

@@ -67,7 +67,15 @@ bool ModuleParticles::Start()
 	inmune.anim.PushBack({ 165,365,34,40 });
 	inmune.anim.loop = true;
 	inmune.anim.speed = 0.4f;
-	inmune.lifetime = 400;
+	//inmune.lifetime = 400;
+	inmune.lifetime = 10;
+
+	blinkInmune.anim.PushBack({ 3,648,33,39 });
+	blinkInmune.anim.PushBack({ 44,648,33,39 });
+	blinkInmune.anim.loop = true;
+	blinkInmune.anim.speed = 0.4f;
+	blinkInmune.lifetime = 45;
+
 
 	rope.anim.PushBack({ 0, 175, 9, 34 });
 	rope.anim.PushBack({ 9, 173, 9, 36 });
@@ -380,7 +388,8 @@ bool ModuleParticles::Start()
 	rope.type = PARTICLE_TYPE::ROPE;
 	hook.type = PARTICLE_TYPE::HOOK;
 	staticHook.type = PARTICLE_TYPE::STATIC_HOOK;
-	inmune.type == PARTICLE_TYPE::INMUNE;
+	inmune.type = PARTICLE_TYPE::INMUNE;
+	blinkInmune.type = PARTICLE_TYPE::INMUNE;
 
 	return true;
 }
@@ -558,4 +567,18 @@ void ModuleParticles::AddRope(const Particle& particle, int x, int y, Collider::
 		}
 	}
 	/*return newrope;*/
+}
+
+void ModuleParticles::DeleteInmune()
+{
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		Particle* particle = particles[i];
+
+		if (particle!=nullptr && particle->type == PARTICLE_TYPE::INMUNE)	
+		{
+			delete particle;
+			particles[i] = nullptr;
+		}
+	}
 }
