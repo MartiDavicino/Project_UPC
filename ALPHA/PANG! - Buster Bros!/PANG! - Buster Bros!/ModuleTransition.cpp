@@ -41,7 +41,7 @@ bool ModuleTransition::Start()
 	//App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
 
 	levelCompletedFx = App->audio->LoadFx("Assets/level completed.wav");
-	App->audio->PlayFx(levelCompletedFx);
+	
 
 	cursor = App->textures->Load("Assets/selectionCursor.png");
 	blinkCursor = App->textures->Load("Assets/blinkCursor.png");
@@ -51,16 +51,9 @@ bool ModuleTransition::Start()
 
 	App->scene->levelSelection++;
 
-	//if (App->player->lives < 3) {
-	//	App->fade->FadeToBlack(this, (Module*)App->scene, 90);
-	//}
-	//if (App->player->lives = 0) {
-	//	App->fade->FadeToBlack(this, (Module*)App->lose, 90);
-	//}
+	//App->audio->PlayFx(levelCompletedFx);
 
-	/*App->render->camera.x = 0;
-	App->render->camera.y = 0;*/
-
+	App->audio->PlayFx(planeFX, 0);
 
 	return ret;
 
@@ -91,7 +84,7 @@ update_status ModuleTransition::PostUpdate()
 	
 		App->render->Blit(bgimg, 0, 0, NULL);
 
-		App->audio->PlayFx(planeFX);
+		//App->audio->PlayFx(planeFX);
 
 		
 

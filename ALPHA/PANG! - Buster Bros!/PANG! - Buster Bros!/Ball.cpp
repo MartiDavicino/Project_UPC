@@ -68,25 +68,17 @@ const Collider* Ball::GetCollider() const
 
 void Ball::Update()
 {
-	//translate ball position into tiles coordinates
+	if (App->balls->ballsStop == true)
+	{
+		counter++;
+		if (counter >= 180)
+		{
+			App->balls->ballsStop = false;
+				counter = 0;
+		}
+	}
 
-
-	/*tilePosition.x = position.x / 8; tilePosition.y = position.y / 8;*/
-
-
-	//check if adjacent tiles are floor or wall then changee x/y speed
-
-
-
-	//for (int i = tilePosition.x-1; i <= tilePosition.x+1; i++)
-	//{
-	//	for (int j = tilePosition.y - 1; i <= tilePosition.y + 1; j++)
-	//	{
-	//		if(App->scene->tiles_01[i][j])
-	//	}
-	//}
-
-	if (App->player->destroyed == false) {
+	if (App->player->destroyed == false && App->balls->ballsStop==false) {
 		Ball_vy = Ball_vy + (gravity * deltaTime);
 
 		position.y = position.y + (Ball_vy * deltaTime) + (gravity * (deltaTime * deltaTime));

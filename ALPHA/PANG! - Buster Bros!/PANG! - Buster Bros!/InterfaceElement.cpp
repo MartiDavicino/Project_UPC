@@ -38,7 +38,7 @@ bool InterfaceElement::Update()
 		{
 			if (frameCount >= lifetime)
 			{
-				LOG("lifetime reached");
+				//LOG("lifetime reached");
 				//App->interfaceElements->Equip(App->interfaceElements->none);
 
 				if (this->type == INTERFACE_ELEMENT_TYPE::EQUIPPED)

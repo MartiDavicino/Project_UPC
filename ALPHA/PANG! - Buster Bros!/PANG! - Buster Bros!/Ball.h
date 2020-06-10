@@ -87,6 +87,8 @@ protected:
 
 	// Original spawn position. Stored for movement calculations
 	iPoint spawnPos;
+private:
+	int counter = 0;
 };
 
 #endif // __BALL_H__

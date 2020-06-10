@@ -60,6 +60,8 @@ public:
 	//spawns new balls after destroyed ones
 	void DivideBalls();
 
+	void ExplodeAll();
+
 	//checks if all balls have been destroyed
 	update_status checkRemainingBalls();
 
@@ -72,6 +74,7 @@ public:
 
 	uint ballsLeft = 15;
 
+	bool ballsStop = false;
 
 private:
 	// Spawns a new enemy using the data from the queue

@@ -28,6 +28,7 @@ bool ModuleRopes::Start()
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/particles.png");
 	FiringFx = App->audio->LoadFx("Assets/[FX]- firing sound.wav");
+	HookedFX = App->audio->LoadFx("Assets/wire hooked.wav");
 
 	
 
@@ -330,6 +331,8 @@ rope.anim.PushBack({ 801, 350, 9, 212 });
 	//static hok coords
 	staticHook.anim.PushBack({ 1592, 352, 9, 210 });
 	staticHook.anim.loop = true;
+	staticHook.isAlive = true;
+	staticHook.speed.y = -5.85f;
 
 	//Rope Collider
 
@@ -389,11 +392,14 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 				if (ropes[i]->type == ROPE_TYPE::HOOK)
 				{
 					LOG("Rope hooked");
-					App->ropes->AddRope(App->ropes->staticHook, 230,30, Collider::Type::ROPE, ROPE_TYPE::STATIC_HOOK);
+					//App->ropes->AddRope(App->ropes->staticHook, 230,30, Collider::Type::ROPE, ROPE_TYPE::STATIC_HOOK);
 
-					App->ropes->AddRope(App->ropes->staticHook, 230, 30, Collider::Type::ROPE, ROPE_TYPE::STATIC_HOOK);
+					//App->ropes->AddRope(App->ropes->rope, App->player->position.x,App->player->position.y + 10,  Collider::Type::ROPE, ROPE_TYPE::STATIC_HOOK);
 
-					//App->ropes->AddRope(App->ropes->staticHook, ropes[i]->position.x, ropes[i]->position.y + 1, Collider::Type::NONE, ROPE_TYPE::STATIC_HOOK);
+ 					App->ropes->AddHook(App->player->position.x, App->player->position.y + 10);
+
+					App->ropes->AddHook(hookX,hookY);
+
 				}
 
 				if (ropes[i]->type != ROPE_TYPE::STATIC_HOOK)
@@ -481,23 +487,56 @@ void ModuleRopes::AddRope(const Rope& particle, int x, int y, Collider::Type col
 
 				App->particles->AddParticle(App->particles->shotParticle, App->player->position.x + 9, App->player->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::NONE);
 			}
-			/*if (newrope->type == ROPE_TYPE::STATIC_HOOK)
-			{
-				newrope->position.x = 120;						
-				newrope->position.y = 30;
-			}*/
+			
 			else  {
 				SDL_Rect ropeCollider = { 0,0,9,300 };
 			
 				newrope->collider = App->collisions->AddCollider(ropeCollider, Collider::Type::ROPE, this);
 			}
 			
-			
-				
+			if (particle.type == ROPE_TYPE::EXPLOSION)
+			{
+				 //hookX = newrope->position.x;   hookY = newrope->position.y;
+
+				 hookX = x;   hookY = y;
+
+			}
 
 			ropes[i] = newrope;
 			break;
 		}
 	}
 	/*return newrope;*/
+}
+
+void ModuleRopes::AddHook(int x, int y)
+{
+	Rope* newrope = nullptr;
+	for (uint i = 0; i < MAX_ACTIVE_ROPES; ++i)
+	{
+		//Finding an empty slot for a new particle
+		if (ropes[i] == nullptr)
+		{
+			App->audio->PlayFx(HookedFX);
+
+
+			Rope* newrope = new Rope(staticHook);
+
+		newrope->type = ROPE_TYPE::STATIC_HOOK;
+		newrope->position.x = x;						
+		newrope->position.y = y;
+
+		
+			
+
+			
+		SDL_Rect ropeCollider = { 0,0,9,300 };
+
+		newrope->collider = App->collisions->AddCollider(ropeCollider, Collider::Type::ROPE, this);
+		newrope->collider->SetPos(x, y);
+
+		ropes[i] = newrope;
+		break;
+		}
+	}
 }

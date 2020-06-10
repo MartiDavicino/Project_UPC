@@ -111,6 +111,15 @@ bool ModuleInterface::Start()
 	inmuneDrop.anim.loop = true;
 	inmuneDrop.anim.speed = 0.3f;
 
+	stopTime.anim.PushBack({ 190,257,16,16 });
+	stopTime.anim.PushBack({ 206,257,16,16 });
+	stopTime.anim.speed = 0.1f;
+	
+	dynamite.anim.PushBack({ 266,25716,15});
+	dynamite.anim.PushBack({ 289,25716,15 });
+	dynamite.anim.PushBack({ 315,25716,15 });
+	dynamite.anim.speed = 0.3f;
+	dynamite.anim.loop = true;
 	//food
 	banana.anim.PushBack({ 70,324,16,16 });
 	banana.anim.PushBack({ 70,417,16,16 });
@@ -141,7 +150,8 @@ bool ModuleInterface::Start()
 	
 
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x,equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED, 70);
-	App->interfaceElements->AddDrop(App->interfaceElements->banana, 120, 40,DROP_TYPE::FOOD);
+	App->interfaceElements->AddDrop(App->interfaceElements->banana, 220, 40,DROP_TYPE::FOOD);
+	App->interfaceElements->AddDrop(App->interfaceElements->dynamite, 120, 40, DROP_TYPE::DYNAMITE);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 
 	
@@ -239,7 +249,7 @@ update_status ModuleInterface::Update()
 		{
 			//reset values
 			App->score = 0;
-			App->balls->ballsLeft = 16;
+			//App->balls->ballsLeft = 16;
 			//transition to level
 			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->transition, 60);
 
@@ -621,6 +631,16 @@ void ModuleInterface::RandomDrop(int x,int y)
 	//random parameter to determine which is the drop
 	switch (itemsCount)
 	{
+	case(1): //power up
+
+		App->interfaceElements->AddDrop(stopTime, x, y, DROP_TYPE::STOPTIME);
+
+		break;
+	case(2): //power up
+		
+		App->interfaceElements->AddDrop(dynamite, x, y, DROP_TYPE::DYNAMITE);
+		
+		break;
 	case(3): //power up
 		//App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::HOOK);
 		App->interfaceElements->AddDrop(inmuneDrop, x, y, DROP_TYPE::INMUNE);

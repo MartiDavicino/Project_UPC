@@ -9,6 +9,10 @@
 #include "ModuleInterface.h"
 #include "ModuleParticles.h"
 #include "Ball.h"
+#include "ModuleInput.h"
+#include "SDL/include/SDL_scancode.h"
+#include "SDL/include/SDL.h"
+#include "ModuleScene.h"
 
 
 #define SPAWN_MARGIN 50
@@ -22,7 +26,28 @@ ModuleBalls::ModuleBalls(bool startEnabled) : Module(startEnabled)
 
 bool ModuleBalls::Start()
 {
-	texture = App->textures->Load("Assets/balls.png");
+	switch(App->scene->levelSelection) //depending on the level set cursos to its pertinent position
+	{
+	case(1):
+		texture = App->textures->Load("Assets/balls.png");
+		break;
+	case(2):
+		texture = App->textures->Load("Assets/balls_blue.png");
+		break;
+	case(3):
+		
+		break;
+	case(4):
+		texture = App->textures->Load("Assets/balls_blue.png");
+		break;
+	case(5):
+		texture = App->textures->Load("Assets/balls_green.png");
+		break;
+	case(6):
+		
+		break;
+	}
+	//texture = App->textures->Load("Assets/balls.png");
 	ballDestroyedFx = App->audio->LoadFx("Assets/[FX]-Ballon pop.wav");
 
 	return true;
@@ -45,6 +70,18 @@ update_status ModuleBalls::PreUpdate()
 
 update_status ModuleBalls::Update()
 {
+	//spawn ball with click
+	
+	if (App->input->keys[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN || App->input->keys[SDL_BUTTON_LEFT] == KEY_STATE::KEY_UP)
+	{
+		int x, y;
+		SDL_GetMouseState(&x, &y);
+		LOG("Spawn ball manually at position : %d , %d ",x,y);
+		AddBall(BALL_TYPE::BIG, x, y, true);
+
+	}
+	
+
 	HandleBallsSpawn();
 
 	for (uint i = 0; i < MAX_BALLS; ++i)
@@ -338,5 +375,23 @@ update_status ModuleBalls::checkRemainingBalls()
 		else {
 			LOG("ERROR");
 		}
+	}
+}
+
+void ModuleBalls::ExplodeAll()
+{
+	//This function divide and plays the explosion animation
+	//And also, the function Random, ads a drop when the ball explodes
+	for (uint i = 0; i < MAX_BALLS; ++i) {
+		//Big=1, Medium=2,Small=3,Tiny=4
+
+		if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type != BALL_TYPE::TINY) {
+
+			App->balls->DivideBalls();
+			
+		}
+
+		
+
 	}
 }

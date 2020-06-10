@@ -48,7 +48,7 @@ public:
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
 	void AddRope(const Rope& rope, int x, int y, Collider::Type colliderType , ROPE_TYPE type);
-
+	void AddHook(int x, int y);
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
@@ -61,6 +61,7 @@ public:
 	//Template particle for an explosion
 
 	uint FiringFx = 0;
+	uint HookedFX = 0;
 
 	//Template particle for a laser
 	Rope rope;
@@ -68,6 +69,7 @@ public:
 	Rope hook;
 	Rope staticHook;
 
+	int hookX, hookY;
 	
 };
 

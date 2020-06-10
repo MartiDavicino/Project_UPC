@@ -53,9 +53,10 @@ bool Rope::Update()
 			// Update the position in the screen
 			if (type != ROPE_TYPE::STATIC_HOOK)
 			{
-				position.x += speed.x;
-				position.y += speed.y;
+				
 			}
+			position.x += speed.x;
+			position.y += speed.y;
 			if (collider != nullptr && type != ROPE_TYPE::SHOT)
 			{
 			}

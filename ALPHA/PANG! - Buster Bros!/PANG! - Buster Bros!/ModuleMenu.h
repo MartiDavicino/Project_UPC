@@ -46,6 +46,9 @@ public:
 
 	//SDL_Texture* selection = nullptr;
 	SDL_Texture* bgimg = nullptr;
+
+	int levelFX = 0;
+	int planeFX = 0;
 };
 
 #endif

@@ -12,6 +12,7 @@
 
 #include "SDL/include/SDL.h"
 #include "SDL/include/SDL_scancode.h"
+#include "ModuleBalls.h"
 
 Drop::Drop()
 {
@@ -132,6 +133,14 @@ void Drop::OnCollision(Collider* d1, Collider* d2)
 			case(DROP_TYPE::GUN):
 				isAlive = false;
 				App->player->itemEquipped = ITEM_EQUIPPED::GUN;
+				break;
+			case(DROP_TYPE::STOPTIME):
+				isAlive = false;
+				App->balls->ballsStop = true;
+				break;
+			case(DROP_TYPE::DYNAMITE):
+				isAlive = false;
+				App->balls->ExplodeAll();
 				break;
 
 			}

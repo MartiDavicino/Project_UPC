@@ -123,6 +123,9 @@ public:
 	Drop inmuneDrop;
 	Drop gunDrop;
 
+	Drop stopTime;
+	Drop dynamite;
+
 	Drop cherry;
 	Drop banana;
 	

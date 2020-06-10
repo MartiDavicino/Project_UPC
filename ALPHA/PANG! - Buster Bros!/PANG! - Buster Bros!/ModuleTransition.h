@@ -53,6 +53,7 @@ private:
 
 	int planeFX = 0;
 	int levelCompletedFx = 0;
+	
 };
 
 #endif

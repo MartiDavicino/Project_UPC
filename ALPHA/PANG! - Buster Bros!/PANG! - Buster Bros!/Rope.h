@@ -53,6 +53,8 @@ public:
 	Collider* collider = nullptr;
 
 	bool pendingToDelete = false;
+
+	bool stop = false;
 };
 
 #endif //__ROPE_H__

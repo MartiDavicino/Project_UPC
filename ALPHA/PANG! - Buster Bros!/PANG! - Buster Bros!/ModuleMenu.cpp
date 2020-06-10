@@ -36,12 +36,12 @@ bool ModuleMenu::Start()
 
 	//selection = App->textures->Load("Assets/menuSelection.png");
 	bgimg = App->textures->Load("Assets/menu.png");
-	App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
+	
 
-	App->audio->PlayMusic("Assets/Music/intro.ogg", 1.0f);
-	App->audio->PlayMusic("Assets/Music/intro.wav", 1.0f);
+	levelFX = App->audio->LoadFx("Assets/level selection.wav");
+	planeFX = App->audio->LoadFx("Assets/[FX]-Plane movement.wav");
 
-	App->audio->PlayMusic("Assets/music01.ogg", 1.0f);
+	
 
 	cursor = App->textures->Load("Assets/selectionCursor.png");
 	blinkCursor = App->textures->Load("Assets/blinkCursor.png");
@@ -70,6 +70,7 @@ update_status ModuleMenu::Update()
 	{
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
 		{
+			App->audio->PlayFx(levelFX, 0);
 			App->scene->levelSelection++;
 		}
 	}
@@ -77,6 +78,7 @@ update_status ModuleMenu::Update()
 	{
 		if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
 		{
+			App->audio->PlayFx(levelFX, 0);
 			App->scene->levelSelection--;
 		}
 	}
@@ -122,7 +124,7 @@ update_status ModuleMenu::PostUpdate()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		//counter++;
+		App->audio->PlayFx(planeFX, 0);
 		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
 		App->menu->Disable();
 	}

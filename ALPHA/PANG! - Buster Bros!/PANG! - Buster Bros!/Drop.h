@@ -13,6 +13,8 @@ enum class DROP_TYPE
 	GUN,
 	FOOD,
 	SCORE,
+	STOPTIME,
+	DYNAMITE,
 	NONE
 };
 
