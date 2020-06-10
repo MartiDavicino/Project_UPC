@@ -51,10 +51,15 @@ bool ModuleParticles::Start()
 	mediumExplosion.anim.PushBack({ 442,236,36,34 });
 	mediumExplosion.anim.loop = false;
 
-	smallExplosion.anim.PushBack({ 495,245,23,18 });
-	smallExplosion.anim.PushBack({ 516,246,18,21 });
-	smallExplosion.anim.PushBack({ 540,246,22,20 });
+	smallExplosion.anim.PushBack({ 141,73,23,18 });
+	smallExplosion.anim.PushBack({ 160,73,23,18 });
+	smallExplosion.anim.PushBack({ 178,246,22,20 });
 	smallExplosion.anim.loop = false;
+
+	tinyExplosion.anim.PushBack({ 141,73,23,18 });
+	tinyExplosion.anim.PushBack({ 160,73,23,18 });
+	tinyExplosion.anim.PushBack({ 178,246,22,20 });
+	tinyExplosion.anim.loop = false;
 
 	blink.anim.PushBack({ 0,405,400,208 });
 	blink.anim.loop = false;

@@ -35,16 +35,16 @@ bool ModuleBalls::Start()
 		texture = App->textures->Load("Assets/balls_blue.png");
 		break;
 	case(3):
-		
-		break;
-	case(4):
-		texture = App->textures->Load("Assets/balls_blue.png");
-		break;
-	case(5):
 		texture = App->textures->Load("Assets/balls_green.png");
 		break;
+	case(4):
+		texture = App->textures->Load("Assets/balls.png");
+		break;
+	case(5):
+		texture = App->textures->Load("Assets/balls_blue.png");
+		break;
 	case(6):
-		
+		texture = App->textures->Load("Assets/balls_green.png");
 		break;
 	}
 	//texture = App->textures->Load("Assets/balls.png");
@@ -80,7 +80,13 @@ update_status ModuleBalls::Update()
 		AddBall(BALL_TYPE::BIG, x, y, true);
 
 	}
-	
+
+	//explode all manually
+	/*if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN )
+	{
+		ExplodeAll();
+	}
+	*/
 
 	HandleBallsSpawn();
 
@@ -323,10 +329,9 @@ void ModuleBalls::DivideBalls()
 
 			App->audio->PlayFx(ballDestroyedFx);
 
-			Balls[i]->div = false;
 			ballsLeft--;
+			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
-
 			break;
 		}
 
@@ -380,17 +385,45 @@ update_status ModuleBalls::checkRemainingBalls()
 
 void ModuleBalls::ExplodeAll()
 {
+	LOG("Balls exploded");
 	//This function divide and plays the explosion animation
 	//And also, the function Random, ads a drop when the ball explodes
 	for (uint i = 0; i < MAX_BALLS; ++i) {
 		//Big=1, Medium=2,Small=3,Tiny=4
+		if (Balls[i] != nullptr)
+		{
+			/*if (Balls[i] != nullptr && Balls[i]->div == false && Balls[i]->type != BALL_TYPE::TINY) {
 
-		if (Balls[i] != nullptr && Balls[i]->div == true && Balls[i]->type != BALL_TYPE::TINY) {
+				App->balls->DivideBalls();
 
-			App->balls->DivideBalls();
+			}*/
+
+			//for (int i = 0; i < 3; i++)
 			
-		}
+				if (Balls[i] != nullptr && Balls[i]->type == BALL_TYPE::BIG)
+				{
+					Balls[i]->div = true;
+					App->balls->DivideBalls();
 
+				}
+
+				if (Balls[i] != nullptr && Balls[i]->type == BALL_TYPE::MEDIUM)
+				{
+					Balls[i]->div = true;
+					App->balls->DivideBalls();
+
+				}
+				
+				/*if (Balls[i] != nullptr && Balls[i]->type == BALL_TYPE::SMALL)
+				{
+					Balls[i]->div = true;
+					App->balls->DivideBalls();
+
+				}*/
+			
+
+
+		}
 		
 
 	}

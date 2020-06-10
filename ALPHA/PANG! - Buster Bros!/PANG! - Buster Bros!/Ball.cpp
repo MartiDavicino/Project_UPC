@@ -8,6 +8,8 @@
 #include "ModuleBalls.h"
 #include "ModulePlayer.h"
 #include "ModuleScene.h"
+#include "ModuleInput.h"
+#include "SDL/include/SDL_scancode.h"
 
 Ball::Ball(int x, int y, BALL_TYPE  Type) : position(x, y)
 {
@@ -94,6 +96,18 @@ void Ball::Update()
 
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
+
+	//explode
+	if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN)
+	{
+		if (collider != nullptr)
+		{
+			App->balls->ExplodeAll();
+			
+		}
+		
+	}
+
 }
 
 void Ball::Draw()

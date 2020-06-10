@@ -126,8 +126,16 @@ bool ModuleInterface::Start()
 
 	cherry.anim.PushBack({ 8,324,16,16 });
 	cherry.anim.PushBack({ 8,417,16,16 });
+
+	lemon.anim.PushBack({ 40,324,16,16 });
+	lemon.anim.PushBack({ 40,417,16,16 });
+
+	watermelon.anim.PushBack({ 134,324,16,16 });
+	watermelon.anim.PushBack({ 134,417,16,16 });
+
+
 	
-	banana.anim.speed = cherry.anim.speed = 0.1f;
+	lemon.anim.speed=watermelon.anim.speed=banana.anim.speed = cherry.anim.speed = 0.1f;
 	//scores
 	score400.anim.PushBack({180,545,24,15});  
 
@@ -150,7 +158,7 @@ bool ModuleInterface::Start()
 	
 
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x,equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED, 70);
-	App->interfaceElements->AddDrop(App->interfaceElements->banana, 220, 40,DROP_TYPE::FOOD);
+	App->interfaceElements->AddDrop(App->interfaceElements->cherry, 220, 40,DROP_TYPE::FOOD);
 	App->interfaceElements->AddDrop(App->interfaceElements->dynamite, 120, 40, DROP_TYPE::DYNAMITE);
 	//App->interfaceElements->AddElement(App->interfaceElements->hook, equippedPosition.x, equippedPosition.y, INTERFACE_ELEMENT_TYPE::EQUIPPED);
 
@@ -628,6 +636,7 @@ void ModuleInterface::RandomDrop(int x,int y)
 {
 	//function to put where a ball explodes
 	if (itemsCount == 5)itemsCount = 0;
+	if (foodCount == 5)foodCount = 0;
 	//random parameter to determine which is the drop
 	switch (itemsCount)
 	{
@@ -647,11 +656,26 @@ void ModuleInterface::RandomDrop(int x,int y)
 		//App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::GUN);
 	    break;
 	case(4): //food
-		App->interfaceElements->AddDrop(banana, x, y, DROP_TYPE::FOOD);
-		
+		switch (foodCount)
+		{
+		case(0):
+			App->interfaceElements->AddDrop(cherry, x, y, DROP_TYPE::FOOD);
+			break;
+		case(1):
+			App->interfaceElements->AddDrop(cherry, x, y, DROP_TYPE::FOOD);
+			break;
+		case(2):
+			App->interfaceElements->AddDrop(lemon, x, y, DROP_TYPE::FOOD);
+			break;
+		case(4):
+			App->interfaceElements->AddDrop(watermelon, x, y, DROP_TYPE::FOOD);
+			break;
+				
+		}
 		break;
 	
 	}
+	foodCount++;
 	itemsCount++;
 }
 

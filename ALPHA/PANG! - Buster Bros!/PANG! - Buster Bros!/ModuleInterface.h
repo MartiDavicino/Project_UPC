@@ -87,6 +87,7 @@ private:
 
 public:
 	int itemsCount = 0;
+	int foodCount = 0;
 	iPoint equippedPosition; 
 
 	DROP_TYPE equippedItem;
@@ -128,6 +129,8 @@ public:
 
 	Drop cherry;
 	Drop banana;
+	Drop lemon;
+	Drop watermelon;
 	
 
 	//dissapear times

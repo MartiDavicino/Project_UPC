@@ -7,7 +7,7 @@
 
 #define MAX_BALLS 100
 
-// TODO 4: Create a new enemy type: the Mech
+
 
 
 
