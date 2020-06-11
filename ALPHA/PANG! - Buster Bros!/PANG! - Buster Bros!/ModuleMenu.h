@@ -49,6 +49,9 @@ public:
 
 	int levelFX = 0;
 	int planeFX = 0;
+
+private:
+	int count = 0;
 };
 
 #endif

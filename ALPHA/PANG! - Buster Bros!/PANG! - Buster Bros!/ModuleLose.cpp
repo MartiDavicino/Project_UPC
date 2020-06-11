@@ -28,7 +28,9 @@ bool ModuleLose::Start()
 	bool ret = true;
 
 	bgtitle = App->textures->Load("Assets/game over.png");
-	App->audio->PlayMusic("Assets/Music/Arcade - 01e - Continue.ogg", 1.0f);
+	//App->audio->PlayMusic("Assets/Music/Arcade - 01f - Game Over.ogg", 1.0f);
+	loseMusic = App->audio->LoadFx("Assets/Arcade - 01f - Game Over.ogg");
+	App->audio->PlayFx(loseMusic, 0);
 
 	/*App->render->camera.x = 0;
 	App->render->camera.y = 0;*/

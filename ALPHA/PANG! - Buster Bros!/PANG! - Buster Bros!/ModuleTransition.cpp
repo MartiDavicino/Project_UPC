@@ -40,7 +40,7 @@ bool ModuleTransition::Start()
 	bgimg = App->textures->Load("Assets/menu.png");
 	//App->audio->PlayMusic("Assets/Music/Arcade - 12 - High Score Table.ogg", 1.0f);
 
-	levelCompletedFx = App->audio->LoadFx("Assets/level completed.wav");
+	levelCompletedFx = App->audio->LoadFx("Assets/Arcade - 01d - Level Complete.ogg");
 	
 
 	cursor = App->textures->Load("Assets/selectionCursor.png");
@@ -54,6 +54,8 @@ bool ModuleTransition::Start()
 	//App->audio->PlayFx(levelCompletedFx);
 
 	App->audio->PlayFx(planeFX, 0);
+
+	//App->audio->PlayMusic("Assets/Music/Arcade - 01f - Game Over.ogg", 1.0f);
 
 	return ret;
 

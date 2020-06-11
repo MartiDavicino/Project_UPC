@@ -23,15 +23,24 @@ ModuleWin::~ModuleWin()
 // Load assets
 bool ModuleWin::Start()
 {
+	App->audio->Enable();
+	App->audio->Start();
+
 	LOG("Loading background assets");
 
 	bool ret = true;
 
 	bgtitle = App->textures->Load("Assets/Win.png");
-	App->audio->PlayMusic("Assets/Music/Arcade - 01e - Continue.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/Arcade - 11 - The End", 1.0f);
+
+	winMusic = App->audio->LoadFx("Assets/Arcade - 11 - The End.ogg");
+
+	App->audio->PlayFx(winMusic, 0);
 
 	/*App->render->camera.x = 0;
 	App->render->camera.y = 0;*/
+
+	App->audio->PlayFx(winMusic, 0);
 
 	return ret;
 

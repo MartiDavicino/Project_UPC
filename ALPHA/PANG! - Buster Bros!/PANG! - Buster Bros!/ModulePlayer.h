@@ -130,7 +130,12 @@ public:
 	uint FiringFx = 0;
 	uint explosionFx = 0;
 	int scoreFont = -1;
+	int reducedFont = -1;
 	char scoreText[10] = { "\0" };
+
+	//score
+
+	int playerScore = 0;
 	
 private:
 	//countdowns to avoid multiple deaths when collision

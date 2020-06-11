@@ -66,20 +66,26 @@ bool ModuleMenu::Start()
 
 update_status ModuleMenu::Update()
 {
-	if (App->scene->levelSelection < 6)
+	count++;
+	if (count > 120)
 	{
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN)
 		{
-			App->audio->PlayFx(levelFX, 0);
-			App->scene->levelSelection++;
+			if (App->scene->levelSelection < 6)
+			{
+				App->audio->PlayFx(levelFX, 0);
+				App->scene->levelSelection++;
+			}
 		}
-	}
-	if (App->scene->levelSelection > 1)
-	{
+
+
 		if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
 		{
-			App->audio->PlayFx(levelFX, 0);
-			App->scene->levelSelection--;
+			if (App->scene->levelSelection > 1)
+			{
+				App->audio->PlayFx(levelFX, 0);
+				App->scene->levelSelection--;
+			}
 		}
 	}
 
@@ -120,13 +126,19 @@ update_status ModuleMenu::PostUpdate()
 			App->render->Blit(cursor, 261, 110, NULL);
 			break;
 		}
+
+		LOG("Level %d prepared to be loaded", App->scene->levelSelection);
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	if (count > 120)
 	{
-		App->audio->PlayFx(planeFX, 0);
-		App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
-		App->menu->Disable();
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		{
+			LOG("Level %d loaded", App->scene->levelSelection);
+			App->audio->PlayFx(planeFX, 0);
+			App->fade->FadeToBlack((Module*)App->sceneIntro, (Module*)App->scene, 60);
+			App->menu->Disable();
+		}
 	}
 
 	//draw all elements

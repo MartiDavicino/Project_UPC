@@ -259,12 +259,16 @@ update_status ModuleInterface::Update()
 			App->score = 0;
 			//App->balls->ballsLeft = 16;
 			//transition to level
-			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->transition, 60);
+			
 
+			
 			if (App->scene->levelSelection == 6)
 			{
 				App->fade->FadeToBlack((Module*)App->scene, (Module*)App->win, 60);
 				App->scene->Disable();
+			}
+			else {
+				App->fade->FadeToBlack((Module*)App->scene, (Module*)App->transition, 60);
 			}
 		}
 	}
@@ -337,38 +341,9 @@ update_status ModuleInterface::Update()
 
 	const char* txt = { "HELLO" };
 	///*sprintf_s(scoreText, 10, "%7d", App->score);*/
-	App->fonts->BlitText(130, 30, -1, txt);
+	
 	///*App->fonts->BlitText(150, 215, scoreFont, scoreText);*/
-	switch (App->scene->levelSelection)
-	{
 
-	case(1):
-		
-
-
-
-		break;
-
-	case(2):
-		
-		break;
-
-	case(3):
-		
-		break;
-
-	case(4):
-		
-		break;
-
-	case(5):
-		
-		break;
-
-	case(6):
-		
-		break;
-	}
 
 	
 

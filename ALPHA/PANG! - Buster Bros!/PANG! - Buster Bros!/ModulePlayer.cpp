@@ -15,6 +15,9 @@
 #include "SDL/include/SDL.h"
 #include "ModuleScene.h"
 #include "ModuleInterface.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 
 #include "SDL/include/SDL_scancode.h"
@@ -131,12 +134,15 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 22, 30 }, Collider::Type::PLAYER, this);
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+	char scoreLookupTable[] = { "0123456789" };
 	scoreFont = App->fonts->Load("Assets/Font.png", lookupTable, 1);
+	reducedFont = App->fonts->Load("Assets/score font.png", scoreLookupTable, 1);
+
 
 	switch (App->scene->levelSelection) //depending on the level set cursos to its pertinent position
 	{
 	case(1):
-		App->balls->ballsLeft = 15;
+		App->balls->ballsLeft = 1;
 		break;
 	case(2):
 		App->balls->ballsLeft = 15;
@@ -151,7 +157,7 @@ bool ModulePlayer::Start()
 		App->balls->ballsLeft = 22;
 		break;
 	case(6):
-		App->balls->ballsLeft = 30;
+		App->balls->ballsLeft = 30; App->balls->ballsLeft = 1;
 		break;
 	}
 
@@ -631,34 +637,60 @@ update_status ModulePlayer::PostUpdate()
 	const char* t03 = { "KEIRIN" };
 	const char* t04 = { "KEIRIN" };
 	const char* t05 = { "KEIRIN" };
-	const char* t06 = { "KEIRIN" };
+	const char* t06 = { "KEIRIN" }; 
+
+	const char* n1 = {"1"}; const char* n2 = { "2" }; const char* n3 = { "3" };
+	const char* n4 = { "4" }; const char* n5 = { "5" }; const char* n6 = { "6" };
+
 	switch (App->scene->levelSelection)
 	{
 
 	case(1):
-		App->fonts->BlitText(170, 210, scoreFont, t01);
+		App->fonts->BlitText(179, 210, scoreFont, t01); App->fonts->BlitText(213, 220, scoreFont, n1);
 		break;
 
 	case(2):
-		App->fonts->BlitText(170, 210, scoreFont, t02);
+		App->fonts->BlitText(170, 210, scoreFont, t02); App->fonts->BlitText(213, 220, scoreFont, n2);
 		break;
 
 	case(3):
-		App->fonts->BlitText(170, 210, scoreFont, t03);
+		App->fonts->BlitText(170, 210, scoreFont, t03); App->fonts->BlitText(213, 220, scoreFont, n3);
 		break;
 
 	case(4):
-		App->fonts->BlitText(170, 210, scoreFont, t04);
+		App->fonts->BlitText(170, 210, scoreFont, t04); App->fonts->BlitText(213, 220, scoreFont, n4);
 		break;
 
 	case(5):
-		App->fonts->BlitText(170, 210, scoreFont, t05);
+		App->fonts->BlitText(170, 210, scoreFont, t05); App->fonts->BlitText(213, 220, scoreFont, n5);
 		break;
 
 	case(6):
-		App->fonts->BlitText(170, 210, scoreFont, t05);
+		App->fonts->BlitText(170, 210, scoreFont, t05); App->fonts->BlitText(213, 220, scoreFont, n6);
 		break;
 	}
+
+	
+	//string score= to_string(number);   
+	string time = to_string(App->interfaceElements->countDown);
+	char printTime[4] = {};
+	for (int i = 0; i<4; i++)
+	{
+		printTime[i] = time[i];
+	}
+
+	App->fonts->BlitText(330, 15, scoreFont, printTime);
+
+	
+	//string score= to_string(number);   
+	string score = to_string(playerScore);
+	char printScore[4] = {};
+	for (int i = 0; i < 4; i++)
+	{
+		printScore[i] = score[i];
+	}
+
+	App->fonts->BlitText(80, 220, reducedFont, printScore);
 
 	return update_status::UPDATE_CONTINUE;
 }

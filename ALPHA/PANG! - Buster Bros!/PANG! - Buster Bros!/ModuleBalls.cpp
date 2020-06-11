@@ -13,6 +13,7 @@
 #include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL.h"
 #include "ModuleScene.h"
+#include "ModulePlayer.h"
 
 
 #define SPAWN_MARGIN 50
@@ -289,7 +290,9 @@ void ModuleBalls::DivideBalls()
 		
 			App->audio->PlayFx(ballDestroyedFx);
 
+			App->player->playerScore += 400;
 			ballsLeft--;
+
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
@@ -309,7 +312,9 @@ void ModuleBalls::DivideBalls()
 			
 			App->audio->PlayFx(ballDestroyedFx);
 
+			App->player->playerScore += 800;
 			ballsLeft--;
+
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
@@ -329,7 +334,9 @@ void ModuleBalls::DivideBalls()
 
 			App->audio->PlayFx(ballDestroyedFx);
 
+			App->player->playerScore += 800;
 			ballsLeft--;
+
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
@@ -340,11 +347,13 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 
-			App->particles->AddParticle(App->particles->tinyExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
+			App->particles->AddParticle(App->particles->smallExplosion, Balls[i]->position.x, Balls[i]->position.y, Collider::Type::NONE, 0, PARTICLE_TYPE::EXPLOSION);
 
 			App->audio->PlayFx(ballDestroyedFx);
 
+			App->player->playerScore += 1600;
 			ballsLeft--;
+
 			Balls[i]->div = false;
 			Balls[i]->SetToDelete();
 			break;
