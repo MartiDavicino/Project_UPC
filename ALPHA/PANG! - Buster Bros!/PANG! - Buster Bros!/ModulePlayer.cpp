@@ -294,7 +294,6 @@ update_status ModulePlayer::Update()
 			switch (goingRight) {
 			case(false):
 				currentAnimation = &dieRightAnim;
-				dead_vx = 125;
 				dead_vy = dead_vy + (gravityDead * deltaTime);
 				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
 				position.x = position.x + (dead_vx * deltaTime);
@@ -302,7 +301,7 @@ update_status ModulePlayer::Update()
 				break;
 			case(true):
 				currentAnimation = &dieLeftAnim;
-				dead_vx = -125;
+				dead_vx = 60;
 				dead_vy = dead_vy + (gravityDead * deltaTime);
 				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
 				position.x = position.x + (dead_vx * deltaTime);

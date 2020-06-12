@@ -65,13 +65,11 @@ public:
 
 	bool pendingToDelete = false;
 
-	const int gravity = 300.0f;         // pixels / second^2
+	float gravity = 0.1f;         // pixels / second^2
 
-	const float deltaTime = 1.0f / 60.0f; // More or less 60 frames per second
+	float Ball_vy = 0.05f;
 
-	int Ball_vy = -50.0f;
-
-	int Ball_vx = 100.0f;
+	float Ball_vx = 1.0f;
 
 	int xOffset = 10;
 	int yOffset = 10;

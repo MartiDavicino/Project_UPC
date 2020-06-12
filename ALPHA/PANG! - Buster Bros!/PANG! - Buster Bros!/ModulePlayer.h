@@ -88,7 +88,7 @@ public:
 	float deltaTime = 1.0f / 60.0f;
 
 	float dead_vy = -300.0f;
-	float dead_vx = 0.0f;
+	float dead_vx = -60.0f;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;

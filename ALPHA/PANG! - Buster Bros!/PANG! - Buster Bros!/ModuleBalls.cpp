@@ -206,24 +206,24 @@ void ModuleBalls::SpawnBall(const BallSpawnpoint& info)
 			case BALL_TYPE::BIG:
 				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::BIG);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
+					Balls[i]->Ball_vx *= -1;
 				break;
 			case BALL_TYPE::MEDIUM:
 				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::MEDIUM);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
+					Balls[i]->Ball_vx *= -1;
 				break;
 
 			case BALL_TYPE::SMALL:
 				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::SMALL);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
+					Balls[i]->Ball_vx *= -1;
 				break;
 
 			case BALL_TYPE::TINY:
 				Balls[i] = new Ball(info.x, info.y, BALL_TYPE::TINY);
 				if (info.right == false)
-					Balls[i]->Ball_vx = -Balls[i]->Ball_vx / 2;
+					Balls[i]->Ball_vx *= -1;
 				break;
 			}
 
@@ -251,22 +251,25 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_A) {
 
-			App->balls->Balls[i]->Ball_vx = -(App->balls->Balls[i]->Ball_vx) * 2;
+			App->balls->Balls[i]->Ball_vx *= -1;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_D) {
 
-			App->balls->Balls[i]->Ball_vx = -(App->balls->Balls[i]->Ball_vx) / 2;
+			App->balls->Balls[i]->Ball_vx *= -1;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::FLOOR) {
 
-			App->balls->Balls[i]->OnCollision(c2);
+			App->balls->Balls[i]->Ball_vy *= -1;
 
 		}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::TOP) {
 
+			App->balls->Balls[i]->Ball_vy *= -1;
+
+		}
 	}
-
 }
 
 void ModuleBalls::DivideBalls()
