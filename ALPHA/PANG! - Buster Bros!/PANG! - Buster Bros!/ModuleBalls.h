@@ -48,7 +48,8 @@ public:
 	// The enemy is destroyed and an explosion particle is fired
 	void OnCollision(Collider* c1, Collider* c2) override;
 
-	int GetTilePos(int x, int y);
+	int GetTilePosx(int x);
+	int GetTilePosy(int y);
 	void TileColision();
 
 	// Add an enemy into the queue to be spawned later

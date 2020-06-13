@@ -222,7 +222,6 @@ void ModuleScene::LvlChange(int lvlA[MAXT_Y][MAXT_X], int lvlB[MAXT_Y][MAXT_X]) 
 update_status ModuleScene::Update()
 {
 
-
 	return update_status::UPDATE_CONTINUE;
 }
 

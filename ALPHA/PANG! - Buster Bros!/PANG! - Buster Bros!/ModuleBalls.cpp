@@ -93,6 +93,7 @@ update_status ModuleBalls::Update()
 	*/
 
 	HandleBallsSpawn();
+	/*TileColision();*/
 
 	for (uint i = 0; i < MAX_BALLS; ++i)
 	{
@@ -111,6 +112,8 @@ update_status ModuleBalls::Update()
 
 update_status ModuleBalls::PostUpdate()
 {
+
+	TileColision();
 	for (uint i = 0; i < MAX_BALLS; ++i)
 	{
 		if (Balls[i] != nullptr)
@@ -171,7 +174,7 @@ void ModuleBalls::HandleBallsSpawn()
 			// Spawn a new enemy if the screen has reached a spawn position
 			if (spawnQueue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
-				LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+				LOG("Spawning Ball at %d", spawnQueue[i].x * SCREEN_SIZE);
 
 				SpawnBall(spawnQueue[i]);
 				spawnQueue[i].type = BALL_TYPE::NO_TYPE; // Removing the newly spawned enemy from the queue
@@ -256,59 +259,159 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_A) {
 
-			App->balls->Balls[i]->Ball_vx *= -1;
+			Balls[i]->Ball_vx *= -1;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_D) {
 
-			App->balls->Balls[i]->Ball_vx *= -1;
+			Balls[i]->Ball_vx *= -1;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::FLOOR) {
 
-			App->balls->Balls[i]->Ball_vy *= -1;
+			Balls[i]->Ball_vy *= -1;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::TOP) {
 
-			App->balls->Balls[i]->Ball_vy *= -1;
+			Balls[i]->Ball_vy *= -1;
 
 		}
 	}
 }
 
-int ModuleBalls::GetTilePos(int x, int y) {
+int ModuleBalls::GetTilePosx(int x) {
 
-	int Tx, Ty = 0;
-	Tx = x / MAXT_X;
-	Ty = y / MAXT_Y;
+	int Tx = 0;
+	Tx = x / 8;
 
-	return Tx, Ty;
+
+	return Tx;
+}
+int ModuleBalls::GetTilePosy(int y) {
+
+	int Ty = 0;
+	Ty = y / 8;
+	return Ty;
+
 }
 
 void ModuleBalls::TileColision() {
 
+	
 	for (uint i = 0; i < MAX_BALLS; ++i)
 	{
-		if (Balls[i]->type == BALL_TYPE::BIG) {
-			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+		if (Balls[i] != nullptr) {
+			if (Balls[i]->GetType() == BALL_TYPE::BIG) {
+				int xt, yt = 0;
+
+				xt = GetTilePosx(Balls[i]->position.x);
+				int mxt = xt + 6;
+				if (xt < mxt) {
+					yt = GetTilePosy(Balls[i]->position.y);
+					int myt = yt + 5;
+					if (yt <myt){ 
+
+						if (App->scene->tiles_template[xt - 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt + 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt][yt + 1] == 2) {
+							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						}
+						yt++;
+
+					}
+				
+				
+					xt++;
+				}
+
+			}
+			if (Balls[i]->GetType() == BALL_TYPE::MEDIUM) {
+				int xt, yt = 0;
+
+				xt = GetTilePosx(Balls[i]->position.x);
+				int mxt = xt + 4;
+				if (xt < mxt) {
+					yt = GetTilePosy(Balls[i]->position.y);
+					int myt = yt + 4;
+					if (yt < myt) {
+
+						if (App->scene->tiles_template[xt - 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt + 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt][yt + 1] == 2) {
+							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						}
+						yt++;
+
+					}
 
 
-		}
-		if (Balls[i]->type == BALL_TYPE::MEDIUM) {
-			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+					xt++;
+				}
+			}
+			if (Balls[i]->GetType() == BALL_TYPE::SMALL) {
+				int xt, yt = 0;
+
+				xt = GetTilePosx(Balls[i]->position.x);
+				int mxt = xt + 2;
+				if (xt < mxt) {
+					yt = GetTilePosy(Balls[i]->position.y);
+					int myt = yt + 2;
+					if (yt < myt) {
+
+						if (App->scene->tiles_template[xt - 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt + 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt][yt + 1] == 2) {
+							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						}
+						yt++;
+
+					}
 
 
-		}
-		if (Balls[i]->type == BALL_TYPE::SMALL) {
-			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+					xt++;
+				}
+			}
+			if (Balls[i]->GetType() == BALL_TYPE::TINY) {
+				int xt, yt = 0;
+
+				xt = GetTilePosx(Balls[i]->position.x);
+				int mxt = xt + 1;
+				if (xt < mxt) {
+					yt = GetTilePosy(Balls[i]->position.y);
+					int myt = yt + 1;
+					if (yt < myt) {
+
+						if (App->scene->tiles_template[xt - 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt + 1][yt] == 1) {
+							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						}
+						if (App->scene->tiles_template[xt][yt + 1] == 2) {
+							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						}
+						yt++;
+
+					}
 
 
-		}
-		if (Balls[i]->type == BALL_TYPE::TINY) {
-			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
-
-
+					xt++;
+				}
+				
+			}
 		}
 	}
 }
