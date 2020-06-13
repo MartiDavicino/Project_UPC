@@ -167,6 +167,7 @@
     <ClCompile Include="Rope.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\EN USO\projecto\actual\PANG! - Buster Bros!\PANG! - Buster Bros!\Lvls.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Ball.h" />

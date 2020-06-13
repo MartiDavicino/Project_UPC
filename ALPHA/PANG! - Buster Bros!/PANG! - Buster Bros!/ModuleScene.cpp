@@ -58,7 +58,7 @@ bool ModuleScene::Start()
 	App->collisions->AddCollider({ 0,201,384,7 }, Collider::Type::FLOOR);
 	App->collisions->AddCollider({ 0,0,384,7 }, Collider::Type::TOP);
 
-	lvlLoading(tiles_01);
+	
 
 	// each level specific colliders
 	
@@ -66,10 +66,14 @@ bool ModuleScene::Start()
 		switch (levelSelection)
 		{
 		case(1):
+			LvlChange(tiles_template, tiles_01);
 			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 			App->audio->PlayMusic("Assets/music01.ogg", 1.0f);
+			lvlLoading(tiles_template);
+			
 			break;
 		case(3):
+			LvlChange(tiles_template, tiles_03);
 			App->collisions->AddCollider({ 72,80,31,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::TOP);
 
@@ -83,12 +87,14 @@ bool ModuleScene::Start()
 			App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::TOP);
 
 			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
-			App->balls->AddBall(BALL_TYPE::SMALL , 70, 25, true);
-	
+			App->balls->AddBall(BALL_TYPE::SMALL, 70, 25, true);
+
 			App->audio->PlayMusic("Assets/music03.ogg", 1.0f);
+			lvlLoading(tiles_template);
 			 
 			break;
 		case(5):
+			LvlChange(tiles_template, tiles_05);
 			App->collisions->AddCollider({ 96,56,3,47 }, Collider::Type::WALL_A); //left
 			App->collisions->AddCollider({ 100,56,3,47 }, Collider::Type::WALL_D); //right
 
@@ -102,18 +108,22 @@ bool ModuleScene::Start()
 			App->balls->AddBall(BALL_TYPE::MEDIUM, 70, 25, true);
 
 			App->audio->PlayMusic("Assets/music05.ogg", 1.0f);
+			lvlLoading(tiles_template);
 			break;
 
 		case(2):
+			LvlChange(tiles_template, tiles_02);
 			App->collisions->AddCollider({ 160,80,64,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 160,84,64,3 }, Collider::Type::TOP);
 
 			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 
 			App->audio->PlayMusic("Assets/music02.ogg", 1.0f);
+			lvlLoading(tiles_template);
 
 			break;
 		case(4): //161 153
+			LvlChange(tiles_template, tiles_04);
 			App->collisions->AddCollider({ 180,153,3,20 }, Collider::Type::STAIRS);
 			App->collisions->AddCollider({ 201,153,3,20 }, Collider::Type::STAIRS);
 
@@ -128,8 +138,10 @@ bool ModuleScene::Start()
 			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 
 			App->audio->PlayMusic("Assets/music04.ogg", 1.0f);
+			lvlLoading(tiles_template);
 			break;
 		case(6):
+			LvlChange(tiles_template, tiles_06);
 			App->collisions->AddCollider({ 80,64,15,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 80,68,15,3 }, Collider::Type::TOP);
 
@@ -138,11 +150,12 @@ bool ModuleScene::Start()
 
 			App->collisions->AddCollider({ 296,64,15,3 }, Collider::Type::FLOOR);
 			App->collisions->AddCollider({ 296,68,15,3 }, Collider::Type::TOP);
-	
+
 			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 			App->balls->AddBall(BALL_TYPE::BIG, 70, 25, true);
 
 			App->audio->PlayMusic("Assets/music06.ogg", 1.0f);
+			lvlLoading(tiles_template);
 
 		}
 
@@ -180,7 +193,7 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 
 			}
 			if (tiles[y][x] == 4) {
-
+			/*	App->collisions->AddCollider({ 8 * x,8 * y,8,8 }, Collider::Type::FLOOR);*/
 			}
 			if (tiles[y][x] == 0) {
 				LOG("EMPTY TILE")
@@ -192,15 +205,17 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 	}
 }
 
-void LvlChange(int(&lvlA)[MAXT_Y][MAXT_X], int lvlB[MAXT_Y][MAXT_X]) {
-	for (int a = 0; a < MAXT_Y + 1; ++a) {
+void ModuleScene::LvlChange(int lvlA[MAXT_Y][MAXT_X], int lvlB[MAXT_Y][MAXT_X]) {
+	for (int a = 0; a < MAXT_Y; ++a) {
 
-		for (int b = 0; b < MAXT_X + 1; ++b) {
+		for (int b = 0; b < MAXT_X; ++b) {
 
-			lvlA[MAXT_Y][MAXT_X] = lvlB[MAXT_Y][MAXT_X];
+			lvlA[a][b] = lvlB[a][b];
 
 		}
 	}
+
+
 }
 
 

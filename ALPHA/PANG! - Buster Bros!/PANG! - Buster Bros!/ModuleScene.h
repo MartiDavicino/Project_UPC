@@ -41,7 +41,7 @@ public:
 	// Disables the player and the enemies
 	bool CleanUp();
 
-	void LvlChange(int(&lvlA)[MAXT_Y][MAXT_X], int lvlB[MAXT_Y][MAXT_X]);
+	void LvlChange(int lvlA [MAXT_Y][MAXT_X], int lvlB[MAXT_Y][MAXT_X]);
 
 public:
 	
