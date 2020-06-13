@@ -82,6 +82,9 @@ update_status ModuleBalls::Update()
 
 	}
 
+
+
+
 	//explode all manually
 	/*if (App->input->keys[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN )
 	{
@@ -93,6 +96,8 @@ update_status ModuleBalls::Update()
 
 	for (uint i = 0; i < MAX_BALLS; ++i)
 	{
+		/*TileColision();*/
+
 		if (Balls[i] != nullptr)
 			Balls[i]->Update();
 
@@ -267,6 +272,42 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::TOP) {
 
 			App->balls->Balls[i]->Ball_vy *= -1;
+
+		}
+	}
+}
+
+int ModuleBalls::GetTilePos(int x, int y) {
+
+	int Tx, Ty = 0;
+	Tx = x / MAXT_X;
+	Ty = y / MAXT_Y;
+
+	return Tx, Ty;
+}
+
+void ModuleBalls::TileColision() {
+
+	for (uint i = 0; i < MAX_BALLS; ++i)
+	{
+		if (Balls[i]->type == BALL_TYPE::BIG) {
+			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+
+
+		}
+		if (Balls[i]->type == BALL_TYPE::MEDIUM) {
+			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+
+
+		}
+		if (Balls[i]->type == BALL_TYPE::SMALL) {
+			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+
+
+		}
+		if (Balls[i]->type == BALL_TYPE::TINY) {
+			GetTilePos(Balls[i]->position.x, Balls[i]->position.y);
+
 
 		}
 	}

@@ -48,6 +48,9 @@ public:
 	// The enemy is destroyed and an explosion particle is fired
 	void OnCollision(Collider* c1, Collider* c2) override;
 
+	int GetTilePos(int x, int y);
+	void TileColision();
+
 	// Add an enemy into the queue to be spawned later
 	bool AddBall(BALL_TYPE type, int x, int y, bool right);
 

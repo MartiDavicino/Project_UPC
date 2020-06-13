@@ -248,7 +248,9 @@ update_status ModulePlayer::Update()
 		{
 		   itemEquipped = ITEM_EQUIPPED::STATIC;
 		}
-
+		if (App->input->keys[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN) {
+			App->balls->ballsStop = !App->balls->ballsStop;
+		}
 
 
 
