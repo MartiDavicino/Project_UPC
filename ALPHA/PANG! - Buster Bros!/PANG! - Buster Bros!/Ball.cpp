@@ -80,13 +80,45 @@ void Ball::Update()
 		}
 	}
 
-	if (App->player->destroyed == false && App->balls->ballsStop==false) {
-		if (Ball_vy > 4.8f) {
-			Ball_vy = 4.5f;
+	if (type == BALL_TYPE::BIG) {
+		if (App->player->destroyed == false && App->balls->ballsStop == false) {
+			if (Ball_vy > 4.8f) {
+				Ball_vy = 4.5f;
+			}
+			position.x += Ball_vx;
+			position.y -= (Ball_vy + gravity);
+			Ball_vy -= gravity;
 		}
-		position.x += Ball_vx;
-		position.y -= (Ball_vy + gravity);
-		Ball_vy -= gravity;
+	}
+	if (type == BALL_TYPE::MEDIUM) {
+		if (App->player->destroyed == false && App->balls->ballsStop == false) {
+			if (Ball_vy > 4.8f) {
+				Ball_vy = 4.3f;
+			}
+			position.x += Ball_vx;
+			position.y -= (Ball_vy + gravity);
+			Ball_vy -= gravity;
+		}
+	}
+	if (type == BALL_TYPE::SMALL) {
+		if (App->player->destroyed == false && App->balls->ballsStop == false) {
+			if (Ball_vy > 4.8f) {
+				Ball_vy = 4.0f;
+			}
+			position.x += Ball_vx;
+			position.y -= (Ball_vy + gravity);
+			Ball_vy -= gravity;
+		}
+	}
+	if (type == BALL_TYPE::TINY) {
+		if (App->player->destroyed == false && App->balls->ballsStop == false) {
+			if (Ball_vy > 4.8f) {
+				Ball_vy = 3.0f;
+			}
+			position.x += Ball_vx;
+			position.y -= (Ball_vy + gravity);
+			Ball_vy -= gravity;
+		}
 	}
 	else {
 		position.y = position.y;
@@ -122,14 +154,15 @@ void Ball::OnCollision(Collider* collider)
 {
 	//LOG("Ball Destroyed\n");
 
-	if (collider->type == Collider::Type::ROPE) {
+	
+		if (collider->type == Collider::Type::ROPE) {
 			div = true;
 			App->balls->DivideBalls();
 
 			SetToDelete();
 		}
 	
-
+	
 }
 
 void Ball::SetToDelete()
