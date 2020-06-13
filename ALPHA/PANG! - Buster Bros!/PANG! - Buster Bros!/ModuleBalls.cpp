@@ -266,7 +266,7 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::FLOOR) {
 
-			App->balls->Balls[i]->Ball_vy *= -1;
+			App->balls->Balls[i]->Ball_vy = 10;
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::TOP) {

@@ -142,7 +142,7 @@ bool ModulePlayer::Start()
 	switch (App->scene->levelSelection) //depending on the level set cursos to its pertinent position
 	{
 	case(1):
-		App->balls->ballsLeft = 1;
+		App->balls->ballsLeft = 15;
 		break;
 	case(2):
 		App->balls->ballsLeft = 15;
