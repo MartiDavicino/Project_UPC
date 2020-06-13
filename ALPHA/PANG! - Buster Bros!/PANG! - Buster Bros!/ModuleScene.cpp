@@ -1,15 +1,15 @@
-#include "ModuleScene.h"
 
+#include "ModuleScene.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleFonts.h"
-
 #include "ModuleBalls.h"
 #include "ModulePlayer.h"
 #include "ModuleInterface.h"
+#include "Lvls.h"
 
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 {
@@ -193,7 +193,7 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 
 			}
 			if (tiles[y][x] == 4) {
-			/*	App->collisions->AddCollider({ 8 * x,8 * y,8,8 }, Collider::Type::FLOOR);*/
+				/*App->collisions->AddCollider({ 8 * x,8 * y,8,8 }, Collider::Type::FLOOR);*/
 			}
 			if (tiles[y][x] == 0) {
 				LOG("EMPTY TILE")
