@@ -28,7 +28,7 @@ Our main goal in this project was to replicate the arcade videogame Pang Buster 
 
 ## Release update Log
 
-Prototype version release (21/04/2020)
+### Prototype version release (21/04/2020)
 
 - 1 Playable level
 - Ball divisions
@@ -36,7 +36,7 @@ Prototype version release (21/04/2020)
 
 ![Image3](https://www.arcade-museum.com/images/118/1181242143102.png)
 
-Alpha version release (15/06/2020)
+### Alpha version release (15/06/2020)
 
 - 6 Playable levels
 - 3 Usable guns
