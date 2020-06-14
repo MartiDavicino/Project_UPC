@@ -30,20 +30,20 @@ Our main goal in this project was to replicate the arcade videogame Pang Buster 
 
 Prototype version release (21/04/2020)
 
--> 1 Playable level
--> Ball divisions
--> 1 Usable gun
+- 1 Playable level
+- Ball divisions
+- 1 Usable gun
 
 ![Image3](https://www.arcade-museum.com/images/118/1181242143102.png)
 
 Alpha version release (15/06/2020)
 
--> 6 Playable levels
--> 3 Usable guns
--> Menu interface
--> Level selector
--> Score system
--> Random drops
+- 6 Playable levels
+- 3 Usable guns
+- Menu interface
+- Level selector
+- Score system
+- Random drops
 
 ![Image4](https://lh3.googleusercontent.com/proxy/SfdlljjidML-cw2JFG_k1rxf28_K3fgcDTU6suXW5SqJ8ryvpejNbQ_2pG7i-QbNCQxdcQ14XgWQ80BjMheqIxRZK_XoI0csu-YRjwzmHZ7S3R1pgxta--Izd0Ng3LokRw)
 
