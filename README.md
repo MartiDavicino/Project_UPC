@@ -49,7 +49,8 @@ Our main goal in this project was to replicate the arcade videogame Pang Buster 
 
 ## Game Teaser
 
-<iframe width="[1900]"height="[1080]"src"[https://www.youtube.com/watch?v=fsw3D-QqdgU]"></iframe>
+<iframe width="[1900]"height="[1080]"src"[https://www.youtube.com/watch?v=fsw3D-QqdgU]">
+</iframe>
 
 ## Links of interest
 
