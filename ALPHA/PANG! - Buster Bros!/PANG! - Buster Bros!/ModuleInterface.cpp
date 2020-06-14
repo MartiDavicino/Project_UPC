@@ -610,7 +610,7 @@ void ModuleInterface::AddDrop(const Drop& drop, int x, int y,DROP_TYPE name)
 void ModuleInterface::RandomDrop(int x,int y)
 {
 	//function to put where a ball explodes
-	if (itemsCount == 5)itemsCount = 0;
+	if (itemsCount == 6)itemsCount = 0;
 	if (foodCount == 5)foodCount = 0;
 	//random parameter to determine which is the drop
 	switch (itemsCount)
@@ -622,7 +622,7 @@ void ModuleInterface::RandomDrop(int x,int y)
 		break;
 	case(2): //power up
 		
-		App->interfaceElements->AddDrop(dynamite, x, y, DROP_TYPE::DYNAMITE);
+		App->interfaceElements->AddDrop(gunDrop, x, y, DROP_TYPE::DYNAMITE);
 		
 		break;
 	case(3): //power up
@@ -647,6 +647,11 @@ void ModuleInterface::RandomDrop(int x,int y)
 			break;
 				
 		}
+		break;
+	case(5): //power up
+
+		App->interfaceElements->AddDrop(hookDrop, x, y, DROP_TYPE::STOPTIME);
+
 		break;
 	
 	}

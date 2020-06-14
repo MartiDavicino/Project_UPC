@@ -619,27 +619,27 @@ update_status ModulePlayer::PostUpdate()
 	{
 
 	case(1):
-		App->fonts->BlitText(179, 210, scoreFont, t01); App->fonts->BlitText(213, 220, scoreFont, n1);
+		App->fonts->BlitText(179, 210, scoreFont, t01); App->fonts->BlitText(213, 223, scoreFont, n1);
 		break;
 
 	case(2):
-		App->fonts->BlitText(170, 210, scoreFont, t02); App->fonts->BlitText(213, 220, scoreFont, n2);
+		App->fonts->BlitText(170, 210, scoreFont, t02); App->fonts->BlitText(213, 223, scoreFont, n2);
 		break;
 
 	case(3):
-		App->fonts->BlitText(170, 210, scoreFont, t03); App->fonts->BlitText(213, 220, scoreFont, n3);
+		App->fonts->BlitText(170, 210, scoreFont, t03); App->fonts->BlitText(213, 223, scoreFont, n3);
 		break;
 
 	case(4):
-		App->fonts->BlitText(170, 210, scoreFont, t04); App->fonts->BlitText(213, 220, scoreFont, n4);
+		App->fonts->BlitText(170, 210, scoreFont, t04); App->fonts->BlitText(213, 223, scoreFont, n4);
 		break;
 
 	case(5):
-		App->fonts->BlitText(170, 210, scoreFont, t05); App->fonts->BlitText(213, 220, scoreFont, n5);
+		App->fonts->BlitText(170, 210, scoreFont, t05); App->fonts->BlitText(213, 223, scoreFont, n5);
 		break;
 
 	case(6):
-		App->fonts->BlitText(170, 210, scoreFont, t05); App->fonts->BlitText(213, 220, scoreFont, n6);
+		App->fonts->BlitText(170, 210, scoreFont, t05); App->fonts->BlitText(213, 223, scoreFont, n6);
 		break;
 	}
 
@@ -657,13 +657,13 @@ update_status ModulePlayer::PostUpdate()
 	
 	//string score= to_string(number);   
 	string score = to_string(playerScore);
-	char printScore[4] = {};
+	char printScore[8] = {};
 	for (int i = 0; i < 4; i++)
 	{
 		printScore[i] = score[i];
 	}
 
-	App->fonts->BlitText(80, 220, reducedFont, printScore);
+	App->fonts->BlitText(80, 211, reducedFont, printScore);
 
 	return update_status::UPDATE_CONTINUE;
 }
