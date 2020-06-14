@@ -34,6 +34,8 @@ G - God mode and inmune power-up
 F1 - Draw hitboxes
 K - Explode balls manually
 B - Spawn balls in mouse position
+O - Freeze balls
+L - More Lives
 
 1 - Default weapon
 2 - Hook weapon
