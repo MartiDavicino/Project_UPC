@@ -252,9 +252,9 @@ update_status ModulePlayer::Update()
 			App->balls->ballsStop = !App->balls->ballsStop;
 		}
 
-
-
-		
+		if (App->input->keys[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN) {
+			lives++;
+		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 		{
@@ -528,7 +528,7 @@ void ModulePlayer::UpdateLogic()
 			}
 
 			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 300);
-
+			ChangeState(state, IDLE);
 		
 		break;
 		

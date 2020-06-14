@@ -187,7 +187,7 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 			int posy = y * 8;
 			if (tiles[y][x] == 1) {
 			
-				App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::WALL_A);
+				/*App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::WALL_A);*/
 				LOG("Wall")
 			}
 			if (tiles[y][x] == 2) {
@@ -204,7 +204,7 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 				
 			}
 			if (tiles[y][x] == 5) {
-				App->collisions->AddCollider({ posx,posy,8,8 }, Collider::Type::WALL_D);
+				/*App->collisions->AddCollider({ posx,posy,8,8 }, Collider::Type::WALL_D);*/
 				LOG("Wall")
 
 			}

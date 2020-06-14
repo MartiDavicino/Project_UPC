@@ -299,7 +299,7 @@ int ModuleBalls::GetTilePosy(int y) {
 void ModuleBalls::TileColision() {
 
 
-	for (uint i = 0; i < MAX_BALLS; ++i)
+	/*for (uint i = 0; i < MAX_BALLS; ++i)
 	{
 		if (Balls[i] != nullptr) {
 			if (Balls[i]->GetType() == BALL_TYPE::BIG) {
@@ -444,7 +444,7 @@ void ModuleBalls::TileColision() {
 
 			}
 		}
-	}
+	}*/
 }
 
 void ModuleBalls::DivideBalls()
