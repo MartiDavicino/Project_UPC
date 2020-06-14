@@ -387,7 +387,7 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (ropes[i] != nullptr && ropes[i]->collider == c1)
 		{
-			if (c2->type == Collider::Type::TOP)
+			if (c2->type == Collider::Type::TOP|| c2->type == Collider::Type::STRUCTD)
 			{
 				if (ropes[i]->type == ROPE_TYPE::HOOK)
 				{
@@ -409,6 +409,7 @@ void ModuleRopes::OnCollision(Collider* c1, Collider* c2)
 					break;
 				}
 			}
+
 			if (c2->type == Collider::Type::BALL)
 			{
 				delete ropes[i];

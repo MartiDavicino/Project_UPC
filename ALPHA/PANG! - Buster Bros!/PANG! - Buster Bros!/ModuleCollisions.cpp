@@ -67,7 +67,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ROPE][Collider::Type::TOP] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::STAIRS] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::STRUCTT] = false;
-	matrix[Collider::Type::ROPE][Collider::Type::STRUCTD] = false;
+	matrix[Collider::Type::ROPE][Collider::Type::STRUCTD] = true;
 	matrix[Collider::Type::ROPE][Collider::Type::STRUCTR] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::STRUCTL] = false;
 	matrix[Collider::Type::ROPE][Collider::Type::STRUCTT2] = false;

@@ -123,43 +123,43 @@ D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.
 D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\Animation.h(67,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleInterface.h(13,1): warning C4005: 'MAX_ACTIVE_PARTICLES': redefinición de macro
 D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleParticles.h(10): message : vea la definición anterior de 'MAX_ACTIVE_PARTICLES'
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(223,24): warning C4244: '+=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(223,24): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(223,24): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(223,24): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(223,24): warning C4244:         ]
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(507,54): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(507,54): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(507,54): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(507,54): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(507,54): warning C4244:         ]
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(508,30): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(508,30): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(508,30): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(508,30): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(508,30): warning C4244:         ]
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(515,54): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(515,54): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(515,54): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(515,54): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(515,54): warning C4244:         ]
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(516,30): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(516,30): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(516,30): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(516,30): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(516,30): warning C4244:         ]
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(525,53): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(525,53): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(525,53): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(525,53): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(525,53): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(224,24): warning C4244: '+=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(224,24): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(224,24): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(224,24): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(224,24): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(510,54): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(510,54): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(510,54): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(510,54): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(510,54): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(511,30): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(511,30): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(511,30): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(511,30): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(511,30): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(518,54): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(518,54): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(518,54): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(518,54): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(518,54): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(519,30): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(519,30): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(519,30): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(519,30): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(519,30): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(528,53): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(528,53): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(528,53): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(528,53): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(528,53): warning C4244:         ]
   ModuleRender.cpp
   Generando código...
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(526,29): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(526,29): warning C4244:         with
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(526,29): warning C4244:         [
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(526,29): warning C4244:             TYPE=int
-D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(526,29): warning C4244:         ]
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(529,29): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(529,29): warning C4244:         with
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(529,29): warning C4244:         [
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(529,29): warning C4244:             TYPE=int
+D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModulePlayer.cpp(529,29): warning C4244:         ]
   Compilando...
   ModuleRopes.cpp
 D:\GitHub\Project_UPC\ALPHA\PANG! - Buster Bros!\PANG! - Buster Bros!\ModuleBalls.cpp(595): warning C4715: 'ModuleBalls::checkRemainingBalls': no todas las rutas de acceso de control devuelven un valor
