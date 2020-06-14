@@ -24,11 +24,11 @@ Our main goal in this project was to replicate the arcade videogame Pang Buster 
 
 - Otto Tolo - Colliders coder
 
-![Image2](https://github.com/MartiDavicino/Project_UPC/blob/master/Wiki/LOS%20MERLAOS.PNG)
+![Image2](https://cdn.discordapp.com/attachments/498559473737138186/721700740254662776/WhatsApp_Image_2020-03-01_at_17.33.41.jpeg)
 
 ## Links of interest
 
-Click [here](https://github.com/MartiDavicino/Project_UPC/wiki) to visit our wiki's project.
+Click [here](https://github.com/MartiDavicino/Project_UPC/wiki) to visit our project's wiki.
 
 Click [here](https://github.com/MartiDavicino/Project_UPC) to acces our repository.
 
