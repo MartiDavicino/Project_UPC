@@ -258,7 +258,7 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 		}
 
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::WALL_A) {
-
+			App->balls->Balls[i]->position.y += 5;
 			Balls[i]->Ball_vx *= -1;
 
 		}
@@ -269,7 +269,7 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::FLOOR) {
 
-			Balls[i]->Ball_vy *= -1;
+			App->balls->Balls[i]->OnCollision(c2);
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::TOP) {
@@ -283,7 +283,7 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 
 		}
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTD) {
-
+			App->balls->Balls[i]->position.y += 5;
 			Balls[i]->Ball_vy *= -1;
 
 		}
@@ -295,7 +295,10 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTL) {
 
 			Balls[i]->Ball_vx *= -1;
+		}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTT2) {
 
+			App->balls->Balls[i]->OnCollision(c2);
 
 		}
 	}

@@ -157,7 +157,7 @@ bool ModulePlayer::Start()
 		App->balls->ballsLeft = 22;
 		break;
 	case(6):
-		App->balls->ballsLeft = 30; App->balls->ballsLeft = 1;
+		App->balls->ballsLeft = 30; 
 		break;
 	}
 

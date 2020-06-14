@@ -26,6 +26,7 @@ struct Collider
 		STRUCTD,
 		STRUCTR,
 		STRUCTL,
+		STRUCTT2,
 
 		MAX
 	};
