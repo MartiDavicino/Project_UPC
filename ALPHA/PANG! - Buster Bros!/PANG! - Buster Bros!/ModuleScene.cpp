@@ -63,109 +63,127 @@ bool ModuleScene::Start()
 	// each level specific colliders
 	
 	
-		switch (levelSelection)
-		{
-		case(1):
-			LvlChange(tiles_template, tiles_01);
-			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
-			App->audio->PlayMusic("Assets/music01.ogg", 1.0f);
-			lvlLoading(tiles_template);
-			
-			break;
-		case(3):
-			LvlChange(tiles_template, tiles_03);
-			App->collisions->AddCollider({ 72,79,31,3 }, Collider::Type::STRUCTT);
-			App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::STRUCTD);
-			App->collisions->AddCollider({ 100,81,4,3 }, Collider::Type::STRUCTR);
-			App->collisions->AddCollider({ 71,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->collisions->AddCollider({ 177,79,31,3 }, Collider::Type::STRUCTT);
-			App->collisions->AddCollider({ 177,84,31,3 }, Collider::Type::STRUCTD);
-			App->collisions->AddCollider({ 205,81,4,3 }, Collider::Type::STRUCTR);
-			App->collisions->AddCollider({ 176,81,4,3 }, Collider::Type::STRUCTL);
+	switch (levelSelection)
+	{
+	case(1):
+		LvlChange(tiles_template, tiles_01);
+		App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+		App->audio->PlayMusic("Assets/music01.ogg", 1.0f);
+		lvlLoading(tiles_template);
 
-			App->collisions->AddCollider({ 281,79,31,3 }, Collider::Type::STRUCTT);
-			App->collisions->AddCollider({ 281,84,31,3 }, Collider::Type::STRUCTD);
-			App->collisions->AddCollider({ 309,81,4,3 }, Collider::Type::STRUCTR);
-			App->collisions->AddCollider({ 280,81,4,3 }, Collider::Type::STRUCTL);
+		break;
+	case(2):
+		LvlChange(tiles_template, tiles_02);
+		App->collisions->AddCollider({ 160,79,64,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 160,84,64,3 }, Collider::Type::STRUCTD);
+		App->collisions->AddCollider({ 220,81,4,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 160,81,4,3 }, Collider::Type::STRUCTL);
+		
 
-			App->collisions->AddCollider({ 177,128,31,3 }, Collider::Type::STRUCTT);
-			App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::STRUCTD);
-			App->collisions->AddCollider({ 205,130,4,3 }, Collider::Type::STRUCTR);
-			App->collisions->AddCollider({ 176,130,4,3 }, Collider::Type::STRUCTL);
 
-			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
-			App->balls->AddBall(BALL_TYPE::SMALL, 70, 25, true);
+		App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 
-			App->audio->PlayMusic("Assets/music03.ogg", 1.0f);
-			lvlLoading(tiles_template);
-			 
-			break;
-		case(5):
-			LvlChange(tiles_template, tiles_05);
-			App->collisions->AddCollider({ 96,56,3,47 }, Collider::Type::WALL_A); //left
-			App->collisions->AddCollider({ 100,56,3,47 }, Collider::Type::WALL_D); //right
+		App->audio->PlayMusic("Assets/music02.ogg", 1.0f);
+		lvlLoading(tiles_template);
 
-			App->collisions->AddCollider({ 192,56,3,23 }, Collider::Type::WALL_A); //left
-			App->collisions->AddCollider({ 196,56,3,23 }, Collider::Type::WALL_D);
+		break;
+	case(3):
+		LvlChange(tiles_template, tiles_03);
+		App->collisions->AddCollider({ 72,79,31,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::STRUCTD);
+		App->collisions->AddCollider({ 98,81,4,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 71,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::WALL_A); //left
-			App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::WALL_D);
+		App->collisions->AddCollider({ 177,79,31,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 177,84,31,3 }, Collider::Type::STRUCTD);
+		App->collisions->AddCollider({ 203,81,4,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 176,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
-			App->balls->AddBall(BALL_TYPE::MEDIUM, 70, 25, true);
+		App->collisions->AddCollider({ 281,79,31,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 281,84,31,3 }, Collider::Type::STRUCTD);
+		App->collisions->AddCollider({ 307,81,4,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 280,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->audio->PlayMusic("Assets/music05.ogg", 1.0f);
-			lvlLoading(tiles_template);
-			break;
+		App->collisions->AddCollider({ 177,128,31,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::STRUCTD);
+		App->collisions->AddCollider({ 203,130,4,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 176,130,4,3 }, Collider::Type::STRUCTL);
 
-		case(2):
-			LvlChange(tiles_template, tiles_02);
-			App->collisions->AddCollider({ 160,80,64,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 160,84,64,3 }, Collider::Type::TOP);
+		App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+		App->balls->AddBall(BALL_TYPE::SMALL, 70, 25, true);
 
-			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+		App->audio->PlayMusic("Assets/music03.ogg", 1.0f);
+		lvlLoading(tiles_template);
 
-			App->audio->PlayMusic("Assets/music02.ogg", 1.0f);
-			lvlLoading(tiles_template);
+		break;
 
-			break;
-		case(4): //161 153
-			LvlChange(tiles_template, tiles_04);
-			App->collisions->AddCollider({ 180,153,3,20 }, Collider::Type::STAIRS);
-			App->collisions->AddCollider({ 201,153,3,20 }, Collider::Type::STAIRS);
+	case(4): //161 153
+		LvlChange(tiles_template, tiles_04);
+		App->collisions->AddCollider({ 180,153,3,20 }, Collider::Type::STAIRS);
+		App->collisions->AddCollider({ 201,153,3,20 }, Collider::Type::STAIRS);
 
-			App->collisions->AddCollider({ 184,153,16,3 }, Collider::Type::FLOOR);
+		App->collisions->AddCollider({ 128,140,10,10 }, Collider::Type::CORNICE);
+		App->collisions->AddCollider({ 246,140,10,10 }, Collider::Type::CORNICE);
 
-			App->collisions->AddCollider({ 195,153,5,43 }, Collider::Type::WALL_A);
-			App->collisions->AddCollider({ 183,153,5,43 }, Collider::Type::WALL_D);
+		App->collisions->AddCollider({ 195,155,5,43 }, Collider::Type::STRUCTL);
+		App->collisions->AddCollider({ 183,155,5,43 }, Collider::Type::STRUCTR);
 
-			App->collisions->AddCollider({ 128,140,10,10 }, Collider::Type::CORNICE);
-			App->collisions->AddCollider({ 246,140,10,10 }, Collider::Type::CORNICE);
+		App->collisions->AddCollider({ 184,153,16,3 }, Collider::Type::STRUCTT2);
 
-			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 
-			App->audio->PlayMusic("Assets/music04.ogg", 1.0f);
-			lvlLoading(tiles_template);
-			break;
-		case(6):
-			LvlChange(tiles_template, tiles_06);
-			App->collisions->AddCollider({ 80,64,15,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 80,68,15,3 }, Collider::Type::TOP);
+		App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 
-			App->collisions->AddCollider({ 184,64,15,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 184,68,15,3 }, Collider::Type::TOP);
+		App->audio->PlayMusic("Assets/music04.ogg", 1.0f);
+		lvlLoading(tiles_template);
+		break;
+	case(5):
+		LvlChange(tiles_template, tiles_05);
+		App->collisions->AddCollider({ 96,56,6,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 96,56,3,47 }, Collider::Type::STRUCTL); //left
+		App->collisions->AddCollider({ 100,56,3,47 }, Collider::Type::STRUCTR); //right
+		App->collisions->AddCollider({ 96,101,6,3 }, Collider::Type::STRUCTD);
 
-			App->collisions->AddCollider({ 296,64,15,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 296,68,15,3 }, Collider::Type::TOP);
+		App->collisions->AddCollider({ 192,56,6,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 192,56,3,23 }, Collider::Type::STRUCTL); //left
+		App->collisions->AddCollider({ 196,56,3,23 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 192,77,6,3 }, Collider::Type::STRUCTD);
 
-			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
-			App->balls->AddBall(BALL_TYPE::BIG, 70, 25, true);
+		App->collisions->AddCollider({ 289,56,6,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 289,56,3,47 }, Collider::Type::STRUCTL); //left
+		App->collisions->AddCollider({ 293,56,3,47 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 289,101,6,3 }, Collider::Type::STRUCTD);
 
-			App->audio->PlayMusic("Assets/music06.ogg", 1.0f);
-			lvlLoading(tiles_template);
+		App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+		App->balls->AddBall(BALL_TYPE::MEDIUM, 70, 25, true);
 
-		}
+		App->audio->PlayMusic("Assets/music05.ogg", 1.0f);
+		lvlLoading(tiles_template);
+		break;
+	case(6):
+		LvlChange(tiles_template, tiles_06);
+		App->collisions->AddCollider({ 80,64,15,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 79,65,3,3 }, Collider::Type::STRUCTL);
+		App->collisions->AddCollider({ 93,65,3,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 80,68,15,3 }, Collider::Type::STRUCTD);
+
+		App->collisions->AddCollider({ 184,64,15,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 183,65,3,3 }, Collider::Type::STRUCTL);
+		App->collisions->AddCollider({ 197,65,3,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 184,68,15,3 }, Collider::Type::STRUCTD);
+
+		App->collisions->AddCollider({ 296,64,15,3 }, Collider::Type::STRUCTT);
+		App->collisions->AddCollider({ 295,65,3,3 }, Collider::Type::STRUCTL);
+		App->collisions->AddCollider({ 309,65,3,3 }, Collider::Type::STRUCTR);
+		App->collisions->AddCollider({ 296,68,15,3 }, Collider::Type::STRUCTD);
+
+		App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
+		App->balls->AddBall(BALL_TYPE::BIG, 70, 25, true);
+
+		App->audio->PlayMusic("Assets/music06.ogg", 1.0f);
+		lvlLoading(tiles_template);
+
+	}
 
 	//Balls
 	
