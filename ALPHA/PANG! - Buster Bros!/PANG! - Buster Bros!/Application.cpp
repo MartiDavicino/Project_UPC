@@ -37,24 +37,19 @@ Application::Application()
 	modules[5] = scene = new ModuleScene(false);
 	modules[6] = menu = new ModuleMenu(false);
 	modules[7] = transition = new ModuleTransition(false);
+
 	modules[8] = win = new ModuleWin(false);
 	modules[9] = lose = new ModuleLose(false);
-
-	modules[15] = ropes = new ModuleRopes(true);
+	modules[10] = particles = new ModuleParticles(true);
 	modules[11] = player = new ModulePlayer(false);
 
 	modules[12] = interfaceElements = new ModuleInterface(false);
 	modules[13] = balls = new ModuleBalls(false);
-
 	modules[14] = fade = new ModuleFadeToBlack(true);
-	modules[17] = fonts = new ModuleFonts(true);
+	modules[15] = ropes = new ModuleRopes(true);
 
 	modules[16] = collisions = new ModuleCollisions(true);
-
-
-	
-
-	modules[10] = particles = new ModuleParticles(true);
+	modules[17] = fonts = new ModuleFonts(true);
 	modules[18] = render = new ModuleRender(true);
 
 	

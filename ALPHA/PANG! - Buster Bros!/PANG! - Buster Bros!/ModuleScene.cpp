@@ -55,8 +55,8 @@ bool ModuleScene::Start()
 	//First two columns colliders
 	App->collisions->AddCollider({ 0, 0,7,200 }, Collider::Type::WALL_A);
 	App->collisions->AddCollider({ 377, 0, 7, 200 }, Collider::Type::WALL_D);
-	App->collisions->AddCollider({ 0,201,384,7 }, Collider::Type::FLOOR);
-	App->collisions->AddCollider({ 0,0,384,7 }, Collider::Type::TOP);
+
+	
 
 	
 
@@ -183,17 +183,25 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 
 	for (int y = 0; y < MAXT_Y; y++) {
 		for (int x = 0; x < MAXT_X; x++) {
+			int posx = x * 8;
+			int posy = y * 8;
 			if (tiles[y][x] == 1) {
-
+			
+			/*	App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::WALL_A);
+				LOG("Wall")*/
 			}
 			if (tiles[y][x] == 2) {
-
+				
+				App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::FLOOR);
+				LOG("Floor")
 			}
 			if (tiles[y][x] == 3) {
-
+				
+		/*		App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::TOP);
+				LOG("Top")*/
 			}
 			if (tiles[y][x] == 4) {
-				/*App->collisions->AddCollider({ 8 * x,8 * y,8,8 }, Collider::Type::FLOOR);*/
+				
 			}
 			if (tiles[y][x] == 0) {
 				LOG("EMPTY TILE")
