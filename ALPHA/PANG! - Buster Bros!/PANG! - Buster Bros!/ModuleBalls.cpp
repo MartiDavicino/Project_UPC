@@ -298,7 +298,7 @@ int ModuleBalls::GetTilePosy(int y) {
 
 void ModuleBalls::TileColision() {
 
-	
+
 	for (uint i = 0; i < MAX_BALLS; ++i)
 	{
 		if (Balls[i] != nullptr) {
@@ -310,22 +310,30 @@ void ModuleBalls::TileColision() {
 				if (xt < mxt) {
 					yt = GetTilePosy(Balls[i]->position.y);
 					int myt = yt + 5;
-					if (yt <myt){ 
+					if (yt < myt) {
+						int left = xt - 1;
+						int right = xt + 1;
+						int up = yt - 1;
+						int down = yt + 1;
 
-						if (App->scene->tiles_template[xt - 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+
+						if (App->scene->tiles_template[left][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt + 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						if (App->scene->tiles_template[right][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt][yt + 1] == 2) {
-							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						if (App->scene->tiles_template[xt][down] == 2) {
+							LOG("collision detected")
+								Balls[i]->Ball_vy *= -1;
 						}
 						yt++;
 
 					}
-				
-				
+
+
 					xt++;
 				}
 
@@ -339,15 +347,23 @@ void ModuleBalls::TileColision() {
 					yt = GetTilePosy(Balls[i]->position.y);
 					int myt = yt + 4;
 					if (yt < myt) {
+						int left = xt - 1;
+						int right = xt + 1;
+						int up = yt - 1;
+						int down = yt + 1;
 
-						if (App->scene->tiles_template[xt - 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+
+						if (App->scene->tiles_template[left][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt + 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						if (App->scene->tiles_template[right][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt][yt + 1] == 2) {
-							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						if (App->scene->tiles_template[xt][down] == 2) {
+							LOG("collision detected")
+								Balls[i]->Ball_vy *= -1;
 						}
 						yt++;
 
@@ -366,18 +382,25 @@ void ModuleBalls::TileColision() {
 					yt = GetTilePosy(Balls[i]->position.y);
 					int myt = yt + 2;
 					if (yt < myt) {
+						int left = xt - 1;
+						int right = xt + 1;
+						int up = yt - 1;
+						int down = yt + 1;
 
-						if (App->scene->tiles_template[xt - 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+
+						if (App->scene->tiles_template[left][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt + 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						if (App->scene->tiles_template[right][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt][yt + 1] == 2) {
-							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						if (App->scene->tiles_template[xt][down] == 2) {
+							LOG("collision detected")
+								Balls[i]->Ball_vy *= -1;
 						}
 						yt++;
-
 					}
 
 
@@ -393,15 +416,23 @@ void ModuleBalls::TileColision() {
 					yt = GetTilePosy(Balls[i]->position.y);
 					int myt = yt + 1;
 					if (yt < myt) {
+						int left = xt - 1;
+						int right = xt + 1;
+						int up = yt - 1;
+						int down = yt + 1;
 
-						if (App->scene->tiles_template[xt - 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+
+						if (App->scene->tiles_template[left][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt + 1][yt] == 1) {
-							Balls[i]->Ball_vx = -1 * Balls[i]->Ball_vx;
+						if (App->scene->tiles_template[right][yt] == 1) {
+							LOG("collision detected")
+								App->balls->Balls[i]->Ball_vx *= -1;
 						}
-						if (App->scene->tiles_template[xt][yt + 1] == 2) {
-							Balls[i]->Ball_vy = -1 * Balls[i]->Ball_vy;
+						if (App->scene->tiles_template[xt][down] == 2) {
+							LOG("collision detected")
+								Balls[i]->Ball_vy *= -1;
 						}
 						yt++;
 
@@ -410,7 +441,7 @@ void ModuleBalls::TileColision() {
 
 					xt++;
 				}
-				
+
 			}
 		}
 	}
