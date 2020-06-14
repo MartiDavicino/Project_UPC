@@ -74,17 +74,25 @@ bool ModuleScene::Start()
 			break;
 		case(3):
 			LvlChange(tiles_template, tiles_03);
-			App->collisions->AddCollider({ 72,80,31,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::TOP);
+			App->collisions->AddCollider({ 72,79,31,3 }, Collider::Type::STRUCTT);
+			App->collisions->AddCollider({ 72,84,31,3 }, Collider::Type::STRUCTD);
+			App->collisions->AddCollider({ 100,81,4,3 }, Collider::Type::STRUCTR);
+			App->collisions->AddCollider({ 71,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->collisions->AddCollider({ 177,80,31,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 177,84,31,3 }, Collider::Type::TOP);
+			App->collisions->AddCollider({ 177,79,31,3 }, Collider::Type::STRUCTT);
+			App->collisions->AddCollider({ 177,84,31,3 }, Collider::Type::STRUCTD);
+			App->collisions->AddCollider({ 205,81,4,3 }, Collider::Type::STRUCTR);
+			App->collisions->AddCollider({ 176,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->collisions->AddCollider({ 281,80,31,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 281,84,31,3 }, Collider::Type::TOP);
+			App->collisions->AddCollider({ 281,79,31,3 }, Collider::Type::STRUCTT);
+			App->collisions->AddCollider({ 281,84,31,3 }, Collider::Type::STRUCTD);
+			App->collisions->AddCollider({ 309,81,4,3 }, Collider::Type::STRUCTR);
+			App->collisions->AddCollider({ 280,81,4,3 }, Collider::Type::STRUCTL);
 
-			App->collisions->AddCollider({ 177,129,31,3 }, Collider::Type::FLOOR);
-			App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::TOP);
+			App->collisions->AddCollider({ 177,128,31,3 }, Collider::Type::STRUCTT);
+			App->collisions->AddCollider({ 177,133,31,3 }, Collider::Type::STRUCTD);
+			App->collisions->AddCollider({ 205,130,4,3 }, Collider::Type::STRUCTR);
+			App->collisions->AddCollider({ 176,130,4,3 }, Collider::Type::STRUCTL);
 
 			App->balls->AddBall(BALL_TYPE::BIG, 25, 25, true);
 			App->balls->AddBall(BALL_TYPE::SMALL, 70, 25, true);
@@ -187,8 +195,8 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 			int posy = y * 8;
 			if (tiles[y][x] == 1) {
 			
-			/*	App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::WALL_A);
-				LOG("Wall")*/
+				/*App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::WALL_A);*/
+				LOG("Wall")
 			}
 			if (tiles[y][x] == 2) {
 				
@@ -197,11 +205,16 @@ void ModuleScene::lvlLoading(int tiles[MAXT_Y][MAXT_X]) {
 			}
 			if (tiles[y][x] == 3) {
 				
-		/*		App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::TOP);
-				LOG("Top")*/
+				App->collisions->AddCollider({posx,posy,8,8 }, Collider::Type::TOP);
+				LOG("Top")
 			}
 			if (tiles[y][x] == 4) {
 				
+			}
+			if (tiles[y][x] == 5) {
+				/*App->collisions->AddCollider({ posx,posy,8,8 }, Collider::Type::WALL_D);*/
+				LOG("Wall")
+
 			}
 			if (tiles[y][x] == 0) {
 				LOG("EMPTY TILE")

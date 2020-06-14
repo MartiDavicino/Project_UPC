@@ -252,9 +252,9 @@ update_status ModulePlayer::Update()
 			App->balls->ballsStop = !App->balls->ballsStop;
 		}
 
-
-
-		
+		if (App->input->keys[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN) {
+			lives++;
+		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 		{
@@ -315,8 +315,8 @@ void ModulePlayer::UpdateState()
 	{
 	case IDLE:
 	{
-		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN ||
-			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT ||
+			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 			ChangeState(state, RUNNING);
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
@@ -510,7 +510,7 @@ void ModulePlayer::UpdateLogic()
 					break;
 				case(true):
 					currentAnimation = &dieLeftAnim;
-					dead_vx = 60;
+					dead_vx = -60;
 					dead_vy = dead_vy + (gravityDead * deltaTime);
 					position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
 					position.x = position.x + (dead_vx * deltaTime);
@@ -528,7 +528,7 @@ void ModulePlayer::UpdateLogic()
 			}
 
 			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 300);
-
+			
 		
 		break;
 		

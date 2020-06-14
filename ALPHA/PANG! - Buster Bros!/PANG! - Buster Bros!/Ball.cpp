@@ -113,7 +113,7 @@ void Ball::Update()
 	if (type == BALL_TYPE::TINY) {
 		if (App->player->destroyed == false && App->balls->ballsStop == false) {
 			if (Ball_vy > 4.8f) {
-				Ball_vy = 3.0f;
+				Ball_vy = 3.8f;
 			}
 			position.x += Ball_vx;
 			position.y -= (Ball_vy + gravity);
@@ -154,14 +154,56 @@ void Ball::OnCollision(Collider* collider)
 {
 	//LOG("Ball Destroyed\n");
 
-	
+
+	if (type == BALL_TYPE::BIG) {
+		if (collider->type == Collider::Type::STRUCTT) {
+			Ball_vy = 1;
+		}
+
 		if (collider->type == Collider::Type::ROPE) {
 			div = true;
 			App->balls->DivideBalls();
 
 			SetToDelete();
 		}
-	
+
+	}
+	if (type == BALL_TYPE::MEDIUM) {
+		if (collider->type == Collider::Type::STRUCTT) {
+			Ball_vy = 1;
+		}
+
+		if (collider->type == Collider::Type::ROPE) {
+			div = true;
+			App->balls->DivideBalls();
+
+			SetToDelete();
+		}
+	}
+	if (type == BALL_TYPE::SMALL) {
+		if (collider->type == Collider::Type::STRUCTT) {
+			Ball_vy = 1;
+		}
+
+		if (collider->type == Collider::Type::ROPE) {
+			div = true;
+			App->balls->DivideBalls();
+
+			SetToDelete();
+		}
+	}
+	if (type == BALL_TYPE::TINY) {
+		if (collider->type == Collider::Type::STRUCTT) {
+			Ball_vy = 1;
+		}
+
+		if (collider->type == Collider::Type::ROPE) {
+			div = true;
+			App->balls->DivideBalls();
+
+			SetToDelete();
+		}
+	}
 	
 }
 

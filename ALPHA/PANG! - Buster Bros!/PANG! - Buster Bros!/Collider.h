@@ -22,6 +22,10 @@ struct Collider
 		TOP,
 		STAIRS,	
 		CORNICE,
+		STRUCTT,
+		STRUCTD,
+		STRUCTR,
+		STRUCTL,
 
 		MAX
 	};

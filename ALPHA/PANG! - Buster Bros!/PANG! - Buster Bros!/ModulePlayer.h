@@ -77,7 +77,7 @@ public:
 		Hook,Inmune,gun
 	};
 
-	unsigned int lives = 4;
+	unsigned int lives = 1;
 	bool bounce = false;
 
 	// The speed in which we move the player (pixels per frame)

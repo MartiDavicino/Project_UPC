@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
+#include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 
 #include "SDL/include/SDL_scancode.h"
@@ -43,6 +44,9 @@ update_status ModuleLose::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
+		App->player->lives = 1;
+		App->player->destroyed = false;
+		App->player->ChangeState(DYING, IDLE);
 		App->fade->FadeToBlack((Module*)App->lose, (Module*)App->sceneIntro, 60);
 		
 	}
