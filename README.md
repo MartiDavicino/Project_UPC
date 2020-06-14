@@ -54,6 +54,8 @@ Click [here](https://github.com/MartiDavicino/Project_UPC/wiki) to visit our pro
 
 Click [here](https://github.com/MartiDavicino/Project_UPC) to acces our repository.
 
+Click [here]() to check our teaser video for the Alpha release.
+
 
 
 
