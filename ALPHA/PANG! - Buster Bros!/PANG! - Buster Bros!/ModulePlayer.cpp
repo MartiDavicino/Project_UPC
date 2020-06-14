@@ -663,7 +663,7 @@ update_status ModulePlayer::PostUpdate()
 		printScore[i] = score[i];
 	}
 
-	App->fonts->BlitText(80, 220, reducedFont, printScore);
+	App->fonts->BlitText(80, 211, reducedFont, printScore);
 
 	return update_status::UPDATE_CONTINUE;
 }

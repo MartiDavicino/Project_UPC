@@ -456,6 +456,8 @@ void ModuleBalls::DivideBalls()
 
 			App->interfaceElements->RandomDrop(Balls[i]->position.x, Balls[i]->position.y);
 			App->interfaceElements->AddDrop(App->interfaceElements->score800, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
+
+			App->interfaceElements->AddDrop(App->interfaceElements->gunDrop, Balls[i]->position.x, Balls[i]->position.y, DROP_TYPE::SCORE);
 			
 			App->audio->PlayFx(ballDestroyedFx);
 
