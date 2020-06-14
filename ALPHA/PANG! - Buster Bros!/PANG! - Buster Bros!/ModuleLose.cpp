@@ -46,6 +46,7 @@ update_status ModuleLose::Update()
 	{
 		App->player->lives = 1;
 		App->player->destroyed = false;
+		App->player->ChangeState(DYING, IDLE);
 		App->fade->FadeToBlack((Module*)App->lose, (Module*)App->sceneIntro, 60);
 		
 	}

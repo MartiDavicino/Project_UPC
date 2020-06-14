@@ -277,6 +277,27 @@ void ModuleBalls::OnCollision(Collider* c1, Collider* c2)
 			Balls[i]->Ball_vy *= -1;
 
 		}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTT) {
+
+			App->balls->Balls[i]->OnCollision(c2);
+
+		}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTD) {
+
+			Balls[i]->Ball_vy *= -1;
+
+		}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTR) {
+
+			Balls[i]->Ball_vx *= -1;
+
+		}
+		if (Balls[i] != nullptr && Balls[i]->GetCollider() == c1 && c2->type == Collider::Type::STRUCTL) {
+
+			Balls[i]->Ball_vx *= -1;
+
+
+		}
 	}
 }
 
