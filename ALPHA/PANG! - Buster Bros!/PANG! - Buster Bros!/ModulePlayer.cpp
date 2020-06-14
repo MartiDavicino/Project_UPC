@@ -290,39 +290,7 @@ update_status ModulePlayer::Update()
 		
 	}
 	
-	if (destroyed == true) {
-		if (bounce == false) {
-			//SDL_Delay(200);
-			switch (goingRight) {
-			case(false):
-				currentAnimation = &dieRightAnim;
-				dead_vy = dead_vy + (gravityDead * deltaTime);
-				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
-				position.x = position.x + (dead_vx * deltaTime);
-
-				break;
-			case(true):
-				currentAnimation = &dieLeftAnim;
-				dead_vx = 60;
-				dead_vy = dead_vy + (gravityDead * deltaTime);
-				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
-				position.x = position.x + (dead_vx * deltaTime);
-
-				break;
-			}
-
-
-		}
-		if (bounce == true) {
-			dead_vy = dead_vy + (gravityDead * deltaTime);
-			position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
-			position.x = position.x + (dead_vx * deltaTime);
-
-		}
-
-		App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 300);
-		
-	}
+	
 		collider->SetPos(position.x, position.y);
 
 		currentAnimation->Update();
@@ -529,35 +497,39 @@ void ModulePlayer::UpdateLogic()
 	}
 	case(DYING):
 	{
-		if (bounce == false) {
-			//SDL_Delay(200);
-			switch (goingRight) {
-			case(false):
-				currentAnimation = &dieRightAnim;
-				dead_vx = 125;
+		
+			if (bounce == false) {
+				//SDL_Delay(200);
+				switch (goingRight) {
+				case(false):
+					currentAnimation = &dieRightAnim;
+					dead_vy = dead_vy + (gravityDead * deltaTime);
+					position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+					position.x = position.x + (dead_vx * deltaTime);
+
+					break;
+				case(true):
+					currentAnimation = &dieLeftAnim;
+					dead_vx = 60;
+					dead_vy = dead_vy + (gravityDead * deltaTime);
+					position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
+					position.x = position.x + (dead_vx * deltaTime);
+
+					break;
+				}
+
+
+			}
+			if (bounce == true) {
 				dead_vy = dead_vy + (gravityDead * deltaTime);
 				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
 				position.x = position.x + (dead_vx * deltaTime);
 
-				break;
-			case(true):
-				currentAnimation = &dieLeftAnim;
-				dead_vx = -125;
-				dead_vy = dead_vy + (gravityDead * deltaTime);
-				position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
-				position.x = position.x + (dead_vx * deltaTime);
-
-				break;
 			}
 
+			App->fade->FadeToBlack((Module*)App->scene, (Module*)App->lose, 300);
 
-		}
-		if (bounce == true) {
-			dead_vy = dead_vy + (gravityDead * deltaTime);
-			position.y = position.y + (dead_vy * deltaTime) + (gravityDead * (deltaTime * deltaTime));
-			position.x = position.x + (dead_vx * deltaTime);
-
-		}
+		
 		break;
 		
 	}
