@@ -169,6 +169,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
+	/*GamePad& pad = App->input->pads[0];*/
 	UpdateState();
 	UpdateLogic();
 
@@ -256,7 +257,7 @@ update_status ModulePlayer::Update()
 			lives++;
 		}
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN /*|| pad.a == true*/)
 		{
 			
 
@@ -302,6 +303,7 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::UpdateState()
 {
+	/*GamePad& pad = App->input->pads[0];*/
 	if (playerHitted == true)
 	{
 		hittedCountDown++;
@@ -316,10 +318,10 @@ void ModulePlayer::UpdateState()
 	case IDLE:
 	{
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT ||
-			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT /*|| pad.l_x < 0.0f || pad.l_x > 0.0f*/)
 			ChangeState(state, RUNNING);
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN /*|| pad.a == true*/)
 		{ 
 			ChangeState(state, SHOOTING);
 			shootCountDown = resetCountDown;
@@ -327,7 +329,7 @@ void ModulePlayer::UpdateState()
 			
 
 		// TODO 5: Fill in the transition condition to start climbing
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb /*|| pad.l_y < 0.0f && canClimb*/)
 			ChangeState(state, CLIMBING);
 
 		
@@ -341,13 +343,13 @@ void ModulePlayer::UpdateState()
 	case RUNNING:
 	{
 		if (App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_REPEAT &&
-			App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_REPEAT)
+			App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_REPEAT /*|| pad.l_x == 0.0f && pad.l_x == 0.0f*/)
 		{
 			ChangeState(state, IDLE);
 			shootCountDown = resetCountDown;	
 		}
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN /*|| pad.a == true*/)
 		{
 			ChangeState(state, SHOOTING);
 		}
@@ -355,10 +357,10 @@ void ModulePlayer::UpdateState()
 		//	ChangeState(state, HAMMER_RUNNING);
 
 		// TODO 5: Fill in the transition condition to start climbing
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && canClimb)
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && canClimb /*|| pad.l_y < 0.0f && canClimb*/)
 			ChangeState(state, CLIMBING);
 
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb /*|| pad.l_y < 0.0f && canClimb*/)
 			ChangeState(state, CLIMBING);
 		
 
@@ -377,7 +379,7 @@ void ModulePlayer::UpdateState()
 		if(canClimb==false)
 			ChangeState(state, IDLE);
 
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb /*|| pad.l_y < 0.0f && canClimb*/)
 			ChangeState(state, CLIMBING);
 		
 
@@ -394,7 +396,7 @@ void ModulePlayer::UpdateState()
 		// TODO 3.1: Check the condition. If fulfilled, change the state to HAMMER_RUN
 		
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN ||
-			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+			App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT /*|| pad.l_x < 0.0f || pad.l_x > 0.0f*/)
 		{
 			
 			if (shootCountDown <= 0)
@@ -408,7 +410,7 @@ void ModulePlayer::UpdateState()
 			ChangeState(state, IDLE);
 		}
 			
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb)
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && canClimb /*|| pad.l_y < 0.0f && canClimb*/)
 			ChangeState(state, CLIMBING);
 
 		
@@ -427,6 +429,7 @@ void ModulePlayer::UpdateState()
 
 void ModulePlayer::UpdateLogic()
 {
+	/*GamePad& pad = App->input->pads[0];*/
 	switch (state)
 	{
 	case(IDLE):
@@ -475,12 +478,12 @@ void ModulePlayer::UpdateLogic()
 	{
 		// TODO 5: Update climbing logic - Only move when the player is pressing "W"
 
-		if (App->input->keys[SDL_SCANCODE_W] == KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_W] == KEY_REPEAT /*|| pad.l_y < 0.0f*/)
 		{
 			--position.y;
 			currentAnimation->Update();
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_S] == KEY_REPEAT /*|| pad.l_y > 0.0f*/)
 		{
 			++position.y;
 			currentAnimation->Update();
@@ -546,6 +549,7 @@ void ModulePlayer::UpdateLogic()
 
 void ModulePlayer::ChangeState(PLAYER_STATE previousState, PLAYER_STATE newState)
 {
+	/*GamePad& pad = App->input->pads[0];*/
 	switch (newState)
 	{
 	case(IDLE):
@@ -557,7 +561,7 @@ void ModulePlayer::ChangeState(PLAYER_STATE previousState, PLAYER_STATE newState
 	{
 		
 		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN ||
-			App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+			App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT /*|| pad.l_x < 0.0f*/)
 			goingRight=false;
 		else
 			goingRight=true;
@@ -789,5 +793,52 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 }
+//void ModulePlayer::DebugDrawGamepadInfo()
+//{
+//	GamePad& pad = App->input->pads[0];
+//
+//	sprintf_s(scoreText, 150, "pad 0 %s, press 1/2/3 for rumble", (pad.enabled) ? "plugged" : "not detected");
+//	App->fonts->BlitText(5, 10, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "buttons %s %s %s %s %s %s %s %s %s %s %s",
+//		(pad.a) ? "a" : "",
+//		(pad.b) ? "b" : "",
+//		(pad.x) ? "x" : "",
+//		(pad.y) ? "y" : "",
+//		(pad.start) ? "start" : "",
+//		(pad.back) ? "back" : "",
+//		(pad.guide) ? "guide" : "",
+//		(pad.l1) ? "lb" : "",
+//		(pad.r1) ? "rb" : "",
+//		(pad.l3) ? "l3" : "",
+//		(pad.r3) ? "r3" : ""
+//		);
+//	App->fonts->BlitText(5, 20, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "dpad %s %s %s %s",
+//		(pad.up) ? "up" : "",
+//		(pad.down) ? "down" : "",
+//		(pad.left) ? "left" : "",
+//		(pad.right) ? "right" : ""
+//		);
+//	App->fonts->BlitText(5, 30, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "left trigger  %0.2f", pad.l2);
+//	App->fonts->BlitText(5, 40, scoreFont, scoreText);
+//	sprintf_s(scoreText, 150, "right trigger %0.2f", pad.r2);
+//	App->fonts->BlitText(5, 50, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "left thumb    %.2fx, %0.2fy", pad.l_x, pad.l_y);
+//	App->fonts->BlitText(5, 60, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "   deadzone   %0.2f", pad.l_dz);
+//	App->fonts->BlitText(5, 70, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "right thumb   %.2fx, %0.2fy", pad.r_x, pad.r_y);
+//	App->fonts->BlitText(5, 80, scoreFont, scoreText);
+//
+//	sprintf_s(scoreText, 150, "   deadzone   %0.2f", pad.r_dz);
+//	App->fonts->BlitText(5, 90, scoreFont, scoreText);
+//}
 
 
