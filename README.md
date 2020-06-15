@@ -47,10 +47,6 @@ Our main goal in this project was to replicate the arcade videogame Pang Buster 
 
 ![Image4](https://lh3.googleusercontent.com/proxy/SfdlljjidML-cw2JFG_k1rxf28_K3fgcDTU6suXW5SqJ8ryvpejNbQ_2pG7i-QbNCQxdcQ14XgWQ80BjMheqIxRZK_XoI0csu-YRjwzmHZ7S3R1pgxta--Izd0Ng3LokRw)
 
-## Game Teaser
-
-iframe width="[1900]"height="[1080]"src"[https://www.youtube.com/watch?v=fsw3D-QqdgU]"
-
 
 ## Links of interest
 
@@ -58,9 +54,9 @@ Click [here](https://github.com/MartiDavicino/Project_UPC/wiki) to visit our pro
 
 Click [here](https://github.com/MartiDavicino/Project_UPC) to acces our repository.
 
-Click [here](https://github.com/MartiDavicino/Project_UPC/releases/download/0.4.5.0/LOS_MERLAOS_PANG._v-0.4.5.0a.rar) to download the Prototype version.
+Click [here](https://github.com/MartiDavicino/Project_UPC/releases/download/1.0/Los_Merlaos_PANG._v.1.rar) to download the Alpha version.
 
-Click [here]() to download the Alpha version release.
+Click [here]() to check our video teaser.
 
 
 
