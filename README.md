@@ -56,7 +56,7 @@ Click [here](https://github.com/MartiDavicino/Project_UPC) to acces our reposito
 
 Click [here](https://github.com/MartiDavicino/Project_UPC/releases/download/1.0/Los_Merlaos_PANG._v.1.rar) to download the Alpha version.
 
-Click [here]() to check our video teaser.
+Click [here](https://youtu.be/PKvpgtHs7hE) to check our video teaser.
 
 
 
